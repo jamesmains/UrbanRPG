@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ac3c8e2015d8b244aa91f271e7e194d, type: 3}
+  m_Name: Tomfoolery
+  m_EditorClassIdentifier: 
+  Name: Tomfoolery
+  Description: ???
+  Icon: {fileID: 21300000, guid: 29e27d405e313584a9c5fa1cb545e310, type: 3}
+  Level: 0
+  ExpRequiredForLevelUp: 100
+  CurrentExp: 0
+  OnLevelUp: {fileID: 11400000, guid: 24bcc29fbddf15f4fbe46114e3d0ccd3, type: 2}
+  OnGainExperience: {fileID: 11400000, guid: 6506732cc1494d547bbbda147b0c6efc, type: 2}
