@@ -7,8 +7,7 @@ using UnityEngine;
 public class PlayerMotor : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
-    [SerializeField] private Animator animator;
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private CustoAnimator animator;
     public float moveSpeed; // might be replaced with scriptable object float variable 
     private float inputX, inputY;
     private bool horizontalFlip;
@@ -21,10 +20,9 @@ public class PlayerMotor : MonoBehaviour
 
     private void FixedUpdate()
     {
-        horizontalFlip = inputX > 0 ? false: inputX < 0 ? true : horizontalFlip;
         bool isMoving = (inputX != 0 || inputY != 0);
-        animator.SetBool("isMoving",isMoving);
-        spriteRenderer.flipX = horizontalFlip;
+        int action = isMoving ? 1 : 0;
+        animator.ChangeDirection(new Vector2((int)inputX,(int)inputY),action);
         Vector3 moveForce = new Vector3(inputX,0, inputY).normalized;
         rb.AddForce(moveForce * moveSpeed); 
     }

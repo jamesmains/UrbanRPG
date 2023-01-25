@@ -4,9 +4,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Sprite Event", menuName = "Events/Sprite Event")]
 public class SpriteRendererGameEvent : ScriptableObject
 {
-    /// <summary>
-    /// The list of listeners that this event will notify if it is raised.
-    /// </summary>
     private readonly List<SpriteRendererGameEventListener> eventListeners = 
         new List<SpriteRendererGameEventListener>();
 

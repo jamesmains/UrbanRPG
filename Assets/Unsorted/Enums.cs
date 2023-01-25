@@ -21,3 +21,10 @@ public enum ItemType
     UNDEFINED,
     Tool
 }
+
+public enum Direction
+{
+    NORTH,
+    EAST,
+    SOUTH,
+}
