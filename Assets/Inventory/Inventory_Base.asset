@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Inventory_Base
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Base
-  <ItemList>k__BackingField: []
+  <ItemList>k__BackingField:
+  - {fileID: 11400000, guid: e4a3e7d384c87bd4db26d8d2dd3dc332, type: 2}
+  InventorySlotLimit: {fileID: 11400000, guid: 73bdcd5ee0049984d8c3e1aa2b653e39, type: 2}

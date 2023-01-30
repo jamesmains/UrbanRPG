@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class GearSlot : MonoBehaviour
 {
-    [SerializeField] private string TEST;
-    
     [SerializeField] private Gear gear;
     [FoldoutGroup("Animations Data")] [SerializeField] private int frameIndex;
     [FoldoutGroup("Animations Data")] [SerializeField] private SpriteRenderer _spriteRenderer;
@@ -18,6 +16,7 @@ public class GearSlot : MonoBehaviour
     [SerializeField] private int frameCount;
 
     private int currentDirection;
+    private Gear lastKnownGear;
     
     private void Awake()
     {
@@ -27,6 +26,11 @@ public class GearSlot : MonoBehaviour
     
     public void Tick(int targetDirection, bool flip)
     {
+        if (lastKnownGear != gear)
+        {
+            lastKnownGear = gear;
+            LoadSpriteSheet(gear.GearAnimationSheets[0].ID);
+        }
         currentDirection = targetDirection;
         _spriteRenderer.flipX = flip;
         Animate();
@@ -35,7 +39,7 @@ public class GearSlot : MonoBehaviour
     void SetSprite()
     {
         int index = startOffset+(currentDirection * frameCount) + frameIndex;
-        print($"Sheet Length {sheet.Count}, index: {index}");
+        // print($"Sheet Length {sheet.Count}, index: {index}"); // Todo add debug flag
         _spriteRenderer.sprite = sheet[index];
     }
     
@@ -46,8 +50,7 @@ public class GearSlot : MonoBehaviour
             frameIndex = 0;
         SetSprite();
     }
-
-    [ButtonGroup()]
+    
     public void LoadSpriteSheet(string sheetName)
     {
         sheet.Clear();

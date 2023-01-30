@@ -16,5 +16,5 @@ MonoBehaviour:
   <Name>k__BackingField: Iron Axe
   <Description>k__BackingField: Gets the job done.
   <ItemType>k__BackingField: 1
-  amount: 0
-  <StackLimit>k__BackingField: 2147483647
+  amount: 1
+  <StackLimit>k__BackingField: 1

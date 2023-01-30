@@ -12,6 +12,7 @@ namespace I302.Manu
     {
         [field: SerializeField] public string Name { get; private set; }
         [field: SerializeField] public List<Item> ItemList { get; private set; }
+        [field: SerializeField] public IntVariable InventorySlotLimit; 
 
 #if UNITY_EDITOR
         private void OnEnable()
@@ -23,7 +24,7 @@ namespace I302.Manu
         }
 #endif
 
-        public void TryAddItem(Item incomingItem, int value)
+        public int TryAddItem(Item incomingItem, int value)
         {
             foreach (Item storedItem in ItemList)
             {
@@ -34,19 +35,22 @@ namespace I302.Manu
                     {
                         int overflow = combinedTotal - storedItem.StackLimit;
                         storedItem.Value = storedItem.StackLimit;
-                        //ToDo: Send overflow to mailbox
-                        return;
+                        return overflow;
                     }
 
                     storedItem.Value += value;
                     SaveInventory();
-                    return;
+                    return 0;
                 }
             }
+
+            if (ItemList.Count >= InventorySlotLimit.Value)
+                return value;
 
             ItemList.Add(incomingItem);
             incomingItem.Value += value;
             SaveInventory();
+            return 0;
         }
 
         public void TryUseItem(Item neededItem, int amount = 1)
