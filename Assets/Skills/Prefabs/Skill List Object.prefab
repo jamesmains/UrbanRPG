@@ -356,7 +356,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4934314202703150674}
   - component: {fileID: 4934314202703150673}
-  - component: {fileID: 4934314202703150672}
+  - component: {fileID: -4980734544946301329}
   m_Layer: 5
   m_Name: Skill List Object
   m_TagString: Untagged
@@ -408,7 +408,7 @@ MonoBehaviour:
   fillBarSizeRange: {x: 0, y: 150.1202}
   levelText: {fileID: 4934314202389132407}
   targetSkill: {fileID: 11400000, guid: a3f30ef859b73cc4fbd84659974ed72c, type: 2}
---- !u!114 &4934314202703150672
+--- !u!114 &-4980734544946301329
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -417,10 +417,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4934314202703150675}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c94f8f126fe1a364394f218f4da5dfdd, type: 3}
+  m_Script: {fileID: 11500000, guid: f998c87130aa257479f56afcadc8cc36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 6506732cc1494d547bbbda147b0c6efc, type: 2}
+  Event: {fileID: 11400000, guid: 4e403e74ee8e9ce40a75dfd727ead74d, type: 2}
   Response:
     m_PersistentCalls:
       m_Calls:

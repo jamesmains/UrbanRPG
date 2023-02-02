@@ -8,12 +8,12 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ignore Player
   - Water
   - UI
   - Debug
-  - 
-  - 
+  - Player
+  - Pickups
   - 
   - 
   - 

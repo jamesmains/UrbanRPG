@@ -13,7 +13,7 @@ public class Skill : ScriptableObject
     public int ExpRequiredForLevelUp;
     public int CurrentExp;
     public GameEvent OnLevelUp;
-    public GameEvent OnGainExperience;
+    public SkillGainGameEvent OnGainExperience;
 
     public void AddExperience(int incomingExperience)
     {
@@ -27,7 +27,7 @@ public class Skill : ScriptableObject
         if(remainingExp > 0)
             AddExperience(remainingExp);
         
-        OnGainExperience.Raise();
+        OnGainExperience.Raise(Icon,incomingExperience);
     }
 
     private void LevelUp()

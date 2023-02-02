@@ -14,18 +14,19 @@ namespace ParentHouse.UI
 {
     [SerializeField] private RectTransform cursorTransform;
     [SerializeField] private Inventory playerInventory;
+    [SerializeField] private BoolVariable isMouseOverUserInterface;
+    [SerializeField] private GameEvent onMoveOrAddItem;
     [SerializeField] [FoldoutGroup("Cursor GFX")] private Image defaultCursor;
     [SerializeField] [FoldoutGroup("Cursor GFX")] private Sprite defaultCursorIcon;
     [SerializeField] [FoldoutGroup("Cursor GFX")] private Sprite listCursorIcon;
-    [SerializeField] private LayerMask activityLayerMask;
-
-    [Header("Action List")]
-    [SerializeField] private RectTransform actionListContainer;
-    [SerializeField] private GameObject actionListObject;
+    [SerializeField] [FoldoutGroup("Cursor GFX")] private Sprite emptyActivityHoverIcon;
     
-    [Header("Debug")] 
-    [SerializeField] private CursorState CursorState;
-    [SerializeField] private float scrollSpeed;
+    [SerializeField] [FoldoutGroup("Action List")] private LayerMask activityLayerMask;
+    [SerializeField] [FoldoutGroup("Action List")] private RectTransform actionListContainer;
+    [SerializeField] [FoldoutGroup("Action List")] private GameObject actionListObject;
+    
+    [SerializeField] [FoldoutGroup("Debug")] private CursorState CursorState;
+    [SerializeField] [FoldoutGroup("Debug")] private float scrollSpeed;
 
     private List<Activity> currentHoveringActivities = new List<Activity>();
     private List<UnityAction> activityActions = new List<UnityAction>();
@@ -34,8 +35,9 @@ namespace ParentHouse.UI
     private Transform player;
     private Vector3 originalListPosition;
     private Vector3 offsetListPosition;
-    private float horizontalListPositionOffset = 48f;
+    private float horizontalListPositionOffset = 24f;
     private int listActionIndex;
+    private bool lockCursorState;
 
     private void Awake()
     {
@@ -45,7 +47,7 @@ namespace ParentHouse.UI
         if(player == null)
             Debug.LogError("Player is null");
         
-        UnityEngine.Cursor.visible = false;
+        //UnityEngine.Cursor.visible = false;
         originalListPosition = actionListContainer.localPosition;
         offsetListPosition = originalListPosition;
         offsetListPosition.x -= horizontalListPositionOffset;
@@ -74,20 +76,23 @@ namespace ParentHouse.UI
 
     private void FixedUpdate()
     {
-        HandleHoverOverActivities();
-        CheckActivityRanges();
+        if (isMouseOverUserInterface.Value == false && !lockCursorState)
+        {
+            HandleHoverOverActivities();
+            CheckActivityRanges();
+        }
+        else ClearAll();
     }
 
     public void HandleHoverOverActivities()
     {
-        // 3d
         var origin = Camera.main.transform.position;
         var mousePos = Input.mousePosition;
         mousePos.z = 1000;
         var dir = Camera.main.ScreenToWorldPoint(mousePos);
         RaycastHit[] hits;
         hits = Physics.RaycastAll(origin, dir, Mathf.Infinity,activityLayerMask);
-        Debug.DrawRay(origin,dir,Color.cyan,3f);
+        Debug.DrawRay(origin,dir,Color.cyan,3f); // todo add debug flag
         
         bool needRefresh = false;
         List<Activity> tempActivityList = new List<Activity>();
@@ -166,7 +171,11 @@ namespace ParentHouse.UI
     private void PopulateActionList()
     {
         ClearDisplayActionList();
-        if (currentHoveringActivities.Count == 0) return;
+        if (currentHoveringActivities.Count == 0)
+        {
+            defaultCursor.sprite = defaultCursorIcon;
+            return;
+        }
         
         if (currentHoveringActivities.Count == 1 && currentHoveringActivities[0].ActivityActions.Count == 1)
         {
@@ -198,20 +207,45 @@ namespace ParentHouse.UI
         {
             return false;
         }
+        else if (playerInventory.HasItem(action.signature.RequiredItem) && action.signature.RequiredItem != null)
+        {
+            if (playerInventory.ItemList[action.signature.RequiredItem] < action.signature.RequiredItemQuantity)
+            {
+                return false;
+            }
+        }
+
+        
         
         var listObject = Instantiate(actionListObject, actionListContainer);
         var objectInit = listObject.GetComponent<CursorActionListObject>();
         
         objectInit.Setup(action, useIcon:useIcon);
-        activityActions.Add(action.eventChannel.Invoke);
+        activityActions.Add(delegate
+        {
+            action.eventChannel.Invoke();
+            if (action.signature.RequiredItem != null)
+            {
+                playerInventory.TryUseItem(action.signature.RequiredItem,action.signature.RequiredItemQuantity);
+                onMoveOrAddItem.Raise();
+            }
+        });
         
         existingActionListObjects.Add(objectInit);
         actionListContainer.localPosition = offsetListPosition;
         return true;
     }
+
+    public void ClearAll()
+    {
+        if(currentHoveringActivities.Count > 0)
+            currentHoveringActivities.Clear();
+        ClearDisplayActionList();
+    }
     
     public void ClearDisplayActionList()
     {
+        if(activityActions.Count == 0 && existingActionListObjects.Count == 0) return;
         activityActions.Clear();
         if (existingActionListObjects.Count > 0)
         {
@@ -228,6 +262,18 @@ namespace ParentHouse.UI
     {
         CursorState = CursorState.Default;
         defaultCursor.sprite = incomingCursorIcon;
+    }
+
+    public void DragItem(InventorySlot incomingItem)
+    {
+        DisplayCursor(incomingItem.heldItem.Sprite);
+        lockCursorState = true;
+    }
+
+    public void ReleaseItem()
+    {
+        lockCursorState = false;
+        DisplayCursor(defaultCursorIcon);
     }
 }
 }

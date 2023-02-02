@@ -16,3 +16,4 @@ MonoBehaviour:
   ActionName: Tag
   ActionIcon: {fileID: 21300000, guid: d50e6cdade141fd4b855b1c02a25f09f, type: 3}
   RequiredItem: {fileID: 11400000, guid: 51ff94c96197b5c4199a05e7d75ebf77, type: 2}
+  RequiredItemQuantity: 1

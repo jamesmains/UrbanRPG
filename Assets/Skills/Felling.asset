@@ -19,4 +19,4 @@ MonoBehaviour:
   ExpRequiredForLevelUp: 200
   CurrentExp: 125
   OnLevelUp: {fileID: 11400000, guid: 24bcc29fbddf15f4fbe46114e3d0ccd3, type: 2}
-  OnGainExperience: {fileID: 11400000, guid: 6506732cc1494d547bbbda147b0c6efc, type: 2}
+  OnGainExperience: {fileID: 11400000, guid: 4e403e74ee8e9ce40a75dfd727ead74d, type: 2}

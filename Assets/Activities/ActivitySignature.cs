@@ -10,4 +10,5 @@ public class ActivitySignature : ScriptableObject
     public string ActionName;
     public Sprite ActionIcon;
     public Item RequiredItem;
+    public int RequiredItemQuantity;
 }

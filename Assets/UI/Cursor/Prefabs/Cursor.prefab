@@ -93,7 +93,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &511832857458234057
 RectTransform:
   m_ObjectHideFlags: 0
@@ -293,8 +293,6 @@ GameObject:
   m_Component:
   - component: {fileID: 511832858973516045}
   - component: {fileID: 511832858973516044}
-  - component: {fileID: 511832858973516046}
-  - component: {fileID: 7529384421769330193}
   m_Layer: 5
   m_Name: Cursor
   m_TagString: Untagged
@@ -350,59 +348,4 @@ MonoBehaviour:
   actionListObject: {fileID: 5891685466061491665, guid: 780f7c1a64fc05641a2e4cac0ceb105b, type: 3}
   CursorState: 0
   scrollSpeed: 0
---- !u!114 &511832858973516046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 511832858973516034}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47b89394e2e430340966b94b4fa3ba5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 08f023d8edc797241902a7e64a973bfa, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 511832858973516044}
-        m_TargetAssemblyTypeName: ParentHouse.UI.Cursor, Assembly-CSharp
-        m_MethodName: HandleHoverOverActivities
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &7529384421769330193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 511832858973516034}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47b89394e2e430340966b94b4fa3ba5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 7a0bd41de409cae4286a248caaf4b14b, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 511832858973516044}
-        m_TargetAssemblyTypeName: ParentHouse.UI.Cursor, Assembly-CSharp
-        m_MethodName: HandleHoverOverActivities
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  existingActionListObjects: []

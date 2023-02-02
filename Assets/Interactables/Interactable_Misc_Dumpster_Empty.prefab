@@ -380,6 +380,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 78c6c8c53e4f8e54291ba367d05af902, type: 2}
+          m_TargetAssemblyTypeName: Skill, Assembly-CSharp
+          m_MethodName: AddExperience
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 25
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
   isActive: 0
 --- !u!33 &7720227804262676601
 MeshFilter:
@@ -621,5 +633,5 @@ Transform:
   - {fileID: 7720227804262676602}
   - {fileID: 7720227803761303157}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
