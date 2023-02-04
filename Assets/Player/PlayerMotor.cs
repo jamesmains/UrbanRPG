@@ -9,9 +9,15 @@ public class PlayerMotor : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private CustoAnimator animator;
     [SerializeField] private VectorVariable playerPositionVariable;
+    [SerializeField] private IntVariable playerLockVariable;
     public float moveSpeed; // might be replaced with scriptable object float variable 
     private float inputX, inputY;
     private bool horizontalFlip;
+
+    private void Awake()
+    {
+        playerLockVariable.Value = 0; // TODO is there safer way to do this?
+    }
 
     private void Update()
     {
@@ -21,6 +27,11 @@ public class PlayerMotor : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (playerLockVariable.Value > 0)
+        {
+            inputX = 0;
+            inputY = 0;
+        };
         bool isMoving = (inputX != 0 || inputY != 0);
         int action = isMoving ? 1 : 0;
         animator.ChangeDirection(new Vector2((int)inputX,(int)inputY),action);

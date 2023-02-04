@@ -14,6 +14,7 @@ namespace ParentHouse.UI
 {
     [SerializeField] private RectTransform cursorTransform;
     [SerializeField] private Inventory playerInventory;
+    [SerializeField] private IntVariable playerLockVariable;
     [SerializeField] private BoolVariable isMouseOverUserInterface;
     [SerializeField] private GameEvent onMoveOrAddItem;
     [SerializeField] [FoldoutGroup("Cursor GFX")] private Image defaultCursor;
@@ -76,7 +77,7 @@ namespace ParentHouse.UI
 
     private void FixedUpdate()
     {
-        if (isMouseOverUserInterface.Value == false && !lockCursorState)
+        if (isMouseOverUserInterface.Value == false && !lockCursorState && playerLockVariable.Value == 0)
         {
             HandleHoverOverActivities();
             CheckActivityRanges();
