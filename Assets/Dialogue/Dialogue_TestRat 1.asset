@@ -14,10 +14,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueSegments:
   - actor: {fileID: 11400000, guid: 9447fd82ae77547488167f0e9adf7abc, type: 2}
-    speech: 'This is a test to see if the newline
-
-      works for this. Rjklejl;fkjsdlkfjlksd'
+    speech: Hey, ya wanna be a real rat?
+    actions:
+      m_PersistentCalls:
+        m_Calls: []
   - actor: {fileID: 11400000, guid: 9447fd82ae77547488167f0e9adf7abc, type: 2}
-    speech: Sure hope that last dialogue bubble didn't go off screen...
+    speech: Lets cause some chaos.
+    actions:
+      m_PersistentCalls:
+        m_Calls: []
   - actor: {fileID: 11400000, guid: 9447fd82ae77547488167f0e9adf7abc, type: 2}
     speech: ...
+    actions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: c07a14dc22eb3334b95a8967f771d2ed, type: 2}
+          m_TargetAssemblyTypeName: Quest, Assembly-CSharp
+          m_MethodName: StartQuest
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

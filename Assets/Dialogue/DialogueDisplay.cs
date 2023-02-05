@@ -44,6 +44,7 @@ public class DialogueDisplay : MonoBehaviour
         
         int charIndex = 0;
 
+        currentDialogue.dialogueSegments[dialogueSegmentIndex].actions.Invoke();
         actorNameText.text = currentDialogue.dialogueSegments[dialogueSegmentIndex].actor.actorName;
         actorDisplayImage.sprite = currentDialogue.dialogueSegments[dialogueSegmentIndex].actor.actionIcon;
         
