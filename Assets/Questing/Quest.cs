@@ -11,6 +11,13 @@ public class Quest : ScriptableObject
     [SerializeField][TextArea] private string QuestDescription;
     [SerializeField] private List<QuestTaskData> questTasks = new();
 
+    [SerializeField] [FoldoutGroup("Events")]
+    private GameEvent onAcceptQuest;
+    [SerializeField] [FoldoutGroup("Events")]
+    private GameEvent onMakeQuestProgress;
+    [SerializeField] [FoldoutGroup("Events")]
+    private GameEvent onCompleteQuest;
+
     private string currentTaskName;
     private int taskIndex;
     public bool isQuestStarted;
@@ -21,6 +28,7 @@ public class Quest : ScriptableObject
         if (isQuestStarted) return;
         isQuestStarted = true;
         taskIndex = -1;
+        onAcceptQuest.Raise();
         StartNextTask();
     }
     
@@ -41,6 +49,7 @@ public class Quest : ScriptableObject
         }
         
         task.Hit();
+        onMakeQuestProgress.Raise();
         if (task.IsTaskComplete())
         {
             StartNextTask();
@@ -61,6 +70,7 @@ public class Quest : ScriptableObject
     private void CompleteQuest()
     {
         isQuestComplete = true;
+        onCompleteQuest.Raise();
     }
 
     [Button]

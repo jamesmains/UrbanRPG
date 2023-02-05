@@ -22,10 +22,44 @@ MonoBehaviour:
     defaultState: 1
   intensity:
     overrideState: 1
-    value: 0.673
+    value: 0.419
   fastMode:
     overrideState: 1
     value: 0
+--- !u!114 &-3477160224275188791
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b77c5407dc277943b591ade9e6b18c5, type: 3}
+  m_Name: LensDistortion
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+  intensity:
+    overrideState: 1
+    value: 82
+  intensityX:
+    overrideState: 1
+    value: 1
+  intensityY:
+    overrideState: 1
+    value: 1
+  centerX:
+    overrideState: 1
+    value: 0
+  centerY:
+    overrideState: 1
+    value: 0
+  scale:
+    overrideState: 1
+    value: 1.35
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43,6 +77,7 @@ MonoBehaviour:
   - {fileID: 1685200079317659609}
   - {fileID: 5652797724630317093}
   - {fileID: -6272986474800980605}
+  - {fileID: -3477160224275188791}
 --- !u!114 &1685200079317659609
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -61,10 +96,10 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 1.52
+    value: 2.49
   threshold:
     overrideState: 1
-    value: 0.78
+    value: 0.79
   softKnee:
     overrideState: 1
     value: 0.5
@@ -114,7 +149,7 @@ MonoBehaviour:
     value: 4
   focalLength:
     overrideState: 1
-    value: 108
+    value: 102
   kernelSize:
     overrideState: 1
     value: 3
@@ -139,7 +174,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.5
+    value: 0.69
   color:
     overrideState: 1
     value: {r: 0, g: 0, b: 0, a: 1}
@@ -157,7 +192,7 @@ MonoBehaviour:
     value: -12
   thicknessModifier:
     overrideState: 1
-    value: 5.12
+    value: 9.42
   directLightingStrength:
     overrideState: 1
     value: 0
