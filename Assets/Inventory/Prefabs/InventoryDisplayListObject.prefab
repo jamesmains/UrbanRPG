@@ -233,3 +233,7 @@ MonoBehaviour:
   playerPositionVariable: {fileID: 11400000, guid: 6288af3102c54ea44a226875cc734233, type: 2}
   onItemMove: {fileID: 11400000, guid: 1d4a7256dbccaf04e892e20d6bdd2702, type: 2}
   onItemRelease: {fileID: 11400000, guid: a880795f42765f740b69cd3d20ff1681, type: 2}
+  onMouseEnter: {fileID: 11400000, guid: f6b7a4f997cf7fb4681671ae9262666c, type: 2}
+  onMouseExit: {fileID: 11400000, guid: 28523abea4f53944ea38efc0e8485505, type: 2}
+  mousePositionVariable: {fileID: 11400000, guid: c02ee30f2dcab9447a4ae6913c503e1c, type: 2}
+  itemNameVariable: {fileID: 11400000, guid: 6a36e2bd9ba9bde4e9f51896af2beeaa, type: 2}

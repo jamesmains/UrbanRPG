@@ -2,12 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using I302.Manu;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
+public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [field: SerializeField] public Item heldItem { get; private set; }
     [field: SerializeField] public InventoryDisplay originInventory { get; private set; }
@@ -15,8 +16,18 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
     [SerializeField] private Image iconDisplay;
     [SerializeField] private TextMeshProUGUI countDisplayText;
     [SerializeField] private VectorVariable playerPositionVariable;
-    [SerializeField] private InventoryItemManagementGameEvent onItemMove;
-    [SerializeField] private InventoryItemManagementGameEvent onItemRelease;
+    
+    [SerializeField] [FoldoutGroup("Events")]
+    private InventoryItemManagementGameEvent onItemMove;
+    [SerializeField] [FoldoutGroup("Events")]
+    private InventoryItemManagementGameEvent onItemRelease;
+
+    [SerializeField] [FoldoutGroup("Events")]
+    private GameEvent onMouseEnter;
+    [SerializeField] [FoldoutGroup("Events")]
+    private GameEvent onMouseExit;
+    
+    [SerializeField] private StringVariable itemNameVariable;
 
     public static InventorySlot movingItem;
     private bool mouseDown;
@@ -81,5 +92,16 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
             originInventory.UpdateInventoryDisplay();
         }
         
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        onMouseEnter.Raise();
+        itemNameVariable.Value = heldItem.Name;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        onMouseExit.Raise();
     }
 }

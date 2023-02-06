@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c4ce2b6c07e534f841dbb71bf61d4c, type: 3}
   m_Name: SprayPaint
   m_EditorClassIdentifier: 
-  <Sprite>k__BackingField: {fileID: 21300000, guid: 57757ce8b70ead74880a98005d35e0bc, type: 3}
+  <Sprite>k__BackingField: {fileID: -573902769, guid: 70a7ebef66edbd946b06fcb7a2388811, type: 3}
   <Name>k__BackingField: Spray Paint
   <Description>k__BackingField: 
   <ItemType>k__BackingField: 0
