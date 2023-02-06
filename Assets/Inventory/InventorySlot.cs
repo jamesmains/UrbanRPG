@@ -24,16 +24,13 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
 
     private void Update()
     {
-        //print($"Slot Position: {this.transform.position}, Mouse Position: {Input.mousePosition}, Distance: {Vector2.Distance(Input.mousePosition, (Vector2) this.transform.position)}");
-        
         if (waitingForDrag && Vector2.Distance(Input.mousePosition, (Vector2) this.transform.position) > 85f && mouseDown)
         {
             
             waitingForDrag = false;
             if (movingItem == null && mouseDown)
             {
-                movingItem = this;
-                onItemMove.Raise(this);
+                Drag();
             }
         }
         else if (!mouseDown) waitingForDrag = false;
@@ -45,6 +42,13 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         iconDisplay.sprite = heldItem.Sprite;
         countDisplayText.text = origin.targetInventory.ItemList[heldItem].ToString();
         originInventory = origin;
+    }
+
+    private void Drag()
+    {
+        movingItem = this;
+        onItemMove.Raise(this);
+        iconDisplay.color = new Color(1, 1, 1, 0.5f);
     }
 
     public void OnPointerDown(PointerEventData eventData)

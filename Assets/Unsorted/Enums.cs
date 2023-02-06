@@ -28,3 +28,11 @@ public enum Direction
     EAST,
     SOUTH,
 }
+
+public enum QuestState
+{
+    UNDEFINED,
+    NotStarted,
+    Started,
+    Completed
+}

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c25c592687a7bb489fb90fb47f7dc4b, type: 3}
+  m_Name: Quest_TestBalloonBoy
+  m_EditorClassIdentifier: 
+  QuestName: Balloon Boy
+  QuestDescription: Give 20 balloons to Balloon Boy
+  questTasks:
+  - TaskSignature: {fileID: 11400000, guid: 1d402beaf2d2665408902fa62de73b02, type: 2}
+    TaskName: Get Balloons
+    TaskDescription: Get 20 balloons
+    numberOfRequiredHits: 20
+    hits: 0
+  onAcceptQuest: {fileID: 11400000, guid: 643d70e01718be84ba1946d4cf34c739, type: 2}
+  onMakeQuestProgress: {fileID: 11400000, guid: 8080f4c8cf8cc1a459cbcbf5caa82697, type: 2}
+  onCompleteQuest: {fileID: 11400000, guid: 67c8b7dfbace8ba4ebe42037d45d095c, type: 2}
+  currentTaskName: 
+  taskIndex: 0
+  isQuestStarted: 0
+  isQuestComplete: 0

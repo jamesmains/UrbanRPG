@@ -18,11 +18,12 @@ public class Quest : ScriptableObject
     [SerializeField] [FoldoutGroup("Events")]
     private GameEvent onCompleteQuest;
 
-    private string currentTaskName;
-    private int taskIndex;
+    public string currentTaskName;
+    public int taskIndex;
     public bool isQuestStarted;
     public bool isQuestComplete;
 
+    [Button]
     public void StartQuest()
     {
         if (isQuestStarted) return;
@@ -35,13 +36,8 @@ public class Quest : ScriptableObject
     public void TryCompleteTask(QuestSignature taskSignature)
     {
         if (isQuestComplete || !isQuestStarted) return;
-        
-        QuestTaskData task = questTasks.Find(o => o.TaskSignature == taskSignature);
-        if (task == null)
-        {
-            Debug.LogError($"Quest: Unable to find task {taskSignature}");
-            return;
-        }
+
+        QuestTaskData task = questTasks[taskIndex];
 
         if (task.TaskName != currentTaskName)
         {
@@ -56,6 +52,7 @@ public class Quest : ScriptableObject
         }
     }
 
+    [Button]
     private void StartNextTask()
     {
         taskIndex++;
@@ -80,6 +77,8 @@ public class Quest : ScriptableObject
             task.hits = 0;
         isQuestComplete = false;
         isQuestStarted = false;
+        taskIndex = 0;
+        currentTaskName = "";
     }
 }
 

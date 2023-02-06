@@ -203,21 +203,8 @@ namespace ParentHouse.UI
 
     private bool SpawnActionListObject(ActivityAction action, bool useIcon = true)
     {
-        // todo send message that player is missing required item
-        if (!playerInventory.HasItem(action.signature.RequiredItem) && action.signature.RequiredItem != null)
-        {
-            return false;
-        }
-        else if (playerInventory.HasItem(action.signature.RequiredItem) && action.signature.RequiredItem != null)
-        {
-            if (playerInventory.ItemList[action.signature.RequiredItem] < action.signature.RequiredItemQuantity)
-            {
-                return false;
-            }
-        }
+        if (!action.signature.CanDo()) return false;
 
-        
-        
         var listObject = Instantiate(actionListObject, actionListContainer);
         var objectInit = listObject.GetComponent<CursorActionListObject>();
         
@@ -225,9 +212,9 @@ namespace ParentHouse.UI
         activityActions.Add(delegate
         {
             action.eventChannel.Invoke();
-            if (action.signature.RequiredItem != null)
+            if (action.signature.RequiredItems != null)
             {
-                playerInventory.TryUseItem(action.signature.RequiredItem,action.signature.RequiredItemQuantity);
+                action.signature.TryUseItems();
                 onMoveOrAddItem.Raise();
             }
         });

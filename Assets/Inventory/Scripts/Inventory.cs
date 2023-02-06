@@ -85,7 +85,6 @@ namespace I302.Manu
             {
                 if (ItemList[item] <= 0)
                     ItemList.Remove(item);
-                item.SaveItem();
             }
         }
 
@@ -97,7 +96,6 @@ namespace I302.Manu
             {
                 if (ItemList[item] <= 0)
                     ItemList.Remove(item);
-                item.LoadItem();
             }
         }
 

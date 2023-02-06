@@ -8,7 +8,7 @@ namespace I302.Manu
     {
         [SerializeField] private ItemLookupTable itemLookupTable;
         [SerializeField] private Inventory bag;
-        private void Start()
+        private void Awake()
         {
             bag.LoadInventory(itemLookupTable);
             bag.LoadAllItems();

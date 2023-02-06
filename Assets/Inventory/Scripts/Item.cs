@@ -29,28 +29,11 @@ namespace I302.Manu
         public virtual int Value
         {
             get => this.amount;
-            set
-            {
-                this.amount = value;
-                SaveItem();
-            } 
+            set => this.amount = value;
         }
 
         [SerializeField] protected int amount;
         [field: SerializeField] public int StackLimit { get; private set; } = Int32.MaxValue;
-
-        [Button]
-        public void SaveItem()
-        {
-            SaveLoad.SaveItem(new ItemSaveData(this));
-        }
-
-        [Button]
-        public void LoadItem()
-        {
-            ItemSaveData saveData = SaveLoad.LoadItem(Name);
-            Value = saveData.Value;
-        }
     }
 
     [Serializable]
