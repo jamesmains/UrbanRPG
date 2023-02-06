@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 5792344445435472295}
   - component: {fileID: 5792344445435472293}
   - component: {fileID: 9061437220740579423}
-  - component: {fileID: 1474099750451757379}
+  - component: {fileID: 4108078347553004705}
   m_Layer: 0
   m_Name: Pickup Item
   m_TagString: Untagged
@@ -282,6 +282,9 @@ MonoBehaviour:
   lostInventory: {fileID: 11400000, guid: cf55cfab4d96f334798703878ba16795, type: 2}
   onPickupItem: {fileID: 11400000, guid: 7f5c198d2b8bec4489f65c006c6fdc49, type: 2}
   despawnTimer: {fileID: 11400000, guid: e08fd0c36801ded428586d91e8bea934, type: 2}
+  onMouseEnter: {fileID: 11400000, guid: f6b7a4f997cf7fb4681671ae9262666c, type: 2}
+  onMouseExit: {fileID: 11400000, guid: 28523abea4f53944ea38efc0e8485505, type: 2}
+  itemNameVariable: {fileID: 11400000, guid: 6a36e2bd9ba9bde4e9f51896af2beeaa, type: 2}
 --- !u!95 &5792344445435472293
 Animator:
   serializedVersion: 4
@@ -318,8 +321,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!65 &1474099750451757379
-BoxCollider:
+--- !u!135 &4108078347553004705
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -329,5 +332,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0}

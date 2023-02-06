@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using I302.Manu;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
 
 public class Pickup : Activity
@@ -21,6 +22,12 @@ public class Pickup : Activity
     [SerializeField] private GameEvent onPickupItem;
     [SerializeField] private FloatVariable despawnTimer;
     private bool canPickup = false;
+    
+    [SerializeField] [FoldoutGroup("Events")]
+    private GameEvent onMouseEnter;
+    [SerializeField] [FoldoutGroup("Events")]
+    private GameEvent onMouseExit;
+    [SerializeField] private StringVariable itemNameVariable;
 
     private void Awake()
     {
@@ -80,5 +87,22 @@ public class Pickup : Activity
         {
             canPickup = true;
         }
+    }
+
+    private void OnMouseEnter()
+    {
+        print("Enter");
+        onMouseEnter.Raise();
+        itemNameVariable.Value = item.Name;
+    }
+
+    private void OnMouseExit()
+    {
+        onMouseExit.Raise();
+    }
+
+    private void OnDisable()
+    {
+        onMouseExit.Raise();
     }
 }
