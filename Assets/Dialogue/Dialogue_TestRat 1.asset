@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueSegments:
   - actor: {fileID: 11400000, guid: 9447fd82ae77547488167f0e9adf7abc, type: 2}
-    speech: Hey, ya wanna be a real rat?
+    speech: Second Rat. Second Rat.
     actions:
       m_PersistentCalls:
         m_Calls: []
   - actor: {fileID: 11400000, guid: 9447fd82ae77547488167f0e9adf7abc, type: 2}
-    speech: Lets cause some chaos.
+    speech: Second Rat. Second Rat.
     actions:
       m_PersistentCalls:
         m_Calls: []
   - actor: {fileID: 11400000, guid: 9447fd82ae77547488167f0e9adf7abc, type: 2}
-    speech: ...
+    speech: Second Rat. Second Rat.
     actions:
       m_PersistentCalls:
         m_Calls:

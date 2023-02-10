@@ -91,7 +91,6 @@ public class Pickup : Activity
 
     private void OnMouseEnter()
     {
-        print("Enter");
         onMouseEnter.Raise();
         itemNameVariable.Value = item.Name;
     }

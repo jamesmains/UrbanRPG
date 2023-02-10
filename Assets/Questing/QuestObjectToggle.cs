@@ -4,33 +4,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+// TODO need to rework this
 public class QuestObjectToggle : MonoBehaviour
 {
     [SerializeField] private Quest targetQuest;
-    [SerializeField] private UnityEvent onQuestNotStarted;
-    [SerializeField] private UnityEvent onQuestStarted;
+    [SerializeField] private bool checkOnAwake;
     [SerializeField] private UnityEvent onQuestCompleted;
-
-    private bool questStartedStatus, questCompletedStatus;
     
     private void Awake()
     {
-        questStartedStatus = targetQuest.isQuestStarted;
-        questCompletedStatus = targetQuest.isQuestComplete;
-        if (!questStartedStatus)
+        if (checkOnAwake)
         {
-            onQuestNotStarted.Invoke();
+            CheckQuest();
         }
     }
 
     public void CheckQuest()
     {
-        if (targetQuest.isQuestStarted && !questStartedStatus)
-        {
-            onQuestStarted.Invoke();
-            return;
-        }
-        if (targetQuest.isQuestComplete && !questCompletedStatus)
+        if (targetQuest.isQuestComplete)
         {
             onQuestCompleted.Invoke();
             return;
