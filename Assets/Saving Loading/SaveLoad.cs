@@ -9,6 +9,7 @@ namespace I302.Manu
 {
     public static class SaveLoad
     {
+        [SerializeField] private static StringVariable saveSlot;
         
         public static void SaveLastKnownTime(DateTime lastKnownTime)
         {
