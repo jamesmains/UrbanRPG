@@ -14,4 +14,9 @@ public class PlayerSpawnVariable : ScriptableObject
     {
         NextLevelTransition = DefaultValue;
     }
+
+    public void SetValue(LevelTransitionSignature targetLevelSignature)
+    {
+        NextLevelTransition = targetLevelSignature;
+    }
 }

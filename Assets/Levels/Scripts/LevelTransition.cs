@@ -6,12 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class LevelTransition : MonoBehaviour
 {
-    [SerializeField] private LevelTransitionSignature targetLevelTransitionSignature;
     [SerializeField] private PlayerSpawnVariable spawnVariable;
 
-    private void OnTriggerEnter(Collider other)
+    private void LoadNextScene()
     {
-        spawnVariable.NextLevelTransition = targetLevelTransitionSignature;
-        SceneManager.LoadScene(targetLevelTransitionSignature.TargetScene);
+        SceneManager.LoadScene(spawnVariable.NextLevelTransition.TargetScene);
     }
 }
