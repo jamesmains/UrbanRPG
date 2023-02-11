@@ -10,6 +10,7 @@ public class PlayerMotor : MonoBehaviour
     [SerializeField] private CustoAnimator animator;
     [SerializeField] private VectorVariable playerPositionVariable;
     [SerializeField] private IntVariable playerLockVariable;
+    [SerializeField] private PlayerSpawnVariable playerSpawnVariable;
     public float moveSpeed; // might be replaced with scriptable object float variable 
     private float inputX, inputY;
     private bool horizontalFlip;
@@ -17,6 +18,10 @@ public class PlayerMotor : MonoBehaviour
     private void Awake()
     {
         playerLockVariable.Value = 0; // TODO is there safer way to do this?
+        if (playerSpawnVariable.NextLevelTransition != null) // Todo need initial value?
+        {
+            MovePlayerTo(playerSpawnVariable.NextLevelTransition.SpawnLocation);
+        }
     }
 
     private void Update()
@@ -42,5 +47,10 @@ public class PlayerMotor : MonoBehaviour
     public void MovePlayerTo(Transform newPosition)
     {
         transform.position = newPosition.position;
+    }
+
+    public void MovePlayerTo(Vector3 newPosition)
+    {
+        transform.position = newPosition;
     }
 }
