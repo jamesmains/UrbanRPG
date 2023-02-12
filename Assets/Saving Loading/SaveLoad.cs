@@ -107,7 +107,7 @@ namespace I302.Manu
             
             var binaryFormatter = new BinaryFormatter();
             string directory = $"{Application.persistentDataPath}/{saveSlot.Value}";
-            string filePath = $"{directory}/loc.ation";
+            string filePath = $"{directory}/player.location";
             
             if (!Directory.Exists(directory))
             {
@@ -127,7 +127,7 @@ namespace I302.Manu
                 LoadSaveSlot();
             }
 
-            string filePath = $"{Application.persistentDataPath}/{saveSlot.Value}/loc.ation";
+            string filePath = $"{Application.persistentDataPath}/{saveSlot.Value}/player.location";
 
             if (!File.Exists(filePath))
             {
