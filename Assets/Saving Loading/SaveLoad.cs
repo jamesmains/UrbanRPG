@@ -82,7 +82,6 @@ namespace I302.Manu
             {
                 LoadSaveSlot();
             }
-
             string filePath = $"{Application.persistentDataPath}/{saveSlot.Value}/Quests/{questName}.quest";
 
             if (!File.Exists(filePath))

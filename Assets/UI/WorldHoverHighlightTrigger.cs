@@ -7,7 +7,7 @@ public class WorldHoverHighlightTrigger : MonoBehaviour
 {
     [SerializeField] private SpriteRendererGameEvent onMouseHover;
     [SerializeField] private BoolVariable mouseOverUserInterface;
-    [SerializeField] private SpriteRenderer renderer;
+    [SerializeField] private SpriteRenderer render;
     
     private bool isActive;  
     private void OnMouseOver()
@@ -15,7 +15,7 @@ public class WorldHoverHighlightTrigger : MonoBehaviour
         if (!mouseOverUserInterface.Value && !isActive)
         {
             isActive = true;
-            onMouseHover.Raise(renderer);
+            onMouseHover.Raise(render);
         }
         else if (mouseOverUserInterface.Value && isActive)
         {
