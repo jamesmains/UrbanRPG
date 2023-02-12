@@ -25,5 +25,5 @@ MonoBehaviour:
   onCompleteQuest: {fileID: 11400000, guid: 67c8b7dfbace8ba4ebe42037d45d095c, type: 2}
   currentTaskName: 
   taskIndex: 0
-  isQuestStarted: 1
-  isQuestComplete: 1
+  isQuestStarted: 0
+  isQuestComplete: 0

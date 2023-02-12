@@ -14,20 +14,27 @@ public class PlayerMotor : MonoBehaviour
     public float moveSpeed; // might be replaced with scriptable object float variable 
     private float inputX, inputY;
     private bool horizontalFlip;
+    public static Vector3 playerLocation;
 
     private void Awake()
     {
         playerLockVariable.Value = 0; // TODO is there safer way to do this?
-        if (playerSpawnVariable.NextLevelTransition != null) // Todo need initial value?
+        if (playerSpawnVariable.NextLevelTransition != null && !string.IsNullOrEmpty(playerSpawnVariable.NextLevelTransition.TargetScene)) // Todo need initial value?
         {
             MovePlayerTo(playerSpawnVariable.NextLevelTransition.SpawnLocation);
         }
+    }
+
+    private void OnDisable()
+    {
+        playerSpawnVariable.SaveLocation();
     }
 
     private void Update()
     {
         inputX = Input.GetAxisRaw("Horizontal");
         inputY = Input.GetAxisRaw("Vertical");
+        playerLocation = transform.position;
     }
 
     private void FixedUpdate()

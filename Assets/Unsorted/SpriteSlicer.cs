@@ -1,3 +1,6 @@
+#if UNITY_EDITOR
+
+
 using UnityEngine;
 using UnityEditor;
 using System.Collections;
@@ -56,3 +59,4 @@ public class SpriteSlicer : MonoBehaviour{
          Debug.Log("ComputeSprites: done");
      }
  }
+#endif

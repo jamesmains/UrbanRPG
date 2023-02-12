@@ -1,15 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using I302.Manu;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Quest", menuName = "Quest")]
 public class Quest : ScriptableObject
 {
-    [SerializeField] private string QuestName;
-    [SerializeField][TextArea] private string QuestDescription;
-    [SerializeField] private List<QuestTaskData> questTasks = new();
+    public string QuestName;
+    [TextArea] public string QuestDescription;
+    public List<QuestTaskData> questTasks = new();
 
     [SerializeField] [FoldoutGroup("Events")]
     private GameEvent onAcceptQuest;
@@ -22,11 +24,12 @@ public class Quest : ScriptableObject
     public int taskIndex;
     public bool isQuestStarted;
     public bool isQuestComplete;
+    private StringVariable saveSlot;
 
-    [Button]
+    [Button, FoldoutGroup("Progress Functions")]
     public void StartQuest()
     {
-        if (isQuestStarted) return;
+        if (isQuestStarted || isQuestComplete) return;
         isQuestStarted = true;
         taskIndex = -1;
         onAcceptQuest.Raise();
@@ -52,7 +55,7 @@ public class Quest : ScriptableObject
         }
     }
 
-    [Button]
+    [Button, FoldoutGroup("Progress Functions")]
     private void StartNextTask()
     {
         taskIndex++;
@@ -62,15 +65,18 @@ public class Quest : ScriptableObject
             return;
         }
         currentTaskName = questTasks[taskIndex].TaskName;
+        SaveQuest();
     }
 
+    [Button, FoldoutGroup("Progress Functions")]
     private void CompleteQuest()
     {
         isQuestComplete = true;
         onCompleteQuest.Raise();
+        SaveQuest();
     }
 
-    [Button]
+    [Button, FoldoutGroup("Progress Functions")]
     private void ResetQuest()
     {
         foreach (var task in questTasks)
@@ -79,6 +85,37 @@ public class Quest : ScriptableObject
         isQuestStarted = false;
         taskIndex = 0;
         currentTaskName = "";
+    }
+
+    [Button, FoldoutGroup("Data Functions")]
+    private void SaveQuest()
+    {
+        SaveLoad.SaveQuest(new QuestSaveData(this));
+    }
+
+    [Button, FoldoutGroup("Data Functions")]
+    private void LoadQuest()
+    {
+        QuestSaveData loadedData = SaveLoad.LoadQuest(QuestName);
+        if (loadedData == null)
+        {
+            return;
+        }
+        currentTaskName = loadedData.SavedTaskName;
+        taskIndex = loadedData.SavedTaskIndex;
+        int j = 0;
+        questTasks.ForEach(o =>
+        {
+            o.hits = loadedData.SavedTaskHits[j];
+            j++;
+        });
+        isQuestStarted = loadedData.SavedStartedState;
+        isQuestComplete = loadedData.SavedCompletedState;
+    }
+
+    private void OnEnable()
+    {
+        LoadQuest();
     }
 }
 
@@ -99,5 +136,26 @@ public class QuestTaskData
     public bool IsTaskComplete()
     {
         return hits >= numberOfRequiredHits;
+    }
+}
+
+[Serializable]
+public class QuestSaveData
+{
+    public string Name;
+    public string SavedTaskName;
+    public int SavedTaskIndex;
+    public int[] SavedTaskHits;
+    public bool SavedStartedState;
+    public bool SavedCompletedState;
+
+    public QuestSaveData(Quest quest)
+    {
+        Name = quest.QuestName;
+        SavedTaskIndex = quest.taskIndex;
+        SavedTaskName = quest.currentTaskName;
+        SavedTaskHits = quest.questTasks.Select(o => o.hits).ToArray();
+        SavedStartedState = quest.isQuestStarted;
+        SavedCompletedState = quest.isQuestComplete;
     }
 }
