@@ -12,7 +12,7 @@ public class Quest : ScriptableObject
     public string QuestName;
     [TextArea] public string QuestDescription;
     public List<QuestTaskData> questTasks = new();
-
+    
     [SerializeField] [FoldoutGroup("Events")]
     private GameEvent onAcceptQuest;
     [SerializeField] [FoldoutGroup("Events")]
@@ -20,7 +20,7 @@ public class Quest : ScriptableObject
     [SerializeField] [FoldoutGroup("Events")]
     private GameEvent onCompleteQuest;
 
-    public string currentTaskName;
+    public QuestSignature currentTaskSign;
     public int taskIndex;
     public bool isQuestStarted;
     public bool isQuestComplete;
@@ -36,23 +36,31 @@ public class Quest : ScriptableObject
         StartNextTask();
     }
     
-    public void TryCompleteTask(QuestSignature taskSignature)
+    public int TryCompleteTask(QuestSignature taskSignature, int amount = 1)
     {
-        if (isQuestComplete || !isQuestStarted) return;
+        if (isQuestComplete || !isQuestStarted) return 0;
 
         QuestTaskData task = questTasks[taskIndex];
 
-        if (task.TaskName != currentTaskName)
+        if (task.TaskSignature != currentTaskSign || taskSignature != currentTaskSign)
         {
-            return;
+            return 0;
+        }
+        if (amount > (task.numberOfRequiredHits - task.hits))
+        {
+            amount = task.numberOfRequiredHits - task.hits;
         }
         
-        task.Hit();
+        task.Hit(amount);
         onMakeQuestProgress.Raise();
+        
         if (task.IsTaskComplete())
         {
             StartNextTask();
         }
+        else SaveQuest();
+
+        return amount;
     }
 
     [Button, FoldoutGroup("Progress Functions")]
@@ -64,7 +72,8 @@ public class Quest : ScriptableObject
             CompleteQuest();
             return;
         }
-        currentTaskName = questTasks[taskIndex].TaskName;
+
+        currentTaskSign = questTasks[taskIndex].TaskSignature;
         SaveQuest();
     }
 
@@ -73,6 +82,7 @@ public class Quest : ScriptableObject
     {
         isQuestComplete = true;
         onCompleteQuest.Raise();
+        currentTaskSign = null;
         SaveQuest();
     }
 
@@ -84,7 +94,7 @@ public class Quest : ScriptableObject
         isQuestComplete = false;
         isQuestStarted = false;
         taskIndex = 0;
-        currentTaskName = "";
+        currentTaskSign = null;
     }
 
     [Button, FoldoutGroup("Data Functions")]
@@ -101,8 +111,12 @@ public class Quest : ScriptableObject
         {
             return;
         }
-        currentTaskName = loadedData.SavedTaskName;
         taskIndex = loadedData.SavedTaskIndex;
+        if (questTasks.Count < taskIndex)
+        {
+            currentTaskSign = questTasks[taskIndex].TaskSignature;
+        }
+        
         int j = 0;
         questTasks.ForEach(o =>
         {
@@ -128,9 +142,9 @@ public class QuestTaskData
     public int numberOfRequiredHits;
     public int hits;
 
-    public void Hit()
+    public void Hit(int amount = 1)
     {
-        hits++;
+        hits += amount;
     }
     
     public bool IsTaskComplete()
@@ -143,7 +157,6 @@ public class QuestTaskData
 public class QuestSaveData
 {
     public string Name;
-    public string SavedTaskName;
     public int SavedTaskIndex;
     public int[] SavedTaskHits;
     public bool SavedStartedState;
@@ -153,7 +166,6 @@ public class QuestSaveData
     {
         Name = quest.QuestName;
         SavedTaskIndex = quest.taskIndex;
-        SavedTaskName = quest.currentTaskName;
         SavedTaskHits = quest.questTasks.Select(o => o.hits).ToArray();
         SavedStartedState = quest.isQuestStarted;
         SavedCompletedState = quest.isQuestComplete;

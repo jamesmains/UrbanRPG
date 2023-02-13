@@ -26,9 +26,16 @@ public class ActivitySignature : ScriptableObject
                 {
                     if (inventory.HasItem(requiredItem.Item))
                     {
-                        if (inventory.ItemList[requiredItem.Item] >= requiredItem.Quantity)
+                        if (inventory.ItemList[requiredItem.Item] >= requiredItem.Quantity || (requiredItem.UseAny && inventory.ItemList[requiredItem.Item] > 0))
                         {
-                            itemHitCount++;
+                            foreach (RequiredQuest quest in RequiredQuests)
+                            {
+                                if (quest.Quest.currentTaskSign == requiredItem.TaskSignature)
+                                {
+                                    itemHitCount++;
+                                }
+                            }
+                            
                         }
                     }
                 }
@@ -81,9 +88,26 @@ public class ActivitySignature : ScriptableObject
         {
             foreach (Inventory inventory in TargetInventories)
             {
-                inventory.TryUseItem(requiredItem.Item,requiredItem.Quantity);
+                int availableAmount = inventory.ItemList[requiredItem.Item] >= requiredItem.Quantity
+                    ? requiredItem.Quantity
+                    : inventory.ItemList[requiredItem.Item];
+                int useAmount = availableAmount;
+                if (requiredItem.TaskSignature != null)
+                {
+                    useAmount = 0;
+                    foreach (RequiredQuest quest in RequiredQuests)
+                    {
+                        useAmount += TryCompleteQuestTask(quest,requiredItem,availableAmount);
+                    }
+                }
+                inventory.TryUseItem(requiredItem.Item,useAmount);
             }
         }
+    }
+
+    private int TryCompleteQuestTask(RequiredQuest targetQuest, RequiredItem targetItem, int amount)
+    {
+        return targetQuest.Quest.TryCompleteTask(targetItem.TaskSignature, amount);  
     }
 }
 
@@ -92,6 +116,8 @@ public class RequiredItem
 {
     public Item Item;
     public int Quantity;
+    public bool UseAny;
+    public QuestSignature TaskSignature;
 }
 
 [Serializable]

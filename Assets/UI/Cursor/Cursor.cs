@@ -216,6 +216,7 @@ namespace ParentHouse.UI
             {
                 action.signature.TryUseItems();
                 onMoveOrAddItem.Raise();
+                PopulateActionList();
             }
         });
         
