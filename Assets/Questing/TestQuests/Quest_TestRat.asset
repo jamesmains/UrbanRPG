@@ -28,7 +28,7 @@ MonoBehaviour:
   onAcceptQuest: {fileID: 11400000, guid: 643d70e01718be84ba1946d4cf34c739, type: 2}
   onMakeQuestProgress: {fileID: 11400000, guid: 8080f4c8cf8cc1a459cbcbf5caa82697, type: 2}
   onCompleteQuest: {fileID: 11400000, guid: 67c8b7dfbace8ba4ebe42037d45d095c, type: 2}
-  currentTaskName: 
+  currentTaskSign: {fileID: 0}
   taskIndex: 0
   isQuestStarted: 0
   isQuestComplete: 0

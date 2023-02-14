@@ -7,9 +7,11 @@ using UnityEngine.Events;
 // TODO need to rework this
 public class QuestObjectToggle : MonoBehaviour
 {
-    [SerializeField] private Quest targetQuest;
+    [SerializeField] private QuestRequirement[] questRequirements;
     [SerializeField] private bool checkOnAwake;
-    [SerializeField] private UnityEvent onQuestCompleted;
+    [SerializeField] private bool runIfAny;
+    [SerializeField] private UnityEvent onMeetsRequirements;
+    [SerializeField] private UnityEvent onFailsRequirements;
     
     private void Awake()
     {
@@ -21,10 +23,49 @@ public class QuestObjectToggle : MonoBehaviour
 
     public void CheckQuest()
     {
-        if (targetQuest.isQuestComplete)
+        bool canDo = !runIfAny;
+        foreach (QuestRequirement questRequirement in questRequirements)
         {
-            onQuestCompleted.Invoke();
-            return;
+            if (!questRequirement.MeetsRequirements() && !runIfAny)
+            {
+                canDo = false;
+                break;
+            }
+            else if (questRequirement.MeetsRequirements() && runIfAny)
+            {
+                canDo = true;
+                break;
+            }
+        }
+
+        if (canDo)
+        {
+            onMeetsRequirements.Invoke();    
+        }
+        else
+        {
+            onFailsRequirements.Invoke();
+        }
+    }
+}
+
+[Serializable]
+public class QuestRequirement
+{
+    [SerializeField] private Quest quest;
+    [SerializeField] private QuestState requiredState;
+
+    public bool MeetsRequirements()
+    {
+        switch (requiredState)
+        {
+            case QuestState.Started when !quest.isQuestComplete && quest.isQuestStarted:
+            case QuestState.Completed when quest.isQuestComplete:
+            case QuestState.NotStarted when !quest.isQuestComplete && !quest.isQuestStarted:
+            case QuestState.NotCompleted when !quest.isQuestComplete && quest.isQuestStarted:
+                return true;
+            default:
+                return false;
         }
     }
 }

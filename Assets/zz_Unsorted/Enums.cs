@@ -34,5 +34,6 @@ public enum QuestState
     UNDEFINED,
     NotStarted,
     Started,
+    NotCompleted,
     Completed
 }

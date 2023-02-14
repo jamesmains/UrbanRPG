@@ -48,7 +48,7 @@ MonoBehaviour:
   DirectionalLight: {fileID: 3364325395352328148}
   DayNightPreset: {fileID: 11400000, guid: d870b1e4aa0d7f3438bb848641560280, type: 2}
   DayNightSkyboxPreset: {fileID: 11400000, guid: 793188394ee9f7d4dad9466e720adc04, type: 2}
-  dayTimeProgress: {fileID: 0}
+  dayTimeProgress: {fileID: 11400000, guid: 2c970a7d6ad3af349a1a3935c2c2c66d, type: 2}
   skyboxMaterial: {fileID: 2100000, guid: 5c80d49013691df48ac94280337e88ce, type: 2}
   TimeOfDay: 684.6131
   SunDirection: -100.4

@@ -24,6 +24,7 @@ public class LightManager : MonoBehaviour
     /// </summary>
     private void Start()
     {
+        TimeOfDay = dayTimeProgress.Value;
         if (ControlLights)
         {
             Light[] lights = FindObjectsOfType<Light>();
@@ -56,8 +57,8 @@ public class LightManager : MonoBehaviour
             return;
 
         TimeOfDay = TimeOfDay + (Time.deltaTime * TimeMultiplier);
-        TimeOfDay = TimeOfDay % 1440;
-        UpdateLighting(TimeOfDay * inverseDayLength);
+        dayTimeProgress.Value = TimeOfDay = TimeOfDay % 1440;
+        UpdateLighting(dayTimeProgress.Value * inverseDayLength);
     }
 
     /// <summary>
