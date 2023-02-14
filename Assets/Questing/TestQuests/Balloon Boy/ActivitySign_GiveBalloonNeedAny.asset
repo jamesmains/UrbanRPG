@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ActivitySign_GiveBalloonNeedAny
   m_EditorClassIdentifier: 
   actionType: 0
-  ActionName: Give Balloon ANY
+  ActionName: Give Balloons
   ActionIcon: {fileID: -1810004164, guid: 70a7ebef66edbd946b06fcb7a2388811, type: 3}
   RequiredItems:
   - Item: {fileID: 11400000, guid: 2953451449f32d844bc49d99f2234bd9, type: 2}
