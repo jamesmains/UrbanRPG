@@ -5,10 +5,9 @@ using I302.Manu;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[CreateAssetMenu(fileName = "Player Spawner Variable", menuName = "Variables/Player Spawner Variable")]
-public class PlayerSpawnVariable : ScriptableObject
+[CreateAssetMenu(fileName = "Player Data Variable", menuName = "Variables/Player Data Variable")]
+public class PlayerSaveData : ScriptableObject
 {
-    // Todo should probably be a static class...
     public LevelTransitionSignature LoadSpawn;
     public LevelTransitionSignature NextLevelTransition;
     public bool Loaded;

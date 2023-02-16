@@ -6,24 +6,25 @@ using UnityEngine.SceneManagement;
 
 public class LevelTransition : MonoBehaviour
 {
-    [SerializeField] private PlayerSpawnVariable spawnVariable;
+    [SerializeField] private PlayerSaveData saveData;
 
-    private void Awake()
+    [SerializeField] private bool debugRunOnStart = true;
+    private void Start()
     {
-        if (!spawnVariable.Loaded) // NOTE this should be for debugging only. It should be true before hitting this in build.
+        if (!saveData.Loaded && debugRunOnStart) // NOTE this should be for debugging only. It should be true before hitting this in build.
         {
-            spawnVariable.LoadLocation();
-            if (spawnVariable.NextLevelTransition == null)
+            saveData.LoadLocation();
+            if (saveData.NextLevelTransition == null)
             {
-                spawnVariable.Loaded = true;
+                saveData.Loaded = true;
                 return;
             }
             LoadNextScene();
         }
     }
 
-    private void LoadNextScene()
+    public void LoadNextScene()
     {
-        SceneManager.LoadScene(spawnVariable.NextLevelTransition.TargetScene);
+        SceneManager.LoadScene(saveData.NextLevelTransition.TargetScene);
     }
 }

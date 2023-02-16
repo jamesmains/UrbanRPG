@@ -10,4 +10,9 @@ public class StringVariable : ScriptableObject
     public string DeveloperDescription = "";
 #endif
     public string Value;
+
+    public void SetValue(string value)
+    {
+        Value = value;
+    }
 }

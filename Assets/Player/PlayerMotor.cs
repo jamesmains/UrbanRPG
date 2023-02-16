@@ -10,7 +10,7 @@ public class PlayerMotor : MonoBehaviour
     [SerializeField] private CustoAnimator animator;
     [SerializeField] private VectorVariable playerPositionVariable;
     [SerializeField] private IntVariable playerLockVariable;
-    [SerializeField] private PlayerSpawnVariable playerSpawnVariable;
+    [SerializeField] private PlayerSaveData playerSaveData;
     public float moveSpeed; // might be replaced with scriptable object float variable 
     private float inputX, inputY;
     private bool horizontalFlip;
@@ -19,15 +19,15 @@ public class PlayerMotor : MonoBehaviour
     private void Awake()
     {
         playerLockVariable.Value = 0; // TODO is there safer way to do this?
-        if (playerSpawnVariable.NextLevelTransition != null && !string.IsNullOrEmpty(playerSpawnVariable.NextLevelTransition.TargetScene)) // Todo need initial value?
+        if (playerSaveData.NextLevelTransition != null && !string.IsNullOrEmpty(playerSaveData.NextLevelTransition.TargetScene)) // Todo need initial value?
         {
-            MovePlayerTo(playerSpawnVariable.NextLevelTransition.SpawnLocation);
+            MovePlayerTo(playerSaveData.NextLevelTransition.SpawnLocation);
         }
     }
 
     private void OnDisable()
     {
-        playerSpawnVariable.SaveLocation();
+        playerSaveData.SaveLocation();
     }
 
     private void Update()
