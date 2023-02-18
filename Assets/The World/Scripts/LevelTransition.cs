@@ -6,17 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class LevelTransition : MonoBehaviour
 {
-    [SerializeField] private PlayerSaveData saveData;
+    [SerializeField] private PlayerSaveSlot saveSlot;
 
     [SerializeField] private bool debugRunOnStart = true;
     private void Start()
     {
-        if (!saveData.Loaded && debugRunOnStart) // NOTE this should be for debugging only. It should be true before hitting this in build.
+        if (saveSlot == null) return;
+        if (!saveSlot.Loaded && debugRunOnStart) // NOTE this should be for debugging only. It should be true before hitting this in build.
         {
-            saveData.LoadLocation();
-            if (saveData.NextLevelTransition == null)
+            saveSlot.LoadData();
+            if (saveSlot.NextLevelTransition == null)
             {
-                saveData.Loaded = true;
+                saveSlot.Loaded = true;
                 return;
             }
             LoadNextScene();
@@ -25,6 +26,6 @@ public class LevelTransition : MonoBehaviour
 
     public void LoadNextScene()
     {
-        SceneManager.LoadScene(saveData.NextLevelTransition.TargetScene);
+        SceneManager.LoadScene(saveSlot.NextLevelTransition.TargetScene);
     }
 }

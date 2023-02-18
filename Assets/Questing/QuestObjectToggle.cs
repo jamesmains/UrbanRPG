@@ -24,6 +24,7 @@ public class QuestObjectToggle : MonoBehaviour
     public void CheckQuest()
     {
         bool canDo = !runIfAny;
+        if (questRequirements.Length <= 0) return;
         foreach (QuestRequirement questRequirement in questRequirements)
         {
             if (!questRequirement.MeetsRequirements() && !runIfAny)

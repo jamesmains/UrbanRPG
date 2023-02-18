@@ -9,17 +9,17 @@ namespace I302.Manu
 {
     public static class SaveLoad
     {
-        private static StringVariable saveSlot;
+        private static PlayerSaveSlot _playerSaveSlot;
         
         public static void SaveInventory(InventorySaveData saveData)
         {
-            if (saveSlot == null)
+            if (_playerSaveSlot == null)
             {
                 LoadSaveSlot();
             }
             
             var binaryFormatter = new BinaryFormatter();
-            string directory = $"{Application.persistentDataPath}/{saveSlot.Value}/Inventories/";
+            string directory = $"{Application.persistentDataPath}/{_playerSaveSlot.saveSlot}/Inventories/";
             string filePath = $"{directory}{saveData.Name}.inv";
             if (!Directory.Exists(directory))
             {
@@ -34,12 +34,12 @@ namespace I302.Manu
         
         public static InventorySaveData LoadInventory(string inventoryName)
         {
-            if (saveSlot == null)
+            if (_playerSaveSlot == null)
             {
                 LoadSaveSlot();
             }
 
-            string filePath = $"{Application.persistentDataPath}/{saveSlot.Value}/Inventories/{inventoryName}.inv";
+            string filePath = $"{Application.persistentDataPath}/{_playerSaveSlot.saveSlot}/Inventories/{inventoryName}.inv";
             
             if (!File.Exists(filePath))
             {
@@ -56,13 +56,13 @@ namespace I302.Manu
 
         public static void SaveQuest(QuestSaveData saveData)
         {
-            if (saveSlot == null)
+            if (_playerSaveSlot == null)
             {
                 LoadSaveSlot();
             }
             
             var binaryFormatter = new BinaryFormatter();
-            string directory = $"{Application.persistentDataPath}/{saveSlot.Value}/Quests/";
+            string directory = $"{Application.persistentDataPath}/{_playerSaveSlot.saveSlot}/Quests/";
             string filePath = $"{directory}{saveData.Name}.quest";
             
             if (!Directory.Exists(directory))
@@ -78,11 +78,11 @@ namespace I302.Manu
 
         public static QuestSaveData LoadQuest(string questName)
         {
-            if (saveSlot == null)
+            if (_playerSaveSlot == null)
             {
                 LoadSaveSlot();
             }
-            string filePath = $"{Application.persistentDataPath}/{saveSlot.Value}/Quests/{questName}.quest";
+            string filePath = $"{Application.persistentDataPath}/{_playerSaveSlot.saveSlot}/Quests/{questName}.quest";
 
             if (!File.Exists(filePath))
             {
@@ -97,15 +97,15 @@ namespace I302.Manu
             return saveData;
         }
 
-        public static void SavePlayerLocation(PlayerSpawnData saveData)
+        public static void SavePlayerData(PlayerSaveData saveData)
         {
-            if (saveSlot == null)
+            if (_playerSaveSlot == null)
             {
                 LoadSaveSlot();
             }
             
             var binaryFormatter = new BinaryFormatter();
-            string directory = $"{Application.persistentDataPath}/{saveSlot.Value}";
+            string directory = $"{Application.persistentDataPath}/{_playerSaveSlot.saveSlot}";
             string filePath = $"{directory}/player.location";
             
             if (!Directory.Exists(directory))
@@ -119,15 +119,15 @@ namespace I302.Manu
             fileStream.Close();
         }
 
-        public static PlayerSpawnData LoadPlayerLocation()
+        public static PlayerSaveData LoadPlayerData()
         {
-            if (saveSlot == null)
+            if (_playerSaveSlot == null)
             {
                 LoadSaveSlot();
             }
-
-            string filePath = $"{Application.persistentDataPath}/{saveSlot.Value}/player.location";
-
+            Debug.Log(_playerSaveSlot);
+            string filePath = $"{Application.persistentDataPath}/{_playerSaveSlot.saveSlot}/player.location";
+    
             if (!File.Exists(filePath))
             {
                 return null;
@@ -135,7 +135,7 @@ namespace I302.Manu
 
             var binaryFormatter = new BinaryFormatter();
             var fileStream = File.Open(filePath, FileMode.Open);
-            var saveData = (PlayerSpawnData) binaryFormatter.Deserialize(fileStream);
+            var saveData = (PlayerSaveData) binaryFormatter.Deserialize(fileStream);
 
             fileStream.Close();
             return saveData;
@@ -143,7 +143,7 @@ namespace I302.Manu
         
         private static void LoadSaveSlot()
         {
-            saveSlot = Resources.Load("CurrentSaveSlot") as StringVariable;
+            _playerSaveSlot = Resources.Load("Player Data Variable") as PlayerSaveSlot;
         }
     }
 }

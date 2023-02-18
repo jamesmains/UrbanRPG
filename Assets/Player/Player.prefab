@@ -242,7 +242,7 @@ MonoBehaviour:
   animator: {fileID: 1178647817394944189}
   playerPositionVariable: {fileID: 11400000, guid: 6288af3102c54ea44a226875cc734233, type: 2}
   playerLockVariable: {fileID: 11400000, guid: bb3102215031e894bbdc47b651dbde47, type: 2}
-  playerSpawnVariable: {fileID: 11400000, guid: b01932e37af86a7499b6605666ccd6ae, type: 2}
+  playerSaveSlot: {fileID: 11400000, guid: 3fd8d61e8d5cebb4ebdce2cca341bf91, type: 2}
   moveSpeed: 200
 --- !u!114 &1178647815836721875
 MonoBehaviour:
@@ -321,7 +321,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1178647815883608709}
-  m_LocalRotation: {x: 0.17350298, y: -0.00000000847271, z: 0.0000000014926795, w: 0.98483336}
+  m_LocalRotation: {x: 0.17350298, y: 0.000000008472708, z: -0.0000000014926792, w: 0.98483336}
   m_LocalPosition: {x: 6, y: 2.4, z: -5.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1518,7 +1518,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1178647817192534715}
-  m_LocalRotation: {x: 0.17350298, y: -0.00000000847271, z: 0.0000000014926795, w: 0.98483336}
+  m_LocalRotation: {x: 0.17350298, y: 0.000000008472708, z: -0.0000000014926792, w: 0.98483336}
   m_LocalPosition: {x: 6, y: 2.4, z: -5.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
