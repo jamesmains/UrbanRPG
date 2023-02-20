@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab81752cf02ef5f428068e4ae1930842, type: 3}
   m_Name: Player Data Variable
   m_EditorClassIdentifier: 
-  saveSlot: TestPlayer
-  characterName: TestCharacter
-  cityName: TestCity
+  saveSlot: -1
+  characterName: -1
+  cityName: -1
   NewSaveFileSpawnLocation: {fileID: 11400000, guid: 910118a6b0de6914c96fad8f34c9cdea, type: 2}
   NextLevelTransition: {fileID: 0}
-  Loaded: 1
+  Loaded: 0

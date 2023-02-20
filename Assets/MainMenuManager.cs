@@ -101,6 +101,7 @@ public class MainMenuManager : MonoBehaviour
                 if (ValidateInput(inputField))
                 {
                     print("ready to goto next");
+                    MessageBox.Clear();
                 }
             }
 
