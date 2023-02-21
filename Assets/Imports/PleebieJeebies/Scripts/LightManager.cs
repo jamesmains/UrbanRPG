@@ -7,7 +7,7 @@ public class LightManager : MonoBehaviour
 {
     [SerializeField, Header("Managed Objects")] private Light DirectionalLight = null;
     [SerializeField] private LightPreset DayNightPreset, DayNightSkyboxPreset;
-    [SerializeField] private FloatVariable dayTimeProgress;
+    [SerializeField] private TimeVariable currentTimeVariable;
     [SerializeField] private Material skyboxMaterial;
     
     private List<Light> SpotLights = new List<Light>();
@@ -17,6 +17,7 @@ public class LightManager : MonoBehaviour
     [SerializeField, Tooltip("How fast time will go")] private float TimeMultiplier = 1;
     [SerializeField] private bool ControlLights = true;
 
+    private bool canChangeDay = true;
     private const float inverseDayLength = 1f / 1440f;
 
     /// <summary>
@@ -24,7 +25,7 @@ public class LightManager : MonoBehaviour
     /// </summary>
     private void Start()
     {
-        TimeOfDay = dayTimeProgress.Value;
+        TimeOfDay = currentTimeVariable.Value;
         if (ControlLights)
         {
             Light[] lights = FindObjectsOfType<Light>();
@@ -53,12 +54,34 @@ public class LightManager : MonoBehaviour
     /// </summary>
     private void Update()
     {
+        #if UNITY_EDITOR
+        TimeMultiplier = Input.GetKey(KeyCode.Space) ? 400 : 1;
+        #endif
+
         if (DayNightPreset == null)
             return;
 
         TimeOfDay = TimeOfDay + (Time.deltaTime * TimeMultiplier);
-        dayTimeProgress.Value = TimeOfDay = TimeOfDay % 1440;
-        UpdateLighting(dayTimeProgress.Value * inverseDayLength);
+        
+        if (canChangeDay)
+        {
+            if (TimeOfDay >= currentTimeVariable.MaxValue)
+            {
+                canChangeDay = false;
+                StartCoroutine(DayChangeProtection());
+            }
+            
+        }
+        currentTimeVariable.SetValue(TimeOfDay);
+        
+        TimeOfDay = TimeOfDay % 1440;
+        UpdateLighting(TimeOfDay * inverseDayLength);
+    }
+
+    IEnumerator DayChangeProtection()
+    {
+        yield return new WaitForSeconds(2f);
+        canChangeDay = true;
     }
 
     /// <summary>

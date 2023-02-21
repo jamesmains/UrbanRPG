@@ -37,3 +37,13 @@ public enum QuestState
     NotCompleted,
     Completed
 }
+
+public enum MonthName
+{
+    Flubuary = 0,
+    Smarch,
+    Jul,
+    Autumn,
+    AutumnAgain,
+    Dec
+}

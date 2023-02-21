@@ -10,7 +10,7 @@ public class FloatVariable : ScriptableObject
     public string DeveloperDescription = "";
 #endif
     public float Value;
-
+    
     public void SetValue(float value)
     {
         Value = value;
