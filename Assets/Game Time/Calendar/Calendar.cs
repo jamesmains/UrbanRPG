@@ -16,6 +16,8 @@ public class Calendar : MonoBehaviour
     [SerializeField] private TimeVariable monthVariable;
     [SerializeField] private Slider yearProgressDisplay;
 
+    public CalendarSignature testSignature;
+
     private const int monthLength = 28;
     
     private void Awake()
@@ -31,7 +33,6 @@ public class Calendar : MonoBehaviour
 
     public void UpdateCalendar()
     {
-        print("Updating Calendar");
         var oldItems = calendaryDisplayContainer.GetComponentsInChildren<Transform>();
         foreach (Transform item in oldItems) {
             if(item!=calendaryDisplayContainer)
@@ -42,8 +43,8 @@ public class Calendar : MonoBehaviour
             var obj = Instantiate(calendarDayDisplayObject, calendaryDisplayContainer);
             bool isHighlighted = i == (int) dayVariable.Value;
             int dayOffset = i + 1;
-            print($"INFO | Day: {dayVariable.Value}, Day with Offset: {dayOffset}, Index: {i}, Highlighted: {isHighlighted}");
-            obj.GetComponent<CalendarDayDisplay>().Setup(isHighlighted,dayOffset,null);
+            Sprite icon = testSignature.IsToday(i,-1,-1) ? testSignature.DisplayIcon : null;
+            obj.GetComponent<CalendarDayDisplay>().Setup(isHighlighted,dayOffset,icon);
         }
     }
 }
