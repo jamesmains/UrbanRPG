@@ -14,21 +14,25 @@ public class Calendar : MonoBehaviour
     
     [SerializeField] private TimeVariable dayVariable;
     [SerializeField] private TimeVariable monthVariable;
-    [SerializeField] private Slider yearProgressDisplay;
+    [SerializeField] private Slider yearProgressDisplay; // todo do we need this?
 
-    public CalendarSignature testSignature;
-
-    private const int monthLength = 28;
+    public TextMeshProUGUI thing;
+    
+    public List<CalendarSignature> calendarSignatures = new();
     
     private void Awake()
     {
         UpdateCalendar();
+        // print(testSignature.IsConditionMet(0,0));
     }
 
     private void Update()
     {
-        monthNameDisplay.text = ((MonthName) monthVariable.Value).ToString();
-        yearProgressDisplay.value = Mathf.InverseLerp(0, 5, monthVariable.Value);
+        monthNameDisplay.text = ((Month) monthVariable.Value).ToString();
+        if (yearProgressDisplay != null)
+        {
+            yearProgressDisplay.value = Mathf.InverseLerp(0, 5, monthVariable.Value);
+        }
     }
 
     public void UpdateCalendar()
@@ -38,13 +42,27 @@ public class Calendar : MonoBehaviour
             if(item!=calendaryDisplayContainer)
                 GameObject.Destroy(item.gameObject);
         }
-        for (int i = 0; i < 28; i++)
+        for (int day = 0; day < 28; day++)
         {
             var obj = Instantiate(calendarDayDisplayObject, calendaryDisplayContainer);
-            bool isHighlighted = i == (int) dayVariable.Value;
-            int dayOffset = i + 1;
-            Sprite icon = testSignature.IsToday(i,-1,-1) ? testSignature.DisplayIcon : null;
-            obj.GetComponent<CalendarDayDisplay>().Setup(isHighlighted,dayOffset,icon);
+            bool isHighlighted = day == (int) dayVariable.Value;
+            int dayOffset = day + 1;
+            string displayText = "";
+            Sprite icon = null;
+            foreach (CalendarSignature signature in calendarSignatures)
+            {
+                if (signature.IsConditionMet(day, -1))
+                {
+                    displayText += $"<b>{signature.DisplayName}</b><br>";
+                    displayText += $"{signature.DisplayText}<br>";
+                    icon = signature.DisplayIcon;
+                }
+            }
+            // Sprite icon = testSignature.IsConditionMet(i,-1) ? testSignature.DisplayIcon : null; // todo replace so its not null
+            var display = obj.GetComponent<CalendarDayDisplay>();
+            display.Setup(isHighlighted,dayOffset,icon);
+            display.AssignMouseOver(delegate { thing.text = displayText; });
+            display.AssignMouseExit(delegate { thing.text = ""; });
         }
     }
 }

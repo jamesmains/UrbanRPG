@@ -38,7 +38,7 @@ public enum QuestState
     Completed
 }
 
-public enum MonthName
+public enum Month
 {
     Flubuary = 0,
     Smarch,
@@ -46,4 +46,15 @@ public enum MonthName
     Autumn,
     AutumnAgain,
     Dec
+}
+
+public enum Day
+{
+    Saturday = 0,
+    Sunday = 1,
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday
 }

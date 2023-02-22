@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Day
   m_EditorClassIdentifier: 
   DeveloperDescription: Using zero index -- for normal date add 1
-  Value: 2
+  Value: 0
   OnChangeTime: {fileID: 11400000, guid: 523be0b6ffceba74aa186666c998d4de, type: 2}
   ShowChain: 1
   ChainVariable: {fileID: 11400000, guid: 0a12ec856e7137c448acc272378d6cdd, type: 2}
