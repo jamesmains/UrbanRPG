@@ -13,8 +13,7 @@ public class CalendarSignature : SerializedScriptableObject
     public string DisplayText;
     public Sprite DisplayIcon;
 
-    [field: SerializeField]
-    public List<CalendarCondition> Conditions { get; private set; } = new List<CalendarCondition>();
+    [field: SerializeField] private List<CalendarCondition> Conditions { get; set; } = new List<CalendarCondition>();
     
     public bool IsConditionMet(int day, int month)
     {

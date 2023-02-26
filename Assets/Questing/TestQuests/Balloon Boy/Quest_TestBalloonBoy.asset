@@ -15,15 +15,16 @@ MonoBehaviour:
   QuestName: Balloon Boy
   QuestDescription: Give 20 balloons to Balloon Boy
   questTasks:
-  - TaskSignature: {fileID: 11400000, guid: 1d402beaf2d2665408902fa62de73b02, type: 2}
+  - taskTaskSignature: {fileID: 11400000, guid: 1d402beaf2d2665408902fa62de73b02, type: 2}
     TaskName: Get Balloons
     TaskDescription: Get 20 balloons
     numberOfRequiredHits: 20
-    hits: 0
-  onAcceptQuest: {fileID: 11400000, guid: 643d70e01718be84ba1946d4cf34c739, type: 2}
-  onMakeQuestProgress: {fileID: 11400000, guid: 8080f4c8cf8cc1a459cbcbf5caa82697, type: 2}
-  onCompleteQuest: {fileID: 11400000, guid: 67c8b7dfbace8ba4ebe42037d45d095c, type: 2}
+    hits: 20
+  QuestState: 2
   currentTaskSign: {fileID: 0}
-  taskIndex: 0
-  isQuestStarted: 0
-  isQuestComplete: 0
+  taskIndex: 1
+  isQuestStarted: 1
+  isQuestComplete: 1
+  onAcceptQuest: {fileID: 11400000, guid: 36a1b5f765942a94099e42b2077cb5df, type: 2}
+  onMakeQuestProgress: {fileID: 11400000, guid: 9e7d2549b95255f48a5ea70e61d4d5e0, type: 2}
+  onCompleteQuest: {fileID: 11400000, guid: c819f8689b82617498125b1660ace797, type: 2}

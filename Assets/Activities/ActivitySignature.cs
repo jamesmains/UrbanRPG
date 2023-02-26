@@ -2,127 +2,149 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using I302.Manu;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Activity Signature", menuName = "Scriptable Objects/Activity Signature")]
-public class ActivitySignature : ScriptableObject
+public class ActivitySignature : SerializedScriptableObject
 {
     public ActionType actionType;
     public string ActionName;
     public Sprite ActionIcon;
-    public RequiredItem[] RequiredItems;
-    public RequiredQuest[] RequiredQuests;
-    public Inventory[] TargetInventories;
+    // public RequiredItem[] RequiredItems;
+    // public RequiredQuest[] RequiredQuests;
+    // public Inventory[] TargetInventories;
 
-    public bool CanDo()
+    [field: SerializeField] private List<ActivityCondition> Conditions { get; set; } = new List<ActivityCondition>();
+    
+    public bool IsConditionMet()
     {
-        bool hasItems = false;
-        int itemHitCount = 0;
-        if (RequiredItems.Length > 0)
-        {
-            foreach (RequiredItem requiredItem in RequiredItems)
-            {
-                foreach (Inventory inventory in TargetInventories)
-                {
-                    if (inventory.HasItem(requiredItem.Item))
-                    {
-                        if (inventory.ItemList[requiredItem.Item] >= requiredItem.Quantity || (requiredItem.UseAny && inventory.ItemList[requiredItem.Item] > 0))
-                        {
-                            foreach (RequiredQuest quest in RequiredQuests)
-                            {
-                                if (quest.Quest.currentTaskSign == requiredItem.TaskSignature)
-                                {
-                                    itemHitCount++;
-                                }
-                            }
-                            
-                        }
-                    }
-                }
-            }
-
-            if (itemHitCount >= RequiredItems.Length)
-                hasItems = true;
-        }
-        else hasItems = true;
-
-        bool hasQuest = false;
-        int questHitCount = 0;
-        if (RequiredQuests.Length > 0)
-        {
-            foreach (RequiredQuest requiredQuest in RequiredQuests)
-            {
-                switch (requiredQuest.RequiredState)
-                {
-                    case QuestState.NotStarted:
-                        if (!requiredQuest.Quest.isQuestStarted)
-                        {
-                            questHitCount++;
-                        }
-                        break;
-                    case QuestState.Started:
-                        if (requiredQuest.Quest.isQuestStarted)
-                        {
-                            questHitCount++;
-                        }
-                        break;
-                    case QuestState.Completed:
-                        if (requiredQuest.Quest.isQuestComplete)
-                        {
-                            questHitCount++;
-                        }
-                        break;
-                }
-            }
-            if (questHitCount >= RequiredQuests.Length)
-                hasQuest = true;
-        }
-        else hasQuest = true;
-
-        return hasItems && hasQuest;
+        return Conditions.TrueForAll(c => c.IsConditionMet());
     }
 
     public void TryUseItems()
     {
-        foreach (RequiredItem requiredItem in RequiredItems)
-        {
-            foreach (Inventory inventory in TargetInventories)
-            {
-                int availableAmount = inventory.ItemList[requiredItem.Item] >= requiredItem.Quantity
-                    ? requiredItem.Quantity
-                    : inventory.ItemList[requiredItem.Item];
-                int useAmount = availableAmount;
-                if (requiredItem.TaskSignature != null)
-                {
-                    useAmount = 0;
-                    foreach (RequiredQuest quest in RequiredQuests)
-                    {
-                        useAmount += TryCompleteQuestTask(quest,requiredItem,availableAmount);
-                    }
-                }
-                inventory.TryUseItem(requiredItem.Item,useAmount);
-            }
-        }
+        Conditions.ForEach(c => c.Use());
     }
+}
 
-    private int TryCompleteQuestTask(RequiredQuest targetQuest, RequiredItem targetItem, int amount)
+[Serializable]
+public abstract class ActivityCondition
+{
+    public abstract bool IsConditionMet();
+    public abstract void Use();
+}
+
+public class ActivityAndCondition : ActivityCondition
+{
+    [field: SerializeField]
+    public List<ActivityCondition> Conditions { get; private set; } = new List<ActivityCondition>();
+    
+    public override bool IsConditionMet()
     {
-        return targetQuest.Quest.TryCompleteTask(targetItem.TaskSignature, amount);  
+        return Conditions.TrueForAll(c => c.IsConditionMet());
+    }
+
+    public override void Use()
+    {
+        Conditions.ForEach(c => c.Use());
     }
 }
 
-[Serializable]
-public class RequiredItem
+public class ActivityOrCondition : ActivityCondition
 {
-    public Item Item;
-    public int Quantity;
-    public bool UseAny;
-    public QuestSignature TaskSignature;
+    [field: SerializeField]
+    public List<ActivityCondition> Conditions { get; private set; } = new List<ActivityCondition>();
+
+    public override bool IsConditionMet()
+    {
+        return Conditions.Exists(c => c.IsConditionMet());
+    }
+
+    public override void Use()
+    {
+        Conditions.ForEach(c => c.Use());
+    }
 }
 
-[Serializable]
-public class RequiredQuest
+public class ActivityNotCondition : ActivityCondition
 {
-    public Quest Quest;
-    public QuestState RequiredState;
+    [field: SerializeField]
+    public List<ActivityCondition> Conditions { get; private set; } = new List<ActivityCondition>();
+
+    public override bool IsConditionMet()
+    {
+        return !Conditions.Exists(c => c.IsConditionMet());
+    }
+
+    public override void Use()
+    {
+        Conditions.ForEach(c => c.Use());
+    }
+}
+
+public class ActivityQuestStateCondition : ActivityCondition
+{
+    [field: SerializeField]
+    public Quest TargetQuest { get; private set; }
+    [field: SerializeField]
+    public QuestState TargetState { get; private set; }
+    public override bool IsConditionMet()
+    {
+        return TargetQuest.QuestState == TargetState;
+    }
+
+    public override void Use()
+    {
+        
+    }
+}
+
+public class ActivityItemCondition : ActivityCondition
+{
+    [field: SerializeField]
+    public Item TargetItem { get; private set; }
+    [field: SerializeField]
+    public int ItemAmount { get; private set; }
+    [field: SerializeField]
+    public bool UseAny { get; private set; }
+    [field: SerializeField]
+    public Inventory TargetInventory { get; private set; }
+
+    protected int _useAmount = 0;
+    
+    public override bool IsConditionMet()
+    {
+        if (!TargetInventory.HasItem(TargetItem))
+        {
+            return false;
+        }
+        return UseAny ? TargetInventory.ItemList[TargetItem] > 0 : TargetInventory.ItemList[TargetItem] >= ItemAmount;
+    }
+
+    public override void Use()
+    {
+        int availableAmount = TargetInventory.ItemList[TargetItem] >= ItemAmount
+            ? ItemAmount
+            : TargetInventory.ItemList[TargetItem];
+        _useAmount = availableAmount;
+        TargetInventory.TryUseItem(TargetItem,_useAmount);
+    }
+}
+
+public class ActivityQuestItemCondition : ActivityItemCondition
+{
+    [field: SerializeField]
+    public Quest TargetQuest { get; private set; }
+    [field: SerializeField]
+    public QuestTaskSignature TargetTaskSignature { get; private set; }
+    
+    public override void Use()
+    {
+        int availableAmount = TargetInventory.ItemList[TargetItem] >= ItemAmount
+            ? ItemAmount
+            : TargetInventory.ItemList[TargetItem];
+        _useAmount = TargetQuest.TryCompleteTask(TargetTaskSignature, availableAmount);
+        TargetInventory.TryUseItem(TargetItem,_useAmount);
+    }
 }

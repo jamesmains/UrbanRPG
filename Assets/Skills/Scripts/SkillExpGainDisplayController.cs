@@ -8,6 +8,6 @@ public class SkillExpGainDisplayController : MonoBehaviour
 
     public void CreateSkillExpGainPopup(Sprite icon, int value)
     {
-        Instantiate(skillExpGainPopupObject, this.transform).GetComponent<SkillExpGainDisplayPopup>().Setup(icon,value);
+        Instantiate(skillExpGainPopupObject, this.transform).GetComponent<DisplayPopup>().Setup(icon,value);
     }
 }

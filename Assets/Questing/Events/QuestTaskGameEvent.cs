@@ -7,10 +7,10 @@ public class QuestTaskGameEvent : ScriptableObject
     private readonly List<QuestTaskGameEventListener> eventListeners = 
         new List<QuestTaskGameEventListener>();
 
-    public void Raise(QuestSignature questSignature)
+    public void Raise(QuestTaskSignature questTaskSignature)
     {
         for(int i = eventListeners.Count -1; i >= 0; i--)
-            eventListeners[i].OnEventRaised(questSignature);
+            eventListeners[i].OnEventRaised(questTaskSignature);
     }
 
     public void RegisterListener(QuestTaskGameEventListener listener)

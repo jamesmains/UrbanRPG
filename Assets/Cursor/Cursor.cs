@@ -203,7 +203,7 @@ namespace ParentHouse.UI
 
     private bool SpawnActionListObject(ActivityAction action, bool useIcon = true)
     {
-        if (!action.signature.CanDo()) return false;
+        if (!action.signature.IsConditionMet()) return false;
 
         var listObject = Instantiate(actionListObject, actionListContainer);
         var objectInit = listObject.GetComponent<CursorActionListObject>();
@@ -212,12 +212,9 @@ namespace ParentHouse.UI
         activityActions.Add(delegate
         {
             action.eventChannel.Invoke();
-            if (action.signature.RequiredItems != null)
-            {
-                action.signature.TryUseItems();
-                onMoveOrAddItem.Raise();
-                PopulateActionList();
-            }
+            action.signature.TryUseItems();
+            onMoveOrAddItem.Raise();
+            PopulateActionList();
         });
         
         existingActionListObjects.Add(objectInit);

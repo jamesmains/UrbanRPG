@@ -22,10 +22,10 @@ public class QuestTaskGameEventListener : MonoBehaviour
         Event.UnregisterListener(this);
     }
 
-    public void OnEventRaised(QuestSignature questSignature)
+    public void OnEventRaised(QuestTaskSignature questTaskSignature)
     {
-        Response.Invoke(questSignature);
+        Response.Invoke(questTaskSignature);
     }
 }
 [Serializable]
-public class QuestTaskEvent: UnityEvent<QuestSignature>{}
+public class QuestTaskEvent: UnityEvent<QuestTaskSignature>{}

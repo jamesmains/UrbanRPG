@@ -7,11 +7,11 @@ public class QuestBook : MonoBehaviour
 {
     [SerializeField] private List<Quest> questList = new();
 
-    public void TryCompleteQuestTask(QuestSignature taskSignature)
+    public void TryCompleteQuestTask(QuestTaskSignature taskTaskSignature)
     {
         foreach (Quest quest in questList)
         {
-            quest.TryCompleteTask(taskSignature);
+            quest.TryCompleteTask(taskTaskSignature);
         }
     }
 }

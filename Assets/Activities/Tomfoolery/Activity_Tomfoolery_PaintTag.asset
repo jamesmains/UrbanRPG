@@ -12,12 +12,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e11c51fbb0b0ce459c5067d578f3b0e, type: 3}
   m_Name: Activity_Tomfoolery_PaintTag
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: c07a14dc22eb3334b95a8967f771d2ed, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: <Conditions>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[ActivityCondition, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|ActivityAndCondition, Assembly-CSharp
+    - Name: <Conditions>k__BackingField
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[ActivityCondition, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 3|ActivityQuestStateCondition, Assembly-CSharp
+    - Name: <TargetQuest>k__BackingField
+      Entry: 10
+      Data: 0
+    - Name: <TargetState>k__BackingField
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   actionType: 3
   ActionName: Tag
   ActionIcon: {fileID: 21300000, guid: d50e6cdade141fd4b855b1c02a25f09f, type: 3}
-  RequiredItems:
-  - Item: {fileID: 11400000, guid: 51ff94c96197b5c4199a05e7d75ebf77, type: 2}
-    Quantity: 1
-  RequiredQuests: []
-  TargetInventories:
-  - {fileID: 11400000, guid: 6b47082d2c1a1044bbb6f95ea814d1c4, type: 2}

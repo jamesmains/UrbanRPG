@@ -63,7 +63,6 @@ public class QuestRequirement
             case QuestState.Started when !quest.isQuestComplete && quest.isQuestStarted:
             case QuestState.Completed when quest.isQuestComplete:
             case QuestState.NotStarted when !quest.isQuestComplete && !quest.isQuestStarted:
-            case QuestState.NotCompleted when !quest.isQuestComplete && quest.isQuestStarted:
                 return true;
             default:
                 return false;

@@ -9,21 +9,23 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Quest", menuName = "Quest")]
 public class Quest : ScriptableObject
 {
-    public string QuestName;
-    [TextArea] public string QuestDescription;
+    [FoldoutGroup("Display")]public string QuestName;
+    [FoldoutGroup("Display")][TextArea] public string QuestDescription;
     public List<QuestTaskData> questTasks = new();
     
+    [FoldoutGroup("Status")]public QuestState QuestState;
+    [FoldoutGroup("Status")]public QuestTaskSignature currentTaskSign;
+    [FoldoutGroup("Status")]public int taskIndex;
+    [FoldoutGroup("Status")]public bool isQuestStarted;
+    [FoldoutGroup("Status")]public bool isQuestComplete;
+    
     [SerializeField] [FoldoutGroup("Events")]
-    private GameEvent onAcceptQuest;
+    private QuestGameEvent onAcceptQuest;
     [SerializeField] [FoldoutGroup("Events")]
-    private GameEvent onMakeQuestProgress;
+    private QuestGameEvent onMakeQuestProgress;
     [SerializeField] [FoldoutGroup("Events")]
-    private GameEvent onCompleteQuest;
-
-    public QuestSignature currentTaskSign;
-    public int taskIndex;
-    public bool isQuestStarted;
-    public bool isQuestComplete;
+    private QuestGameEvent onCompleteQuest;
+    
     private StringVariable saveSlot;
 
     [Button, FoldoutGroup("Progress Functions")]
@@ -32,17 +34,18 @@ public class Quest : ScriptableObject
         if (isQuestStarted || isQuestComplete) return;
         isQuestStarted = true;
         taskIndex = -1;
-        onAcceptQuest.Raise();
+        QuestState = QuestState.Started;
+        onAcceptQuest.Raise(this);
         StartNextTask();
     }
     
-    public int TryCompleteTask(QuestSignature taskSignature, int amount = 1)
+    public int TryCompleteTask(QuestTaskSignature taskTaskSignature, int amount = 1)
     {
         if (isQuestComplete || !isQuestStarted) return 0;
-
+        Debug.Log(amount);
         QuestTaskData task = questTasks[taskIndex];
 
-        if (task.TaskSignature != currentTaskSign || taskSignature != currentTaskSign)
+        if (task.taskTaskSignature != currentTaskSign || taskTaskSignature != currentTaskSign)
         {
             return 0;
         }
@@ -52,7 +55,7 @@ public class Quest : ScriptableObject
         }
         
         task.Hit(amount);
-        onMakeQuestProgress.Raise();
+        onMakeQuestProgress.Raise(this);
         
         if (task.IsTaskComplete())
         {
@@ -73,7 +76,7 @@ public class Quest : ScriptableObject
             return;
         }
 
-        currentTaskSign = questTasks[taskIndex].TaskSignature;
+        currentTaskSign = questTasks[taskIndex].taskTaskSignature;
         SaveQuest();
     }
 
@@ -81,8 +84,9 @@ public class Quest : ScriptableObject
     private void CompleteQuest()
     {
         isQuestComplete = true;
-        onCompleteQuest.Raise();
         currentTaskSign = null;
+        QuestState = QuestState.Completed;
+        onCompleteQuest.Raise(this);
         SaveQuest();
     }
 
@@ -95,6 +99,7 @@ public class Quest : ScriptableObject
         isQuestStarted = false;
         taskIndex = 0;
         currentTaskSign = null;
+        QuestState = QuestState.NotStarted;
     }
 
     [Button, FoldoutGroup("Data Functions")]
@@ -114,7 +119,7 @@ public class Quest : ScriptableObject
         taskIndex = loadedData.SavedTaskIndex;
         if (questTasks.Count < taskIndex)
         {
-            currentTaskSign = questTasks[taskIndex].TaskSignature;
+            currentTaskSign = questTasks[taskIndex].taskTaskSignature;
         }
         
         int j = 0;
@@ -136,11 +141,11 @@ public class Quest : ScriptableObject
 [Serializable]
 public class QuestTaskData
 {
-    public QuestSignature TaskSignature;
-    public string TaskName;
-    public string TaskDescription;
-    public int numberOfRequiredHits;
-    public int hits;
+    public QuestTaskSignature taskTaskSignature;
+    [FoldoutGroup("Display")]public string TaskName;
+    [FoldoutGroup("Display")]public string TaskDescription;
+    [FoldoutGroup("Data")]public int numberOfRequiredHits;
+    [FoldoutGroup("Data")]public int hits;
 
     public void Hit(int amount = 1)
     {

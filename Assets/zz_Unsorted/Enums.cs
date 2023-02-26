@@ -31,10 +31,8 @@ public enum Direction
 
 public enum QuestState
 {
-    UNDEFINED,
     NotStarted,
     Started,
-    NotCompleted,
     Completed
 }
 
