@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0bb7834ceb4e5c04894aba976e9d1a97, type: 3}
-  m_Name: QuestSign_BalloonBoy
+  m_Name: Signature_QuestTask_BalloonBoy_GetBalloons
   m_EditorClassIdentifier: 

@@ -5,15 +5,15 @@ using I302.Manu;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Condition",menuName = "Condition")]
-public class Conditional : SerializedScriptableObject
-{
-    [field: SerializeField] private List<Condition> Conditions { get; set; } = new ();
-    public bool IsConditionMet()
-    {
-        return Conditions.TrueForAll(c => c.IsConditionMet());
-    }
-}
+// [CreateAssetMenu(fileName = "Condition",menuName = "Condition")]
+// public class Conditional : SerializedScriptableObject
+// {
+//     [field: SerializeField] private List<Condition> Conditions { get; set; } = new ();
+//     public bool IsConditionMet()
+//     {
+//         return Conditions.TrueForAll(c => c.IsConditionMet());
+//     }
+// }
 
 [Serializable]
 public abstract class Condition

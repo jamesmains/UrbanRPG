@@ -15,11 +15,29 @@ MonoBehaviour:
   dialogueSegments:
   - actor: {fileID: 11400000, guid: 42243ad2ac72a29428096f0978b9bb06, type: 2}
     speech: Yes! That's all of them!
-    actions:
+    OnStartSegment:
+      m_PersistentCalls:
+        m_Calls: []
+    OnFinishSegment:
       m_PersistentCalls:
         m_Calls: []
   - actor: {fileID: 11400000, guid: 42243ad2ac72a29428096f0978b9bb06, type: 2}
     speech: To the skies!
-    actions:
+    OnStartSegment:
       m_PersistentCalls:
         m_Calls: []
+    OnFinishSegment:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: d2b8df0c78432ea4caf21dc16ee78a55, type: 2}
+          m_TargetAssemblyTypeName: Quest, Assembly-CSharp
+          m_MethodName: CompleteQuest
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

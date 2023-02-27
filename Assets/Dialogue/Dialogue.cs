@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,7 +14,8 @@ public class Dialogue : ScriptableObject
 [Serializable]
 public class DialogueSegment
 {
-    public Actor actor;
-    [TextArea] public string speech;
-    public UnityEvent actions;
+    [FoldoutGroup("Details")]public Actor actor;
+    [FoldoutGroup("Details")][TextArea] public string speech;
+    [FoldoutGroup("Actions")]public UnityEvent OnStartSegment;
+    [FoldoutGroup("Actions")]public UnityEvent OnFinishSegment;
 }

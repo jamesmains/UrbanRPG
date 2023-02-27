@@ -59,6 +59,7 @@ namespace I302.Manu
             ItemList[neededItem] -= amount;
             if (ItemList[neededItem] <= 0)
                 RemoveItem(neededItem);
+            SaveInventory();
         }
 
         private void RemoveItem(Item removedItem)

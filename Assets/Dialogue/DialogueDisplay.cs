@@ -44,7 +44,7 @@ public class DialogueDisplay : MonoBehaviour
         
         int charIndex = 0;
 
-        currentDialogue.dialogueSegments[dialogueSegmentIndex].actions.Invoke();
+        currentDialogue.dialogueSegments[dialogueSegmentIndex].OnStartSegment.Invoke();
         actorNameText.text = currentDialogue.dialogueSegments[dialogueSegmentIndex].actor.actorName;
         actorDisplayImage.sprite = currentDialogue.dialogueSegments[dialogueSegmentIndex].actor.actionIcon;
         
@@ -52,11 +52,11 @@ public class DialogueDisplay : MonoBehaviour
         currentDialogueSegmentText = currentDialogue.dialogueSegments[dialogueSegmentIndex].speech;
         while (charIndex < currentDialogueSegmentText.Length)
         {
-            
             displayText.text += currentDialogueSegmentText[charIndex];
             charIndex++;
             yield return new WaitForSeconds(textSpeed);
         }
+        
         atEndOfDialogueSegment = true;
     }
 
@@ -70,6 +70,7 @@ public class DialogueDisplay : MonoBehaviour
         }
         else if (active && atEndOfDialogueSegment && Input.GetKeyDown(interactionKey)) // go to next text
         {
+            currentDialogue.dialogueSegments[dialogueSegmentIndex].OnFinishSegment.Invoke();
             dialogueSegmentIndex++;
             if (dialogueSegmentIndex >= currentDialogue.dialogueSegments.Length)
             {
