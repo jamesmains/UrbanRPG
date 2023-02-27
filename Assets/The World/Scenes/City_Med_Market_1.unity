@@ -17278,7 +17278,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 267514229}
         m_TargetAssemblyTypeName: QuestObjectToggle, Assembly-CSharp
-        m_MethodName: CheckQuest
+        m_MethodName: CheckStatus
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -115870,7 +115870,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1874338750}
         m_TargetAssemblyTypeName: QuestObjectToggle, Assembly-CSharp
-        m_MethodName: CheckQuest
+        m_MethodName: CheckStatus
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

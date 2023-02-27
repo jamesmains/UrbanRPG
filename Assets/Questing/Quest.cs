@@ -9,20 +9,22 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Quest", menuName = "Quest")]
 public class Quest : ScriptableObject
 {
-    [FoldoutGroup("Display")]public string QuestName;
-    [FoldoutGroup("Display")][TextArea] public string QuestDescription;
+    [FoldoutGroup("Details")]public string QuestName;
+    [FoldoutGroup("Details")]public QuestType QuestType;
+    [FoldoutGroup("Details")][TextArea] public string QuestDescription;
     public List<QuestTaskData> questTasks = new();
     
     [FoldoutGroup("Status")]public QuestState QuestState;
     [FoldoutGroup("Status")]public QuestTaskSignature currentTaskSign;
     [FoldoutGroup("Status")]public int taskIndex;
-    [FoldoutGroup("Status")]public bool isQuestStarted;
-    [FoldoutGroup("Status")]public bool isQuestComplete;
+    [FoldoutGroup("Status")]public bool autoComplete;
     
     [SerializeField] [FoldoutGroup("Events")]
     private QuestGameEvent onAcceptQuest;
     [SerializeField] [FoldoutGroup("Events")]
     private QuestGameEvent onMakeQuestProgress;
+    [SerializeField] [FoldoutGroup("Events")]
+    private QuestGameEvent onReadyToComplete;
     [SerializeField] [FoldoutGroup("Events")]
     private QuestGameEvent onCompleteQuest;
     
@@ -31,8 +33,7 @@ public class Quest : ScriptableObject
     [Button, FoldoutGroup("Progress Functions")]
     public void StartQuest()
     {
-        if (isQuestStarted || isQuestComplete) return;
-        isQuestStarted = true;
+        if (QuestState == QuestState.Started || QuestState == QuestState.Completed) return;
         taskIndex = -1;
         QuestState = QuestState.Started;
         onAcceptQuest.Raise(this);
@@ -41,8 +42,8 @@ public class Quest : ScriptableObject
     
     public int TryCompleteTask(QuestTaskSignature taskTaskSignature, int amount = 1)
     {
-        if (isQuestComplete || !isQuestStarted) return 0;
-        Debug.Log(amount);
+        if (QuestState != QuestState.Started || QuestState == QuestState.ReadyToComplete) return 0;
+        
         QuestTaskData task = questTasks[taskIndex];
 
         if (task.taskTaskSignature != currentTaskSign || taskTaskSignature != currentTaskSign)
@@ -70,20 +71,26 @@ public class Quest : ScriptableObject
     private void StartNextTask()
     {
         taskIndex++;
-        if (taskIndex >= questTasks.Count)
+        if (taskIndex >= questTasks.Count && autoComplete)
         {
             CompleteQuest();
             return;
         }
-
+        else if(taskIndex >= questTasks.Count) taskIndex--;
         currentTaskSign = questTasks[taskIndex].taskTaskSignature;
+        var lastQuestTask = questTasks.Last();
+        if (currentTaskSign == lastQuestTask.taskTaskSignature &&
+            lastQuestTask.hits == lastQuestTask.numberOfRequiredHits && !autoComplete)
+        {
+            QuestState = QuestState.ReadyToComplete;
+            onReadyToComplete.Raise(this);
+        }
         SaveQuest();
     }
 
     [Button, FoldoutGroup("Progress Functions")]
-    private void CompleteQuest()
+    public void CompleteQuest()
     {
-        isQuestComplete = true;
         currentTaskSign = null;
         QuestState = QuestState.Completed;
         onCompleteQuest.Raise(this);
@@ -95,8 +102,6 @@ public class Quest : ScriptableObject
     {
         foreach (var task in questTasks)
             task.hits = 0;
-        isQuestComplete = false;
-        isQuestStarted = false;
         taskIndex = 0;
         currentTaskSign = null;
         QuestState = QuestState.NotStarted;
@@ -128,8 +133,7 @@ public class Quest : ScriptableObject
             o.hits = loadedData.SavedTaskHits[j];
             j++;
         });
-        isQuestStarted = loadedData.SavedStartedState;
-        isQuestComplete = loadedData.SavedCompletedState;
+        QuestState = loadedData.SavedQuestState;
     }
 
     private void OnEnable()
@@ -164,15 +168,13 @@ public class QuestSaveData
     public string Name;
     public int SavedTaskIndex;
     public int[] SavedTaskHits;
-    public bool SavedStartedState;
-    public bool SavedCompletedState;
+    public QuestState SavedQuestState;
 
     public QuestSaveData(Quest quest)
     {
         Name = quest.QuestName;
         SavedTaskIndex = quest.taskIndex;
         SavedTaskHits = quest.questTasks.Select(o => o.hits).ToArray();
-        SavedStartedState = quest.isQuestStarted;
-        SavedCompletedState = quest.isQuestComplete;
+        SavedQuestState = quest.QuestState;
     }
 }

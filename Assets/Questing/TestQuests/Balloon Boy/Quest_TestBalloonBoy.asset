@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Quest_TestBalloonBoy
   m_EditorClassIdentifier: 
   QuestName: Balloon Boy
+  QuestType: 0
   QuestDescription: Give 20 balloons to Balloon Boy
   questTasks:
   - taskTaskSignature: {fileID: 11400000, guid: 1d402beaf2d2665408902fa62de73b02, type: 2}
@@ -22,9 +23,9 @@ MonoBehaviour:
     hits: 20
   QuestState: 2
   currentTaskSign: {fileID: 0}
-  taskIndex: 1
-  isQuestStarted: 1
-  isQuestComplete: 1
+  taskIndex: 0
+  autoComplete: 0
   onAcceptQuest: {fileID: 11400000, guid: 36a1b5f765942a94099e42b2077cb5df, type: 2}
   onMakeQuestProgress: {fileID: 11400000, guid: 9e7d2549b95255f48a5ea70e61d4d5e0, type: 2}
+  onReadyToComplete: {fileID: 11400000, guid: 19d405d07a308d24e9113ba12c3a0203, type: 2}
   onCompleteQuest: {fileID: 11400000, guid: c819f8689b82617498125b1660ace797, type: 2}

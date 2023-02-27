@@ -24,14 +24,13 @@ MonoBehaviour:
     SerializationNodes:
     - Name: <Conditions>k__BackingField
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[ActivityCondition, Assembly-CSharp]],
-        mscorlib
+      Data: 0|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 1|ActivityQuestStateCondition, Assembly-CSharp
+      Data: 1|QuestStateConditional, Assembly-CSharp
     - Name: <TargetQuest>k__BackingField
       Entry: 10
       Data: 0
