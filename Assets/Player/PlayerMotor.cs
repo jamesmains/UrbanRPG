@@ -18,8 +18,8 @@ public class PlayerMotor : MonoBehaviour
 
     private void Awake()
     {
-        playerLockVariable.Value = 0; // TODO is there safer way to do this?
-        if (playerSaveSlot.NextLevelTransition != null && !string.IsNullOrEmpty(playerSaveSlot.NextLevelTransition.TargetScene)) // Todo need initial value?
+        playerLockVariable.Value = 0;
+        if (playerSaveSlot.NextLevelTransition != null && !string.IsNullOrEmpty(playerSaveSlot.NextLevelTransition.TargetScene))
         {
             MovePlayerTo(playerSaveSlot.NextLevelTransition.SpawnLocation);
         }

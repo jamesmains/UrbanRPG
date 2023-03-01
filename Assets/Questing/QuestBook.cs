@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using JetBrains.Annotations;
+using System.Linq;
+using Sirenix.OdinInspector;
+using UnityEditor;
 using UnityEngine;
 
 public class QuestBook : MonoBehaviour
 {
-    [SerializeField] private List<Quest> questList = new();
+    public List<Quest> questList = new();
 
     public void TryCompleteQuestTask(QuestTaskSignature taskTaskSignature)
     {
@@ -14,4 +16,20 @@ public class QuestBook : MonoBehaviour
             quest.TryCompleteTask(taskTaskSignature);
         }
     }
+    
+#if UNITY_EDITOR
+    [Button]
+    public void FindAssetsByType()
+    {
+        questList.Clear();
+        var quests = AssetDatabase.FindAssets("t:Quest");
+        
+        for (int i = 0; i < quests.Length; i++)
+        {
+            string assetPath = AssetDatabase.GUIDToAssetPath( quests[i] );
+            var asset = AssetDatabase.LoadAssetAtPath<Quest>( assetPath );
+            questList.Add(asset);
+        }
+    }
+#endif
 }
