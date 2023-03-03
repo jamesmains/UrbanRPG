@@ -15,6 +15,7 @@ public class PlayerSaveSlot : ScriptableObject
     public LevelTransitionSignature NewSaveFileSpawnLocation;
     public LevelTransitionSignature NextLevelTransition;
     public VectorVariable PlayerPositionVariable;
+    public IntVariable PlayerMoneyVariable;
     public bool Loaded;
     
     private void OnEnable()
@@ -47,6 +48,7 @@ public class PlayerSaveSlot : ScriptableObject
             saveData.SavedSpawnLocationY,
             saveData.SavedSpawnLocationZ
         );
+        PlayerMoneyVariable.Value = saveData.SavedMoney;
         Loaded = true;
     }
     
@@ -57,7 +59,8 @@ public class PlayerSaveSlot : ScriptableObject
             SceneManager.GetActiveScene().name,
             characterName,
             cityName,
-            PlayerPositionVariable.Value));
+            PlayerPositionVariable.Value,
+            PlayerMoneyVariable.Value));
     }
 
     public void SetValue(LevelTransitionSignature targetLevelSignature)
@@ -75,8 +78,9 @@ public class PlayerSaveData
     public float SavedSpawnLocationX;
     public float SavedSpawnLocationY;
     public float SavedSpawnLocationZ;
+    public int SavedMoney;
 
-    public PlayerSaveData(string sceneName, string characterName, string cityName, Vector3 location)
+    public PlayerSaveData(string sceneName, string characterName, string cityName, Vector3 location, int money)
     {
         SavedScene = sceneName;
         SavedCharacterName = characterName;
@@ -84,5 +88,6 @@ public class PlayerSaveData
         SavedSpawnLocationX = location.x;
         SavedSpawnLocationY = location.y;
         SavedSpawnLocationZ = location.z;
+        SavedMoney = money;
     }
 }

@@ -66,6 +66,13 @@ public enum Day
     Friday
 }
 
+public enum InteractionType
+{
+    OnEnter,
+    OnStay,
+    OnExit
+}
+
 // yoinked from https://stackoverflow.com/questions/20156/is-there-an-easy-way-to-create-ordinals-in-c
 public static class UtilFunctions
 {

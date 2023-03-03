@@ -8,8 +8,11 @@ using UnityEngine.Events;
 // Presume target is always going to be player since this relies on keyboard or gamepad input
 public class InteractionTrigger : MonoBehaviour
 {
-    [SerializeField] private KeyCode interactionKey; // todo replace with scriptable objects for key rebinding
-    [FoldoutGroup("Data")][SerializeField] private IntVariable playerLock;
+    // Todo needs some reworking
+    [SerializeField] private bool requireKeyPress;
+    [SerializeField] private InteractionType interactionType;
+    [SerializeField, ShowIf("requireKeyPress",true)] private KeyCode interactionKey; // todo replace with scriptable objects for key rebinding
+    [FoldoutGroup("Data"), ShowIf("requireKeyPress",true)][SerializeField] private IntVariable playerLock;
     [FoldoutGroup("Data")]public bool readyToInteract;
     [SerializeField] private UnityEvent onInteract;
 
@@ -18,6 +21,14 @@ public class InteractionTrigger : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(interactionKey) && targetTrigger == this && playerLock.Value == 0)
+        {
+            onInteract.Invoke();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player") && interactionType == InteractionType.OnEnter && !requireKeyPress)
         {
             onInteract.Invoke();
         }

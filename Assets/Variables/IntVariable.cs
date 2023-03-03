@@ -12,6 +12,7 @@ public class IntVariable : ScriptableObject
     public string DeveloperDescription = "";
 #endif
     public int Value;
+    public GameEvent OnValueChanged;
     
     public IntVariable ChainVariable;
     public int MaxValue;
@@ -33,10 +34,12 @@ public class IntVariable : ScriptableObject
             Value = 0;
             ChainVariable.ApplyChange(1);
         }
+        OnValueChanged?.Raise();
     }
 
     public void ApplyChange(IntVariable amount)
     {
         Value += amount.Value;
+        OnValueChanged?.Raise();
     }
 }
