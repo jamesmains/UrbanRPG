@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54c4ce2b6c07e534f841dbb71bf61d4c, type: 3}
-  m_Name: NameTag_BalloonBoy
+  m_Name: SomeItem
   m_EditorClassIdentifier: 
-  <Sprite>k__BackingField: {fileID: -573902769, guid: 70a7ebef66edbd946b06fcb7a2388811, type: 3}
-  <Name>k__BackingField: Spray Paint
+  <Sprite>k__BackingField: {fileID: 1411666810, guid: 66a335ee7cceb544b864bde866bb49ff, type: 3}
+  <Name>k__BackingField: SomeItem
   <Description>k__BackingField: 
   <ItemType>k__BackingField: 0
-  amount: 34
+  amount: 0
   <StackLimit>k__BackingField: 2147483647

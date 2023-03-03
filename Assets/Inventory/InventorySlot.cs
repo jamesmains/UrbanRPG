@@ -10,24 +10,23 @@ using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    [field: SerializeField] public Item heldItem { get; private set; }
-    [field: SerializeField] public InventoryDisplay originInventory { get; private set; }
-    [SerializeField] private GameObject pickupItemObject;
-    [SerializeField] private Image iconDisplay;
-    [SerializeField] private TextMeshProUGUI countDisplayText;
-    [SerializeField] private VectorVariable playerPositionVariable;
-    
+    [FoldoutGroup("Data")][field: SerializeField] public Item heldItem { get; private set; }
+    [FoldoutGroup("Data")][field: SerializeField] public InventoryDisplay parentInventoryDisplay { get; private set; }
+    [FoldoutGroup("Display")][SerializeField] private GameObject pickupItemObject;
+    [FoldoutGroup("Display")][SerializeField] private Image iconDisplay;
+    [FoldoutGroup("Display")][SerializeField] private TextMeshProUGUI countDisplayText;
+
     [SerializeField] [FoldoutGroup("Events")]
     private InventoryItemManagementGameEvent onItemMove;
     [SerializeField] [FoldoutGroup("Events")]
     private InventoryItemManagementGameEvent onItemRelease;
-
     [SerializeField] [FoldoutGroup("Events")]
     private GameEvent onMouseEnter;
     [SerializeField] [FoldoutGroup("Events")]
     private GameEvent onMouseExit;
     
-    [SerializeField] private StringVariable itemNameVariable;
+    [FoldoutGroup("Variables")] [SerializeField] private VectorVariable playerPositionVariable;
+    [FoldoutGroup("Variables")] [SerializeField] private StringVariable itemNameVariable;
 
     public static InventorySlot movingItem;
     private bool mouseDown;
@@ -52,7 +51,7 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         heldItem = incomingItem;
         iconDisplay.sprite = heldItem.Sprite;
         countDisplayText.text = origin.targetInventory.ItemList[heldItem].ToString();
-        originInventory = origin;
+        parentInventoryDisplay = origin;
     }
 
     private void Drag()
@@ -62,6 +61,21 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         iconDisplay.color = new Color(1, 1, 1, 0.5f);
     }
 
+    private void TryMoveItem()
+    {
+        int o = InventoryDisplay.mouseOverInventoryDisplay.AddItem(heldItem,parentInventoryDisplay.targetInventory.ItemList[heldItem]);
+        parentInventoryDisplay.targetInventory.TryUseItem(heldItem,o);
+    }
+    
+    private void DropItem()
+    {
+        Vector3 spawnPos = playerPositionVariable.Value;
+        var pickup = Instantiate(pickupItemObject, spawnPos,Quaternion.identity).GetComponent<Pickup>();
+        int quantity = parentInventoryDisplay.targetInventory.ItemList[heldItem];
+        parentInventoryDisplay.targetInventory.TryUseItem(heldItem,quantity);
+        pickup.Setup(heldItem,quantity);
+    }
+    
     public void OnPointerDown(PointerEventData eventData)
     {
         mouseDown = true;
@@ -73,23 +87,18 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         mouseDown = false;
         if (movingItem is not null || movingItem != this)
         {
-            if (originInventory != InventoryDisplay.mouseOverInventoryDisplay && InventoryDisplay.mouseOverInventoryDisplay is not null)
+            if (parentInventoryDisplay != InventoryDisplay.mouseOverInventoryDisplay && InventoryDisplay.mouseOverInventoryDisplay is not null)
             {
-                int o = InventoryDisplay.mouseOverInventoryDisplay.AddItem(heldItem,originInventory.targetInventory.ItemList[heldItem]);
-                originInventory.targetInventory.TryUseItem(heldItem,o);
+                TryMoveItem();
             }
-            else if(!originInventory.isMouseOverUserInterface.Value)
+            else if(!parentInventoryDisplay.isMouseOverUserInterface.Value)
             {
-                Vector3 spawnPos = playerPositionVariable.Value;
-                var pickup = Instantiate(pickupItemObject, spawnPos,Quaternion.identity).GetComponent<Pickup>();
-                int quantity = originInventory.targetInventory.ItemList[heldItem];
-                originInventory.targetInventory.TryUseItem(heldItem,quantity);
-                pickup.Setup(heldItem,quantity);
+                DropItem();
             }
             movingItem = null;
             onItemRelease.Raise(null);
             iconDisplay.color = new Color(1, 1, 1, 1);      
-            originInventory.UpdateInventoryDisplay();
+            parentInventoryDisplay.UpdateInventoryDisplay();
         }
         
     }

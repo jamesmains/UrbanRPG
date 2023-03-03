@@ -21,7 +21,6 @@ public class ObjectToggle : MonoBehaviour
 
     public void CheckStatus()
     {
-        print("Checking status");
         bool canDo = IsConditionMet();
 
         if (canDo)

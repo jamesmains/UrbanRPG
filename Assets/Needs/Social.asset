@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Social
   Description: 
-  Icon: {fileID: 0}
-  IsDepleted: 0
+  Icon: {fileID: 818928343, guid: 70a7ebef66edbd946b06fcb7a2388811, type: 3}
+  IsDepleted: 1
   DecayRate: 1
-  value: 97.71123
+  value: 0

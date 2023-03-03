@@ -15,22 +15,34 @@ MonoBehaviour:
   dialogueSegments:
   - actor: {fileID: 11400000, guid: 42243ad2ac72a29428096f0978b9bb06, type: 2}
     speech: Hmm...
-    actions:
+    OnStartSegment:
+      m_PersistentCalls:
+        m_Calls: []
+    OnFinishSegment:
       m_PersistentCalls:
         m_Calls: []
   - actor: {fileID: 11400000, guid: 42243ad2ac72a29428096f0978b9bb06, type: 2}
     speech: Hmm... yes 20 should do...
-    actions:
+    OnStartSegment:
+      m_PersistentCalls:
+        m_Calls: []
+    OnFinishSegment:
       m_PersistentCalls:
         m_Calls: []
   - actor: {fileID: 11400000, guid: 42243ad2ac72a29428096f0978b9bb06, type: 2}
     speech: Oh! Hey! Wanna help me get some more balloons?
-    actions:
+    OnStartSegment:
+      m_PersistentCalls:
+        m_Calls: []
+    OnFinishSegment:
       m_PersistentCalls:
         m_Calls: []
   - actor: {fileID: 11400000, guid: 42243ad2ac72a29428096f0978b9bb06, type: 2}
     speech: I'll need about 20 balloons please!!!
-    actions:
+    OnStartSegment:
+      m_PersistentCalls:
+        m_Calls: []
+    OnFinishSegment:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 11400000, guid: d2b8df0c78432ea4caf21dc16ee78a55, type: 2}

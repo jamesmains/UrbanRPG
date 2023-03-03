@@ -6,7 +6,7 @@ using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "PVGames Animation Sheet", menuName = "Scriptable Objects/PVGames Animation Sheet", order = 1)]
+[CreateAssetMenu(fileName = "PVGames Animation Sheet", menuName = "Unsorted/PVGames Animation Sheet", order = 1)]
 public class AnimationSheet : ScriptableObject
 {
     public string ID;

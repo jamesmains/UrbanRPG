@@ -20,8 +20,8 @@ MonoBehaviour:
     TaskName: Get Balloons
     TaskDescription: Get 20 balloons
     numberOfRequiredHits: 20
-    hits: 20
-  QuestState: 2
+    hits: 0
+  QuestState: 0
   currentTaskSign: {fileID: 0}
   taskIndex: 0
   autoComplete: 0

@@ -5,7 +5,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "Dialogue", menuName = "Dialogue")]
+[CreateAssetMenu(fileName = "Dialogue", menuName = "Unsorted/Dialogue")]
 public class Dialogue : ScriptableObject
 {
     public DialogueSegment[] dialogueSegments;

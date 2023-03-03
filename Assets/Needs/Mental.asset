@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Mental
   Description: 
-  Icon: {fileID: 0}
-  IsDepleted: 0
+  Icon: {fileID: 936697910, guid: ea6a10dcc554eae44a2af6bb1de0479d, type: 3}
+  IsDepleted: 1
   DecayRate: 1
-  value: 97.71123
+  value: 0

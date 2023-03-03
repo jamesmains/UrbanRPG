@@ -10,8 +10,10 @@ public class InventoryDisplay : MonoBehaviour,IPointerEnterHandler,IPointerExitH
 {
     public Inventory targetInventory;
     [SerializeField] private GameObject inventoryDisplayListObject;
+    [SerializeField] private GameObject inventorySlotObject;
     public BoolVariable isMouseOverUserInterface;
     public bool isLocked;
+    public bool removeOnly;
     [SerializeField] private GameEvent onMoveOrAddItem;
 
     private bool flaggedToUpdate;
@@ -51,15 +53,16 @@ public class InventoryDisplay : MonoBehaviour,IPointerEnterHandler,IPointerExitH
         }
         foreach (Item item in targetInventory.ItemList.Keys)
         {
-            var listObject = Instantiate(inventoryDisplayListObject, this.transform);
+            var slot = Instantiate(inventorySlotObject, this.transform);
+            var listObject = Instantiate(inventoryDisplayListObject, slot.transform);
             listObject.GetComponent<InventorySlot>().Setup(item,this);
-            existingInventorySlotListObjects.Add(listObject);
+            existingInventorySlotListObjects.Add(slot);
         }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (mouseOverInventoryDisplay is null || mouseOverInventoryDisplay != this && !isLocked)
+        if ((mouseOverInventoryDisplay is null || mouseOverInventoryDisplay != this && !isLocked) && !removeOnly)
             mouseOverInventoryDisplay = this;
     }
 

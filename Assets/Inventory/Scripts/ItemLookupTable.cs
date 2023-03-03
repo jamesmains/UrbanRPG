@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace I302.Manu
 {
-    [CreateAssetMenu(fileName = "ItemLookupTable", menuName = "Scriptable Objects/ItemsAndInventory/LookupTable")]
+    [CreateAssetMenu(fileName = "ItemLookupTable", menuName = "Unsorted/ItemsAndInventory/LookupTable")]
     public class ItemLookupTable : SerializedScriptableObject
     {
         [field: SerializeField]
@@ -20,6 +20,7 @@ namespace I302.Manu
         [FoldoutGroup("Automation")][Button]
         public void PopulateItemCollection()
         {
+            ItemCollection.Clear();
             List<Item> itemList = AssetManagementUtil.GetAllScriptableObjectInstances<Item>();
 
             foreach (Item item in itemList)

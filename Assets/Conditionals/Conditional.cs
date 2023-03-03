@@ -15,6 +15,8 @@ using UnityEngine;
 //     }
 // }
 
+#region Generic
+
 [Serializable]
 public abstract class Condition
 {
@@ -69,6 +71,103 @@ public class NotCondition : Condition
     }
 }
 
+#endregion
+
+#region Calendar
+
+public abstract class CalendarCondition : Condition
+{
+    
+    public abstract bool IsConditionMet(int day, int month);
+    public override bool IsConditionMet()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void Use()
+    {
+        throw new NotImplementedException();
+    }
+}
+
+public class CalendarAndCondition : CalendarCondition
+{
+    [field: SerializeField]
+    public List<CalendarCondition> Conditions { get; private set; } = new List<CalendarCondition>();
+    
+    public override bool IsConditionMet(int day, int month)
+    {
+        return Conditions.TrueForAll(c => c.IsConditionMet(day,month));
+    }
+}
+
+public class CalendarOrCondition : CalendarCondition
+{
+    [field: SerializeField]
+    public List<CalendarCondition> Conditions { get; private set; } = new List<CalendarCondition>();
+
+    public override bool IsConditionMet(int day, int month)
+    {
+        return Conditions.Exists(c => c.IsConditionMet(day,month));
+    }
+}
+
+public class CalendarNotCondition : CalendarCondition
+{
+    [field: SerializeField]
+    public List<CalendarCondition> Conditions { get; private set; } = new List<CalendarCondition>();
+
+    public override bool IsConditionMet(int day, int month)
+    {
+        return !Conditions.Exists(c => c.IsConditionMet(day,month));
+    }
+}
+
+public class DayOfWeekCondition : CalendarCondition
+{
+    [field: SerializeField]
+    public Day TargetDay { get; private set; }
+    public override bool IsConditionMet(int day, int month)
+    {
+        day %= 7;
+        return (day == (int) TargetDay);
+    }
+}
+
+public class SpecificDayCondition : CalendarCondition
+{
+    [field: SerializeField, Range(0,27)]
+    public int TargetDate { get; private set; }
+    public override bool IsConditionMet(int day, int month)
+    {
+        return day == TargetDate;
+    }
+}
+
+public class SpecificMonthCondition : CalendarCondition
+{
+    [field: SerializeField]
+    public Month TargetMonth { get; private set; }
+    public override bool IsConditionMet(int day, int month)
+    {
+        return month == (int)TargetMonth;
+    }
+}
+
+public class DateRangeCondition : CalendarCondition
+{
+    [field: SerializeField, MinMaxSlider(0, 27)]
+    public Vector2Int Range;
+    public override bool IsConditionMet(int day, int month)
+    {
+        return day >= Range.x && day <= Range.y;
+    }
+}
+
+#endregion
+
+#region Quests
+
 public class QuestStateConditional : Condition
 {
     [field: SerializeField]
@@ -85,6 +184,10 @@ public class QuestStateConditional : Condition
         
     }
 }
+
+#endregion
+
+#region Items
 
 public class ItemConditional : Condition
 {
@@ -134,3 +237,11 @@ public class QuestItemConditional : ItemConditional
         TargetInventory.TryUseItem(TargetItem,_useAmount);
     }
 }
+
+
+#endregion
+
+
+
+
+

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Bladder
   Description: 
-  Icon: {fileID: 0}
-  IsDepleted: 0
+  Icon: {fileID: -1512765002, guid: 70a7ebef66edbd946b06fcb7a2388811, type: 3}
+  IsDepleted: 1
   DecayRate: 1
-  value: 97.71123
+  value: 0

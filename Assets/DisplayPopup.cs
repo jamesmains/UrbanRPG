@@ -17,13 +17,26 @@ public class DisplayPopup : MonoBehaviour
     
     public void Setup(Quest quest)
     {
-        valueText.text = $"{quest.QuestName}\n- Quest Complete -";
+        valueText.text = $"{quest.QuestName}\n- Quest {GetQuestStateText(quest.QuestState)} -";
     }
+
+    public string GetQuestStateText(QuestState incomingState) => incomingState switch
+    {
+        QuestState.Completed => "Complete",
+        QuestState.Started => "Started",
+        QuestState.ReadyToComplete => "Ready To Turn In",
+        _ => throw new ArgumentOutOfRangeException(nameof(incomingState), $"Not expected input")
+    };
     
     public void Setup(Sprite icon, int value)
     {
         iconImage.sprite = icon;
         valueText.text = $"+{value}";
+    }
+
+    public void Setup(Sprite icon)
+    {
+        iconImage.sprite = icon;
     }
 
     private void OnFinish()

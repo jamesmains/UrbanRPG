@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Fun
   Description: 
-  Icon: {fileID: 0}
-  IsDepleted: 0
+  Icon: {fileID: -1650558467, guid: 70a7ebef66edbd946b06fcb7a2388811, type: 3}
+  IsDepleted: 1
   DecayRate: 0.65
-  value: 61.82546
+  value: 0

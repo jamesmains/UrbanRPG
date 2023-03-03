@@ -5,7 +5,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[CreateAssetMenu(fileName = "Level Transition Signature", menuName = "Scriptable Objects/Level Transition Signature")]
+[CreateAssetMenu(fileName = "Level Transition Signature", menuName = "Signatures/Level Transition Signature")]
 public class LevelTransitionSignature : ScriptableObject
 {
     public String TargetScene;

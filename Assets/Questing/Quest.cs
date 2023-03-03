@@ -6,7 +6,7 @@ using I302.Manu;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Quest", menuName = "Quest")]
+[CreateAssetMenu(fileName = "Quest", menuName = "Unsorted/Quest")]
 public class Quest : ScriptableObject
 {
     [FoldoutGroup("Details")]public string QuestName;

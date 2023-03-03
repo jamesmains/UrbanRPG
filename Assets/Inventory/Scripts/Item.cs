@@ -8,13 +8,15 @@ using UnityEngine;
 
 namespace I302.Manu
 {
-    [CreateAssetMenu(fileName = "Item", menuName = "Scriptable Objects/ItemsAndInventory/Item")]
+    [CreateAssetMenu(fileName = "Item", menuName = "Unsorted/ItemsAndInventory/Item")]
     public class Item : ScriptableObject
     {
-        [field: SerializeField] public Sprite Sprite { get; private set; }
-        [field: SerializeField] public string Name { get; private set; }
-        [field: SerializeField] public string Description { get; private set; }
-        [field: SerializeField] public ItemType ItemType { get; private set; }
+        [FoldoutGroup("Details")][field: SerializeField] public Sprite Sprite { get; private set; }
+        [FoldoutGroup("Details")][field: SerializeField] public string Name { get; private set; }
+        [FoldoutGroup("Details")][field: SerializeField] public string Description { get; private set; }
+        [FoldoutGroup("Data")][field: SerializeField] public ItemType ItemType { get; private set; }
+        [FoldoutGroup("Data")][field: SerializeField] public int sellValue { get; private set; }
+        [FoldoutGroup("Data")][field: SerializeField] public int buyValue { get; private set; }
 
 #if UNITY_EDITOR
         private void OnEnable()

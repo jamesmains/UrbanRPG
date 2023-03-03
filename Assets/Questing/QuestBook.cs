@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,12 @@ using UnityEngine;
 public class QuestBook : MonoBehaviour
 {
     public List<Quest> questList = new();
+    public BoolVariable HasDreamQuestVariable;
+
+    private void Awake()
+    {
+        HasDreamQuestVariable.Value = HasDreamQuestVariable;
+    }
 
     public void TryCompleteQuestTask(QuestTaskSignature taskTaskSignature)
     {
@@ -15,6 +22,13 @@ public class QuestBook : MonoBehaviour
         {
             quest.TryCompleteTask(taskTaskSignature);
         }
+    }
+
+    public bool HasDreamQuest()
+    {
+        return questList.Any(q =>
+            q.QuestType == QuestType.Dream &&
+            (q.QuestState == QuestState.Started || q.QuestState == QuestState.ReadyToComplete));
     }
     
 #if UNITY_EDITOR

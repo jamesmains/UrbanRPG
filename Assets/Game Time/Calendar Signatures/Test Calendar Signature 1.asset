@@ -136,7 +136,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  Active: 0
+  Active: 1
   DisplayName: Test 2
   DisplayText: Go to work at shop
   DisplayIcon: {fileID: 998850390, guid: b205f36899d87f54885ad2dd61acd6de, type: 3}

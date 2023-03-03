@@ -5,7 +5,7 @@ using I302.Manu;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Activity Signature", menuName = "Scriptable Objects/Activity Signature")]
+[CreateAssetMenu(fileName = "Activity Signature", menuName = "Signatures/Activity Signature")]
 public class ActivitySignature : SerializedScriptableObject
 {
     public ActionType actionType;
@@ -16,6 +16,7 @@ public class ActivitySignature : SerializedScriptableObject
     
     public bool IsConditionMet()
     {
+        if (Conditions.Count == 0) return true;
         return Conditions.TrueForAll(c => c.IsConditionMet());
     }
 

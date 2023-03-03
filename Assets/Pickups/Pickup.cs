@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
 
-public class Pickup : Activity
+public class Pickup : MonoBehaviour
 {
     public Inventory pockets;
     public Item item;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Skill", menuName = "Scriptable Objects/Skill")]
+[CreateAssetMenu(fileName = "Skill", menuName = "Player/Skill")]
 public class Skill : ScriptableObject
 {
     public string Name;

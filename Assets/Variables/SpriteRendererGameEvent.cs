@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "Sprite Event", menuName = "Events/Sprite Event")]
+[CreateAssetMenu(fileName = "Sprite Renderer Event", menuName = "Events/Sprite Renderer Event")]
 public class SpriteRendererGameEvent : ScriptableObject
 {
     private readonly List<SpriteRendererGameEventListener> eventListeners = 

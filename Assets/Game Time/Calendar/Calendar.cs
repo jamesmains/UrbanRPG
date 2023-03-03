@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,21 +15,21 @@ public class Calendar : MonoBehaviour
     
     [SerializeField] private TimeVariable dayVariable;
     [SerializeField] private TimeVariable monthVariable;
-    [SerializeField] private Slider yearProgressDisplay; // todo do we need this?
+    [SerializeField] private Slider yearProgressDisplay;
+    [SerializeField] private Sprite multipleEventsOnDaySprite;
 
-    public TextMeshProUGUI thing;
+    public TextMeshProUGUI calendarDayDetailsText;
     
     public List<CalendarSignature> calendarSignatures = new();
     
     private void Awake()
     {
         UpdateCalendar();
-        // print(testSignature.IsConditionMet(0,0));
     }
 
     private void Update()
     {
-        monthNameDisplay.text = ((Month) monthVariable.Value).ToString();
+        monthNameDisplay.text = $"{((Month) monthVariable.Value).ToString()} the {UtilFunctions.AddOrdinal((int)(dayVariable.Value+1))}";
         if (yearProgressDisplay != null)
         {
             yearProgressDisplay.value = Mathf.InverseLerp(0, 5, monthVariable.Value);
@@ -46,23 +47,55 @@ public class Calendar : MonoBehaviour
         {
             var obj = Instantiate(calendarDayDisplayObject, calendaryDisplayContainer);
             bool isHighlighted = day == (int) dayVariable.Value;
-            int dayOffset = day + 1;
-            string displayText = "";
+            int signaturesPerDayCount = 0;
+            string detailString = "";
             Sprite icon = null;
+
+            detailString += $"<b><u>{((Month) monthVariable.Value).ToString()} the {UtilFunctions.AddOrdinal((int)(day+1))}</b></u><br><br>";
             foreach (CalendarSignature signature in calendarSignatures)
             {
+                if (signature.Active == false) continue;
                 if (signature.IsConditionMet(day, -1))
                 {
-                    displayText += $"<b>{signature.DisplayName}</b><br>";
-                    displayText += $"{signature.DisplayText}<br>";
+                    detailString += $"<b>{signature.DisplayName}</b><br>";
+                    detailString += $"{signature.DisplayText}<br>";
                     icon = signature.DisplayIcon;
+                    signaturesPerDayCount++;
                 }
             }
-            // Sprite icon = testSignature.IsConditionMet(i,-1) ? testSignature.DisplayIcon : null; // todo replace so its not null
+            
+            if (signaturesPerDayCount > 1)
+            {
+                icon = multipleEventsOnDaySprite;
+            }
+            
             var display = obj.GetComponent<CalendarDayDisplay>();
-            display.Setup(isHighlighted,dayOffset,icon);
-            display.AssignMouseOver(delegate { thing.text = displayText; });
-            display.AssignMouseExit(delegate { thing.text = ""; });
+            
+            calendarDayDetailsText.text = "";
+            display.Setup(isHighlighted,day,icon);
+            display.AssignInteract(delegate { calendarDayDetailsText.text = detailString; display.ToggleTemporaryHighlight(true); });
+            if (isHighlighted)
+            {
+                display.ToggleTemporaryHighlight(true);
+                display.Interact();
+            }
+            // display.AssignMouseExit(delegate { calendarDayDetailsText.text = ""; });
         }
     }
+    
+#if UNITY_EDITOR
+    [Button]
+    public void FindAssetsByType()
+    {
+        calendarSignatures.Clear();
+        var quests = AssetDatabase.FindAssets("t:CalendarSignature");
+        
+        for (int i = 0; i < quests.Length; i++)
+        {
+            string assetPath = AssetDatabase.GUIDToAssetPath( quests[i] );
+            var asset = AssetDatabase.LoadAssetAtPath<CalendarSignature>( assetPath );
+            calendarSignatures.Add(asset);
+        }
+    }
+#endif
 }

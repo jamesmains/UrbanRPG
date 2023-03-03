@@ -48,7 +48,7 @@ namespace ParentHouse.UI
         if(player == null)
             Debug.LogError("Player is null");
         
-        //UnityEngine.Cursor.visible = false;
+        UnityEngine.Cursor.visible = false;
         originalListPosition = actionListContainer.localPosition;
         offsetListPosition = originalListPosition;
         offsetListPosition.x -= horizontalListPositionOffset;
@@ -97,6 +97,12 @@ namespace ParentHouse.UI
         
         bool needRefresh = false;
         List<Activity> tempActivityList = new List<Activity>();
+
+        if (hits.Length == 0)
+        {
+            defaultCursor.sprite = defaultCursorIcon;
+            return;
+        }
         
         for (int i = 0; i < hits.Length; i++)
         {

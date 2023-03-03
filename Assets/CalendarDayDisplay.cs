@@ -15,11 +15,28 @@ public class CalendarDayDisplay : MonoBehaviour,IPointerEnterHandler,IPointerExi
 
     private UnityAction onMouseOver;
     private UnityAction onMouseExit;
+    private UnityAction onInteract;
+
+    private bool isMouseOver;
+    private bool isHighlighted;
+
+    public static CalendarDayDisplay LastInteractedDayDisplay;
+    
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && isMouseOver) // Todo need support for controllers and other inputs
+        {
+            Interact();
+        }
+    }
+    
+// TODO need better highlighting for current day and selected day display
 
     public void Setup(bool highlight, int day, Sprite specialDaySprite)
     {
+        isHighlighted = highlight;
         frameIcon.color = highlight ? Color.white : Color.gray;
-        dayText.text = day.ToString();
+        dayText.text = (day+1).ToString();
         if (specialDaySprite != null)
         {
             dayIcon.sprite = specialDaySprite;
@@ -28,6 +45,23 @@ public class CalendarDayDisplay : MonoBehaviour,IPointerEnterHandler,IPointerExi
         {
             dayIcon.enabled = false;
         }
+    }
+
+    public void ToggleTemporaryHighlight(bool state)
+    {
+        if (LastInteractedDayDisplay != null && LastInteractedDayDisplay != this)
+        {
+            LastInteractedDayDisplay.ToggleTemporaryHighlight(false);
+        }
+
+        LastInteractedDayDisplay = this;
+        print(state);
+        frameIcon.color = state ? Color.cyan : isHighlighted ? Color.white : Color.gray;
+    }
+
+    public void Interact()
+    {
+        onInteract.Invoke();
     }
 
     public void AssignMouseOver(UnityAction mouseOver)
@@ -40,25 +74,20 @@ public class CalendarDayDisplay : MonoBehaviour,IPointerEnterHandler,IPointerExi
         onMouseExit = mouseExit;
     }
 
-    private void OnMouseEnter()
+    public void AssignInteract(UnityAction interactActions)
     {
-        onMouseOver.Invoke();
-    }
-
-    private void OnMouseExit()
-    {
-        onMouseExit.Invoke();
+        onInteract = interactActions;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        print("Enter pointer");
         onMouseOver?.Invoke();
+        isMouseOver = true;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        print("Exit Pointer");
         onMouseExit?.Invoke();
+        isMouseOver = false;
     }
 }
