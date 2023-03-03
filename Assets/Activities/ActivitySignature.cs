@@ -8,9 +8,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Activity Signature", menuName = "Signatures/Activity Signature")]
 public class ActivitySignature : SerializedScriptableObject
 {
-    public ActionType actionType;
-    public string ActionName;
-    public Sprite ActionIcon;
+    [FoldoutGroup("Details")] public ActionType actionType;
+    [FoldoutGroup("Details")] public string ActionName;
+    [FoldoutGroup("Details")] public Sprite ActionIcon;
 
     [field: SerializeField] private List<Condition> Conditions { get; set; } = new();
     

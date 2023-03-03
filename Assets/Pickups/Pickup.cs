@@ -9,25 +9,24 @@ using Random = UnityEngine.Random;
 
 public class Pickup : MonoBehaviour
 {
-    public Inventory pockets;
-    public Item item;
-    public int amount;
-    [SerializeField] private Rigidbody rb;
-    [SerializeField] private float expulseForce;
-    [SerializeField] private float expulseHeightMultiplier;
-    [SerializeField] private float activationTime = 2f;
-    [SerializeField] private SpriteRenderer litRenderer;
-    [SerializeField] private SpriteRenderer shadowRenderer;
-    [SerializeField] private Inventory lostInventory;
-    [SerializeField] private GameEvent onPickupItem;
-    [SerializeField] private FloatVariable despawnTimer;
+    [FoldoutGroup("Data")]public Inventory pockets;
+    [FoldoutGroup("Data")][SerializeField] private Inventory lostInventory;
+    [FoldoutGroup("Data")]public Item item;
+    [FoldoutGroup("Data")]public int amount;
+    [FoldoutGroup("Data")][SerializeField] private float expulseForce;
+    [FoldoutGroup("Data")][SerializeField] private float expulseHeightMultiplier;
+    [FoldoutGroup("Data")][SerializeField] private float activationTime = 2f;
+    [FoldoutGroup("Data")][SerializeField] private FloatVariable despawnTimer;
+    [FoldoutGroup("Data")] [SerializeField] private StringVariable itemNameVariable;
+    [FoldoutGroup("Data")][SerializeField] private Rigidbody rb;
+    [FoldoutGroup("Display")][SerializeField] private SpriteRenderer litRenderer;
+    [FoldoutGroup("Display")][SerializeField] private SpriteRenderer shadowRenderer;
+
+    [FoldoutGroup("Events")] [SerializeField] private GameEvent onMouseEnter;
+    [FoldoutGroup("Events")] [SerializeField] private GameEvent onMouseExit;
+    [FoldoutGroup("Events")] [SerializeField] private GameEvent onPickupItem;
+
     private bool canPickup = false;
-    
-    [SerializeField] [FoldoutGroup("Events")]
-    private GameEvent onMouseEnter;
-    [SerializeField] [FoldoutGroup("Events")]
-    private GameEvent onMouseExit;
-    [SerializeField] private StringVariable itemNameVariable;
 
     private void Awake()
     {

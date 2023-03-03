@@ -12,21 +12,21 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
 {
     [FoldoutGroup("Data")][field: SerializeField] public Item heldItem { get; private set; }
     [FoldoutGroup("Data")][field: SerializeField] public InventoryDisplay parentInventoryDisplay { get; private set; }
-    [FoldoutGroup("Display")][SerializeField] private GameObject pickupItemObject;
+    [FoldoutGroup("Data")] [SerializeField] private VectorVariable playerPositionVariable;
+    [FoldoutGroup("Data")] [SerializeField] private StringVariable itemNameVariable;
     [FoldoutGroup("Display")][SerializeField] private Image iconDisplay;
     [FoldoutGroup("Display")][SerializeField] private TextMeshProUGUI countDisplayText;
+    [SerializeField] private GameObject pickupItemObject;
+
 
     [SerializeField] [FoldoutGroup("Events")]
-    private InventoryItemManagementGameEvent onItemMove;
+    private InventorySlotGameEvent onItemMove;
     [SerializeField] [FoldoutGroup("Events")]
-    private InventoryItemManagementGameEvent onItemRelease;
+    private InventorySlotGameEvent onItemRelease;
     [SerializeField] [FoldoutGroup("Events")]
     private GameEvent onMouseEnter;
     [SerializeField] [FoldoutGroup("Events")]
     private GameEvent onMouseExit;
-    
-    [FoldoutGroup("Variables")] [SerializeField] private VectorVariable playerPositionVariable;
-    [FoldoutGroup("Variables")] [SerializeField] private StringVariable itemNameVariable;
 
     public static InventorySlot movingItem;
     private bool mouseDown;

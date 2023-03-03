@@ -9,11 +9,11 @@ using UnityEngine.EventSystems;
 public class InventoryDisplay : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPointerMoveHandler
 {
     public Inventory targetInventory;
-    [SerializeField] private GameObject inventoryDisplayListObject;
-    [SerializeField] private GameObject inventorySlotObject;
-    public BoolVariable isMouseOverUserInterface;
-    public bool isLocked;
-    public bool removeOnly;
+    [FoldoutGroup("Details")][SerializeField] private GameObject inventoryDisplayListObject;
+    [FoldoutGroup("Details")][SerializeField] private GameObject inventorySlotObject;
+    [FoldoutGroup("Data")]public BoolVariable isMouseOverUserInterface;
+    [FoldoutGroup("Data")]public bool isLocked;
+    [FoldoutGroup("Data")]public bool removeOnly;
     [SerializeField] private GameEvent onMoveOrAddItem;
 
     private bool flaggedToUpdate;

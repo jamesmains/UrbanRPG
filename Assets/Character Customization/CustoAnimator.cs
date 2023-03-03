@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class CustoAnimator : MonoBehaviour
 {
-    public int currentDirection;
-    public int RawDirection;
-    [SerializeField] private float frameRate = 30;
+    [FoldoutGroup("Data")] public int currentDirection;
+    [FoldoutGroup("Data")] public int RawDirection;
+    [FoldoutGroup("Data")] [SerializeField] private float frameRate = 30;
     [SerializeField] private GearSlot[] gearSlots;
     [SerializeField] private List<InputToDirectionDefiner> inputAdjustments = new List<InputToDirectionDefiner>();
     [SerializeField] private List<SpriteSheetOffsetDefiner> sheetOffsetAdjustments = new List<SpriteSheetOffsetDefiner>();

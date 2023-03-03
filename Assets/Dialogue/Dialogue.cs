@@ -16,6 +16,6 @@ public class DialogueSegment
 {
     [FoldoutGroup("Details")]public Actor actor;
     [FoldoutGroup("Details")][TextArea] public string speech;
-    [FoldoutGroup("Actions")]public UnityEvent OnStartSegment;
-    [FoldoutGroup("Actions")]public UnityEvent OnFinishSegment;
+    [FoldoutGroup("Events")]public UnityEvent OnStartSegment;
+    [FoldoutGroup("Events")]public UnityEvent OnFinishSegment;
 }

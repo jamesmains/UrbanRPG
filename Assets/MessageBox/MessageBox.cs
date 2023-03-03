@@ -9,8 +9,8 @@ using UnityEngine.UI;
 
 public class MessageBox : MonoBehaviour
 {
-    [SerializeField,FoldoutGroup("Hooks")] private Transform window;
-    [SerializeField,FoldoutGroup("Hooks")] private GameObject clickProtection;
+    [SerializeField] private Transform window;
+    [SerializeField]private GameObject clickProtection;
     [SerializeField,FoldoutGroup("Objects")] private GameObject newLineObject;
     [SerializeField,FoldoutGroup("Objects")] private GameObject textObject;
     [SerializeField,FoldoutGroup("Objects")] private GameObject inputFieldObject;

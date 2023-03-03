@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 
 public class SkillDisplayBar : DisplayBar
 {
-    [SerializeField] private TextMeshProUGUI levelText;
-    public Skill targetSkill;
+    [FoldoutGroup("Display")] [SerializeField] private TextMeshProUGUI levelText;
+    [FoldoutGroup("Data")] public Skill targetSkill;
     protected void Awake()
     {
         Setup();

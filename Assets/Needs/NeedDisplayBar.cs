@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class NeedDisplayBar : DisplayBar
 {
-    [SerializeField] private Need targetNeed;
+    [FoldoutGroup("Data")] [SerializeField] private Need targetNeed;
 
     protected void Awake()
     {

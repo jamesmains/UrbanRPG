@@ -12,42 +12,39 @@ namespace ParentHouse.UI
 {
     public class Cursor : MonoBehaviour
 {
-    [SerializeField] private RectTransform cursorTransform;
-    [SerializeField] private Inventory playerInventory;
-    [SerializeField] private IntVariable playerLockVariable;
-    [SerializeField] private BoolVariable isMouseOverUserInterface;
-    [SerializeField] private GameEvent onMoveOrAddItem;
-    [SerializeField] [FoldoutGroup("Cursor GFX")] private Image defaultCursor;
-    [SerializeField] [FoldoutGroup("Cursor GFX")] private Sprite defaultCursorIcon;
-    [SerializeField] [FoldoutGroup("Cursor GFX")] private Sprite listCursorIcon;
-    [SerializeField] [FoldoutGroup("Cursor GFX")] private Sprite emptyActivityHoverIcon;
+    [SerializeField] [FoldoutGroup("Data")] private RectTransform cursorTransform;
+    [SerializeField] [FoldoutGroup("Data")] private IntVariable playerLockVariable;
+    [SerializeField] [FoldoutGroup("Data")] private BoolVariable isMouseOverUserInterface;
+    [SerializeField] [FoldoutGroup("Data")] private VectorVariable playerPositionVariable;
+    [SerializeField] [FoldoutGroup("Data")] private CursorState CursorState;
+    [SerializeField] [FoldoutGroup("Data")] private float scrollSpeed;
     
+    [SerializeField] [FoldoutGroup("Details")] private Image cursorDisplay;
+    [SerializeField] [FoldoutGroup("Details")] private Sprite defaultCursorIcon;
+    [SerializeField] [FoldoutGroup("Details")] private Sprite listCursorIcon;
+
     [SerializeField] [FoldoutGroup("Action List")] private LayerMask activityLayerMask;
     [SerializeField] [FoldoutGroup("Action List")] private RectTransform actionListContainer;
     [SerializeField] [FoldoutGroup("Action List")] private GameObject actionListObject;
-    
-    [SerializeField] [FoldoutGroup("Debug")] private CursorState CursorState;
-    [SerializeField] [FoldoutGroup("Debug")] private float scrollSpeed;
 
+    [SerializeField] [FoldoutGroup("Events")] private GameEvent onMoveOrAddItem;
+
+    #region Local Variables
+    
     private List<Activity> currentHoveringActivities = new List<Activity>();
     private List<UnityAction> activityActions = new List<UnityAction>();
     public List<CursorActionListObject> existingActionListObjects = new List<CursorActionListObject>();
     private CursorActionListObject currentlyHighlightedListObject;
-    private Transform player;
     private Vector3 originalListPosition;
     private Vector3 offsetListPosition;
     private float horizontalListPositionOffset = 24f;
     private int listActionIndex;
     private bool lockCursorState;
+    
+    #endregion
 
     private void Awake()
     {
-        if(GameObject.FindWithTag("Player") != null)
-            player = GameObject.FindWithTag("Player").transform;
-        
-        if(player == null)
-            Debug.LogError("Player is null");
-        
         UnityEngine.Cursor.visible = false;
         originalListPosition = actionListContainer.localPosition;
         offsetListPosition = originalListPosition;
@@ -100,7 +97,7 @@ namespace ParentHouse.UI
 
         if (hits.Length == 0)
         {
-            defaultCursor.sprite = defaultCursorIcon;
+            cursorDisplay.sprite = defaultCursorIcon;
             return;
         }
         
@@ -153,8 +150,8 @@ namespace ParentHouse.UI
     
     private bool CheckRange(Vector3 origin, float rangeRequirement)
     {
-        if (player == null) return true;
-        return Vector3.Distance(player.position, origin) < rangeRequirement;    
+        if (playerPositionVariable == null) return true;
+        return Vector3.Distance(playerPositionVariable.Value, origin) < rangeRequirement;    
     }
 
     private void CheckScrollInput()
@@ -180,7 +177,7 @@ namespace ParentHouse.UI
         ClearDisplayActionList();
         if (currentHoveringActivities.Count == 0)
         {
-            defaultCursor.sprite = defaultCursorIcon;
+            cursorDisplay.sprite = defaultCursorIcon;
             return;
         }
         
@@ -188,12 +185,12 @@ namespace ParentHouse.UI
         {
             if (SpawnActionListObject(currentHoveringActivities[0].ActivityActions[0], false))
             {
-                defaultCursor.sprite = currentHoveringActivities[0].ActivityActions[0].signature.ActionIcon;
+                cursorDisplay.sprite = currentHoveringActivities[0].ActivityActions[0].signature.ActionIcon;
             }
         }
         else
         {
-            defaultCursor.sprite = listCursorIcon;
+            cursorDisplay.sprite = listCursorIcon;
             foreach (var activity in currentHoveringActivities)
             {
                 foreach (var t in activity.ActivityActions)
@@ -253,7 +250,7 @@ namespace ParentHouse.UI
     public void DisplayCursor(Sprite incomingCursorIcon)
     {
         CursorState = CursorState.Default;
-        defaultCursor.sprite = incomingCursorIcon;
+        cursorDisplay.sprite = incomingCursorIcon;
     }
 
     public void DragItem(InventorySlot incomingItem)

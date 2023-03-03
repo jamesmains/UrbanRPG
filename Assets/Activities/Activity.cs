@@ -8,12 +8,12 @@ using UnityEngine.Events;
 
 public class Activity : MonoBehaviour
 {
-    [SerializeField] private BoolVariable mouseOverUserInterface;
-    public string activityName;
-    [TextArea]public string activityDescription;
-    public float rangeRequirement = 2;      
+    [FoldoutGroup("Details")] public string activityName;
+    [FoldoutGroup("Details")] [TextArea] public string activityDescription;
+    [FoldoutGroup("Data")] [SerializeField] private BoolVariable mouseOverUserInterface;
+    [FoldoutGroup("Data")] public float rangeRequirement = 2;
+    [FoldoutGroup("Data")] public bool isActive;
     public List<ActivityAction> ActivityActions;
-    public bool isActive;
 
     private string identity;
     public string Identity
@@ -50,8 +50,7 @@ public class Activity : MonoBehaviour
 public class ActivityAction
 {
     public ActivitySignature signature;
-    [FoldoutGroup("Event")]
-    public UnityEvent eventChannel;
+    [FoldoutGroup("Event")] public UnityEvent eventChannel;
 
     public void AssignListeners(Action[] actions)
     {

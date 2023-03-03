@@ -10,9 +10,9 @@ using UnityEngine;
 public class AnimationSheet : ScriptableObject
 {
     public string ID;
-    public int startIndex;
-    public int stopIndex;
-    public int frameCount;
+    [FoldoutGroup("Data")] public int startIndex;
+    [FoldoutGroup("Data")] public int stopIndex;
+    [FoldoutGroup("Data")] public int frameCount;
     
 #if UNITY_EDITOR
     [Button]

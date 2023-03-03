@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DisplayBar : MonoBehaviour
 {
-    [SerializeField] protected TextMeshProUGUI nameText;
-    [SerializeField] protected TextMeshProUGUI descriptionText;
-    [SerializeField] protected Image iconImage;
-    [SerializeField] protected RectTransform fillBarImageRect;
-    [SerializeField] protected float fillSpeed;
-    [SerializeField] protected Vector2 fillBarSizeRange;
+    [FoldoutGroup("Display")][SerializeField] protected TextMeshProUGUI nameText;
+    [FoldoutGroup("Display")][SerializeField] protected TextMeshProUGUI descriptionText;
+    [FoldoutGroup("Display")][SerializeField] protected Image iconImage;
+    [FoldoutGroup("Display")][SerializeField] protected RectTransform fillBarImageRect;
+    [FoldoutGroup("Data")][SerializeField] protected float fillSpeed;
+    [FoldoutGroup("Data")][SerializeField] protected Vector2 fillBarSizeRange;
     
     protected virtual void UpdateBar(float value)
     {

@@ -10,9 +10,9 @@ public class Need : ScriptableObject
     [FoldoutGroup("Details")] public string Name;
     [FoldoutGroup("Details")] public string Description;
     [FoldoutGroup("Details")] public Sprite Icon;
-    [FoldoutGroup("Details")] public bool IsDepleted;
-    [FoldoutGroup("Variables")] public float DecayRate;
-    [FoldoutGroup("Variables")] [SerializeField] private float value;
+    [FoldoutGroup("Data")] public bool IsDepleted;
+    [FoldoutGroup("Data")] public float DecayRate;
+    [FoldoutGroup("Data")] [SerializeField] private float value;
     
     public float Value
     {

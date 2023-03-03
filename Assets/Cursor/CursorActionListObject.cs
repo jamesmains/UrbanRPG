@@ -1,21 +1,21 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CursorActionListObject : MonoBehaviour
 {
-    [SerializeField] private RectTransform rectTransform;
-    [SerializeField] private Image actionIconDisplay;
-    [SerializeField] private TextMeshProUGUI actionNameText;
-    [SerializeField] private float transitionSpeed;
-    [SerializeField] private Color highlightColor;
-    [SerializeField] private Color normalColor;
+    [FoldoutGroup("Display")][SerializeField] private Image actionIconDisplay;
+    [FoldoutGroup("Display")][SerializeField] private TextMeshProUGUI actionNameText;
+    [FoldoutGroup("Data")][SerializeField] private RectTransform rectTransform;
+    [FoldoutGroup("Data")][SerializeField] private float transitionSpeed;
+    [FoldoutGroup("Data")][SerializeField] private Color highlightColor;
+    [FoldoutGroup("Data")][SerializeField] private Color normalColor;
     
     public static CursorActionListObject Current;
-
     
     private const float highlightSize = 42;
     private const float normalSize = 32;

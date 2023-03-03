@@ -1,19 +1,20 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DialogueDisplay : MonoBehaviour
 {
-    [SerializeField] private KeyCode interactionKey; // todo replace with scriptable objects for key rebinding
-    [SerializeField] private IntVariable playerLockVariable;
-    [SerializeField] private float textSpeed;
-    [SerializeField] private Image actorDisplayImage;
-    [SerializeField] private TextMeshProUGUI actorNameText;
-    [SerializeField] private TextMeshProUGUI displayText;
-    [SerializeField] private CanvasGroup displayGroup;
+    [FoldoutGroup("Data")][SerializeField] private KeyCode interactionKey; // todo replace with scriptable objects for key rebinding
+    [FoldoutGroup("Data")][SerializeField] private IntVariable playerLockVariable;
+    [FoldoutGroup("Data")][SerializeField] private float textSpeed;
+    [FoldoutGroup("Data")][SerializeField] private CanvasGroup displayGroup;
+    [FoldoutGroup("Display")][SerializeField] private Image actorDisplayImage;
+    [FoldoutGroup("Display")][SerializeField] private TextMeshProUGUI actorNameText;
+    [FoldoutGroup("Display")][SerializeField] private TextMeshProUGUI displayText;
 
     public Dialogue currentDialogue;
     public int dialogueSegmentIndex;

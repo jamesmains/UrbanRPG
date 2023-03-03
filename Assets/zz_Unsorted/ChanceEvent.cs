@@ -1,16 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 public class ChanceEvent : MonoBehaviour
 {
-    [SerializeField] private float rarity;
-    [SerializeField] private bool runOnAwake;
-    [SerializeField] private UnityEvent onPass;
-    [SerializeField] private UnityEvent onFail;
+    [FoldoutGroup("Data")][SerializeField] private float rarity;
+    [FoldoutGroup("Data")][SerializeField] private bool runOnAwake;
+    [FoldoutGroup("Events")][SerializeField] private UnityEvent onPass;
+    [FoldoutGroup("Events")][SerializeField] private UnityEvent onFail;
     
     private void Awake()
     {

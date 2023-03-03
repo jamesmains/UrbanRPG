@@ -6,14 +6,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Skill", menuName = "Player/Skill")]
 public class Skill : ScriptableObject
 {
-    public string Name;
-    public string Description;
-    public Sprite Icon;
-    public int Level;
-    public int ExpRequiredForLevelUp;
-    public int CurrentExp;
-    public GameEvent OnLevelUp;
-    public SkillGainGameEvent OnGainExperience;
+    [FoldoutGroup("Details")]public string Name;
+    [FoldoutGroup("Details")]public string Description;
+    [FoldoutGroup("Details")]public Sprite Icon;
+    [FoldoutGroup("Data")]public int Level;
+    [FoldoutGroup("Data")]public int ExpRequiredForLevelUp;
+    [FoldoutGroup("Data")]public int CurrentExp;
+    [FoldoutGroup("Events")]public GameEvent OnLevelUp;
+    [FoldoutGroup("Events")]public SkillGainGameEvent OnGainExperience;
 
     public void AddExperience(int incomingExperience)
     {

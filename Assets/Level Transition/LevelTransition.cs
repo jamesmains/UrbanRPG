@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class LevelTransition : MonoBehaviour
 {
     [SerializeField] private PlayerSaveSlot saveSlot;
-
     [SerializeField] private bool debugRunOnStart = true;
+    
     private void Start()
     {
         if (saveSlot == null) return;

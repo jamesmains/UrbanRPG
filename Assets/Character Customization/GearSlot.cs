@@ -7,13 +7,13 @@ using UnityEngine;
 public class GearSlot : MonoBehaviour
 {
     [SerializeField] private Gear gear;
-    [FoldoutGroup("Animations Data")] [SerializeField] private int frameIndex;
-    [FoldoutGroup("Animations Data")] [SerializeField] private SpriteRenderer _spriteRenderer;
-    
-    [SerializeField] private AnimationSheet anim;
+    [FoldoutGroup("Display")] [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private List<Sprite> sheet = new();
-    [SerializeField] private int startOffset;
-    [SerializeField] private int frameCount;
+    
+    [FoldoutGroup("Data")] [SerializeField] private int frameIndex;
+    [FoldoutGroup("Data")] [SerializeField] private AnimationSheet anim;
+    [FoldoutGroup("Data")] [SerializeField] private int startOffset;
+    [FoldoutGroup("Data")] [SerializeField] private int frameCount;
 
     private int currentDirection;
     private Gear lastKnownGear;

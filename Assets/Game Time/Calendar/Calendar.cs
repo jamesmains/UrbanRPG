@@ -9,14 +9,13 @@ using UnityEngine.UI;
 
 public class Calendar : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI monthNameDisplay;
-    [SerializeField] private GameObject calendarDayDisplayObject;
-    [SerializeField] private Transform calendaryDisplayContainer;
-    
-    [SerializeField] private TimeVariable dayVariable;
-    [SerializeField] private TimeVariable monthVariable;
-    [SerializeField] private Slider yearProgressDisplay;
-    [SerializeField] private Sprite multipleEventsOnDaySprite;
+    [FoldoutGroup("Display")][SerializeField] private TextMeshProUGUI monthNameDisplay;
+    [FoldoutGroup("Display")][SerializeField] private Slider yearProgressDisplay;
+    [FoldoutGroup("Display")][SerializeField] private Transform calendaryDisplayContainer;
+    [FoldoutGroup("Display")][SerializeField] private GameObject calendarDayDisplayObject;
+    [FoldoutGroup("Data")][SerializeField] private TimeVariable dayVariable;
+    [FoldoutGroup("Data")][SerializeField] private TimeVariable monthVariable;
+    [FoldoutGroup("Details")][SerializeField] private Sprite multipleEventsOnDaySprite;
 
     public TextMeshProUGUI calendarDayDetailsText;
     

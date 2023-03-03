@@ -14,6 +14,7 @@ public class PlayerSaveSlot : ScriptableObject
     public string cityName;
     public LevelTransitionSignature NewSaveFileSpawnLocation;
     public LevelTransitionSignature NextLevelTransition;
+    public VectorVariable PlayerPositionVariable;
     public bool Loaded;
     
     private void OnEnable()
@@ -56,7 +57,7 @@ public class PlayerSaveSlot : ScriptableObject
             SceneManager.GetActiveScene().name,
             characterName,
             cityName,
-            PlayerMotor.playerLocation));
+            PlayerPositionVariable.Value));
     }
 
     public void SetValue(LevelTransitionSignature targetLevelSignature)

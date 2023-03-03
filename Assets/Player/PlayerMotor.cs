@@ -6,15 +6,15 @@ using UnityEngine;
 
 public class PlayerMotor : MonoBehaviour
 {
-    [SerializeField] private Rigidbody rb;
-    [SerializeField] private CustoAnimator animator;
-    [SerializeField] private VectorVariable playerPositionVariable;
-    [SerializeField] private IntVariable playerLockVariable;
-    [SerializeField] private PlayerSaveSlot playerSaveSlot;
-    public float moveSpeed; // might be replaced with scriptable object float variable 
+    [FoldoutGroup("Data")] [SerializeField] private Rigidbody rb;
+    [FoldoutGroup("Data")] [SerializeField] private CustoAnimator animator;
+    [FoldoutGroup("Data")] [SerializeField] private VectorVariable playerPositionVariable;
+    [FoldoutGroup("Data")] [SerializeField] private IntVariable playerLockVariable;
+    [FoldoutGroup("Data")] [SerializeField] private PlayerSaveSlot playerSaveSlot;
+    [FoldoutGroup("Data")] [SerializeField] public float moveSpeed; // might be replaced with scriptable object float variable 
+    
     private float inputX, inputY;
     private bool horizontalFlip;
-    public static Vector3 playerLocation;
 
     private void Awake()
     {
@@ -34,7 +34,6 @@ public class PlayerMotor : MonoBehaviour
     {
         inputX = Input.GetAxisRaw("Horizontal");
         inputY = Input.GetAxisRaw("Vertical");
-        playerLocation = transform.position;
     }
 
     private void FixedUpdate()

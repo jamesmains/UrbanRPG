@@ -9,9 +9,9 @@ using UnityEngine;
 public class CalendarSignature : SerializedScriptableObject
 {
     public bool Active;
-    public string DisplayName;
-    [TextArea] public string DisplayText;
-    public Sprite DisplayIcon;
+    [FoldoutGroup("Details")]public string DisplayName;
+    [FoldoutGroup("Details")][TextArea] public string DisplayText;
+    [FoldoutGroup("Details")]public Sprite DisplayIcon;
 
     [field: SerializeField] private List<CalendarCondition> Conditions { get; set; } = new List<CalendarCondition>();
     

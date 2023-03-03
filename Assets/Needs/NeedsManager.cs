@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class NeedsManager : MonoBehaviour
 {
     [SerializeField] private Need[] playerNeeds;
-    [SerializeField] private SpriteGameEvent onNeedDecayTrigger;
-    [SerializeField] private List<NeedsTriggerEvent> triggerEvents = new();
+    [FoldoutGroup("Events")][SerializeField] private SpriteGameEvent onNeedDecayTrigger;
+    [FoldoutGroup("Events")][SerializeField] private List<NeedsTriggerEvent> triggerEvents = new();
     
     void Update()
     {

@@ -8,11 +8,13 @@ public class Door : MonoBehaviour
     [SerializeField] private Transform destination;
     [SerializeField] private GameObject doorGfx;
     private bool active = false;
+    
     private void PortalPlayer()
     {
         StopAllCoroutines();
         StartCoroutine(DoPortal());
     }
+    
     IEnumerator DoPortal()
     {
         doorGfx.SetActive(false);

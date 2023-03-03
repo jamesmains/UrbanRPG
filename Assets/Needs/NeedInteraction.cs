@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class NeedInteraction : MonoBehaviour
 {
     [SerializeField] private Need targetNeed;
-    [SerializeField] private float modValue;
-    [SerializeField] private int interactionUses;
+    [FoldoutGroup("Data")][SerializeField] private float modValue;
+    [FoldoutGroup("Data")][SerializeField] private int interactionUses;
 
     public void TriggerNeedInteraction()
     {
