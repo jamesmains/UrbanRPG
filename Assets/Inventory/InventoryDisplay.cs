@@ -40,6 +40,12 @@ public class InventoryDisplay : MonoBehaviour,IPointerEnterHandler,IPointerExitH
         flaggedToUpdate = true;
         return removedAmount;
     }
+
+    private void OnEnable()
+    {
+        UpdateInventoryDisplay();
+    }
+
     [Button]
     public void UpdateInventoryDisplay()
     {

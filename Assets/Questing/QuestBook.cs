@@ -25,7 +25,6 @@ public class QuestBook : MonoBehaviour
 
     public void PopulateQuestDisplay()
     {
-        print("populating quest book");
         var oldItems = questDisplayObjectContainer?.GetComponentsInChildren<Transform>();
         foreach (var listObject in oldItems)
         {

@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeveloperDescription: If greater than zero, the player is busy and cannot move
     or interact with activities.
-  resetOnAwake: 1
-  Value: 1
+  Value: 0
+  OnValueChanged: {fileID: 0}
+  ChainVariable: {fileID: 0}
+  MaxValue: 0
