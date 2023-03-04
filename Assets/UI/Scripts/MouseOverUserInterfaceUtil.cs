@@ -35,7 +35,10 @@ public class MouseOverUserInterfaceUtil : MonoBehaviour
         {
             RaycastResult curRaysastResult = eventSystemRaysastResults[index];
             if (curRaysastResult.gameObject.layer == layer)
+            {
+                //print(curRaysastResult.gameObject.name);
                 return true;
+            }
         }
         return false;
     }

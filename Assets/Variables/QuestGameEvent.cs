@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "QuestEvent", menuName = "Events/Quest Event")]
+[CreateAssetMenu(fileName = "Quest Event", menuName = "Events/Quest Event")]
 public class QuestGameEvent : ScriptableObject
 {
     private readonly List<QuestGameEventListener> eventListeners = 

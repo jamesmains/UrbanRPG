@@ -36,7 +36,6 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
     {
         if (waitingForDrag && Vector2.Distance(Input.mousePosition, (Vector2) this.transform.position) > 85f && mouseDown)
         {
-            
             waitingForDrag = false;
             if (movingItem == null && mouseDown)
             {
@@ -44,6 +43,10 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
             }
         }
         else if (!mouseDown) waitingForDrag = false;
+        if(Input.GetMouseButtonUp(0))
+        {
+            TryReleaseItem();
+        }
     }
 
     public void Setup(Item incomingItem, InventoryDisplay origin)
@@ -75,17 +78,10 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         parentInventoryDisplay.targetInventory.TryUseItem(heldItem,quantity);
         pickup.Setup(heldItem,quantity);
     }
-    
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        mouseDown = true;
-        waitingForDrag = true;
-    }
 
-    public void OnPointerUp(PointerEventData eventData)
+    private void TryReleaseItem()
     {
-        mouseDown = false;
-        if (movingItem is not null || movingItem != this)
+        if (movingItem != null)
         {
             if (parentInventoryDisplay != InventoryDisplay.mouseOverInventoryDisplay && InventoryDisplay.mouseOverInventoryDisplay is not null)
             {
@@ -100,7 +96,18 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
             iconDisplay.color = new Color(1, 1, 1, 1);      
             parentInventoryDisplay.UpdateInventoryDisplay();
         }
-        
+    }
+    
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        mouseDown = true;
+        waitingForDrag = true;
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        mouseDown = false;
+        TryReleaseItem();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -112,5 +119,11 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
     public void OnPointerExit(PointerEventData eventData)
     {
         onMouseExit.Raise();
+    }
+
+    private void OnDisable()
+    {
+        movingItem = null;
+        onItemRelease.Raise(null);
     }
 }

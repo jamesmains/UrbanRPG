@@ -125,7 +125,6 @@ namespace I302.Manu
             {
                 LoadSaveSlot();
             }
-            Debug.Log(_playerSaveSlot);
             string filePath = $"{Application.persistentDataPath}/{_playerSaveSlot.saveSlot}/player.location";
     
             if (!File.Exists(filePath))

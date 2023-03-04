@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(GameEventListener))]
 public class Window : MonoBehaviour
 {
 #if UNITY_EDITOR

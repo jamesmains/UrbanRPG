@@ -17,8 +17,7 @@ MonoBehaviour:
   QuestDescription: Give 20 balloons to Balloon Boy
   questTasks:
   - taskTaskSignature: {fileID: 11400000, guid: 1d402beaf2d2665408902fa62de73b02, type: 2}
-    TaskName: Get Balloons
-    TaskDescription: Get 20 balloons
+    TaskDescription: 
     numberOfRequiredHits: 20
     hits: 0
   QuestState: 0

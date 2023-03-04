@@ -125,7 +125,15 @@ namespace ParentHouse.UI
             currentHoveringActivities = tempActivityList;
             PopulateActionList();
         }
-        CursorState = CursorState.DisplayList;
+
+        if (currentHoveringActivities.Count > 0)
+        {
+            CursorState = CursorState.DisplayList;
+        }
+        else
+        {
+            CursorState = CursorState.Default;
+        }
     }
 
     private void CheckActivityRanges()
@@ -202,6 +210,11 @@ namespace ParentHouse.UI
         listActionIndex = listActionIndex >= activityActions.Count ? activityActions.Count -1 : listActionIndex < 0 ? 0 : listActionIndex;
         if(existingActionListObjects.Count > 0)
             existingActionListObjects[listActionIndex].ToggleHighlight(true);
+        else
+        {
+            CursorState = CursorState.Default;
+            DisplayCursor(defaultCursorIcon);
+        }
     }
 
     private bool SpawnActionListObject(ActivityAction action, bool useIcon = true)

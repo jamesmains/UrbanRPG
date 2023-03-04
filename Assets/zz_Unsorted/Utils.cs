@@ -73,6 +73,19 @@ public enum InteractionType
     OnExit
 }
 
+public enum InputType
+{
+    Keyboard,
+    Gamepad
+}
+
+public enum KeyInteractionType
+{
+    Any,
+    Released,
+    Pressed
+}
+
 // yoinked from https://stackoverflow.com/questions/20156/is-there-an-easy-way-to-create-ordinals-in-c
 public static class UtilFunctions
 {

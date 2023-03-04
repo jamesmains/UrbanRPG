@@ -35,6 +35,11 @@ public class Calendar : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        UpdateCalendar();
+    }
+
     public void UpdateCalendar()
     {
         var oldItems = calendaryDisplayContainer.GetComponentsInChildren<Transform>();

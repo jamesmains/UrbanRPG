@@ -36,8 +36,8 @@ public class Quest : ScriptableObject
         if (QuestState == QuestState.Started || QuestState == QuestState.Completed) return;
         taskIndex = -1;
         QuestState = QuestState.Started;
-        onAcceptQuest.Raise(this);
         StartNextTask();
+        onAcceptQuest.Raise(this);
     }
     
     public int TryCompleteTask(QuestTaskSignature taskTaskSignature, int amount = 1)
@@ -88,6 +88,11 @@ public class Quest : ScriptableObject
         SaveQuest();
     }
 
+    public QuestTaskData GetCurrentQuestTask()
+    {
+        return questTasks[taskIndex];
+    }
+    
     [Button, FoldoutGroup("Progress Functions")]
     public void CompleteQuest()
     {
@@ -146,7 +151,6 @@ public class Quest : ScriptableObject
 public class QuestTaskData
 {
     public QuestTaskSignature taskTaskSignature;
-    [FoldoutGroup("Display")]public string TaskName;
     [FoldoutGroup("Display")]public string TaskDescription;
     [FoldoutGroup("Data")]public int numberOfRequiredHits;
     [FoldoutGroup("Data")]public int hits;

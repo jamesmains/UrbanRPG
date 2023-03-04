@@ -52,7 +52,9 @@ public class SpriteSlicer : MonoBehaviour{
                 newData.Add(smd);
             }
 
+#pragma warning disable 618
             ti.spritesheet = newData.ToArray();
+#pragma warning restore 618
             AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate);
             Debug.Log("ComputeSprites: resource ok");
          }

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f3c29776077f2944a7642ca8694db35, type: 3}
+  m_Name: Keybinding Layout
+  m_EditorClassIdentifier: 
+  InputType: 0
+  keybinds:
+  - Key: 49
+    KeyInteractionType: 2
+    ButtonName: Inventory
+    Event: {fileID: 11400000, guid: 66e88fe7a4b017b41b716810da2906c5, type: 2}
+  - Key: 50
+    KeyInteractionType: 2
+    ButtonName: Needs
+    Event: {fileID: 11400000, guid: 14bc97f98850d354a95a75a0a5fa124b, type: 2}
+  - Key: 51
+    KeyInteractionType: 2
+    ButtonName: Skills
+    Event: {fileID: 11400000, guid: f10bb0824f2c41745ae0ac59a9cd7c30, type: 2}
+  - Key: 52
+    KeyInteractionType: 2
+    ButtonName: Calendar
+    Event: {fileID: 11400000, guid: f523f5286f19a6a48bd2000369d991a2, type: 2}
+  - Key: 113
+    KeyInteractionType: 2
+    ButtonName: Quest Book
+    Event: {fileID: 11400000, guid: d3dfa889d38e7934d9b3cb0d6878be70, type: 2}

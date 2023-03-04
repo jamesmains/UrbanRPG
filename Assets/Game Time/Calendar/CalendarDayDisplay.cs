@@ -55,7 +55,6 @@ public class CalendarDayDisplay : MonoBehaviour,IPointerEnterHandler,IPointerExi
         }
 
         LastInteractedDayDisplay = this;
-        print(state);
         frameIcon.color = state ? Color.cyan : isHighlighted ? Color.white : Color.gray;
     }
 

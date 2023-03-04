@@ -8,6 +8,8 @@ using UnityEngine;
 
 public class QuestBook : MonoBehaviour
 {
+    [SerializeField] private GameObject questDisplayObject;
+    [SerializeField] private RectTransform questDisplayObjectContainer;
     public List<Quest> questList = new();
     public BoolVariable HasDreamQuestVariable;
 
@@ -16,11 +18,36 @@ public class QuestBook : MonoBehaviour
         HasDreamQuestVariable.Value = HasDreamQuestVariable;
     }
 
-    public void TryCompleteQuestTask(QuestTaskSignature taskTaskSignature)
+    private void OnEnable()
     {
+        PopulateQuestDisplay();
+    }
+
+    public void PopulateQuestDisplay()
+    {
+        print("populating quest book");
+        var oldItems = questDisplayObjectContainer?.GetComponentsInChildren<Transform>();
+        foreach (var listObject in oldItems)
+        {
+            if (listObject != questDisplayObjectContainer)
+            {
+                Destroy(listObject.gameObject);
+            }
+        }
         foreach (Quest quest in questList)
         {
-            quest.TryCompleteTask(taskTaskSignature);
+            if (quest.QuestState != QuestState.Completed && quest.QuestState != QuestState.NotStarted)
+            {
+                QuestTaskData questTask = quest.GetCurrentQuestTask();
+                string qTaskProgress = questTask.numberOfRequiredHits > 1 ? $"{questTask.hits} / {questTask.numberOfRequiredHits}" : "";
+                
+                Instantiate(questDisplayObject,questDisplayObjectContainer).GetComponent<QuestDisplay>().Setup(
+                    quest.QuestName,
+                    quest.QuestDescription,
+                    questTask.TaskDescription,
+                    qTaskProgress
+                    );
+            }
         }
     }
 
