@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe3590f2e1e81424cb871fbc86022453, type: 3}
+  m_Name: Dialogue Segment 1
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: d2b8df0c78432ea4caf21dc16ee78a55, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: <SegmentConditions>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|QuestStateConditional, Assembly-CSharp
+    - Name: <TargetQuest>k__BackingField
+      Entry: 10
+      Data: 0
+    - Name: <TargetState>k__BackingField
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  IsInstantSegment: 0
+  actor: {fileID: 11400000, guid: 42243ad2ac72a29428096f0978b9bb06, type: 2}
+  speech: Quest started!
+  OnStartSegment:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFinishSegment:
+    m_PersistentCalls:
+      m_Calls: []

@@ -34,21 +34,6 @@ MonoBehaviour:
       Entry: 8
       Data: 
   dialogueSegments:
-  - IsInstantSegment: 0
-    actor: {fileID: 11400000, guid: 42243ad2ac72a29428096f0978b9bb06, type: 2}
-    speech: Hey there! How're you doing?
-    OnStartSegment:
-      m_PersistentCalls:
-        m_Calls: []
-    OnFinishSegment:
-      m_PersistentCalls:
-        m_Calls: []
-  - IsInstantSegment: 0
-    actor: {fileID: 11400000, guid: 42243ad2ac72a29428096f0978b9bb06, type: 2}
-    speech: Let me know if you find any more balloons!
-    OnStartSegment:
-      m_PersistentCalls:
-        m_Calls: []
-    OnFinishSegment:
-      m_PersistentCalls:
-        m_Calls: []
+  - {fileID: 11400000, guid: 215e816bc9b537746b5ea1d31751bedf, type: 2}
+  - {fileID: 11400000, guid: 415c6e843ef2d7b488bc9b2e6fc969bd, type: 2}
+  - {fileID: 11400000, guid: 3bdc15e231ed4f64999d2222489343c1, type: 2}
