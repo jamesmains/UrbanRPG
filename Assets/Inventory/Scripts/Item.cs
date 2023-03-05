@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace I302.Manu
 {
-    [CreateAssetMenu(fileName = "Item", menuName = "Unsorted/ItemsAndInventory/Item")]
+    [CreateAssetMenu(fileName = "Item", menuName = "Items and Inventory/Item")]
     public class Item : ScriptableObject
     {
         [FoldoutGroup("Details")][field: SerializeField] public Sprite Sprite { get; private set; }

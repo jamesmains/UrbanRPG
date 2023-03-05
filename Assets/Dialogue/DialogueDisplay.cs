@@ -63,24 +63,30 @@ public class DialogueDisplay : MonoBehaviour
     {
         atEndOfDialogueSegment = false;
         dialogueSegmentIndex++;
-        if (dialogueSegmentIndex >= currentDialogue.dialogueSegments.Length)
+        if (dialogueSegmentIndex >= currentDialogue.DialogueSegments.Count)
         {
             EndDialogue();
-            currentSegment.OnFinishSegment.Invoke();
+            if (currentSegment.IsConditionMet())
+            {
+                currentSegment?.OnFinishSegment.Invoke();
+            }
         }
         else
         {
             NextDialogueSegment();
-            if (dialogueSegmentIndex != currentDialogue.dialogueSegments.Length - 1)
+            if (dialogueSegmentIndex != currentDialogue.DialogueSegments.Count - 1)
             {
-                currentSegment.OnFinishSegment.Invoke();
+                if (currentSegment.IsConditionMet())
+                {
+                    currentSegment?.OnFinishSegment.Invoke();
+                }
             }
         }
     }
     
     private void NextDialogueSegment()
     {
-        currentSegment = currentDialogue.dialogueSegments[dialogueSegmentIndex];
+        currentSegment = currentDialogue.DialogueSegments[dialogueSegmentIndex];
         if (currentSegment.IsConditionMet())
         {
             if (currentSegment.IsInstantSegment)
@@ -102,7 +108,7 @@ public class DialogueDisplay : MonoBehaviour
     {
         int charIndex = 0;
 
-        currentSegment.OnStartSegment.Invoke();
+        currentSegment?.OnStartSegment.Invoke();
         actorNameText.text = currentSegment.actor.actorName;
         actorDisplayImage.sprite = currentSegment.actor.actionIcon;
         

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c25c592687a7bb489fb90fb47f7dc4b, type: 3}
+  m_Name: Quest_BalloonBoy_LostBalloon
+  m_EditorClassIdentifier: 
+  QuestName: Lost Balloon
+  QuestType: 0
+  QuestDescription: You've found a stray balloon...
+  questTasks:
+  - taskTaskSignature: {fileID: 11400000, guid: 9affcc2f26d8c974fbe434a4a55d85a0, type: 2}
+    TaskDescription: Give to Balloon Boy
+    numberOfRequiredHits: 1
+    hits: 0
+  QuestState: 0
+  currentTaskSign: {fileID: 0}
+  taskIndex: 0
+  autoComplete: 0
+  onAcceptQuest: {fileID: 11400000, guid: 36a1b5f765942a94099e42b2077cb5df, type: 2}
+  onMakeQuestProgress: {fileID: 11400000, guid: 9e7d2549b95255f48a5ea70e61d4d5e0, type: 2}
+  onReadyToComplete: {fileID: 11400000, guid: 19d405d07a308d24e9113ba12c3a0203, type: 2}
+  onCompleteQuest: {fileID: 11400000, guid: c819f8689b82617498125b1660ace797, type: 2}

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace I302.Manu
 {
-    [CreateAssetMenu(fileName = "ItemLookupTable", menuName = "Unsorted/ItemsAndInventory/LookupTable")]
+    [CreateAssetMenu(fileName = "ItemLookupTable", menuName = "Items and Inventory/LookupTable")]
     public class ItemLookupTable : SerializedScriptableObject
     {
         [field: SerializeField]

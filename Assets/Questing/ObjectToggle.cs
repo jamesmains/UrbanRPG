@@ -2,15 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ObjectToggle : MonoBehaviour
+public class ObjectToggle : SerializedMonoBehaviour
 {
     [SerializeField] private bool checkOnAwake;
     [FoldoutGroup("Events")][SerializeField] private UnityEvent onMeetsRequirements;
     [FoldoutGroup("Events")][SerializeField] private UnityEvent onFailsRequirements;
-    [field: SerializeField] private List<ActivitySignature> Conditions { get; set; } = new();
+    public List<Condition> Conditions = new();
 
     private void Awake()
     {
