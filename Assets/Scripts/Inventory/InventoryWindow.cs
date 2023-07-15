@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 
 public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,IPointerMoveHandler
 {
-    public Inventory targetInventory;
+    public Inventory inventory;
     [SerializeField] private GameObject InventorySlotPrefab;
     public bool isLocked;
     public bool removeOnly;
@@ -36,35 +36,23 @@ public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,I
         base.Show();
         UpdateInventoryDisplay();
     }
-
-    public int AddItem(Item incomingItem, int amount)
-    {
-        int overflow = targetInventory.TryAddItem(incomingItem, amount);
-        GameEvents.OnMoveOrAddItem.Raise();
-        return overflow;
-    }
-    
-    public void MoveItem(int originalItemIndex, int targetItemIndex, Inventory otherInventory)
-    {
-        targetInventory.TrySwapItem(originalItemIndex,targetItemIndex,otherInventory);
-    }
     
     [Button]
     public void UpdateInventoryDisplay()
     {
         if (InventorySlots.Count <= 0)
         {
-            for (int i = 0; i < targetInventory.InventorySlotLimit.Value; i++)
+            for (int i = 0; i < inventory.InventorySlotLimit.Value; i++)
             {
                 InventorySlots.Add(Instantiate(InventorySlotPrefab, this.transform));
             }
         }
         
-        for (int i = 0; i < targetInventory.InventorySlotLimit.Value; i++)
+        for (int i = 0; i < inventory.InventorySlotLimit.Value; i++)
         {
-            var itemData = targetInventory.InventoryItems[i];
+            var itemData = inventory.InventoryItems[i];
             var slot = InventorySlots[i].GetComponent<InventorySlot>();
-            if (restrictByItemType && targetInventory.InventoryItems[i].item != null &&targetInventory.InventoryItems[i].item.ItemType != itemTypeRestriction)
+            if (restrictByItemType && inventory.InventoryItems[i].item != null &&inventory.InventoryItems[i].item.ItemType != itemTypeRestriction)
             {
                 itemData = new InventoryItemData(null, 0, -1);
                 slot.Disable();

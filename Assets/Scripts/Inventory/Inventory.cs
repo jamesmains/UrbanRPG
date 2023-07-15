@@ -71,7 +71,7 @@ using UnityEngine;
             var itemData2 = otherInventory.InventoryItems[i2];
             InventoryItems[i1] = itemData2;
             otherInventory.InventoryItems[i2] = itemData1;
-            
+            SaveInventory();
         }
 
         public int TryAddItemAt(int targetIndex, int value = 1)
@@ -86,6 +86,7 @@ using UnityEngine;
                 remaining -= InventoryItems[targetIndex].Quantity += overflow;
             }
             else remaining = overflow;
+            SaveInventory();
             return remaining;
         }
         
@@ -94,6 +95,7 @@ using UnityEngine;
             InventoryItems[ItemIndex].Quantity -= amount;
             if (InventoryItems[ItemIndex].Quantity <= 0)
                 InventoryItems[ItemIndex].item = null;
+            SaveInventory();
         }
         
         public void TryUseItem(Item neededItem, int amount = 1)
@@ -135,6 +137,7 @@ using UnityEngine;
         [FoldoutGroup("Saving and Loading")][Button]
         public void SaveInventory()
         {
+            GameEvents.OnMoveOrAddItem.Raise();
             SaveLoad.SaveInventory(new InventorySaveData(this));
         }
 
