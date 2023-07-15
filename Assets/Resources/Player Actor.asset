@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a4d70c49933eb74789d9a5f32e8e57c, type: 3}
+  m_Name: Player Actor
+  m_EditorClassIdentifier: 
+  actorName: 
+  actionIcon: {fileID: 0}
+  hairColor: {r: 0.8584906, g: 0.43407354, b: 0.3361072, a: 1}
+  GearBody: {fileID: 11400000, guid: 0b120cc8384aa7e42bb88af7a3459bac, type: 2}
+  GearShoes: {fileID: 0}
+  GearPants: {fileID: 11400000, guid: cb669e295a57b0d4f886bab531a8a367, type: 2}
+  GearMouth: {fileID: 0}
+  GearEyes: {fileID: 11400000, guid: 7be92e30e0c8bda479c34433d3dc3669, type: 2}
+  GearShirt: {fileID: 11400000, guid: e313d3be786598244b7d8fd0e52743cd, type: 2}
+  GearHair: {fileID: 11400000, guid: 060521d0dc55fbc4d821e756959ccd92, type: 2}
+  GearAccessory: {fileID: 0}

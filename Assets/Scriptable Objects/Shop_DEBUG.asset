@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07cb0644aaf58c846ac55f47b373a0b4, type: 3}
+  m_Name: Shop_DEBUG
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  storeName: DEBUG STORE
+  targetInventory: {fileID: 11400000, guid: 6b47082d2c1a1044bbb6f95ea814d1c4, type: 2}
+  storeItems:
+  - {fileID: 11400000, guid: 2953451449f32d844bc49d99f2234bd9, type: 2}
+  - {fileID: 11400000, guid: e4a3e7d384c87bd4db26d8d2dd3dc332, type: 2}
+  - {fileID: 11400000, guid: 68d3257838350b640ba418407854ae2f, type: 2}
+  - {fileID: 11400000, guid: 75d27fc667b25eb48857b74a4117b61a, type: 2}
+  - {fileID: 11400000, guid: a8dfd3134dabf7d49be79c0df69a3e57, type: 2}
+  - {fileID: 11400000, guid: 51ff94c96197b5c4199a05e7d75ebf77, type: 2}

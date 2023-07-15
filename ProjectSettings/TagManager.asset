@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - CameraBoundingBox
   layers:
   - Default
   - TransparentFX
@@ -40,4 +41,31 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Body
+    uniqueID: 3187714845
+    locked: 0
+  - name: Shoes
+    uniqueID: 2471993463
+    locked: 0
+  - name: Pants
+    uniqueID: 1111681143
+    locked: 0
+  - name: Mouth
+    uniqueID: 476110007
+    locked: 0
+  - name: Eyes
+    uniqueID: 1620279119
+    locked: 0
+  - name: Shirt
+    uniqueID: 3293182897
+    locked: 0
+  - name: Hair
+    uniqueID: 1808486785
+    locked: 0
+  - name: Accessory
+    uniqueID: 2652536541
+    locked: 0
+  - name: Accessory 1
+    uniqueID: 3796137983
     locked: 0

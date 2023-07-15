@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e11c51fbb0b0ce459c5067d578f3b0e, type: 3}
+  m_Name: QuestActivity_InspiringBalloonBoy_GiveMovie
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: a3d1df56f09baa041b54abf8c5de1a81, type: 2}
+    - {fileID: 11400000, guid: 75d27fc667b25eb48857b74a4117b61a, type: 2}
+    - {fileID: 11400000, guid: 6b47082d2c1a1044bbb6f95ea814d1c4, type: 2}
+    - {fileID: 11400000, guid: 893b0425343ac614cab68ef00c38d4b4, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: <Conditions>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|AndCondition, Assembly-CSharp
+    - Name: <Conditions>k__BackingField
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 3|QuestStateConditional, Assembly-CSharp
+    - Name: <TargetQuest>k__BackingField
+      Entry: 10
+      Data: 0
+    - Name: <TargetState>k__BackingField
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 4|QuestItemConditional, Assembly-CSharp
+    - Name: <TargetItem>k__BackingField
+      Entry: 10
+      Data: 1
+    - Name: <ItemAmount>k__BackingField
+      Entry: 3
+      Data: 1
+    - Name: <UseAny>k__BackingField
+      Entry: 5
+      Data: true
+    - Name: <TargetInventory>k__BackingField
+      Entry: 10
+      Data: 2
+    - Name: <TargetQuest>k__BackingField
+      Entry: 10
+      Data: 0
+    - Name: <TargetTaskSignature>k__BackingField
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  actionType: 0
+  ActionName: Give Movie
+  ActionIcon: {fileID: -1810004164, guid: 70a7ebef66edbd946b06fcb7a2388811, type: 3}

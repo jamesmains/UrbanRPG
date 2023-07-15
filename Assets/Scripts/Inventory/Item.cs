@@ -1,0 +1,50 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Sirenix.OdinInspector;
+using Sirenix.Utilities;
+using UnityEditor;
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "Item", menuName = "Items and Inventory/Item")]
+public class Item : SerializedScriptableObject
+{
+    [FoldoutGroup("Details")][field: SerializeField] public Sprite Sprite { get; private set; }
+    [FoldoutGroup("Details")][field: SerializeField] public string Name { get; protected set; }
+    [FoldoutGroup("Details")][field: SerializeField] public string Description { get; private set; }
+    [FoldoutGroup("Data")][field: SerializeField] public ItemType ItemType { get; protected set; }
+    [FoldoutGroup("Data")][field: SerializeField] public int SellValue { get; private set; }
+    [FoldoutGroup("Data")][field: SerializeField] public int BuyValue { get; private set; }
+
+#if UNITY_EDITOR
+    private void OnEnable()
+    {
+        if (Name.IsNullOrWhitespace() && UrbanDebugger.DebugLevel >= 1)
+        {
+            Debug.LogError($"{this} item has no name! (Item.cs)");
+        }
+    }
+#endif
+
+    public virtual int Value
+    {
+        get => this.amount;
+        set => this.amount = value;
+    }
+
+    [SerializeField] protected int amount;
+    [field: SerializeField] public int StackLimit { get; private set; } = Int32.MaxValue;
+}
+
+[Serializable]
+public class ItemSaveData
+{
+    public string Name { get; private set; }
+    public int Value { get; private set; }
+        
+    public ItemSaveData(Item item)
+    {
+        Name = item.Name;
+        Value = item.Value;
+    }
+}

@@ -1,0 +1,2208 @@
+fileFormatVersion: 2
+guid: ea6a10dcc554eae44a2af6bb1de0479d
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_42
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 500
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 1, z: 1, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 626f49be59a1f674c956437375092356
+      internalID: -689553648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_92
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 465
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d67f778b0dc68e4681990aeb3431264
+      internalID: -528765383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_93
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 465
+        width: 38
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc10b956705fb5040ab74e126a62cbd9
+      internalID: -324187240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_94
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 469
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2b9e548cad83c140bdf02029f09b5ca
+      internalID: 1995429687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_95
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 469
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 914adc7ef57dc8848b33059dcd7421ce
+      internalID: -791633986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_106
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 445
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b2af3c9dc3431941b3b458d27e3a014
+      internalID: 711485776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_126
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 432
+        width: 42
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 1, z: 1, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f19bdc223bff3042af311a6f0f7ae00
+      internalID: -827454322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_128
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 437
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 961689ab867cd9442965dc527b2418ed
+      internalID: -2081950664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_130
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 431
+        width: 5
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d3c8cf9d5009e043bc9939df4d706c5
+      internalID: -1538604372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_147
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 420
+        width: 20
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7c717ca141cf554c94a8e6d7651eeb7
+      internalID: -1449907277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_179
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 399
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 1, z: 1, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33d86607b3094664f9f0bef5911c2721
+      internalID: 1245242078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_212
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 370
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 6, y: 6, z: 6, w: 7}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9a25cb707d98134e8d774b4566ab838
+      internalID: -60736959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_228
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 388
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2e0a849ce8f7c4439a2499e0f091eba
+      internalID: -364554912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_293
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 333
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d995b29acba80ee43b5fc70cc1d04ef9
+      internalID: 1245449878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_310
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 356
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f50d8fc90a17fe449b58675f888c7fb
+      internalID: 701517242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_379
+      rect:
+        serializedVersion: 2
+        x: 907
+        y: 295
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89b8db17564615547ac9bacc657f31d8
+      internalID: 434411984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_394
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 252
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 4, z: 4, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a245566a51b2d8e4f823d26888eddf6b
+      internalID: 438381180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_478
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 228
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa81b94aef124a842a11b4e64958677d
+      internalID: -1445968373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_480
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 227
+        width: 17
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e2f1d00d75323f4490e6eb24e24ff33
+      internalID: 749065142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_579
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 193
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7802703f4c07514d9043bca7addbd59
+      internalID: 8625402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_580
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 193
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 175ded582855064469fbd0c41454d597
+      internalID: -552286048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_590
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 186
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b935b6aff4ea3d48b8a60a8a9600d50
+      internalID: -323305608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_591
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 186
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53d6327897c57b24cb87489ba8be70af
+      internalID: -1652538738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_642
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 128
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 156ac9d1b1f249f4dbb84513be8c0758
+      internalID: 1879937724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_643
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 129
+        width: 25
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 4, z: 4, w: 6}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ae38d39c75440e4184625e07be66d2f
+      internalID: -1535412783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_675
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 116
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75d4d167917c24c4a96b97868a741637
+      internalID: -2125877192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_677
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 133
+        width: 18
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5b259e11a61ef14db013a23d0ca6f6b
+      internalID: 2060795459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_699
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 112
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 296113c79323aee47957ddfba3fa31fa
+      internalID: -1354921062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_700
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 117
+        width: 18
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db13094c928edc743bd6be79510a775a
+      internalID: 1072675698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_701
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 117
+        width: 18
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37bf7932a95c103479f0395f88892922
+      internalID: 557335022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_722
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 99
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f16a3310a57f4804592c8bd54b44eaaa
+      internalID: -1095309164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_723
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 99
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 2, y: 2, z: 2, w: 3}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1864568c2133e444b32c12cf5a6b84b
+      internalID: -1269509756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_724
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 99
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f6a130ef48cd6a4ca23aa64e024d940
+      internalID: 125252618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_725
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 99
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c189e529953a7844ea1858d43a9c6ae4
+      internalID: -1512790992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_746
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 83
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89a45c5975a820b4eb978c661429fba5
+      internalID: -310173000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_747
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 83
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e08dc98413c2b4d4a972c3232f0d0161
+      internalID: 1446273215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_748
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 83
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bc19d30ccb2ec14a9c26c43b6cd1a7a
+      internalID: 200620609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_749
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 83
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff97b7709d366364c8b94b8b15b1a809
+      internalID: 1791931143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_770
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 67
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cccd782fd2906545adeb8ea9330cc25
+      internalID: 1544254703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_771
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 67
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bc040559b8b65545b34e831d5ad86f5
+      internalID: 793636901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_772
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 67
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb8e3eda38d596b409f5ea27d232b538
+      internalID: -57468016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_773
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 67
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3032cc422fdb9bf468fc06234a23ee06
+      internalID: 960941647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_794
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 51
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c18a86a9a6913c4478407e50bfa8fe54
+      internalID: -801763250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_795
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 51
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd112216d8aa02345988245709e5213b
+      internalID: 417490248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_796
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 51
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d10484370235eed49aac9b3de24984da
+      internalID: 815295762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_797
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 51
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58baae8ff12d3c74bba5bc6539efe9e8
+      internalID: 226814282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_818
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 35
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c99fc2874728ab4ebb9b0486876caef
+      internalID: 1930826013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_819
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 35
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a8536431f7ee5f43b720da6c2e21535
+      internalID: -755460814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_820
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 35
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2dbdb7affd25e5438e6a51794d54ea4
+      internalID: -2112077381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_821
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 35
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f189e7b98ad0a84aa4681df6bec723c
+      internalID: 2068273852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_838
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 18
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bedaaa9f11d6372468aaaa46f17c4af7
+      internalID: 1117552511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_839
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 18
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37d4b4a207b787646a4d870260199317
+      internalID: -1155600449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_840
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 18
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2e3a40edbebb8042997987d7cec908f
+      internalID: 118879455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_841
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 18
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f312493a59fa0a46b674122b9c08c5e
+      internalID: -84677838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_0
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 148
+        width: 3
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 1, z: 0, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36b7520e59d2c454081dfcfe648ca59e
+      internalID: 1915936999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_19
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 496
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bf5296a4750ca945afb5c96b381d6da
+      internalID: -757704635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_1
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 512
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 4, z: 4, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2db85c5404f15e04781427417420d45e
+      internalID: 1261893195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Modern_UI_Style_1_0: 1915936999
+      Modern_UI_Style_1_1: 1261893195
+      Modern_UI_Style_1_10: -1594253146
+      Modern_UI_Style_1_100: 976093099
+      Modern_UI_Style_1_101: -1836589324
+      Modern_UI_Style_1_102: 928473205
+      Modern_UI_Style_1_103: 856145984
+      Modern_UI_Style_1_104: -170483325
+      Modern_UI_Style_1_105: 1554163826
+      Modern_UI_Style_1_106: 711485776
+      Modern_UI_Style_1_107: -954236430
+      Modern_UI_Style_1_108: 406516503
+      Modern_UI_Style_1_109: -96873195
+      Modern_UI_Style_1_11: 1292791788
+      Modern_UI_Style_1_110: 747306990
+      Modern_UI_Style_1_111: -34751925
+      Modern_UI_Style_1_112: 1091868607
+      Modern_UI_Style_1_113: -2102238654
+      Modern_UI_Style_1_114: -302076399
+      Modern_UI_Style_1_115: 429983722
+      Modern_UI_Style_1_116: 682530932
+      Modern_UI_Style_1_117: -622784027
+      Modern_UI_Style_1_118: 922351603
+      Modern_UI_Style_1_119: -704206337
+      Modern_UI_Style_1_12: 553342308
+      Modern_UI_Style_1_120: -440702535
+      Modern_UI_Style_1_121: -2008034039
+      Modern_UI_Style_1_122: -2082357366
+      Modern_UI_Style_1_123: -1090859469
+      Modern_UI_Style_1_124: -907235483
+      Modern_UI_Style_1_125: -1922500887
+      Modern_UI_Style_1_126: -827454322
+      Modern_UI_Style_1_127: -929102392
+      Modern_UI_Style_1_128: -2081950664
+      Modern_UI_Style_1_129: -63430086
+      Modern_UI_Style_1_13: 200360004
+      Modern_UI_Style_1_130: -1538604372
+      Modern_UI_Style_1_131: 317301432
+      Modern_UI_Style_1_132: -1743444933
+      Modern_UI_Style_1_133: 905894414
+      Modern_UI_Style_1_134: 93027193
+      Modern_UI_Style_1_135: -1517277413
+      Modern_UI_Style_1_136: -1984884024
+      Modern_UI_Style_1_137: 675966698
+      Modern_UI_Style_1_138: -957117793
+      Modern_UI_Style_1_139: -2058900488
+      Modern_UI_Style_1_14: -139779523
+      Modern_UI_Style_1_140: 72813982
+      Modern_UI_Style_1_141: -495538405
+      Modern_UI_Style_1_142: 729279037
+      Modern_UI_Style_1_143: -1109981335
+      Modern_UI_Style_1_144: 1835934373
+      Modern_UI_Style_1_145: 1446857799
+      Modern_UI_Style_1_146: -980708882
+      Modern_UI_Style_1_147: -1449907277
+      Modern_UI_Style_1_148: 840348283
+      Modern_UI_Style_1_149: -584057697
+      Modern_UI_Style_1_15: -1741953864
+      Modern_UI_Style_1_150: 1809928636
+      Modern_UI_Style_1_151: -439789353
+      Modern_UI_Style_1_152: -1994490906
+      Modern_UI_Style_1_153: 1807129676
+      Modern_UI_Style_1_154: -1870223743
+      Modern_UI_Style_1_155: -1828984099
+      Modern_UI_Style_1_156: 630560295
+      Modern_UI_Style_1_157: -135705610
+      Modern_UI_Style_1_158: 1685276853
+      Modern_UI_Style_1_159: 936204847
+      Modern_UI_Style_1_16: 702483057
+      Modern_UI_Style_1_160: -1175487071
+      Modern_UI_Style_1_161: -2119473989
+      Modern_UI_Style_1_162: -1925000703
+      Modern_UI_Style_1_163: 849526738
+      Modern_UI_Style_1_164: -1253386885
+      Modern_UI_Style_1_165: 1468543143
+      Modern_UI_Style_1_166: 1985485960
+      Modern_UI_Style_1_167: -1975172620
+      Modern_UI_Style_1_168: -645556787
+      Modern_UI_Style_1_169: 1054694105
+      Modern_UI_Style_1_17: -966745136
+      Modern_UI_Style_1_170: -1414400629
+      Modern_UI_Style_1_171: -60719694
+      Modern_UI_Style_1_172: -873817864
+      Modern_UI_Style_1_173: -1130847984
+      Modern_UI_Style_1_174: 1837617522
+      Modern_UI_Style_1_175: -1625267756
+      Modern_UI_Style_1_176: -1020712877
+      Modern_UI_Style_1_177: -1855910393
+      Modern_UI_Style_1_178: -1334358838
+      Modern_UI_Style_1_179: 1245242078
+      Modern_UI_Style_1_18: 1456471849
+      Modern_UI_Style_1_180: 1469983728
+      Modern_UI_Style_1_181: -1280878225
+      Modern_UI_Style_1_182: -898648944
+      Modern_UI_Style_1_183: -946791975
+      Modern_UI_Style_1_184: -773432489
+      Modern_UI_Style_1_185: 1980320990
+      Modern_UI_Style_1_186: 294978126
+      Modern_UI_Style_1_187: -1720723415
+      Modern_UI_Style_1_188: -610329514
+      Modern_UI_Style_1_189: -352517840
+      Modern_UI_Style_1_19: -757704635
+      Modern_UI_Style_1_190: -265849673
+      Modern_UI_Style_1_191: -2137798657
+      Modern_UI_Style_1_192: 148367785
+      Modern_UI_Style_1_193: -1765577779
+      Modern_UI_Style_1_194: 1966684447
+      Modern_UI_Style_1_195: 1509639472
+      Modern_UI_Style_1_196: 159279255
+      Modern_UI_Style_1_197: -693053915
+      Modern_UI_Style_1_198: 103269719
+      Modern_UI_Style_1_199: 1498579242
+      Modern_UI_Style_1_2: -1564287095
+      Modern_UI_Style_1_20: -1016704241
+      Modern_UI_Style_1_200: -334992338
+      Modern_UI_Style_1_201: -1692519369
+      Modern_UI_Style_1_202: 217844886
+      Modern_UI_Style_1_203: 821366928
+      Modern_UI_Style_1_204: -1542931533
+      Modern_UI_Style_1_205: 306670896
+      Modern_UI_Style_1_206: 1525924780
+      Modern_UI_Style_1_207: 1872187927
+      Modern_UI_Style_1_208: -2008632976
+      Modern_UI_Style_1_209: -1029782147
+      Modern_UI_Style_1_21: -1672839880
+      Modern_UI_Style_1_210: 79603218
+      Modern_UI_Style_1_211: -1034678599
+      Modern_UI_Style_1_212: -60736959
+      Modern_UI_Style_1_213: 1849811069
+      Modern_UI_Style_1_214: -176775111
+      Modern_UI_Style_1_215: 1950697262
+      Modern_UI_Style_1_216: 1446196583
+      Modern_UI_Style_1_217: -742114532
+      Modern_UI_Style_1_218: 567375899
+      Modern_UI_Style_1_219: 1911348913
+      Modern_UI_Style_1_22: 2098388911
+      Modern_UI_Style_1_220: 1631374833
+      Modern_UI_Style_1_221: 1252485353
+      Modern_UI_Style_1_222: -869896863
+      Modern_UI_Style_1_223: -1752518432
+      Modern_UI_Style_1_224: 248480007
+      Modern_UI_Style_1_225: -1984140535
+      Modern_UI_Style_1_226: 2034740673
+      Modern_UI_Style_1_227: 1322953497
+      Modern_UI_Style_1_228: -364554912
+      Modern_UI_Style_1_229: 1196163281
+      Modern_UI_Style_1_23: -1832351368
+      Modern_UI_Style_1_230: -1130207030
+      Modern_UI_Style_1_231: 1268378075
+      Modern_UI_Style_1_232: 1282262193
+      Modern_UI_Style_1_233: -25659977
+      Modern_UI_Style_1_234: 651574924
+      Modern_UI_Style_1_235: 1877787147
+      Modern_UI_Style_1_236: -1244142076
+      Modern_UI_Style_1_237: 1657890390
+      Modern_UI_Style_1_238: 267096262
+      Modern_UI_Style_1_239: -455634163
+      Modern_UI_Style_1_24: -826342450
+      Modern_UI_Style_1_240: -661475434
+      Modern_UI_Style_1_241: 1532924126
+      Modern_UI_Style_1_242: -1033567609
+      Modern_UI_Style_1_243: -792450430
+      Modern_UI_Style_1_244: 1798947336
+      Modern_UI_Style_1_245: 510565474
+      Modern_UI_Style_1_246: 1991260506
+      Modern_UI_Style_1_247: 1114530756
+      Modern_UI_Style_1_248: 1714672223
+      Modern_UI_Style_1_249: 288286608
+      Modern_UI_Style_1_25: -942266870
+      Modern_UI_Style_1_250: 1539632537
+      Modern_UI_Style_1_251: -1511691784
+      Modern_UI_Style_1_252: -250084643
+      Modern_UI_Style_1_253: 282887007
+      Modern_UI_Style_1_254: -1344834545
+      Modern_UI_Style_1_255: -64782320
+      Modern_UI_Style_1_256: -864616289
+      Modern_UI_Style_1_257: -97527287
+      Modern_UI_Style_1_258: 847413900
+      Modern_UI_Style_1_259: 257415721
+      Modern_UI_Style_1_26: 1999122753
+      Modern_UI_Style_1_260: 2028016664
+      Modern_UI_Style_1_261: 954537446
+      Modern_UI_Style_1_262: 1169267458
+      Modern_UI_Style_1_263: -151069842
+      Modern_UI_Style_1_264: 971887661
+      Modern_UI_Style_1_265: 931428289
+      Modern_UI_Style_1_266: -917286625
+      Modern_UI_Style_1_267: -1517130543
+      Modern_UI_Style_1_268: -1587662493
+      Modern_UI_Style_1_269: 880852135
+      Modern_UI_Style_1_27: 2044805661
+      Modern_UI_Style_1_270: 1788991845
+      Modern_UI_Style_1_271: -440834057
+      Modern_UI_Style_1_272: 686346187
+      Modern_UI_Style_1_273: -1005396112
+      Modern_UI_Style_1_274: -446834887
+      Modern_UI_Style_1_275: -1076679200
+      Modern_UI_Style_1_276: 1690464349
+      Modern_UI_Style_1_277: -1543365876
+      Modern_UI_Style_1_278: -1800375564
+      Modern_UI_Style_1_279: -108135478
+      Modern_UI_Style_1_28: -794580677
+      Modern_UI_Style_1_280: 1488621484
+      Modern_UI_Style_1_281: 649553524
+      Modern_UI_Style_1_282: -1279107211
+      Modern_UI_Style_1_283: -851617292
+      Modern_UI_Style_1_284: 343365389
+      Modern_UI_Style_1_285: -386716141
+      Modern_UI_Style_1_286: 1039653793
+      Modern_UI_Style_1_287: 113576684
+      Modern_UI_Style_1_288: 901755573
+      Modern_UI_Style_1_289: 1277778801
+      Modern_UI_Style_1_29: -1393860266
+      Modern_UI_Style_1_290: 1522796773
+      Modern_UI_Style_1_291: 435260534
+      Modern_UI_Style_1_292: 2082258151
+      Modern_UI_Style_1_293: 1245449878
+      Modern_UI_Style_1_294: -446664786
+      Modern_UI_Style_1_295: 305978764
+      Modern_UI_Style_1_296: 936697910
+      Modern_UI_Style_1_297: 490430268
+      Modern_UI_Style_1_298: -1713915398
+      Modern_UI_Style_1_299: 766743796
+      Modern_UI_Style_1_3: 1538127512
+      Modern_UI_Style_1_30: 230524899
+      Modern_UI_Style_1_300: 592709243
+      Modern_UI_Style_1_301: -1389594856
+      Modern_UI_Style_1_302: -104110529
+      Modern_UI_Style_1_303: 249002994
+      Modern_UI_Style_1_304: 1242966240
+      Modern_UI_Style_1_305: -1270552757
+      Modern_UI_Style_1_306: -1090850473
+      Modern_UI_Style_1_307: -2099506353
+      Modern_UI_Style_1_308: -259581802
+      Modern_UI_Style_1_309: 687252101
+      Modern_UI_Style_1_31: -925908843
+      Modern_UI_Style_1_310: 701517242
+      Modern_UI_Style_1_311: 1174724946
+      Modern_UI_Style_1_312: -877440099
+      Modern_UI_Style_1_313: -1329471350
+      Modern_UI_Style_1_314: 2121404028
+      Modern_UI_Style_1_315: -1002069801
+      Modern_UI_Style_1_316: 806954190
+      Modern_UI_Style_1_317: -1517743715
+      Modern_UI_Style_1_318: -15749256
+      Modern_UI_Style_1_319: -9257649
+      Modern_UI_Style_1_32: -594789517
+      Modern_UI_Style_1_320: 958140192
+      Modern_UI_Style_1_321: 1076430434
+      Modern_UI_Style_1_322: -1747868520
+      Modern_UI_Style_1_323: 1258488569
+      Modern_UI_Style_1_324: 332094955
+      Modern_UI_Style_1_325: -2035822086
+      Modern_UI_Style_1_326: -1417885613
+      Modern_UI_Style_1_327: -773629073
+      Modern_UI_Style_1_328: 1750361114
+      Modern_UI_Style_1_329: 687088164
+      Modern_UI_Style_1_33: -667750541
+      Modern_UI_Style_1_330: 1261797434
+      Modern_UI_Style_1_331: -977943049
+      Modern_UI_Style_1_332: 206309695
+      Modern_UI_Style_1_333: 853210323
+      Modern_UI_Style_1_334: -1810029296
+      Modern_UI_Style_1_335: -468498193
+      Modern_UI_Style_1_336: 631153124
+      Modern_UI_Style_1_337: 391452995
+      Modern_UI_Style_1_338: -1309527575
+      Modern_UI_Style_1_339: -201197996
+      Modern_UI_Style_1_34: -1102559460
+      Modern_UI_Style_1_340: 1372097933
+      Modern_UI_Style_1_341: 1896239431
+      Modern_UI_Style_1_342: -292551024
+      Modern_UI_Style_1_343: 849287102
+      Modern_UI_Style_1_344: 1106307271
+      Modern_UI_Style_1_345: 921058056
+      Modern_UI_Style_1_346: -93931019
+      Modern_UI_Style_1_347: -502407678
+      Modern_UI_Style_1_348: 1506142284
+      Modern_UI_Style_1_349: -981401595
+      Modern_UI_Style_1_35: -1035194045
+      Modern_UI_Style_1_350: -1748590276
+      Modern_UI_Style_1_351: 573127174
+      Modern_UI_Style_1_352: 1208277123
+      Modern_UI_Style_1_353: -802292946
+      Modern_UI_Style_1_354: 1606913171
+      Modern_UI_Style_1_355: -1468138581
+      Modern_UI_Style_1_356: 1115231442
+      Modern_UI_Style_1_357: 703818440
+      Modern_UI_Style_1_358: 1584761163
+      Modern_UI_Style_1_359: -100888675
+      Modern_UI_Style_1_36: -1697985931
+      Modern_UI_Style_1_360: -2050689903
+      Modern_UI_Style_1_361: 910195580
+      Modern_UI_Style_1_362: -1456725077
+      Modern_UI_Style_1_363: 1899412414
+      Modern_UI_Style_1_364: -1916448325
+      Modern_UI_Style_1_365: -1581524759
+      Modern_UI_Style_1_366: 1487783499
+      Modern_UI_Style_1_367: -1771394645
+      Modern_UI_Style_1_368: -795600892
+      Modern_UI_Style_1_369: -1848510554
+      Modern_UI_Style_1_37: -378825919
+      Modern_UI_Style_1_370: 1609677497
+      Modern_UI_Style_1_371: -1445942766
+      Modern_UI_Style_1_372: -1403496222
+      Modern_UI_Style_1_373: 995925326
+      Modern_UI_Style_1_374: -305662975
+      Modern_UI_Style_1_375: -1742557207
+      Modern_UI_Style_1_376: -27760569
+      Modern_UI_Style_1_377: 91863142
+      Modern_UI_Style_1_378: -64369774
+      Modern_UI_Style_1_379: 434411984
+      Modern_UI_Style_1_38: -1637433829
+      Modern_UI_Style_1_380: 1198414066
+      Modern_UI_Style_1_381: 2140113432
+      Modern_UI_Style_1_382: 1102163768
+      Modern_UI_Style_1_383: -1309779485
+      Modern_UI_Style_1_384: 759313787
+      Modern_UI_Style_1_385: -713708318
+      Modern_UI_Style_1_386: -110362281
+      Modern_UI_Style_1_387: -834042605
+      Modern_UI_Style_1_388: -1403592241
+      Modern_UI_Style_1_389: 1502694473
+      Modern_UI_Style_1_39: -886948067
+      Modern_UI_Style_1_390: -1298629035
+      Modern_UI_Style_1_391: 474434796
+      Modern_UI_Style_1_392: -1135418059
+      Modern_UI_Style_1_393: -974882390
+      Modern_UI_Style_1_394: 438381180
+      Modern_UI_Style_1_395: -1402138631
+      Modern_UI_Style_1_396: 192407572
+      Modern_UI_Style_1_397: -1087087174
+      Modern_UI_Style_1_398: 1616333132
+      Modern_UI_Style_1_399: 1477916648
+      Modern_UI_Style_1_4: -1112658570
+      Modern_UI_Style_1_40: 1254000056
+      Modern_UI_Style_1_400: 1281115245
+      Modern_UI_Style_1_401: 1458279899
+      Modern_UI_Style_1_402: 235312154
+      Modern_UI_Style_1_403: 776578217
+      Modern_UI_Style_1_404: 1147870936
+      Modern_UI_Style_1_405: 949262969
+      Modern_UI_Style_1_406: -390159739
+      Modern_UI_Style_1_407: -1701977655
+      Modern_UI_Style_1_408: -1052757618
+      Modern_UI_Style_1_409: -965520953
+      Modern_UI_Style_1_41: 1560538043
+      Modern_UI_Style_1_410: -924518901
+      Modern_UI_Style_1_411: 1086643240
+      Modern_UI_Style_1_412: -1074863751
+      Modern_UI_Style_1_413: -594634358
+      Modern_UI_Style_1_414: 105989665
+      Modern_UI_Style_1_415: 571987388
+      Modern_UI_Style_1_416: 758684605
+      Modern_UI_Style_1_417: 1532581897
+      Modern_UI_Style_1_418: 2110081879
+      Modern_UI_Style_1_419: 727376855
+      Modern_UI_Style_1_42: -689553648
+      Modern_UI_Style_1_420: 899808631
+      Modern_UI_Style_1_421: 1797868212
+      Modern_UI_Style_1_422: 1647194917
+      Modern_UI_Style_1_423: -619628297
+      Modern_UI_Style_1_424: -2116040180
+      Modern_UI_Style_1_425: -511465439
+      Modern_UI_Style_1_426: -1484865360
+      Modern_UI_Style_1_427: -1027717275
+      Modern_UI_Style_1_428: 1802174532
+      Modern_UI_Style_1_429: -362644201
+      Modern_UI_Style_1_43: -470585241
+      Modern_UI_Style_1_430: 546072346
+      Modern_UI_Style_1_431: -612365089
+      Modern_UI_Style_1_432: 1478399299
+      Modern_UI_Style_1_433: 191032170
+      Modern_UI_Style_1_434: 497259405
+      Modern_UI_Style_1_435: 1778988178
+      Modern_UI_Style_1_436: -1449438144
+      Modern_UI_Style_1_437: 532962039
+      Modern_UI_Style_1_438: -530364647
+      Modern_UI_Style_1_439: 176783173
+      Modern_UI_Style_1_44: 1367118878
+      Modern_UI_Style_1_440: -1388531248
+      Modern_UI_Style_1_441: -2092457223
+      Modern_UI_Style_1_442: -20424782
+      Modern_UI_Style_1_443: 1017980226
+      Modern_UI_Style_1_444: 576046650
+      Modern_UI_Style_1_445: 1296091125
+      Modern_UI_Style_1_446: 1452742365
+      Modern_UI_Style_1_447: 1646132153
+      Modern_UI_Style_1_448: 727717845
+      Modern_UI_Style_1_449: -1687056306
+      Modern_UI_Style_1_45: -226600509
+      Modern_UI_Style_1_450: -287179826
+      Modern_UI_Style_1_451: 1846925860
+      Modern_UI_Style_1_452: 175648080
+      Modern_UI_Style_1_453: 1735210443
+      Modern_UI_Style_1_454: 1314639633
+      Modern_UI_Style_1_455: -1041910593
+      Modern_UI_Style_1_456: -89111594
+      Modern_UI_Style_1_457: -968025670
+      Modern_UI_Style_1_458: 161653620
+      Modern_UI_Style_1_459: -452692722
+      Modern_UI_Style_1_46: -1278537218
+      Modern_UI_Style_1_460: -740495311
+      Modern_UI_Style_1_461: -789840281
+      Modern_UI_Style_1_462: -537961430
+      Modern_UI_Style_1_463: -385571606
+      Modern_UI_Style_1_464: 1288342177
+      Modern_UI_Style_1_465: -1979326309
+      Modern_UI_Style_1_466: 675105707
+      Modern_UI_Style_1_467: -738596714
+      Modern_UI_Style_1_468: 330246382
+      Modern_UI_Style_1_469: -650679148
+      Modern_UI_Style_1_47: 1861342514
+      Modern_UI_Style_1_470: 1358040818
+      Modern_UI_Style_1_471: -651622229
+      Modern_UI_Style_1_472: 1473406968
+      Modern_UI_Style_1_473: 559867094
+      Modern_UI_Style_1_474: 1202876283
+      Modern_UI_Style_1_475: -1203525441
+      Modern_UI_Style_1_476: -262426348
+      Modern_UI_Style_1_477: -1155752930
+      Modern_UI_Style_1_478: -1445968373
+      Modern_UI_Style_1_479: 521518050
+      Modern_UI_Style_1_48: 732861510
+      Modern_UI_Style_1_480: 749065142
+      Modern_UI_Style_1_481: 259880323
+      Modern_UI_Style_1_482: -1313922416
+      Modern_UI_Style_1_483: 413683676
+      Modern_UI_Style_1_484: 14068520
+      Modern_UI_Style_1_485: 47861159
+      Modern_UI_Style_1_486: 701545794
+      Modern_UI_Style_1_487: -1990807975
+      Modern_UI_Style_1_488: -1884943787
+      Modern_UI_Style_1_489: -1760657715
+      Modern_UI_Style_1_49: 487093830
+      Modern_UI_Style_1_490: 328452572
+      Modern_UI_Style_1_491: 373985560
+      Modern_UI_Style_1_492: -1986528048
+      Modern_UI_Style_1_493: -2087386225
+      Modern_UI_Style_1_494: -74299359
+      Modern_UI_Style_1_495: -303455453
+      Modern_UI_Style_1_496: 141640546
+      Modern_UI_Style_1_497: 1038338576
+      Modern_UI_Style_1_498: -1212835469
+      Modern_UI_Style_1_499: 328250080
+      Modern_UI_Style_1_5: -111620111
+      Modern_UI_Style_1_50: -1652227643
+      Modern_UI_Style_1_500: 987546034
+      Modern_UI_Style_1_501: -1963236918
+      Modern_UI_Style_1_502: 1546750620
+      Modern_UI_Style_1_503: -2047470849
+      Modern_UI_Style_1_504: 644216263
+      Modern_UI_Style_1_505: 498425605
+      Modern_UI_Style_1_506: -442700040
+      Modern_UI_Style_1_507: -1435193680
+      Modern_UI_Style_1_508: -846843988
+      Modern_UI_Style_1_509: -618815279
+      Modern_UI_Style_1_51: 723924192
+      Modern_UI_Style_1_510: 693152096
+      Modern_UI_Style_1_511: -621848765
+      Modern_UI_Style_1_512: 2100563621
+      Modern_UI_Style_1_513: 1387042282
+      Modern_UI_Style_1_514: -981194760
+      Modern_UI_Style_1_515: -2121010052
+      Modern_UI_Style_1_516: -2122464285
+      Modern_UI_Style_1_517: 1022479984
+      Modern_UI_Style_1_518: 41324485
+      Modern_UI_Style_1_519: -2091168164
+      Modern_UI_Style_1_52: 1205930823
+      Modern_UI_Style_1_520: -1886092617
+      Modern_UI_Style_1_521: -1269113116
+      Modern_UI_Style_1_522: 723858342
+      Modern_UI_Style_1_523: -321167838
+      Modern_UI_Style_1_524: -1190206730
+      Modern_UI_Style_1_525: -2085840418
+      Modern_UI_Style_1_526: -1777038133
+      Modern_UI_Style_1_527: -1008399611
+      Modern_UI_Style_1_528: -1111216794
+      Modern_UI_Style_1_529: -1466185345
+      Modern_UI_Style_1_53: -1987714475
+      Modern_UI_Style_1_530: 872763484
+      Modern_UI_Style_1_531: 743060974
+      Modern_UI_Style_1_532: 2078042091
+      Modern_UI_Style_1_533: 1342291421
+      Modern_UI_Style_1_534: -1500625985
+      Modern_UI_Style_1_535: 855026
+      Modern_UI_Style_1_536: 1367860611
+      Modern_UI_Style_1_537: -1090907482
+      Modern_UI_Style_1_538: -740984217
+      Modern_UI_Style_1_539: -935999292
+      Modern_UI_Style_1_54: -284469761
+      Modern_UI_Style_1_540: 575832733
+      Modern_UI_Style_1_541: -539017741
+      Modern_UI_Style_1_542: -1058947080
+      Modern_UI_Style_1_543: 1805031739
+      Modern_UI_Style_1_544: -1349840047
+      Modern_UI_Style_1_545: -1471846955
+      Modern_UI_Style_1_546: 15484842
+      Modern_UI_Style_1_547: 1414613124
+      Modern_UI_Style_1_548: 2000926986
+      Modern_UI_Style_1_549: -1409236556
+      Modern_UI_Style_1_55: -1929445462
+      Modern_UI_Style_1_550: 483657686
+      Modern_UI_Style_1_551: -1166387793
+      Modern_UI_Style_1_552: -1675276458
+      Modern_UI_Style_1_553: 885652931
+      Modern_UI_Style_1_554: 1600144141
+      Modern_UI_Style_1_555: -1225312396
+      Modern_UI_Style_1_556: -1990052707
+      Modern_UI_Style_1_557: 845190589
+      Modern_UI_Style_1_558: -1729094260
+      Modern_UI_Style_1_559: 876611879
+      Modern_UI_Style_1_56: -2083798713
+      Modern_UI_Style_1_560: -373278336
+      Modern_UI_Style_1_561: 1956467583
+      Modern_UI_Style_1_562: 370033510
+      Modern_UI_Style_1_563: 411408986
+      Modern_UI_Style_1_564: 769612850
+      Modern_UI_Style_1_565: 168958590
+      Modern_UI_Style_1_566: -499086271
+      Modern_UI_Style_1_567: -1447873355
+      Modern_UI_Style_1_568: 1993486018
+      Modern_UI_Style_1_569: -878245994
+      Modern_UI_Style_1_57: 84427465
+      Modern_UI_Style_1_570: 1686974464
+      Modern_UI_Style_1_571: 177881517
+      Modern_UI_Style_1_572: -1178259967
+      Modern_UI_Style_1_573: -739337640
+      Modern_UI_Style_1_574: 1852124699
+      Modern_UI_Style_1_575: 309612831
+      Modern_UI_Style_1_576: 1633451769
+      Modern_UI_Style_1_577: -873793122
+      Modern_UI_Style_1_578: -1886750396
+      Modern_UI_Style_1_579: 8625402
+      Modern_UI_Style_1_58: 1312173893
+      Modern_UI_Style_1_580: -552286048
+      Modern_UI_Style_1_581: -230926689
+      Modern_UI_Style_1_582: -1163340744
+      Modern_UI_Style_1_583: 1812132784
+      Modern_UI_Style_1_584: 121705974
+      Modern_UI_Style_1_585: 103758769
+      Modern_UI_Style_1_586: 1913114144
+      Modern_UI_Style_1_587: -316667168
+      Modern_UI_Style_1_588: 726229376
+      Modern_UI_Style_1_589: -1690874490
+      Modern_UI_Style_1_59: -84711942
+      Modern_UI_Style_1_590: -323305608
+      Modern_UI_Style_1_591: -1652538738
+      Modern_UI_Style_1_592: 280816714
+      Modern_UI_Style_1_593: -732582200
+      Modern_UI_Style_1_594: 392453135
+      Modern_UI_Style_1_595: -1534042511
+      Modern_UI_Style_1_596: 160964354
+      Modern_UI_Style_1_597: 1799979278
+      Modern_UI_Style_1_598: 1964951062
+      Modern_UI_Style_1_599: -565847792
+      Modern_UI_Style_1_6: 2126476976
+      Modern_UI_Style_1_60: -1465852555
+      Modern_UI_Style_1_600: 1782722185
+      Modern_UI_Style_1_601: -1533895037
+      Modern_UI_Style_1_602: 647333816
+      Modern_UI_Style_1_603: -2124821984
+      Modern_UI_Style_1_604: -917392079
+      Modern_UI_Style_1_605: -756373536
+      Modern_UI_Style_1_606: -1564982380
+      Modern_UI_Style_1_607: -1797265343
+      Modern_UI_Style_1_608: -1850045755
+      Modern_UI_Style_1_609: 456709521
+      Modern_UI_Style_1_61: -1774527702
+      Modern_UI_Style_1_610: -393339560
+      Modern_UI_Style_1_611: 1146199223
+      Modern_UI_Style_1_612: -2113557605
+      Modern_UI_Style_1_613: -73585899
+      Modern_UI_Style_1_614: 1644276360
+      Modern_UI_Style_1_615: -1828876878
+      Modern_UI_Style_1_616: 1173094080
+      Modern_UI_Style_1_617: -1896026978
+      Modern_UI_Style_1_618: 1088540380
+      Modern_UI_Style_1_619: -1891171451
+      Modern_UI_Style_1_62: 212865551
+      Modern_UI_Style_1_620: 1737108928
+      Modern_UI_Style_1_621: 2103983005
+      Modern_UI_Style_1_622: -309352465
+      Modern_UI_Style_1_623: -1519508916
+      Modern_UI_Style_1_624: 571371586
+      Modern_UI_Style_1_625: -1312946032
+      Modern_UI_Style_1_626: -1277770322
+      Modern_UI_Style_1_627: 445804644
+      Modern_UI_Style_1_628: 1237549766
+      Modern_UI_Style_1_629: -35345176
+      Modern_UI_Style_1_63: 199604487
+      Modern_UI_Style_1_630: 240688978
+      Modern_UI_Style_1_631: 1414701838
+      Modern_UI_Style_1_632: 376742042
+      Modern_UI_Style_1_633: 2044185816
+      Modern_UI_Style_1_634: 1456912511
+      Modern_UI_Style_1_635: 1349553681
+      Modern_UI_Style_1_636: 612730635
+      Modern_UI_Style_1_637: 612743586
+      Modern_UI_Style_1_638: 2084385207
+      Modern_UI_Style_1_639: 123932887
+      Modern_UI_Style_1_64: 1973374068
+      Modern_UI_Style_1_640: 148818406
+      Modern_UI_Style_1_641: 1917955869
+      Modern_UI_Style_1_642: 1879937724
+      Modern_UI_Style_1_643: -1535412783
+      Modern_UI_Style_1_644: 327190641
+      Modern_UI_Style_1_645: -1168404962
+      Modern_UI_Style_1_646: 634969720
+      Modern_UI_Style_1_647: 935021972
+      Modern_UI_Style_1_648: -1356949127
+      Modern_UI_Style_1_649: -8860724
+      Modern_UI_Style_1_65: 665233549
+      Modern_UI_Style_1_650: 2065695686
+      Modern_UI_Style_1_651: 884157251
+      Modern_UI_Style_1_652: -1480373293
+      Modern_UI_Style_1_653: 684384586
+      Modern_UI_Style_1_654: 1276739807
+      Modern_UI_Style_1_655: -231559091
+      Modern_UI_Style_1_656: -380028552
+      Modern_UI_Style_1_657: 1502130580
+      Modern_UI_Style_1_658: -1597869805
+      Modern_UI_Style_1_659: -1919772066
+      Modern_UI_Style_1_66: 1770616840
+      Modern_UI_Style_1_660: 623898027
+      Modern_UI_Style_1_661: -1537188322
+      Modern_UI_Style_1_662: -168497173
+      Modern_UI_Style_1_663: -1451655757
+      Modern_UI_Style_1_664: 233766812
+      Modern_UI_Style_1_665: -615411200
+      Modern_UI_Style_1_666: 15021261
+      Modern_UI_Style_1_667: -1337762983
+      Modern_UI_Style_1_668: 1716624515
+      Modern_UI_Style_1_669: -993809956
+      Modern_UI_Style_1_67: -780817912
+      Modern_UI_Style_1_670: 1638042663
+      Modern_UI_Style_1_671: 268196188
+      Modern_UI_Style_1_672: 282535447
+      Modern_UI_Style_1_673: 1418557863
+      Modern_UI_Style_1_674: -921724340
+      Modern_UI_Style_1_675: -2125877192
+      Modern_UI_Style_1_676: -1452653103
+      Modern_UI_Style_1_677: 2060795459
+      Modern_UI_Style_1_678: 460690825
+      Modern_UI_Style_1_679: 2011799088
+      Modern_UI_Style_1_68: 1176085901
+      Modern_UI_Style_1_680: -622006559
+      Modern_UI_Style_1_681: 1531778809
+      Modern_UI_Style_1_682: -1147347259
+      Modern_UI_Style_1_683: -333054943
+      Modern_UI_Style_1_684: 979371557
+      Modern_UI_Style_1_685: -1674862562
+      Modern_UI_Style_1_686: -1828710164
+      Modern_UI_Style_1_687: -429596472
+      Modern_UI_Style_1_688: 318553528
+      Modern_UI_Style_1_689: 1704358647
+      Modern_UI_Style_1_69: 2130330685
+      Modern_UI_Style_1_690: -685069181
+      Modern_UI_Style_1_691: -247414736
+      Modern_UI_Style_1_692: -1825503555
+      Modern_UI_Style_1_693: 724209761
+      Modern_UI_Style_1_694: 804893485
+      Modern_UI_Style_1_695: 215266479
+      Modern_UI_Style_1_696: 19494659
+      Modern_UI_Style_1_697: 343073629
+      Modern_UI_Style_1_698: 112749911
+      Modern_UI_Style_1_699: -1354921062
+      Modern_UI_Style_1_7: -887106408
+      Modern_UI_Style_1_70: -1278409527
+      Modern_UI_Style_1_700: 1072675698
+      Modern_UI_Style_1_701: 557335022
+      Modern_UI_Style_1_702: -921648135
+      Modern_UI_Style_1_703: 1683965246
+      Modern_UI_Style_1_704: -53882547
+      Modern_UI_Style_1_705: 1685093346
+      Modern_UI_Style_1_706: 1229722936
+      Modern_UI_Style_1_707: -1870955810
+      Modern_UI_Style_1_708: 378299733
+      Modern_UI_Style_1_709: 334771123
+      Modern_UI_Style_1_71: -1879621925
+      Modern_UI_Style_1_710: -1703973963
+      Modern_UI_Style_1_711: 1551292579
+      Modern_UI_Style_1_712: -503185
+      Modern_UI_Style_1_713: -746135978
+      Modern_UI_Style_1_714: -83984465
+      Modern_UI_Style_1_715: 591107015
+      Modern_UI_Style_1_716: -1520499871
+      Modern_UI_Style_1_717: -1510605193
+      Modern_UI_Style_1_718: -1056903069
+      Modern_UI_Style_1_719: 571656420
+      Modern_UI_Style_1_72: -1751994248
+      Modern_UI_Style_1_720: 1676049081
+      Modern_UI_Style_1_721: -1603605103
+      Modern_UI_Style_1_722: -1095309164
+      Modern_UI_Style_1_723: -1269509756
+      Modern_UI_Style_1_724: 125252618
+      Modern_UI_Style_1_725: -1512790992
+      Modern_UI_Style_1_726: -822540106
+      Modern_UI_Style_1_727: -894999794
+      Modern_UI_Style_1_728: -145918755
+      Modern_UI_Style_1_729: -2103594508
+      Modern_UI_Style_1_73: 217974290
+      Modern_UI_Style_1_730: -205992531
+      Modern_UI_Style_1_731: 46656086
+      Modern_UI_Style_1_732: -354549725
+      Modern_UI_Style_1_733: 1632840914
+      Modern_UI_Style_1_734: -793999638
+      Modern_UI_Style_1_735: 301643871
+      Modern_UI_Style_1_736: 1313780899
+      Modern_UI_Style_1_737: -780274338
+      Modern_UI_Style_1_738: 353615028
+      Modern_UI_Style_1_739: 1208747023
+      Modern_UI_Style_1_74: 1748047563
+      Modern_UI_Style_1_740: -1163295736
+      Modern_UI_Style_1_741: -1295971552
+      Modern_UI_Style_1_742: 866831301
+      Modern_UI_Style_1_743: -1075730268
+      Modern_UI_Style_1_744: 2048285976
+      Modern_UI_Style_1_745: 1541309109
+      Modern_UI_Style_1_746: -310173000
+      Modern_UI_Style_1_747: 1446273215
+      Modern_UI_Style_1_748: 200620609
+      Modern_UI_Style_1_749: 1791931143
+      Modern_UI_Style_1_75: -1060289368
+      Modern_UI_Style_1_750: 592519344
+      Modern_UI_Style_1_751: 1794450839
+      Modern_UI_Style_1_752: -1064174110
+      Modern_UI_Style_1_753: 1351162444
+      Modern_UI_Style_1_754: -1160454871
+      Modern_UI_Style_1_755: 1336395434
+      Modern_UI_Style_1_756: 59295542
+      Modern_UI_Style_1_757: 1716657675
+      Modern_UI_Style_1_758: -668785481
+      Modern_UI_Style_1_759: -1168539416
+      Modern_UI_Style_1_76: -1994810738
+      Modern_UI_Style_1_760: 283077571
+      Modern_UI_Style_1_761: -1519863396
+      Modern_UI_Style_1_762: 1409044777
+      Modern_UI_Style_1_763: 821482787
+      Modern_UI_Style_1_764: 2104751013
+      Modern_UI_Style_1_765: -180354553
+      Modern_UI_Style_1_766: 299796838
+      Modern_UI_Style_1_767: -830570014
+      Modern_UI_Style_1_768: 1423403679
+      Modern_UI_Style_1_769: -996426565
+      Modern_UI_Style_1_77: -109929347
+      Modern_UI_Style_1_770: 1544254703
+      Modern_UI_Style_1_771: 793636901
+      Modern_UI_Style_1_772: -57468016
+      Modern_UI_Style_1_773: 960941647
+      Modern_UI_Style_1_774: -1128762145
+      Modern_UI_Style_1_775: -1898895625
+      Modern_UI_Style_1_776: 458016674
+      Modern_UI_Style_1_777: -1202693877
+      Modern_UI_Style_1_778: 838876402
+      Modern_UI_Style_1_779: 439629843
+      Modern_UI_Style_1_78: -128996596
+      Modern_UI_Style_1_780: -570284089
+      Modern_UI_Style_1_781: -347222994
+      Modern_UI_Style_1_782: 895420417
+      Modern_UI_Style_1_783: -918554366
+      Modern_UI_Style_1_784: 625518584
+      Modern_UI_Style_1_785: 813632935
+      Modern_UI_Style_1_786: 1662753857
+      Modern_UI_Style_1_787: -1842393461
+      Modern_UI_Style_1_788: 1995232255
+      Modern_UI_Style_1_789: -316645510
+      Modern_UI_Style_1_79: 601469108
+      Modern_UI_Style_1_790: -1489595368
+      Modern_UI_Style_1_791: 1931623659
+      Modern_UI_Style_1_792: -1436614460
+      Modern_UI_Style_1_793: 1196307684
+      Modern_UI_Style_1_794: -801763250
+      Modern_UI_Style_1_795: 417490248
+      Modern_UI_Style_1_796: 815295762
+      Modern_UI_Style_1_797: 226814282
+      Modern_UI_Style_1_798: -728223471
+      Modern_UI_Style_1_799: 56136829
+      Modern_UI_Style_1_8: 566108724
+      Modern_UI_Style_1_80: -827438162
+      Modern_UI_Style_1_800: 700349913
+      Modern_UI_Style_1_801: -995270370
+      Modern_UI_Style_1_802: -1212729976
+      Modern_UI_Style_1_803: -1465027813
+      Modern_UI_Style_1_804: -900588920
+      Modern_UI_Style_1_805: -1559380055
+      Modern_UI_Style_1_806: 1798998617
+      Modern_UI_Style_1_807: -1956584597
+      Modern_UI_Style_1_808: -965341127
+      Modern_UI_Style_1_809: -2070530654
+      Modern_UI_Style_1_81: 1468592247
+      Modern_UI_Style_1_810: 900935384
+      Modern_UI_Style_1_811: 454675858
+      Modern_UI_Style_1_812: 878235195
+      Modern_UI_Style_1_813: -1030703683
+      Modern_UI_Style_1_814: 1424335511
+      Modern_UI_Style_1_815: -387969094
+      Modern_UI_Style_1_816: 921861522
+      Modern_UI_Style_1_817: -1670459510
+      Modern_UI_Style_1_818: 1930826013
+      Modern_UI_Style_1_819: -755460814
+      Modern_UI_Style_1_82: -1074597975
+      Modern_UI_Style_1_820: -2112077381
+      Modern_UI_Style_1_821: 2068273852
+      Modern_UI_Style_1_822: -407942010
+      Modern_UI_Style_1_823: -696109538
+      Modern_UI_Style_1_824: 1575298311
+      Modern_UI_Style_1_825: -806824967
+      Modern_UI_Style_1_826: 48133968
+      Modern_UI_Style_1_827: -1449983337
+      Modern_UI_Style_1_828: 1726524404
+      Modern_UI_Style_1_829: -1501478933
+      Modern_UI_Style_1_83: -475448763
+      Modern_UI_Style_1_830: 1874236770
+      Modern_UI_Style_1_831: -222572788
+      Modern_UI_Style_1_832: -837431072
+      Modern_UI_Style_1_833: 855800411
+      Modern_UI_Style_1_834: 1964750053
+      Modern_UI_Style_1_835: -1764021943
+      Modern_UI_Style_1_836: -1203806274
+      Modern_UI_Style_1_837: 410797551
+      Modern_UI_Style_1_838: 1117552511
+      Modern_UI_Style_1_839: -1155600449
+      Modern_UI_Style_1_84: 1201296438
+      Modern_UI_Style_1_840: 118879455
+      Modern_UI_Style_1_841: -84677838
+      Modern_UI_Style_1_842: 184581667
+      Modern_UI_Style_1_843: -849207849
+      Modern_UI_Style_1_844: 2014008819
+      Modern_UI_Style_1_845: -1095822357
+      Modern_UI_Style_1_846: -993646740
+      Modern_UI_Style_1_847: 1296584123
+      Modern_UI_Style_1_848: 939665841
+      Modern_UI_Style_1_849: -1438698657
+      Modern_UI_Style_1_85: -55312264
+      Modern_UI_Style_1_850: 580736622
+      Modern_UI_Style_1_851: 1659923449
+      Modern_UI_Style_1_852: -250332082
+      Modern_UI_Style_1_853: 671185742
+      Modern_UI_Style_1_854: 1331511129
+      Modern_UI_Style_1_855: 111456913
+      Modern_UI_Style_1_856: -1266776940
+      Modern_UI_Style_1_857: 1474529421
+      Modern_UI_Style_1_86: -1508571819
+      Modern_UI_Style_1_87: 1847557007
+      Modern_UI_Style_1_88: -37552964
+      Modern_UI_Style_1_89: -632997318
+      Modern_UI_Style_1_9: 1994942183
+      Modern_UI_Style_1_90: -755008845
+      Modern_UI_Style_1_91: -391370429
+      Modern_UI_Style_1_92: -528765383
+      Modern_UI_Style_1_93: -324187240
+      Modern_UI_Style_1_94: 1995429687
+      Modern_UI_Style_1_95: -791633986
+      Modern_UI_Style_1_96: 14830470
+      Modern_UI_Style_1_97: -66749132
+      Modern_UI_Style_1_98: -201038966
+      Modern_UI_Style_1_99: 342640782
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

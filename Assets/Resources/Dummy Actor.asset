@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a4d70c49933eb74789d9a5f32e8e57c, type: 3}
+  m_Name: Dummy Actor
+  m_EditorClassIdentifier: 
+  actorName: 
+  actionIcon: {fileID: 0}
+  hairColor: {r: 0.8584906, g: 0.43407354, b: 0.3361072, a: 1}
+  GearBody: {fileID: 11400000, guid: 0b120cc8384aa7e42bb88af7a3459bac, type: 2}
+  GearShoes: {fileID: 11400000, guid: f10075e1397e2954da1f89dd034c93e3, type: 2}
+  GearPants: {fileID: 11400000, guid: 2183973c42644ed419f3dbda552ea09a, type: 2}
+  GearMouth: {fileID: 11400000, guid: c2b9ef5227dbbd6409f9e704c9c6730c, type: 2}
+  GearEyes: {fileID: 11400000, guid: e45e282df72f0c946b1d623be46f7b3b, type: 2}
+  GearShirt: {fileID: 11400000, guid: e313d3be786598244b7d8fd0e52743cd, type: 2}
+  GearHair: {fileID: 11400000, guid: 060521d0dc55fbc4d821e756959ccd92, type: 2}
+  GearAccessory1: {fileID: 11400000, guid: 9fdb04f4d0791cc41b34c5bb16a08c37, type: 2}
+  GearAccessory2: {fileID: 11400000, guid: 8615e4cb064dd394ab5f56df45db6372, type: 2}
