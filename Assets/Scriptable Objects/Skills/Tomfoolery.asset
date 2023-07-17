@@ -15,8 +15,6 @@ MonoBehaviour:
   Name: Tomfoolery
   Description: ???
   Icon: {fileID: 21300000, guid: 29e27d405e313584a9c5fa1cb545e310, type: 3}
-  Level: 0
-  ExpRequiredForLevelUp: 100
-  CurrentExp: 0
-  OnLevelUp: {fileID: 11400000, guid: 24bcc29fbddf15f4fbe46114e3d0ccd3, type: 2}
-  OnGainExperience: {fileID: 11400000, guid: 4e403e74ee8e9ce40a75dfd727ead74d, type: 2}
+  Level: 1
+  ExpRequiredForLevelUp: 200
+  CurrentExp: 125
