@@ -12,6 +12,7 @@ public class ItemNameDisplay : Window
     [SerializeField] private Vector3 offset;
     [FoldoutGroup("Details")][SerializeField] private RectTransform rect;
     [FoldoutGroup("Details")][SerializeField] private Canvas scaler;
+    [FoldoutGroup("Debug"), SerializeField] private InventorySlot currentTargetSlot;
 
     private void OnEnable()
     {
@@ -27,14 +28,16 @@ public class ItemNameDisplay : Window
 
     private void ShowItemNameDisplay(InventorySlot incomingInventorySlotData)
     {
-        if (incomingInventorySlotData.storedItemData.item == null) return;
-        itemNameText.text = incomingInventorySlotData.storedItemData.item.Name;
+        currentTargetSlot = incomingInventorySlotData;
+        if (currentTargetSlot.storedItemData.item == null) return;
+        itemNameText.text = currentTargetSlot.storedItemData.item.Name;
         Show();
     }
 
     private void Update()
     {
-        if(isActive)
-            rect.anchoredPosition = (Input.mousePosition / scaler.scaleFactor)+offset;
+        if (!isActive) return;
+        if (currentTargetSlot.storedItemData.item == null) Hide();
+        rect.anchoredPosition = (Input.mousePosition / scaler.scaleFactor)+offset;
     }
 }

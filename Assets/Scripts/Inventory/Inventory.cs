@@ -28,38 +28,36 @@ using UnityEngine;
 
         public int TryAddItem(Item incomingItem, int value = 1)
         {
-            int overflow = 0;
             int remaining = value;
-            
-            for (int i = 0; i < InventoryItems.Length; i++)
+
+            foreach (var itemData in InventoryItems)
             {
                 if (remaining <= 0) break;
-                if (incomingItem != InventoryItems[i].item ||
-                    InventoryItems[i].item == null ||
-                    InventoryItems[i].Quantity == InventoryItems[i].item.StackLimit) continue;
+                if (incomingItem != itemData.item ||
+                    itemData.item == null)continue;
 
-                overflow = (remaining - InventoryItems[i].item.StackLimit) + InventoryItems[i].Quantity;
-                InventoryItems[i].Quantity = InventoryItems[i].item.StackLimit;
-                if (overflow <= 0)
-                {
-                    remaining -= InventoryItems[i].Quantity += overflow;
-                }
-                else remaining = overflow;
-            }
-
-            for (int i = 0; i < InventoryItems.Length; i++)
-            {
-                if (remaining <= 0) break;
-                if (InventoryItems[i].item != null) continue;
-                InventoryItems[i].item = incomingItem;
+                if (itemData.Quantity == itemData.item.StackLimit) continue;
                 
-                overflow = (remaining - InventoryItems[i].item.StackLimit) + InventoryItems[i].Quantity;
-                InventoryItems[i].Quantity = InventoryItems[i].item.StackLimit;
-                if (overflow <= 0)
+                for (int r = remaining; r > 0; r--)
                 {
-                    remaining -= (InventoryItems[i].Quantity += overflow);
+                    if (remaining <= 0) continue;
+                    itemData.Quantity++;
+                    remaining--;
                 }
-                else remaining = overflow;
+            }
+            
+            foreach (var itemData in InventoryItems)
+            {
+                if (remaining <= 0) break;
+                if (itemData.item != null) continue;
+                itemData.item = incomingItem;
+                itemData.Quantity = 0;
+                for (int r = remaining; r > 0; r--)
+                {
+                    if (remaining <= 0) continue;
+                    itemData.Quantity++;
+                    remaining--;
+                }
             }
             SaveInventory();
             return remaining;
@@ -89,12 +87,15 @@ using UnityEngine;
             SaveInventory();
             return remaining;
         }
-        
+
         public void TryRemoveItemAt(int ItemIndex, int amount = 1)
         {
             InventoryItems[ItemIndex].Quantity -= amount;
             if (InventoryItems[ItemIndex].Quantity <= 0)
+            {
                 InventoryItems[ItemIndex].item = null;
+                InventoryItems[ItemIndex].Quantity = 0;
+            }
             SaveInventory();
         }
         
@@ -132,6 +133,18 @@ using UnityEngine;
             }
 
             return availableQuantity >= quantity;
+        }
+
+        public int HasItemAt(Item itemQuery)
+        {
+            int v = -1;
+            for (int i = 0; i < InventoryItems.Length; i++)
+            {
+                if (InventoryItems[i].item == itemQuery)
+                    v = i;
+            }
+            Debug.Log(v);
+            return v;
         }
         
         [FoldoutGroup("Saving and Loading")][Button]

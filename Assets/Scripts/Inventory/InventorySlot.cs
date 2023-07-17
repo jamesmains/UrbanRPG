@@ -23,14 +23,14 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
 
     private void OnEnable()
     {
-        // GameEvents.OnMouseScroll += TryMoveItemToOtherOpenWindow; // This is REALLY broken
+        GameEvents.OnMouseScroll += TryMoveItemToOtherOpenWindow;
     }
 
     private void OnDisable()
     {
         movingItem = null;
         GameEvents.OnItemRelease.Raise();
-        // GameEvents.OnMouseScroll -= TryMoveItemToOtherOpenWindow;
+        GameEvents.OnMouseScroll -= TryMoveItemToOtherOpenWindow;
     }
 
     private void Update()
@@ -149,16 +149,17 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
     private void TryMoveItemToOtherOpenWindow(float movement)
     {
         if (movement == 0 || storedItemData.item == null || movingItem != null) return;
-        if (InventoryWindow.openInventoryWindows.Count <= 1 || highlightedInventorySlot == null) return;
+        if (InventoryWindow.openInventoryWindows.Count <= 1 || highlightedInventorySlot != this) return;
         
         int index = InventoryWindow.openInventoryWindows.IndexOf(this.parentInventoryWindow);
-        index += (int)Mathf.Abs(movement);
+        index += (int)Mathf.Abs(movement) * movement > 0 ? 1 : -1;
         if (index >= InventoryWindow.openInventoryWindows.Count) index = 0;
         else if (index < 0) index = InventoryWindow.openInventoryWindows.Count - 1; 
         
-        print(InventoryWindow.openInventoryWindows.Count);
-        
-        TryMoveItemToInventoryWindow(InventoryWindow.openInventoryWindows[index], 1);
+        if(movement > 0)
+            TryMoveItemToInventoryWindow(InventoryWindow.openInventoryWindows[index], 1);
+        else if(movement < 1)
+            TryGetItemFromInventoryWindow(InventoryWindow.openInventoryWindows[index], 1);
     }
     
     private void TryMoveItemToInventoryWindow(InventoryWindow targetWindow, int amount)
@@ -171,6 +172,19 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         var i = parentInventoryWindow.inventory.InventoryItems[storedItemData.Index];
         var overflow = targetWindow.inventory.TryAddItem(i.item,amount);
         parentInventoryWindow.inventory.TryRemoveItemAt(storedItemData.Index,amount - overflow);
+    }
+
+    private void TryGetItemFromInventoryWindow(InventoryWindow targetWindow, int amount)
+    {
+        if (targetWindow.restrictByItemType &&
+            targetWindow.itemTypeRestriction != storedItemData.item.ItemType)
+        {
+            return;
+        }
+        var i = targetWindow.inventory.HasItemAt(storedItemData.item);
+        if (i < 0) return;
+        var overflow = parentInventoryWindow.inventory.TryAddItem(storedItemData.item,amount);
+        targetWindow.inventory.TryRemoveItemAt(i,amount - overflow);
     }
     
     public void OnPointerDown(PointerEventData eventData)

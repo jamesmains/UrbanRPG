@@ -142,7 +142,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 343
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e2e00528a2164b144871240bc7da8d63, type: 2}
   m_sharedMaterial: {fileID: -1606783549103231062, guid: e2e00528a2164b144871240bc7da8d63, type: 2}
@@ -176,8 +176,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 4
-  m_VerticalAlignment: 8192
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -302,12 +302,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95f02d166d7fedc4986cc73c0df5d5bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HeldItemInventoryIndex: 0
   playerPositionVariable: {fileID: 11400000, guid: 6288af3102c54ea44a226875cc734233, type: 2}
-  itemNameVariable: {fileID: 11400000, guid: 6a36e2bd9ba9bde4e9f51896af2beeaa, type: 2}
   pickupItemObject: {fileID: 5792344445435472291, guid: d0c8bfe55dba4c446a34988ccc711e05, type: 3}
   iconDisplay: {fileID: 5423615946509147235}
   countDisplayText: {fileID: 6481328505762885414}
-  parentInventoryDisplay: {fileID: 0}
+  parentInventoryWindow: {fileID: 0}
   mouseDown: 0
   waitingForDrag: 0
+  thisInventory: {fileID: 0}
+  storedItemData:
+    item: {fileID: 0}
+    Quantity: 0
+    Index: -1

@@ -19,6 +19,7 @@ public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,I
     private List<GameObject> InventorySlots = new();
     public static InventoryWindow highlightedInventoryWindow;
     public static List<InventoryWindow> openInventoryWindows = new();
+    public List<InventoryWindow> DEBUGopenInventoryWindows = new();
 
     private void OnEnable()
     {
@@ -37,12 +38,14 @@ public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,I
         base.Show();
         UpdateInventoryDisplay();
         openInventoryWindows.Add(this);
+        DEBUGopenInventoryWindows = openInventoryWindows;
     }
 
     public override void Hide()
     {
         base.Hide();
         openInventoryWindows.Remove(this);
+        DEBUGopenInventoryWindows = openInventoryWindows;
     }
 
     [Button]
