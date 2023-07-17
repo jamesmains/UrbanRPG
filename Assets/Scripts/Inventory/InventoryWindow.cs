@@ -25,6 +25,14 @@ public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,I
     {
         GameEvents.OnPickupItem += UpdateInventoryDisplay;
         GameEvents.OnMoveOrAddItem += UpdateInventoryDisplay;
+        
+        if (InventorySlots.Count <= 0)
+        {
+            for (int i = 0; i < inventory.InventorySlotLimit.Value; i++)
+            {
+                InventorySlots.Add(Instantiate(InventorySlotPrefab, this.transform));
+            }
+        }
     }
 
     private void OnDisable()
@@ -51,14 +59,6 @@ public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,I
     [Button]
     public void UpdateInventoryDisplay()
     {
-        if (InventorySlots.Count <= 0)
-        {
-            for (int i = 0; i < inventory.InventorySlotLimit.Value; i++)
-            {
-                InventorySlots.Add(Instantiate(InventorySlotPrefab, this.transform));
-            }
-        }
-        
         for (int i = 0; i < inventory.InventorySlotLimit.Value; i++)
         {
             var itemData = inventory.InventoryItems[i];

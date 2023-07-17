@@ -35,6 +35,7 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
 
     private void Update()
     {
+        if (parentInventoryWindow == null || parentInventoryWindow.isLocked) return;
         if (waitingForDrag && mouseDown && Vector2.Distance(Input.mousePosition, transform.position) > 85f )
         {
             waitingForDrag = false;

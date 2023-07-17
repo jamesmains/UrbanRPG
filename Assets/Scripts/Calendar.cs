@@ -25,6 +25,7 @@ public class Calendar : Window
     public override void Show()
     {
         base.Show();
+        detailsWindow.Hide();
         UpdateCalendar();
         GameEvents.OpenCalendarDayDetails += detailsWindow.Show;
     }
