@@ -27,8 +27,8 @@ public class ItemNameDisplay : Window
 
     private void ShowItemNameDisplay(InventorySlot incomingInventorySlotData)
     {
-        if (incomingInventorySlotData.storedItem.item == null) return;
-        itemNameText.text = incomingInventorySlotData.storedItem.item.Name;
+        if (incomingInventorySlotData.storedItemData.item == null) return;
+        itemNameText.text = incomingInventorySlotData.storedItemData.item.Name;
         Show();
     }
 

@@ -6,7 +6,7 @@ using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 
-public class ShopDisplay : MonoBehaviour
+public class ShopDisplay : Window
 {
     [SerializeField, FoldoutGroup("Display")] private GameObject shopItemDisplayObject;
     [SerializeField, FoldoutGroup("Display")] private TextMeshProUGUI showNameText;
@@ -20,11 +20,18 @@ public class ShopDisplay : MonoBehaviour
 
     private void Awake()
     {
-        OpenShop(debugShop);
+        for (int i = 0; i < 25; i++)
+        {
+            shopItemDisplays.Add(Instantiate(shopItemDisplayObject,shopItemDisplayObjectContainer).GetComponent<ShopItemDisplay>());
+            shopItemDisplays[i].inCartAmount = 0;
+            shopItemDisplays[i].gameObject.SetActive(false);
+        }
+        //OpenShop(debugShop);
     }
 
     public void OpenShop(Shop incomingShop)
     {
+        Show();
         currentShop = incomingShop;
         cartCostVariable.Value = 0;
         cartCostText.text = cartCostVariable.Value.ToString();
@@ -48,17 +55,17 @@ public class ShopDisplay : MonoBehaviour
     
     public void PopulateShopDisplay()
     {
-        foreach (var oldObj in shopItemDisplays)
+        foreach (var shopItemDisplay in shopItemDisplays)
         {
-            Destroy(oldObj.gameObject);
+            shopItemDisplay.inCartAmount = 0;
+            shopItemDisplay.gameObject.SetActive(false);
         }
-        shopItemDisplays.Clear();
-        foreach (var i in currentShop.storeItems)
+        for (var index = 0; index < currentShop.storeItems.Count; index++)
         {
-            var obj = Instantiate(shopItemDisplayObject,shopItemDisplayObjectContainer);
-            ShopItemDisplay shopItemDisplay = obj.GetComponent<ShopItemDisplay>();
-            shopItemDisplay.Setup(i, 999);
-            shopItemDisplays.Add(shopItemDisplay);
+            shopItemDisplays[index].gameObject.SetActive(true);
+            
+            var i = currentShop.storeItems[index];
+            shopItemDisplays[index].Setup(i, 999);
         }
     }
 
@@ -68,6 +75,7 @@ public class ShopDisplay : MonoBehaviour
         GameEvents.OnUpdateMoneyDisplay.Raise();
         foreach (var shopItemDisplay in shopItemDisplays)
         {
+            if (shopItemDisplay.inCartAmount == 0) continue;
             currentShop.targetInventory.TryAddItem(shopItemDisplay.item, shopItemDisplay.inCartAmount);
             shopItemDisplay.itemQuantity -= shopItemDisplay.inCartAmount;
             shopItemDisplay.inCartAmount = 0;

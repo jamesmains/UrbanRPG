@@ -18,6 +18,7 @@ public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,I
     private bool flaggedToUpdate;
     private List<GameObject> InventorySlots = new();
     public static InventoryWindow highlightedInventoryWindow;
+    public static List<InventoryWindow> openInventoryWindows = new();
 
     private void OnEnable()
     {
@@ -35,8 +36,15 @@ public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,I
     {
         base.Show();
         UpdateInventoryDisplay();
+        openInventoryWindows.Add(this);
     }
-    
+
+    public override void Hide()
+    {
+        base.Hide();
+        openInventoryWindows.Remove(this);
+    }
+
     [Button]
     public void UpdateInventoryDisplay()
     {

@@ -18,13 +18,19 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
     [field: SerializeField,FoldoutGroup("Debug"),ReadOnly] private bool waitingForDrag;
     [field: SerializeField,FoldoutGroup("Debug"),ReadOnly] private Inventory thisInventory;
 
-    [field: SerializeField] public InventoryItemData storedItem =new(null,0,-1);
+    [field: SerializeField] public InventoryItemData storedItemData = new(null,0,-1);
     public static InventorySlot highlightedInventorySlot;
-    
+
+    private void OnEnable()
+    {
+        // GameEvents.OnMouseScroll += TryMoveItemToOtherOpenWindow; // This is REALLY broken
+    }
+
     private void OnDisable()
     {
         movingItem = null;
         GameEvents.OnItemRelease.Raise();
+        // GameEvents.OnMouseScroll -= TryMoveItemToOtherOpenWindow;
     }
 
     private void Update()
@@ -42,17 +48,21 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
 
     public void Setup(InventoryItemData inventoryItemData, int index, InventoryWindow origin)
     {
-        storedItem = inventoryItemData;
-        storedItem.Index = index;
+        storedItemData = inventoryItemData;
+        storedItemData.Index = index;
         parentInventoryWindow = origin;
         thisInventory = origin.inventory;
         
-        if(origin.inventory.InventoryItems[index].item == null || storedItem.item == null) {Disable(); return; }
+        if(origin.inventory.InventoryItems[index].item == null || storedItemData.item == null) {Disable(); return; }
         
         iconDisplay.enabled = true;
-        iconDisplay.sprite = origin.inventory.InventoryItems[storedItem.Index].item.Sprite;
-        countDisplayText.enabled = true;
-        countDisplayText.text = origin.inventory.InventoryItems[storedItem.Index].Quantity.ToString();
+        iconDisplay.sprite = origin.inventory.InventoryItems[storedItemData.Index].item.Sprite;
+        if (origin.inventory.InventoryItems[storedItemData.Index].Quantity > 1)
+        {
+            countDisplayText.enabled = true;
+            countDisplayText.text = origin.inventory.InventoryItems[storedItemData.Index].Quantity.ToString();
+        }
+        
     }
 
     public void Disable()
@@ -63,9 +73,9 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
 
     private void Drag()
     {
-        if (parentInventoryWindow.inventory.InventoryItems[storedItem.Index].Quantity <= 0 || storedItem.item == null) return;
+        if (parentInventoryWindow.inventory.InventoryItems[storedItemData.Index].Quantity <= 0 || storedItemData.item == null) return;
         movingItem = this;
-        GameEvents.OnItemMove.Raise(parentInventoryWindow.inventory.InventoryItems[storedItem.Index].item);
+        GameEvents.OnItemMove.Raise(parentInventoryWindow.inventory.InventoryItems[storedItemData.Index].item);
         iconDisplay.color = new Color(1, 1, 1, 0.5f);
     }
     
@@ -74,13 +84,13 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         Vector3 spawnPos = playerPositionVariable.Value;
         
         var pickup = Instantiate(pickupItemObject, spawnPos,Quaternion.identity).GetComponent<Pickup>();
-        var itemData = parentInventoryWindow.inventory.InventoryItems[storedItem.Index];
+        var itemData = parentInventoryWindow.inventory.InventoryItems[storedItemData.Index];
         int quantity = q < 0 ? itemData.Quantity : q;
 
         pickup.Setup(itemData.item,quantity);
-        this.thisInventory.TryRemoveItemAt(storedItem.Index,quantity);
-        if (this.thisInventory.InventoryItems[storedItem.Index].Quantity <= 0)
-            storedItem = null;
+        this.thisInventory.TryRemoveItemAt(storedItemData.Index,quantity);
+        if (this.thisInventory.InventoryItems[storedItemData.Index].Quantity <= 0)
+            storedItemData = null;
     }
 
     private void TryReleaseItem()
@@ -93,7 +103,7 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         }
         else if (InventoryWindow.highlightedInventoryWindow != parentInventoryWindow && InventoryWindow.highlightedInventoryWindow != null)
         {
-            TryMoveItemToInventoryWindow();
+            TryMoveItemToInventoryWindow(InventoryWindow.highlightedInventoryWindow,storedItemData.Quantity);
         }
         else if(!Global.IsMouseOverUI)
         {
@@ -106,44 +116,61 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         GameEvents.OnMoveOrAddItem.Raise();
     }
 
+    
+
     private void TryMoveItemToSlot()
     {
         InventorySlot his = highlightedInventorySlot;
         InventoryWindow hisWindow = his.parentInventoryWindow;
                 
-        if (storedItem.item == his.storedItem.item)
-            AddItemToExistingStack(hisWindow,his.storedItem.Index);
+        if (storedItemData.item == his.storedItemData.item)
+            AddItemToExistingStack(hisWindow,his.storedItemData.Index);
         else
-            SwapItemStacks(hisWindow,his.storedItem.Index);  
+            SwapItemStacks(hisWindow,his.storedItemData.Index);  
     }
 
     private void AddItemToExistingStack(InventoryWindow hisWindow, int hisIndex)
     {
-        int quantity = thisInventory.InventoryItems[storedItem.Index].Quantity;
+        int quantity = thisInventory.InventoryItems[storedItemData.Index].Quantity;
         var overflow = hisWindow.inventory.TryAddItemAt(hisIndex, quantity);
-        thisInventory.TryRemoveItemAt(storedItem.Index,quantity - overflow);
+        thisInventory.TryRemoveItemAt(storedItemData.Index,quantity - overflow);
     }
 
     private void SwapItemStacks(InventoryWindow hisWindow, int hisIndex)
     {
         if (hisWindow.restrictByItemType &&
-            hisWindow.itemTypeRestriction != storedItem.item.ItemType)
+            hisWindow.itemTypeRestriction != storedItemData.item.ItemType)
         {
             return;
         }
-        thisInventory.TrySwapItem(storedItem.Index,hisIndex,hisWindow.inventory); 
+        thisInventory.TrySwapItem(storedItemData.Index,hisIndex,hisWindow.inventory); 
     }
 
-    private void TryMoveItemToInventoryWindow()
+    private void TryMoveItemToOtherOpenWindow(float movement)
     {
-        if (InventoryWindow.highlightedInventoryWindow.restrictByItemType &&
-            InventoryWindow.highlightedInventoryWindow.itemTypeRestriction != storedItem.item.ItemType)
+        if (movement == 0 || storedItemData.item == null || movingItem != null) return;
+        if (InventoryWindow.openInventoryWindows.Count <= 1 || highlightedInventorySlot == null) return;
+        
+        int index = InventoryWindow.openInventoryWindows.IndexOf(this.parentInventoryWindow);
+        index += (int)Mathf.Abs(movement);
+        if (index >= InventoryWindow.openInventoryWindows.Count) index = 0;
+        else if (index < 0) index = InventoryWindow.openInventoryWindows.Count - 1; 
+        
+        print(InventoryWindow.openInventoryWindows.Count);
+        
+        TryMoveItemToInventoryWindow(InventoryWindow.openInventoryWindows[index], 1);
+    }
+    
+    private void TryMoveItemToInventoryWindow(InventoryWindow targetWindow, int amount)
+    {
+        if (targetWindow.restrictByItemType &&
+            targetWindow.itemTypeRestriction != storedItemData.item.ItemType)
         {
             return;
         }
-        var i = parentInventoryWindow.inventory.InventoryItems[storedItem.Index];
-        var overflow = InventoryWindow.highlightedInventoryWindow.inventory.TryAddItem(i.item,i.Quantity);
-        parentInventoryWindow.inventory.TryRemoveItemAt(storedItem.Index,i.Quantity - overflow);
+        var i = parentInventoryWindow.inventory.InventoryItems[storedItemData.Index];
+        var overflow = targetWindow.inventory.TryAddItem(i.item,amount);
+        parentInventoryWindow.inventory.TryRemoveItemAt(storedItemData.Index,amount - overflow);
     }
     
     public void OnPointerDown(PointerEventData eventData)

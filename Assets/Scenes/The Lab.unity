@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.14027694, g: 0.14763226, b: 0.65628034, a: 1}
+  m_IndirectSpecularColor: {r: 0.31735224, g: 0.33005977, b: 0.6977112, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1641,7 +1641,7 @@ MonoBehaviour:
   canvasGroup: {fileID: 101666042}
   isActive: 0
   windowIcon: {fileID: 0}
-  targetInventory: {fileID: 11400000, guid: 6b47082d2c1a1044bbb6f95ea814d1c4, type: 2}
+  inventory: {fileID: 11400000, guid: 6b47082d2c1a1044bbb6f95ea814d1c4, type: 2}
   InventorySlotPrefab: {fileID: 6481328506026311317, guid: 4af36c838b8ee364cb2955d986d48d53, type: 3}
   isLocked: 0
   removeOnly: 0
@@ -2122,7 +2122,7 @@ MonoBehaviour:
   canvasGroup: {fileID: 143157704}
   isActive: 0
   windowIcon: {fileID: 0}
-  targetInventory: {fileID: 11400000, guid: acd45b71bdb1fca43817757b6528e682, type: 2}
+  inventory: {fileID: 11400000, guid: acd45b71bdb1fca43817757b6528e682, type: 2}
   InventorySlotPrefab: {fileID: 6481328506026311317, guid: 4af36c838b8ee364cb2955d986d48d53, type: 3}
   isLocked: 0
   removeOnly: 0
@@ -5976,7 +5976,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 379205837}
-  m_LocalRotation: {x: 0.17350298, y: -0.00000000847271, z: 0.0000000014926795, w: 0.98483336}
+  m_LocalRotation: {x: 0.17350298, y: 0.000000008472708, z: -0.0000000014926792, w: 0.98483336}
   m_LocalPosition: {x: 0, y: 2.4, z: -5.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6176,17 +6176,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2532253496945547301, guid: 4b6275d96b12e264f93028ec8fc21697, type: 3}
   m_PrefabInstance: {fileID: 1735867086977971805}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &398865225 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2376664526619068954, guid: 4b6275d96b12e264f93028ec8fc21697, type: 3}
-  m_PrefabInstance: {fileID: 1735867086977971805}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92a449cbabcd70f49b102a1ff9a59768, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &409590579
 GameObject:
   m_ObjectHideFlags: 0
@@ -50801,13 +50790,14 @@ GameObject:
   - component: {fileID: 839535851}
   - component: {fileID: 839535850}
   - component: {fileID: 839535852}
+  - component: {fileID: 839535853}
   m_Layer: 5
   m_Name: Shop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &839535845
 RectTransform:
   m_ObjectHideFlags: 0
@@ -50883,15 +50873,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8bc39962270f34418971b49fd138693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description: 
+  canvasGroup: {fileID: 839535853}
+  isActive: 0
+  windowIcon: {fileID: 0}
   shopItemDisplayObject: {fileID: 851393744617088359, guid: 4b6275d96b12e264f93028ec8fc21697, type: 3}
   showNameText: {fileID: 623545283}
   cartCostText: {fileID: 2064722952}
   cartCostVariable: {fileID: 11400000, guid: 657d5777e58ee8246aa75364b8fb9560, type: 2}
   playerWalletVariable: {fileID: 11400000, guid: a2da190245fc1134c8c5c1e61d915b53, type: 2}
-  shopItemDisplays:
-  - {fileID: 398865225}
+  shopItemDisplays: []
   shopItemDisplayObjectContainer: {fileID: 1998313272}
   debugShop: {fileID: 11400000, guid: 29d6f9805782b3d4f83c0c9144a5e7db, type: 2}
+--- !u!225 &839535853
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839535844}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &875637556
 GameObject:
   m_ObjectHideFlags: 0
@@ -52135,8 +52140,8 @@ RectTransform:
   m_Children:
   - {fileID: 205866374}
   - {fileID: 1500080307}
-  - {fileID: 777197884}
   - {fileID: 101666033}
+  - {fileID: 777197884}
   - {fileID: 143157698}
   - {fileID: 1577567281}
   m_Father: {fileID: 1137779872}
@@ -52316,7 +52321,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -53090,7 +53095,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1147750266}
-  m_LocalRotation: {x: 0.17350298, y: -0.00000000847271, z: 0.0000000014926795, w: 0.98483336}
+  m_LocalRotation: {x: 0.17350298, y: 0.000000008472708, z: -0.0000000014926792, w: 0.98483336}
   m_LocalPosition: {x: 0, y: 2.4, z: -5.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -57231,7 +57236,7 @@ MonoBehaviour:
   canvasGroup: {fileID: 0}
   isActive: 0
   windowIcon: {fileID: 0}
-  targetInventory: {fileID: 11400000, guid: cf55cfab4d96f334798703878ba16795, type: 2}
+  inventory: {fileID: 0}
   InventorySlotPrefab: {fileID: 0}
   isLocked: 0
   removeOnly: 0
@@ -60452,9 +60457,9 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -29, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1899904448
 MonoBehaviour:
@@ -61604,7 +61609,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 8, y: 0}
-  m_SizeDelta: {x: -16, y: 116}
+  m_SizeDelta: {x: -16, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1998313273
 MonoBehaviour:
@@ -61878,7 +61883,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh37028
+  m_Name: pb_Mesh30580
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -62854,7 +62859,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh37132
+  m_Name: pb_Mesh30684
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -64436,6 +64441,10 @@ PrefabInstance:
     - target: {fileID: 851393744617088359, guid: 4b6275d96b12e264f93028ec8fc21697, type: 3}
       propertyPath: m_Name
       value: ShopItemDisplayObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 851393744617088359, guid: 4b6275d96b12e264f93028ec8fc21697, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2532253496945547301, guid: 4b6275d96b12e264f93028ec8fc21697, type: 3}
       propertyPath: m_Pivot.x
