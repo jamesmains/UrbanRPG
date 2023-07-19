@@ -33,10 +33,10 @@ using UnityEngine;
             foreach (var itemData in InventoryItems)
             {
                 if (remaining <= 0) break;
-                if (incomingItem != itemData.item ||
-                    itemData.item == null)continue;
+                if (incomingItem != itemData.Item ||
+                    itemData.Item == null)continue;
 
-                if (itemData.Quantity == itemData.item.StackLimit) continue;
+                if (itemData.Quantity == itemData.Item.StackLimit) continue;
                 
                 for (int r = remaining; r > 0; r--)
                 {
@@ -49,8 +49,8 @@ using UnityEngine;
             foreach (var itemData in InventoryItems)
             {
                 if (remaining <= 0) break;
-                if (itemData.item != null) continue;
-                itemData.item = incomingItem;
+                if (itemData.Item != null) continue;
+                itemData.Item = incomingItem;
                 itemData.Quantity = 0;
                 for (int r = remaining; r > 0; r--)
                 {
@@ -77,8 +77,8 @@ using UnityEngine;
             int overflow = 0;
             int remaining = value;
             
-            overflow = (remaining - InventoryItems[targetIndex].item.StackLimit) + InventoryItems[targetIndex].Quantity;
-            InventoryItems[targetIndex].Quantity = InventoryItems[targetIndex].item.StackLimit;
+            overflow = (remaining - InventoryItems[targetIndex].Item.StackLimit) + InventoryItems[targetIndex].Quantity;
+            InventoryItems[targetIndex].Quantity = InventoryItems[targetIndex].Item.StackLimit;
             if (overflow <= 0)
             {
                 remaining -= InventoryItems[targetIndex].Quantity += overflow;
@@ -93,7 +93,7 @@ using UnityEngine;
             InventoryItems[ItemIndex].Quantity -= amount;
             if (InventoryItems[ItemIndex].Quantity <= 0)
             {
-                InventoryItems[ItemIndex].item = null;
+                InventoryItems[ItemIndex].Item = null;
                 InventoryItems[ItemIndex].Quantity = 0;
             }
             SaveInventory();
@@ -103,7 +103,7 @@ using UnityEngine;
         {
             for (int i = 0; i < InventoryItems.Length; i++)
             {
-                if (neededItem != InventoryItems[i].item) continue;
+                if (neededItem != InventoryItems[i].Item) continue;
                 if (amount > InventoryItems[i].Quantity)
                 {
                     int used = InventoryItems[i].Quantity;
@@ -116,7 +116,7 @@ using UnityEngine;
                     amount = 0;
                 }
                 if (InventoryItems[i].Quantity <= 0)
-                    InventoryItems[i].item = null;
+                    InventoryItems[i].Item = null;
                 if (amount == 0) break;
             }
             
@@ -128,7 +128,7 @@ using UnityEngine;
             int availableQuantity = 0;
             for (int i = 0; i < InventoryItems.Length; i++)
             {
-                if (itemQuery != InventoryItems[i].item) continue;
+                if (itemQuery != InventoryItems[i].Item) continue;
                 availableQuantity += InventoryItems[i].Quantity;
             }
 
@@ -140,10 +140,9 @@ using UnityEngine;
             int v = -1;
             for (int i = 0; i < InventoryItems.Length; i++)
             {
-                if (InventoryItems[i].item == itemQuery)
+                if (InventoryItems[i].Item == itemQuery)
                     v = i;
             }
-            Debug.Log(v);
             return v;
         }
         
@@ -194,7 +193,7 @@ public class InventoryItemData
 {
     public InventoryItemData(Item item, int quantity,int index)
     {
-        item = item;
+        Item = item;
         Quantity = quantity;
         Index = index;
     }
@@ -202,12 +201,12 @@ public class InventoryItemData
     [Button]
     public void ClearItemData()
     {
-        item = null;
+        Item = null;
         Quantity = 0;
         Index = -1;
     }
 #endif  
-    public Item item;
+    public Item Item;
     public int Quantity;
     [HideInInspector]public int Index;
 }
@@ -227,13 +226,13 @@ public class InventorySaveData
         InventorySaveDataQuantities = new int[arrayLength];
         for (int i = 0; i < arrayLength; i++)
         {
-            if(inventory.InventoryItems[i].item == null)
+            if(inventory.InventoryItems[i].Item == null)
             {
                 InventorySaveDataItems[i] = String.Empty;
                 InventorySaveDataQuantities[i] = 0;
                 continue;
             }
-            InventorySaveDataItems[i] = inventory.InventoryItems[i].item.Name;
+            InventorySaveDataItems[i] = inventory.InventoryItems[i].Item.Name;
             InventorySaveDataQuantities[i] = inventory.InventoryItems[i].Quantity;
         }
     }

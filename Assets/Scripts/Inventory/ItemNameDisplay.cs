@@ -29,15 +29,15 @@ public class ItemNameDisplay : Window
     private void ShowItemNameDisplay(InventorySlot incomingInventorySlotData)
     {
         currentTargetSlot = incomingInventorySlotData;
-        if (currentTargetSlot.storedItemData.item == null) return;
-        itemNameText.text = currentTargetSlot.storedItemData.item.Name;
+        if (currentTargetSlot.storedItemData.Item == null) return;
+        itemNameText.text = currentTargetSlot.storedItemData.Item.Name;
         Show();
     }
 
     private void Update()
     {
         if (!isActive) return;
-        if (currentTargetSlot.storedItemData.item == null) Hide();
+        if (currentTargetSlot.storedItemData.Item == null) Hide();
         rect.anchoredPosition = (Input.mousePosition / scaler.scaleFactor)+offset;
     }
 }

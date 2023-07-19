@@ -23,16 +23,9 @@ public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,I
 
     private void OnEnable()
     {
+        PopulateDisplay();
         GameEvents.OnPickupItem += UpdateInventoryDisplay;
         GameEvents.OnMoveOrAddItem += UpdateInventoryDisplay;
-        
-        if (InventorySlots.Count <= 0)
-        {
-            for (int i = 0; i < inventory.InventorySlotLimit.Value; i++)
-            {
-                InventorySlots.Add(Instantiate(InventorySlotPrefab, this.transform));
-            }
-        }
     }
 
     private void OnDisable()
@@ -44,6 +37,9 @@ public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,I
     public override void Show()
     {
         base.Show();
+        
+        
+        
         UpdateInventoryDisplay();
         openInventoryWindows.Add(this);
         DEBUGopenInventoryWindows = openInventoryWindows;
@@ -56,14 +52,26 @@ public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,I
         DEBUGopenInventoryWindows = openInventoryWindows;
     }
 
+    private void PopulateDisplay()
+    {
+        if (InventorySlots.Count <= 0)
+        {
+            for (int i = 0; i < inventory.InventorySlotLimit.Value; i++)
+            {
+                InventorySlots.Add(Instantiate(InventorySlotPrefab, this.transform));
+            }
+        }
+    }
+    
     [Button]
     public void UpdateInventoryDisplay()
     {
+        PopulateDisplay(); // Should only run correctly from editor
         for (int i = 0; i < inventory.InventorySlotLimit.Value; i++)
         {
             var itemData = inventory.InventoryItems[i];
             var slot = InventorySlots[i].GetComponent<InventorySlot>();
-            if (restrictByItemType && inventory.InventoryItems[i].item != null &&inventory.InventoryItems[i].item.ItemType != itemTypeRestriction)
+            if (restrictByItemType && inventory.InventoryItems[i].Item != null &&inventory.InventoryItems[i].Item.ItemType != itemTypeRestriction)
             {
                 itemData = new InventoryItemData(null, 0, -1);
                 slot.Disable();
@@ -71,6 +79,16 @@ public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,I
             slot.Setup(itemData,i,this);
         }
     }
+    
+    #if UNITY_EDITOR
+
+    [Button]
+    private void ClearDisplays()
+    {
+        this.transform.DestroyChildren();
+    }
+    
+    #endif
 
     public void OnPointerEnter(PointerEventData eventData)
     {

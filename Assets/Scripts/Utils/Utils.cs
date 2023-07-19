@@ -15,7 +15,8 @@ public enum ActionType
 public enum ItemType
 {
     UNDEFINED,
-    Quest
+    Quest,
+    Ride
 }
 
 public enum GearType

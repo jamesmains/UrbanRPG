@@ -49,21 +49,33 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
 
     public void Setup(InventoryItemData inventoryItemData, int index, InventoryWindow origin)
     {
+        
+        if (inventoryItemData.Item is Gear item && inventoryItemData != storedItemData && origin.restrictByItemType)
+        {
+            if (inventoryItemData.Item.ItemType == origin.itemTypeRestriction)
+            {
+                foreach (var effect in item.GearEffects)
+                {
+                    effect.OnEquip();
+                }
+            }
+            
+        }
+        
         storedItemData = inventoryItemData;
         storedItemData.Index = index;
         parentInventoryWindow = origin;
         thisInventory = origin.inventory;
-        
-        if(origin.inventory.InventoryItems[index].item == null || storedItemData.item == null) {Disable(); return; }
+
+        if(origin.inventory.InventoryItems[index].Item == null || storedItemData.Item == null) {Disable(); return; }
         
         iconDisplay.enabled = true;
-        iconDisplay.sprite = origin.inventory.InventoryItems[storedItemData.Index].item.Sprite;
+        iconDisplay.sprite = origin.inventory.InventoryItems[storedItemData.Index].Item.Sprite;
         if (origin.inventory.InventoryItems[storedItemData.Index].Quantity > 1)
         {
             countDisplayText.enabled = true;
             countDisplayText.text = origin.inventory.InventoryItems[storedItemData.Index].Quantity.ToString();
         }
-        
     }
 
     public void Disable()
@@ -74,9 +86,9 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
 
     private void Drag()
     {
-        if (parentInventoryWindow.inventory.InventoryItems[storedItemData.Index].Quantity <= 0 || storedItemData.item == null) return;
+        if (parentInventoryWindow.inventory.InventoryItems[storedItemData.Index].Quantity <= 0 || storedItemData.Item == null) return;
         movingItem = this;
-        GameEvents.OnItemMove.Raise(parentInventoryWindow.inventory.InventoryItems[storedItemData.Index].item);
+        GameEvents.OnItemMove.Raise(parentInventoryWindow.inventory.InventoryItems[storedItemData.Index].Item);
         iconDisplay.color = new Color(1, 1, 1, 0.5f);
     }
     
@@ -88,7 +100,7 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         var itemData = parentInventoryWindow.inventory.InventoryItems[storedItemData.Index];
         int quantity = q < 0 ? itemData.Quantity : q;
 
-        pickup.Setup(itemData.item,quantity);
+        pickup.Setup(itemData.Item,quantity);
         this.thisInventory.TryRemoveItemAt(storedItemData.Index,quantity);
         if (this.thisInventory.InventoryItems[storedItemData.Index].Quantity <= 0)
             storedItemData = null;
@@ -97,7 +109,6 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
     private void TryReleaseItem()
     {
         if (movingItem == null) return;
-        
         if (this != highlightedInventorySlot && highlightedInventorySlot is not null)
         {
             TryMoveItemToSlot();
@@ -124,7 +135,7 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         InventorySlot his = highlightedInventorySlot;
         InventoryWindow hisWindow = his.parentInventoryWindow;
                 
-        if (storedItemData.item == his.storedItemData.item)
+        if (storedItemData.Item == his.storedItemData.Item)
             AddItemToExistingStack(hisWindow,his.storedItemData.Index);
         else
             SwapItemStacks(hisWindow,his.storedItemData.Index);  
@@ -140,7 +151,7 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
     private void SwapItemStacks(InventoryWindow hisWindow, int hisIndex)
     {
         if (hisWindow.restrictByItemType &&
-            hisWindow.itemTypeRestriction != storedItemData.item.ItemType)
+            hisWindow.itemTypeRestriction != storedItemData.Item.ItemType)
         {
             return;
         }
@@ -149,7 +160,7 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
 
     private void TryMoveItemToOtherOpenWindow(float movement)
     {
-        if (movement == 0 || storedItemData.item == null || movingItem != null) return;
+        if (movement == 0 || storedItemData.Item == null || movingItem != null) return;
         if (InventoryWindow.openInventoryWindows.Count <= 1 || highlightedInventorySlot != this) return;
         
         int index = InventoryWindow.openInventoryWindows.IndexOf(this.parentInventoryWindow);
@@ -166,25 +177,25 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
     private void TryMoveItemToInventoryWindow(InventoryWindow targetWindow, int amount)
     {
         if (targetWindow.restrictByItemType &&
-            targetWindow.itemTypeRestriction != storedItemData.item.ItemType)
+            targetWindow.itemTypeRestriction != storedItemData.Item.ItemType)
         {
             return;
         }
         var i = parentInventoryWindow.inventory.InventoryItems[storedItemData.Index];
-        var overflow = targetWindow.inventory.TryAddItem(i.item,amount);
+        var overflow = targetWindow.inventory.TryAddItem(i.Item,amount);
         parentInventoryWindow.inventory.TryRemoveItemAt(storedItemData.Index,amount - overflow);
     }
 
     private void TryGetItemFromInventoryWindow(InventoryWindow targetWindow, int amount)
     {
         if (targetWindow.restrictByItemType &&
-            targetWindow.itemTypeRestriction != storedItemData.item.ItemType)
+            targetWindow.itemTypeRestriction != storedItemData.Item.ItemType)
         {
             return;
         }
-        var i = targetWindow.inventory.HasItemAt(storedItemData.item);
+        var i = targetWindow.inventory.HasItemAt(storedItemData.Item);
         if (i < 0) return;
-        var overflow = parentInventoryWindow.inventory.TryAddItem(storedItemData.item,amount);
+        var overflow = parentInventoryWindow.inventory.TryAddItem(storedItemData.Item,amount);
         targetWindow.inventory.TryRemoveItemAt(i,amount - overflow);
     }
     

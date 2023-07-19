@@ -142,7 +142,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 343
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e2e00528a2164b144871240bc7da8d63, type: 2}
   m_sharedMaterial: {fileID: -1606783549103231062, guid: e2e00528a2164b144871240bc7da8d63, type: 2}
@@ -311,6 +311,6 @@ MonoBehaviour:
   waitingForDrag: 0
   thisInventory: {fileID: 0}
   storedItemData:
-    item: {fileID: 0}
+    Item: {fileID: 0}
     Quantity: 0
     Index: -1

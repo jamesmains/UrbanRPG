@@ -33,7 +33,7 @@ public class Item : SerializedScriptableObject
     }
 
     [SerializeField] protected int amount;
-    [field: SerializeField] public int StackLimit { get; private set; } = Int32.MaxValue;
+    [field: SerializeField] public int StackLimit { get; private set; } = 999;
 }
 
 [Serializable]

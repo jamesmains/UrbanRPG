@@ -28,15 +28,15 @@ public class CharacterCustomizer : MonoBehaviour
 
     private void PopulateAllOptionsSelectors()
     {
-        int i = 0;
-        foreach (var gearType in Enum.GetNames(typeof(GearType)))
-        {
-            print(gearSlots[i]);
-            var gearArray = GearOptions.Where(o => o.GearType.ToString() == gearType).ToArray();
-            if(gearArray.Length > 0)
-                PopulateOptionSelector(gearArray,currentActor.GearBody,gearSlots[i],indexes[i]);
-            i++;
-        }
+        // int i = 0;
+        // foreach (var gearType in Enum.GetNames(typeof(GearType)))
+        // {
+        //     print(gearSlots[i]);
+        //     var gearArray = GearOptions.Where(o => o.GearType.ToString() == gearType).ToArray();
+        //     if(gearArray.Length > 0)
+        //         PopulateOptionSelector(gearArray,currentActor.GearBody,gearSlots[i],indexes[i]);
+        //     i++;
+        // }
     }
 
     private void PopulateOptionSelector(Gear[] gearArray, Gear currentlyEquipped, GearSlot slot, int indexer, bool allowNull = false)

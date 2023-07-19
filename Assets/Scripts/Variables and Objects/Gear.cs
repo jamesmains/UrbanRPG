@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -10,7 +11,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Gear", menuName = "Unsorted/Gear")]
 public class Gear : Item
 {
-    public GearType GearType;
+    // public GearType GearType;
+    [field: SerializeField,PropertyOrder(80),Space(10)] 
+    public List<GearEffect> GearEffects { get; set; } = new();
     public string spriteSheetId;
 
 #if UNITY_EDITOR
@@ -30,4 +33,27 @@ public class Gear : Item
     }
 #endif
     
+}
+
+[Serializable]
+public abstract class GearEffect
+{
+    public abstract void OnEquip();
+    public abstract float GetEffectValue();
+    public string effectText;
+}
+
+public class RideEffect : GearEffect
+{
+    [SerializeField] private float modValue = new();
+    
+    public override void OnEquip()
+    {
+        GameEvents.OnChangeRide.Raise();
+    }
+
+    public override float GetEffectValue()
+    {
+        return modValue;
+    }
 }

@@ -6,17 +6,20 @@ using UnityEngine;
 
 public class PlayerMotor : MonoBehaviour
 {
+    public Inventory RideGearInventory;
+    public GameObject RidingIndicator;
+    
     [FoldoutGroup("Data")] [SerializeField] private Rigidbody rb;
     [FoldoutGroup("Data")] [SerializeField] private CustoAnimator animator;
     [FoldoutGroup("Data")] [SerializeField] private VectorVariable playerPositionVariable;
     [FoldoutGroup("Data")] [SerializeField] private IntVariable playerLockVariable;
     [FoldoutGroup("Data")] [SerializeField] private PlayerSaveSlot playerSaveSlot;
-    [FoldoutGroup("Data")] [SerializeField] public float moveSpeed; // might be replaced with scriptable object float variable 
+    [FoldoutGroup("Data")] [SerializeField] public ModdableFloat moveSpeed; // might be replaced with scriptable object float variable 
     
     private float inputX, inputY;
     private bool movingLeft,movingRight,movingUp,movingDown;
     private bool horizontalFlip;
-
+    private bool isRiding;
     private bool isRunning;
 
     private void Awake()
@@ -41,6 +44,12 @@ public class PlayerMotor : MonoBehaviour
         
         GameEvents.OnMoveDownButtonHeld += delegate { movingDown = true; };
         GameEvents.OnMoveDownButtonReleased += delegate { movingDown = false; };
+        
+        GameEvents.OnRideButtonDown += ToggleRide;
+        GameEvents.OnMoveOrAddItem += UpdateMoveSpeed;
+        GameEvents.OnChangeRide += DismountRide;
+        
+        UpdateMoveSpeed();
     }
 
     private void OnDisable()
@@ -57,12 +66,58 @@ public class PlayerMotor : MonoBehaviour
         GameEvents.OnMoveDownButtonHeld -= delegate { movingDown = true; };
         GameEvents.OnMoveDownButtonReleased -= delegate { movingDown = false; };
         
+        GameEvents.OnRideButtonDown -= ToggleRide;
+        GameEvents.OnMoveOrAddItem -= UpdateMoveSpeed;
+        GameEvents.OnChangeRide -= DismountRide;
+        
         playerSaveSlot.SaveData();
+    }
+
+    private void ToggleRide()
+    {
+        if (isRiding)
+        {
+            DismountRide();
+        }   
+        else MountRide();
+    }
+    
+    [Button]
+    private void MountRide()
+    {
+        isRiding = RideGearInventory.InventoryItems[0].Item != null;
+        UpdateMoveSpeed();
+    }
+
+    [Button]
+    private void DismountRide()
+    {
+        isRiding = false;
+        UpdateMoveSpeed();
+    }
+    
+    [Button]
+    private void UpdateMoveSpeed()
+    {
+        moveSpeed.ModValues.Clear();
+        RidingIndicator.gameObject.SetActive(isRiding);
+        isRiding = RideGearInventory.InventoryItems[0].Item != null && isRiding;
+        if (isRiding)
+        {
+            foreach (var gear in RideGearInventory.InventoryItems)
+            {
+                if (gear.Item is not Gear item) continue;
+                foreach (var effect in item.GearEffects)
+                {
+                    moveSpeed.ModValues.Add(effect.GetEffectValue());
+                }
+            } 
+        }
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift)) // Just for testing
             isRunning = true;
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
@@ -91,11 +146,13 @@ public class PlayerMotor : MonoBehaviour
         bool isMoving = (inputX != 0 || inputY != 0);
         int action = isMoving ? 1 : 0;
         if (isRunning) action = 2;
+        if (isRiding) action = 0;
         animator.ChangeDirection(new Vector2((int)inputX,(int)inputY),action);
         Vector3 moveForce = new Vector3(inputX,0, inputY).normalized;
-        rb.AddForce(moveForce * moveSpeed);
+        rb.AddForce(moveForce * moveSpeed.Value);
         playerPositionVariable.Value = transform.position;
     }
+    
     public void MovePlayerTo(Transform newPosition)
     {
         transform.position = newPosition.position;

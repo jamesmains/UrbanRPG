@@ -24,6 +24,15 @@ public class WindowGroup : Window
         }
     }
 
+    public override void Hide()
+    {
+        base.Hide();
+        foreach (var t in windows)
+        {
+            t.Hide();
+        }
+    }
+
     private void GotoHomeWindow()
     {
         windows[0].Show();

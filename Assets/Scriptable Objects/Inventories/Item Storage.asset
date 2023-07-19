@@ -16,62 +16,62 @@ MonoBehaviour:
   InventorySlotLimit: {fileID: 11400000, guid: 73bdcd5ee0049984d8c3e1aa2b653e39, type: 2}
   lookupTable: {fileID: 11400000, guid: 3cf4055abc210f7488b2727555b7b07b, type: 2}
   InventoryItems:
-  - rid: 7305477810402623516
-  - rid: 7305477810402623523
-  - rid: 7305477810402623512
-  - rid: 7305477810402623513
-  - rid: 7305477810402623514
-  - rid: 7305477810402623515
-  - rid: 7305477810402623521
-  - rid: 7305477810402623517
+  - rid: 7305477810402623602
+  - rid: 7305477810402623603
+  - rid: 7305477810402623604
+  - rid: 7305477810402623605
+  - rid: 7305477810402623606
+  - rid: 7305477810402623607
+  - rid: 7305477810402623608
+  - rid: 7305477810402623609
   references:
     version: 2
     RefIds:
-    - rid: 7305477810402623512
+    - rid: 7305477810402623602
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
         item: {fileID: 0}
         Quantity: 0
-        Index: 2
-    - rid: 7305477810402623513
-      type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
-      data:
-        item: {fileID: 0}
-        Quantity: 0
-        Index: 3
-    - rid: 7305477810402623514
-      type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
-      data:
-        item: {fileID: 0}
-        Quantity: 0
-        Index: 4
-    - rid: 7305477810402623515
-      type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
-      data:
-        item: {fileID: 0}
-        Quantity: 0
-        Index: 5
-    - rid: 7305477810402623516
-      type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
-      data:
-        item: {fileID: 11400000, guid: 2953451449f32d844bc49d99f2234bd9, type: 2}
-        Quantity: 25
         Index: 0
-    - rid: 7305477810402623517
-      type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
-      data:
-        item: {fileID: 0}
-        Quantity: 0
-        Index: 7
-    - rid: 7305477810402623521
-      type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
-      data:
-        item: {fileID: 0}
-        Quantity: 0
-        Index: 6
-    - rid: 7305477810402623523
+    - rid: 7305477810402623603
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
         item: {fileID: 0}
         Quantity: 0
         Index: 1
+    - rid: 7305477810402623604
+      type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
+      data:
+        item: {fileID: 0}
+        Quantity: 0
+        Index: 2
+    - rid: 7305477810402623605
+      type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
+      data:
+        item: {fileID: 0}
+        Quantity: 0
+        Index: 3
+    - rid: 7305477810402623606
+      type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
+      data:
+        item: {fileID: 0}
+        Quantity: 0
+        Index: 4
+    - rid: 7305477810402623607
+      type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
+      data:
+        item: {fileID: 0}
+        Quantity: 0
+        Index: 5
+    - rid: 7305477810402623608
+      type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
+      data:
+        item: {fileID: 0}
+        Quantity: 0
+        Index: 6
+    - rid: 7305477810402623609
+      type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
+      data:
+        item: {fileID: 0}
+        Quantity: 0
+        Index: 7
