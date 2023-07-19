@@ -54,8 +54,8 @@ MonoBehaviour:
     - rid: 7305477810402623767
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        Item: {fileID: 0}
-        Quantity: 0
+        Item: {fileID: 11400000, guid: e4a3e7d384c87bd4db26d8d2dd3dc332, type: 2}
+        Quantity: 1
         Index: 1
     - rid: 7305477810402623769
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
@@ -72,6 +72,6 @@ MonoBehaviour:
     - rid: 7305477810402623777
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        Item: {fileID: 0}
-        Quantity: 0
+        Item: {fileID: 11400000, guid: 2953451449f32d844bc49d99f2234bd9, type: 2}
+        Quantity: 35
         Index: 0

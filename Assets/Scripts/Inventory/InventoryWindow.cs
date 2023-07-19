@@ -85,7 +85,7 @@ public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,I
     [Button]
     private void ClearDisplays()
     {
-        this.transform.DestroyChildren();
+        this.transform.DestroyChildrenInEditor();
     }
     
     #endif

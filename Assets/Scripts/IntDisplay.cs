@@ -10,12 +10,7 @@ public class IntDisplay : MonoBehaviour
     [SerializeField] private IntVariable intVariable;
     [SerializeField] private TextMeshProUGUI textDisplay;
 
-    private void Awake()
-    {
-        UpdateIntDisplay();
-    }
-
-    public void UpdateIntDisplay()
+    public void Update()
     {
         textDisplay.text = $"{prefix}{intVariable.Value}{suffix}";
     }

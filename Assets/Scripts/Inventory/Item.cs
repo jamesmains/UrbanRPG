@@ -15,6 +15,9 @@ public class Item : SerializedScriptableObject
     [FoldoutGroup("Data")][field: SerializeField] public ItemType ItemType { get; protected set; }
     [FoldoutGroup("Data")][field: SerializeField] public int SellValue { get; private set; }
     [FoldoutGroup("Data")][field: SerializeField] public int BuyValue { get; private set; }
+    [FoldoutGroup("Data")][field: SerializeField] public bool IsConsumable { get; private set; }
+    [field: SerializeField,PropertyOrder(80),Space(10), ShowIf("IsConsumable")] 
+    public List<ItemEffect> ItemEffects { get; set; } = new();
 
 #if UNITY_EDITOR
     private void OnEnable()
@@ -46,5 +49,22 @@ public class ItemSaveData
     {
         Name = item.Name;
         Value = item.Value;
+    }
+}
+
+[Serializable]
+public abstract class ItemEffect
+{
+    public string effectText;
+    public abstract void OnConsume();
+}
+
+public class ItemEffectNeedModify: ItemEffect
+{
+    public Need TargetNeed;
+    public float AdjustByValue;
+    public override void OnConsume()
+    {
+        TargetNeed.Value += AdjustByValue;
     }
 }

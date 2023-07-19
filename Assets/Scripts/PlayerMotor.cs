@@ -102,16 +102,17 @@ public class PlayerMotor : MonoBehaviour
         moveSpeed.ModValues.Clear();
         RidingIndicator.gameObject.SetActive(isRiding);
         isRiding = RideGearInventory.InventoryItems[0].Item != null && isRiding;
-        if (isRiding)
+        
+        if (!isRiding) return;
+        
+        foreach (var gear in RideGearInventory.InventoryItems)
         {
-            foreach (var gear in RideGearInventory.InventoryItems)
+            if (gear.Item is not Gear item) continue;
+            foreach (var effect in item.GearEffects)
             {
-                if (gear.Item is not Gear item) continue;
-                foreach (var effect in item.GearEffects)
-                {
-                    moveSpeed.ModValues.Add(effect.GetEffectValue());
-                }
-            } 
+                if (effect is not RideEffect rideEffect) continue;
+                moveSpeed.ModValues.Add(rideEffect.GetEffectValue());
+            }
         }
     }
 

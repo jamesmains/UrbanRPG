@@ -12,11 +12,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c4ce2b6c07e534f841dbb71bf61d4c, type: 3}
   m_Name: Balloon
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 5d123da421c74a144b5dadfc300d5322, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: <ItemEffects>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[ItemEffect, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|ItemEffectNeedModify, Assembly-CSharp
+    - Name: effectText
+      Entry: 1
+      Data: DEBUG EFFECT
+    - Name: TargetNeed
+      Entry: 10
+      Data: 0
+    - Name: AdjustByValue
+      Entry: 4
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   <Sprite>k__BackingField: {fileID: 1502945252, guid: 270433e7734629f41b0967a1f646c712, type: 3}
   <Name>k__BackingField: Balloon
   <Description>k__BackingField: 
   <ItemType>k__BackingField: 0
   <SellValue>k__BackingField: 0
   <BuyValue>k__BackingField: 250
+  <IsConsumable>k__BackingField: 1
   amount: 0
   <StackLimit>k__BackingField: 100

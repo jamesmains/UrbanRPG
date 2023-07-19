@@ -24,6 +24,7 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
     private void OnEnable()
     {
         GameEvents.OnMouseScroll += TryMoveItemToOtherOpenWindow;
+        GameEvents.OnAltMouseButtonDown += TryConsumeItem;
     }
 
     private void OnDisable()
@@ -31,6 +32,7 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         movingItem = null;
         GameEvents.OnItemRelease.Raise();
         GameEvents.OnMouseScroll -= TryMoveItemToOtherOpenWindow;
+        GameEvents.OnAltMouseButtonDown -= TryConsumeItem;
     }
 
     private void Update()
@@ -128,7 +130,18 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         GameEvents.OnMoveOrAddItem.Raise();
     }
 
-    
+    private void TryConsumeItem()
+    {
+        if (highlightedInventorySlot != this) return;
+        if (storedItemData.Item.IsConsumable)
+        {
+            foreach (var itemEffect in storedItemData.Item.ItemEffects)
+            {
+                itemEffect.OnConsume();   
+            }
+            thisInventory.TryRemoveItemAt(storedItemData.Index,1);
+        }
+    }
 
     private void TryMoveItemToSlot()
     {

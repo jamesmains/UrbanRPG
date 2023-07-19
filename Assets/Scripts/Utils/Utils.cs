@@ -90,7 +90,7 @@ public enum InputType
 
 public enum InputActionName
 {
-    MoveLeft, MoveRight, MoveUp, MoveDown, Interact, ToggleRide, Scroll, PrimaryMouseButton
+    MoveLeft, MoveRight, MoveUp, MoveDown, Interact, ToggleRide, Scroll, PrimaryMouseButton, AlternateMouseButton
 }
 
 // yoinked from https://stackoverflow.com/questions/20156/is-there-an-easy-way-to-create-ordinals-in-c
@@ -137,6 +137,14 @@ public static class ExtensionMethods
         foreach (Transform child in t)
         {
             GameObject.Destroy(child.gameObject);
+        }
+    }
+
+    public static void DestroyChildrenInEditor(this Transform t)
+    {
+        foreach (Transform child in t)
+        {
+            GameObject.DestroyImmediate(child.gameObject);
         }
     }
     
