@@ -147,7 +147,9 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
     {
         InventorySlot his = highlightedInventorySlot;
         InventoryWindow hisWindow = his.parentInventoryWindow;
-                
+
+        if (hisWindow.removeOnly) return;
+        
         if (storedItemData.Item == his.storedItemData.Item)
             AddItemToExistingStack(hisWindow,his.storedItemData.Index);
         else
@@ -189,8 +191,8 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
     
     private void TryMoveItemToInventoryWindow(InventoryWindow targetWindow, int amount)
     {
-        if (targetWindow.restrictByItemType &&
-            targetWindow.itemTypeRestriction != storedItemData.Item.ItemType)
+        if ((targetWindow.restrictByItemType &&
+            targetWindow.itemTypeRestriction != storedItemData.Item.ItemType) || targetWindow.removeOnly)
         {
             return;
         }
@@ -226,7 +228,7 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if ((highlightedInventorySlot is null || highlightedInventorySlot != this && !parentInventoryWindow.isLocked) && !parentInventoryWindow.removeOnly)
+        if ((highlightedInventorySlot is null || highlightedInventorySlot != this) && !parentInventoryWindow.isLocked)
             highlightedInventorySlot = this;
         
         GameEvents.OnMouseEnterInventorySlot.Raise(this);
