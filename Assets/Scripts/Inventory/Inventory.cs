@@ -25,6 +25,11 @@ using UnityEngine;
             }
 #endif
         }
+        
+        public void TryAddItem(Item incomingItem) // Need this signature to call it from UnityEvent
+        {
+            TryAddItem(incomingItem, 1); 
+        }
 
         public int TryAddItem(Item incomingItem, int value = 1)
         {

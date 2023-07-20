@@ -49,7 +49,7 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         else if (!mouseDown) waitingForDrag = false;
     }
 
-    public void Setup(InventoryItemData inventoryItemData, int index, InventoryWindow origin)
+    public void Setup(InventoryItemData inventoryItemData, int index, InventoryWindow origin, string overrideText = "")
     {
         
         if (inventoryItemData.Item is Gear item && inventoryItemData != storedItemData && origin.restrictByItemType)
@@ -73,11 +73,16 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         
         iconDisplay.enabled = true;
         iconDisplay.sprite = origin.inventory.InventoryItems[storedItemData.Index].Item.Sprite;
+        
         if (origin.inventory.InventoryItems[storedItemData.Index].Quantity > 1)
         {
             countDisplayText.enabled = true;
             countDisplayText.text = origin.inventory.InventoryItems[storedItemData.Index].Quantity.ToString();
         }
+
+        if (string.IsNullOrEmpty(overrideText)) return;
+        countDisplayText.enabled = true;
+        countDisplayText.text = overrideText;
     }
 
     public void Disable()

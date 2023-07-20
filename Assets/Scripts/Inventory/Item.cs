@@ -5,6 +5,7 @@ using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "Item", menuName = "Items and Inventory/Item")]
 public class Item : SerializedScriptableObject
@@ -16,7 +17,7 @@ public class Item : SerializedScriptableObject
     [FoldoutGroup("Data")][field: SerializeField] public int SellValue { get; private set; }
     [FoldoutGroup("Data")][field: SerializeField] public int BuyValue { get; private set; }
     [FoldoutGroup("Data")][field: SerializeField] public bool IsConsumable { get; private set; }
-    [field: SerializeField,PropertyOrder(80),Space(10), ShowIf("IsConsumable")] 
+    [field: SerializeField,PropertyOrder(80),Space(10)] 
     public List<ItemEffect> ItemEffects { get; set; } = new();
 
 #if UNITY_EDITOR
@@ -57,14 +58,72 @@ public abstract class ItemEffect
 {
     public string effectText;
     public abstract void OnConsume();
+    public UnityEvent OnConsumeEvent = new();
 }
 
-public class ItemEffectNeedModify: ItemEffect
+public class RestoreNeedEffect: ItemEffect
 {
     public Need TargetNeed;
     public float AdjustByValue;
     public override void OnConsume()
     {
         TargetNeed.Value += AdjustByValue;
+        OnConsumeEvent.Invoke();
+    }
+}
+
+public class ItemStatusEffect : ItemEffect
+{
+    public float tickRate;
+    public float duration;
+    [FoldoutGroup("Debug"),ReadOnly] protected float tickTimer;
+    [FoldoutGroup("Debug"),ReadOnly] protected float durationTimer;
+    [FoldoutGroup("Debug"),ReadOnly] protected bool isActive;
+    
+    public override void OnConsume()
+    {
+        durationTimer = duration;
+        isActive = true;
+    }
+
+    public virtual bool OnTick()
+    {
+        if(!isActive) OnConsume();
+        if(tickTimer > 0)
+            tickTimer -= Time.deltaTime;
+        if(tickTimer <= 0)
+            OnTickEffect();
+        
+        if(durationTimer > 0)
+            durationTimer -= Time.deltaTime;
+        if (durationTimer <= 0)
+        {
+            OnRemoveEffect();
+            return true;
+        }
+
+        return false;
+    }
+
+    protected virtual void OnTickEffect()
+    {
+        tickTimer = tickRate;
+    }
+
+    public virtual void OnRemoveEffect()
+    {
+        isActive = false;
+    }
+}
+
+public class RestoreNeedOverTimeEffect : ItemStatusEffect
+{
+    public Need TargetNeed;
+    public float RestoreAmount;
+
+    protected override void OnTickEffect()
+    {
+        base.OnTickEffect();
+        TargetNeed.Value += RestoreAmount;
     }
 }
