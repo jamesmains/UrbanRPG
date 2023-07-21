@@ -21,7 +21,7 @@ MonoBehaviour:
   - rid: 7305477810402623765
   - rid: 7305477810402623766
   - rid: 7305477810402623763
-  - rid: 7305477810402623769
+  - rid: 7305477889603665921
   - rid: 7305477810402623764
   - rid: 7305477810402623771
   references:
@@ -31,7 +31,7 @@ MonoBehaviour:
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
         Item: {fileID: 11400000, guid: 2953451449f32d844bc49d99f2234bd9, type: 2}
-        Quantity: 99
+        Quantity: 209
         Index: 4
     - rid: 7305477810402623764
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
@@ -48,8 +48,8 @@ MonoBehaviour:
     - rid: 7305477810402623766
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        Item: {fileID: 0}
-        Quantity: 0
+        Item: {fileID: 11400000, guid: e4a3e7d384c87bd4db26d8d2dd3dc332, type: 2}
+        Quantity: 1
         Index: 3
     - rid: 7305477810402623767
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
@@ -57,12 +57,6 @@ MonoBehaviour:
         Item: {fileID: 11400000, guid: e4a3e7d384c87bd4db26d8d2dd3dc332, type: 2}
         Quantity: 1
         Index: 1
-    - rid: 7305477810402623769
-      type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
-      data:
-        Item: {fileID: 11400000, guid: 94176e2ad07ea2a4db67cb10c1990258, type: 2}
-        Quantity: 1
-        Index: 5
     - rid: 7305477810402623771
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
@@ -72,6 +66,12 @@ MonoBehaviour:
     - rid: 7305477810402623777
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        Item: {fileID: 11400000, guid: 2953451449f32d844bc49d99f2234bd9, type: 2}
-        Quantity: 35
+        Item: {fileID: 11400000, guid: e4a3e7d384c87bd4db26d8d2dd3dc332, type: 2}
+        Quantity: 1
         Index: 0
+    - rid: 7305477889603665921
+      type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
+      data:
+        Item: {fileID: 0}
+        Quantity: 0
+        Index: 5

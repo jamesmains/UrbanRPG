@@ -26,6 +26,11 @@ public class Activity : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        GameEvents.OnCloseActivityWheel.Raise();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))

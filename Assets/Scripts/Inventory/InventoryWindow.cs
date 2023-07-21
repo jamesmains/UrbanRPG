@@ -24,21 +24,19 @@ public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,I
     private void OnEnable()
     {
         PopulateDisplay();
-        GameEvents.OnPickupItem += UpdateInventoryDisplay;
+        GameEvents.OnPickupItem += delegate { UpdateInventoryDisplay();};
         GameEvents.OnMoveOrAddItem += UpdateInventoryDisplay;
     }
 
     private void OnDisable()
     {
-        GameEvents.OnPickupItem -= UpdateInventoryDisplay;
+        GameEvents.OnPickupItem -= delegate { UpdateInventoryDisplay();};
         GameEvents.OnMoveOrAddItem -= UpdateInventoryDisplay;
     }
 
     public override void Show()
     {
         base.Show();
-        
-        
         
         UpdateInventoryDisplay();
         openInventoryWindows.Add(this);

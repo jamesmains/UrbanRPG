@@ -75,7 +75,8 @@ public class GameEvents : MonoBehaviour
     public static i302Event OnMouseExitInventorySlot = new();
     public static i302Event OnUpdateInventory = new();
     public static i302Event OnUpdateMoneyDisplay = new();
-    public static i302Event OnPickupItem = new();
+    public static i302Event<Sprite, string> OnPickupItem = new();
+    public static i302Event OnDespawnItem = new();
     public static i302Event OnMoveOrAddItem = new();
     public static i302Event<Item> OnItemMove = new();
     public static i302Event OnItemRelease = new();
@@ -91,7 +92,7 @@ public class GameEvents : MonoBehaviour
     public static i302Event<Quest> OnReadyToComplete = new();
     public static i302Event<Quest> OnCompleteQuest = new();
     
-    public static i302Event<Sprite,int> OnGainExperience = new();
+    public static i302Event<Sprite,string> OnGainExperience = new();
     public static i302Event<Sprite> OnNeedDecayTrigger = new();
     
     public static i302Event<Dialogue> StartDialogueEvent = new();

@@ -60,7 +60,7 @@ public class Pickup : MonoBehaviour
     {
         yield return new WaitForSeconds(despawnTimer.Value);
         lostInventory.TryAddItem(item, amount);
-        GameEvents.OnPickupItem.Raise();
+        GameEvents.OnDespawnItem.Raise();
         Destroy(this.gameObject);
     }
 
@@ -68,8 +68,9 @@ public class Pickup : MonoBehaviour
     {
         if (other.CompareTag("Player") && canPickup)
         {
+            var displayAmount = amount;
             amount = pockets.TryAddItem(item, amount);
-            GameEvents.OnPickupItem.Raise();
+            GameEvents.OnPickupItem.Raise(item.Sprite,$"+{displayAmount}");
             if(amount <= 0)
                 Destroy(this.gameObject); 
         }

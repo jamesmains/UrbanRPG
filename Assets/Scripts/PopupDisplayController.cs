@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,16 +6,30 @@ using UnityEngine.UI;
 
 public class PopupDisplayController : MonoBehaviour
 {
-    [SerializeField] private GameObject skillExpGainPopupObject;
-    [SerializeField] private GameObject iconPopupObject;
+    [SerializeField] private GameObject HorizontalPopup;
+    [SerializeField] private GameObject IconPopupObject;
 
-    public void CreateSkillExpGainPopup(Sprite icon, int value)
+    private void OnEnable()
     {
-        Instantiate(skillExpGainPopupObject, this.transform).GetComponent<DisplayPopup>().Setup(icon,value);
+        GameEvents.OnGainExperience += OnCreateHorizontalPopup;
+        GameEvents.OnPickupItem += OnCreateHorizontalPopup;
+        GameEvents.OnNeedDecayTrigger += OnCreateIconPopup;
     }
 
-    public void CreateIconPopup(Sprite icon)
+    private void OnDisable()
     {
-        Instantiate(iconPopupObject, this.transform).GetComponent<DisplayPopup>().Setup(icon);
+        GameEvents.OnGainExperience -= OnCreateHorizontalPopup;
+        GameEvents.OnPickupItem -= OnCreateHorizontalPopup;
+        GameEvents.OnNeedDecayTrigger -= OnCreateIconPopup;
+    }
+
+    public void OnCreateHorizontalPopup(Sprite icon, string value)
+    {
+        Instantiate(HorizontalPopup, this.transform).GetComponent<DisplayPopup>().Setup(icon,value);
+    }
+
+    public void OnCreateIconPopup(Sprite icon)
+    {
+        Instantiate(IconPopupObject, this.transform).GetComponent<DisplayPopup>().Setup(icon);
     }
 }

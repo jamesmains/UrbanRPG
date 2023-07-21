@@ -14,7 +14,7 @@ public class TimeManager : MonoBehaviour //todo rename class
 
     [SerializeField, Range(0, 1440), Header("Modifiers"), Tooltip("The game's current time of day")] private float TimeOfDay;
     [SerializeField, Tooltip("Angle to rotate the sun")] private float SunDirection = 170f;
-    [SerializeField, Tooltip("How fast time will go")] private float TimeMultiplier = 1;
+    [SerializeField, Tooltip("How fast time will go")] public static float TimeMultiplier = 1;
     [SerializeField] private bool ControlLights = true;
 
     private bool canChangeDay = true;

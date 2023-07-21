@@ -181,6 +181,8 @@ public class ItemConditional : Condition
     [field: SerializeField]
     public bool UseAny { get; private set; }
     [field: SerializeField]
+    public bool ConsumeOnUse { get; private set; }
+    [field: SerializeField]
     public Inventory Inventory { get; private set; }
     
     public override bool IsConditionMet()
@@ -190,7 +192,7 @@ public class ItemConditional : Condition
 
     public override void Use()
     {
-        Inventory.TryUseItem(Item,RequiredAmount);
+        if(ConsumeOnUse) Inventory.TryUseItem(Item,RequiredAmount);
     }
 }
 

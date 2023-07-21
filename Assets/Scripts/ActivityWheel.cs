@@ -70,6 +70,7 @@ public class ActivityWheel : Window
         base.Show();
         ClearWheel();
         GenerateActivityWheelDisplays();
+        if (WheelActions.Count == 0) return;
         WheelActions.Reverse();
         if (WheelActions.Count > 1)
             AngleOffset = WheelActions[^2].storedAngle;

@@ -28,10 +28,10 @@ public class DisplayPopup : MonoBehaviour
         _ => throw new ArgumentOutOfRangeException(nameof(incomingState), $"Not expected input")
     };
     
-    public void Setup(Sprite icon, int value)
+    public void Setup(Sprite icon, string value)
     {
         iconImage.sprite = icon;
-        valueText.text = $"+{value}";
+        valueText.text = $"{value}";
     }
 
     public void Setup(Sprite icon)

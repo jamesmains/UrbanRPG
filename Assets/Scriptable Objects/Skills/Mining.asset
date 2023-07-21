@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27c71476840383f40847b957f53c2c3e, type: 3}
-  m_Name: Hunger
+  m_Script: {fileID: 11500000, guid: 2ac3c8e2015d8b244aa91f271e7e194d, type: 3}
+  m_Name: Mining
   m_EditorClassIdentifier: 
-  Name: Hunger
-  Description: Hungwy
-  Icon: {fileID: -670995516, guid: 70a7ebef66edbd946b06fcb7a2388811, type: 3}
-  IsDepleted: 0
-  DecayRate: 1
-  value: 60.29053
+  Name: Mining
+  Description: ???
+  Icon: {fileID: 2098659648, guid: cf35ac889fac4744886ed265f4dd5d5a, type: 3}
+  Level: 0
+  ExpRequiredForLevelUp: 100
+  CurrentExp: 0

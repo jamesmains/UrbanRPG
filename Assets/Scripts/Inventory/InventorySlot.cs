@@ -74,12 +74,14 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         iconDisplay.enabled = true;
         iconDisplay.sprite = origin.inventory.InventoryItems[storedItemData.Index].Item.Sprite;
         
-        if (origin.inventory.InventoryItems[storedItemData.Index].Quantity > 1)
+        countDisplayText.enabled = true;
+        countDisplayText.text = origin.inventory.InventoryItems[storedItemData.Index].Quantity.ToString();
+        
+        if (origin.inventory.InventoryItems[storedItemData.Index].Quantity == 1)
         {
-            countDisplayText.enabled = true;
-            countDisplayText.text = origin.inventory.InventoryItems[storedItemData.Index].Quantity.ToString();
+            countDisplayText.enabled = false;
         }
-
+        
         if (string.IsNullOrEmpty(overrideText)) return;
         countDisplayText.enabled = true;
         countDisplayText.text = overrideText;
