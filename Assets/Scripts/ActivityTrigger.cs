@@ -6,12 +6,10 @@ using UnityEngine;
 using UnityEngine.Events;
 
 
-public class Activity : MonoBehaviour
+public class ActivityTrigger : MonoBehaviour
 {
-    [FoldoutGroup("Details")] public string activityName;
-    [FoldoutGroup("Details")] [TextArea] public string activityDescription;
-    [FoldoutGroup("Status")] public bool isActive;
-    [FoldoutGroup("Activity")] public List<ActivityAction> ActivityActions = new();
+    [ReadOnly] public bool isActive;
+    public List<ActivityAction> Activities = new();
 
     public static bool ActivityLock;
 
@@ -101,7 +99,7 @@ public class Activity : MonoBehaviour
 [Serializable]
 public class ActivityAction
 {
-    public ActivitySignature signature;
+    public Activity signature;
     [FoldoutGroup("World Action")] public UnityEvent worldActions = new();
 
     public void AssignListeners(Action[] actions)

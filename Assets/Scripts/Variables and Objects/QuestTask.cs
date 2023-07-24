@@ -3,6 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Quest Task Signature", menuName = "Questing/Quest Task Signature")]
-public class QuestTaskSignature : ActivitySignature
+public class QuestTask : Activity
 {
 }

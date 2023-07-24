@@ -25,7 +25,7 @@ public class ActivityWheel : Window
     public Vector2 ControlledSize;
 
     [SerializeField] [FoldoutGroup("Data")] private float scrollSpeed;
-    private Activity activity;
+    private ActivityTrigger activityTrigger;
     private List<ActivityWheelAction> WheelActions = new();
     private List<GameObject> WheelDisplayObjectPool = new();
     private float FacingAngle;
@@ -54,14 +54,14 @@ public class ActivityWheel : Window
         GameEvents.OnMouseScroll -= CheckScrollInput;
     }
     
-    private void SetCurrentActivity(Activity incomingActivity)
+    private void SetCurrentActivity(ActivityTrigger incomingActivityTrigger)
     {
-        if (incomingActivity.ActivityActions.Count == 0)
+        if (incomingActivityTrigger.Activities.Count == 0)
         {
             Hide();
             return;
         }
-        activity = incomingActivity;
+        activityTrigger = incomingActivityTrigger;
         Show();
     }
 
@@ -105,7 +105,7 @@ public class ActivityWheel : Window
         offsetIndex = offsetIndex >= WheelActions.Count ? 0 : offsetIndex < 0 ? WheelActions.Count -1 : offsetIndex;
         float t = WheelActions[offsetIndex].WheelActionDisplay.activityAction.signature.ActionTime;
         var a = WheelActions[offsetIndex].WheelAction;
-        var s = WheelActions[offsetIndex].WheelActionDisplay.activityAction.signature.ActionIcon;
+        var s = WheelActions[offsetIndex].WheelActionDisplay.activityAction.signature.ActivityIcon;
         if(t == 0)
             a.Invoke();
         else GameEvents.OnStartActivity.Raise(t,a,s);
@@ -184,10 +184,10 @@ public class ActivityWheel : Window
     
     private void GenerateActivityWheelDisplays()
     {
-        if (activity == null) return;
-        for (var i = 0; i < activity.ActivityActions.Count; i++)
+        if (activityTrigger == null) return;
+        for (var i = 0; i < activityTrigger.Activities.Count; i++)
         {
-            var t = activity.ActivityActions[i];
+            var t = activityTrigger.Activities[i];
             SetupWheelListObject(t,WheelDisplayObjectPool[i]);
         }
 

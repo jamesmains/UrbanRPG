@@ -20,10 +20,10 @@ public class ActivityActionDisplay : MonoBehaviour
     public void Setup(ActivityAction incomingAction, string extraText = "", bool useIcon = true)
     {
         activityAction = incomingAction;
-        actionNameText.text = $"{activityAction.signature.ActionName}{extraText}";
+        actionNameText.text = $"{activityAction.signature.ActivityName}{extraText}";
         
         if (useIcon)
-            actionIconDisplay.sprite = activityAction.signature.ActionIcon;
+            actionIconDisplay.sprite = activityAction.signature.ActivityIcon;
         else actionIconDisplay.enabled = false;
     }
 

@@ -7,14 +7,14 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "Activity Signature", menuName = "Signatures/Activity Signature")]
-public class ActivitySignature : SerializedScriptableObject
+public class Activity : SerializedScriptableObject
 {
     // [FoldoutGroup("Activity Details"),PropertyOrder(70)] public ActionType actionType;
     [Title("Activity Settings")]
-    [PropertyOrder(70)] public string ActionName;
-    [PropertyOrder(70),PreviewField] public Sprite ActionIcon;
-
-    public float actionTime;
+    [PropertyOrder(70)] public string ActivityName;
+    [PropertyOrder(70),PreviewField] public Sprite ActivityIcon;
+    [PropertyOrder(70)] public ActivityType ActivityType;
+    [PropertyOrder(70)]  public float actionTime;
     [PropertyOrder(70)]
     public float ActionTime => actionTime - 0; // TODO: Replace '- 0' with some kind of stat or status modifier
 

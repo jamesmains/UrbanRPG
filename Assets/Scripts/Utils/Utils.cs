@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-public enum ActionType
+public enum ActivityType
 {
     UNDEFINED,
     Inspect,
-    Harvest,
+    Consume,
     Interact,
 }
 

@@ -160,7 +160,7 @@ public class QuestStateConditional : Condition
 {
     [field: SerializeField] private Quest Quest { get; set; }
     [field: SerializeField] private QuestState State { get; set; }
-    [field: SerializeField] private QuestTaskSignature Step { get; set; }
+    [field: SerializeField] private QuestTask Step { get; set; }
     public override bool IsConditionMet()
     {
         return (Quest.CurrentState == State && Quest.CurrentStep == Step);

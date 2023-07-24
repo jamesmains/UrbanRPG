@@ -56,8 +56,9 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  ActionName: Mine
-  ActionIcon: {fileID: -1048988953, guid: 270433e7734629f41b0967a1f646c712, type: 3}
+  ActivityName: Mine
+  ActivityIcon: {fileID: 995812498, guid: cf35ac889fac4744886ed265f4dd5d5a, type: 3}
+  ActivityType: 2
   actionTime: 1
   <ActivityActions>k__BackingField:
     m_PersistentCalls:

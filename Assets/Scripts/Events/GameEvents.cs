@@ -65,7 +65,7 @@ public class GameEvents : MonoBehaviour
 
     // Activity Events
     public static i302Event OpenCalendarDayDetails = new();
-    public static i302Event<Activity> OnOpenActivityWheel = new();
+    public static i302Event<ActivityTrigger> OnOpenActivityWheel = new();
     public static i302Event<float,UnityEvent,Sprite> OnStartActivity = new();
     public static i302Event OnCancelActivity = new();
     public static i302Event OnEndActivity = new();

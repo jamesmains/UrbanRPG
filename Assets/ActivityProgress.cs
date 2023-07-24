@@ -41,7 +41,7 @@ public class ActivityProgress : Window
 
     public void StartActivity(float t, UnityEvent e, Sprite s)
     {
-        Activity.ActivityLock = true;
+        ActivityTrigger.ActivityLock = true;
         IsActive = true;
         Timer = 0;
         TotalTime = t;

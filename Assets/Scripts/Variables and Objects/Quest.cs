@@ -7,7 +7,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Quest", menuName = "Questing/Quest")]
-public class Quest : ActivitySignature
+public class Quest : Activity
 {
     [Title("Quest Settings")]
     public string QuestName;
@@ -19,7 +19,7 @@ public class Quest : ActivitySignature
     public List<QuestTaskData> Tasks = new();
     
     [Space(10)]
-    public QuestTaskSignature CurrentStep;
+    public QuestTask CurrentStep;
     public int TaskIndex;
     public bool AutoComplete;
     
@@ -35,13 +35,13 @@ public class Quest : ActivitySignature
         GameEvents.OnAcceptQuest.Raise(this);
     }
     
-    public int TryCompleteTask(QuestTaskSignature taskTaskSignature, int amount = 1)
+    public int TryCompleteTask(QuestTask taskTask, int amount = 1)
     {
         if (CurrentState is not QuestState.Started or QuestState.ReadyToComplete) return 0;
         
         var task = Tasks[TaskIndex];
 
-        if (task.taskTaskSignature != taskTaskSignature)
+        if (task.taskTask != taskTask)
         {
             return 0;
         }
@@ -72,9 +72,9 @@ public class Quest : ActivitySignature
             return;
         }
         else if(TaskIndex >= Tasks.Count) TaskIndex--;
-        CurrentStep = Tasks[TaskIndex].taskTaskSignature;
+        CurrentStep = Tasks[TaskIndex].taskTask;
         var lastQuestTask = Tasks.Last();
-        if (CurrentStep == lastQuestTask.taskTaskSignature &&
+        if (CurrentStep == lastQuestTask.taskTask &&
             lastQuestTask.hits == lastQuestTask.numberOfRequiredHits && !AutoComplete)
         {
             CurrentState = QuestState.ReadyToComplete;
@@ -124,7 +124,7 @@ public class Quest : ActivitySignature
         TaskIndex = loadedData.SavedTaskIndex;
         if (Tasks.Count < TaskIndex)
         {
-            CurrentStep = Tasks[TaskIndex].taskTaskSignature;
+            CurrentStep = Tasks[TaskIndex].taskTask;
         }
         
         int j = 0;
@@ -145,7 +145,7 @@ public class Quest : ActivitySignature
 [Serializable]
 public class QuestTaskData
 {
-    public QuestTaskSignature taskTaskSignature;
+    public QuestTask taskTask;
     [FoldoutGroup("Display"), TextArea]public string TaskDescription;
     [FoldoutGroup("Data")]public int numberOfRequiredHits = 1;
     [FoldoutGroup("Data")]public int hits;
