@@ -16,7 +16,7 @@ MonoBehaviour:
   characterName: -1
   cityName: -1
   NewSaveFileSpawnLocation: {fileID: 11400000, guid: 910118a6b0de6914c96fad8f34c9cdea, type: 2}
-  NextLevelTransition: {fileID: 0}
+  NextLevelTransition: {fileID: 11400000, guid: 6da6efcd44f9cf14d8a3fc25f9b9d4cd, type: 2}
   PlayerPositionVariable: {fileID: 11400000, guid: 6288af3102c54ea44a226875cc734233, type: 2}
   PlayerMoneyVariable: {fileID: 11400000, guid: a2da190245fc1134c8c5c1e61d915b53, type: 2}
   Loaded: 0

@@ -15,6 +15,6 @@ MonoBehaviour:
   Name: Mining
   Description: ???
   Icon: {fileID: 2098659648, guid: cf35ac889fac4744886ed265f4dd5d5a, type: 3}
-  Level: 0
-  ExpRequiredForLevelUp: 100
+  Level: 2
+  ExpRequiredForLevelUp: 300
   CurrentExp: 0

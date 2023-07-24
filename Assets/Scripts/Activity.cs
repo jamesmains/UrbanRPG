@@ -13,6 +13,8 @@ public class Activity : MonoBehaviour
     [FoldoutGroup("Status")] public bool isActive;
     [FoldoutGroup("Activity")] public List<ActivityAction> ActivityActions = new();
 
+    public static bool ActivityLock;
+
     private string identity;
     public string Identity
     {
@@ -26,21 +28,73 @@ public class Activity : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        GameEvents.OnStartActivity += delegate
+        {
+            ActivityLock = true;
+            isActive = false;
+            GameEvents.OnCloseActivityWheel.Raise();
+        };
+        GameEvents.OnCancelActivity += delegate
+        {
+            ActivityLock = false;
+        };
+        GameEvents.OnEndActivity += delegate
+        {
+            ActivityLock = false;
+        };
+
+        GameEvents.OnCloseActivityWheel += delegate
+        {
+            isActive = false;
+        };
+    }
+
     private void OnDisable()
     {
         GameEvents.OnCloseActivityWheel.Raise();
+        
+        GameEvents.OnStartActivity -= delegate
+        {
+            ActivityLock = true;
+            isActive = false;
+            GameEvents.OnCloseActivityWheel.Raise();
+        };
+        GameEvents.OnCancelActivity -= delegate
+        {
+            ActivityLock = false;
+        };
+        GameEvents.OnEndActivity -= delegate
+        {
+            ActivityLock = false;
+        };
+        
+        GameEvents.OnCloseActivityWheel -= delegate
+        {
+            isActive = false;
+        };
+
+        isActive = false;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (isActive || ActivityLock) return;
+        if (other.CompareTag("Player"))
+        {
             GameEvents.OnOpenActivityWheel.Raise(this);
+            isActive = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
+        {
             GameEvents.OnCloseActivityWheel.Raise();
+            isActive = false;
+        }
     }
 }
 

@@ -14,7 +14,11 @@ public class ActivitySignature : SerializedScriptableObject
     [PropertyOrder(70)] public string ActionName;
     [PropertyOrder(70),PreviewField] public Sprite ActionIcon;
 
-    [field: SerializeField,PropertyOrder(90),Space(10)] 
+    public float actionTime;
+    [PropertyOrder(70)]
+    public float ActionTime => actionTime - 0; // TODO: Replace '- 0' with some kind of stat or status modifier
+
+    [field: SerializeField, PropertyOrder(90), Space(10)]
     public UnityEvent ActivityActions { get; private set; } = new();
     
     [field: SerializeField,PropertyOrder(80),Space(10)] 

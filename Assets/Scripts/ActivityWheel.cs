@@ -103,7 +103,12 @@ public class ActivityWheel : Window
         if (!isActive) return;
         int offsetIndex = selectIndex + 1;
         offsetIndex = offsetIndex >= WheelActions.Count ? 0 : offsetIndex < 0 ? WheelActions.Count -1 : offsetIndex;
-        WheelActions[offsetIndex].WheelAction.Invoke();
+        float t = WheelActions[offsetIndex].WheelActionDisplay.activityAction.signature.ActionTime;
+        var a = WheelActions[offsetIndex].WheelAction;
+        var s = WheelActions[offsetIndex].WheelActionDisplay.activityAction.signature.ActionIcon;
+        if(t == 0)
+            a.Invoke();
+        else GameEvents.OnStartActivity.Raise(t,a,s);
     }
 
     private void Update()
@@ -149,7 +154,6 @@ public class ActivityWheel : Window
         for (int i = 0; i < WheelActions.Count; i++)
         {
             var rect = WheelActions[i].WheelActionDisplay.GetComponent<RectTransform>();
-            //rect.gameObject.name = $"Element {i}";
             
             float angle = (i * Mathf.PI * 2f / WheelActions.Count) + FacingAngle;
             if (!WheelActions[i].hasAngle)
@@ -199,6 +203,7 @@ public class ActivityWheel : Window
         var display = displayObject.GetComponent<ActivityActionDisplay>();
         var WheelAction = new ActivityWheelAction(display, (delegate
         {
+            Debug.Log("Performing action");
             action.worldActions.Invoke();
             action.signature.InvokeActivity();
         }));
@@ -213,10 +218,10 @@ public class ActivityWheelAction
     public ActivityWheelAction(ActivityActionDisplay wheelActionDisplay, UnityAction wheelAction)
     {
         WheelActionDisplay = wheelActionDisplay;
-        WheelAction = wheelAction;
+        WheelAction.AddListener(wheelAction);
     }
     public ActivityActionDisplay WheelActionDisplay;
-    public UnityAction WheelAction;
+    public UnityEvent WheelAction = new();
     public float storedAngle;
     public bool hasAngle = false;
 }

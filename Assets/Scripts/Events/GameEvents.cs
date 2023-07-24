@@ -63,8 +63,12 @@ public class GameEvents : MonoBehaviour
     public static i302Event OnMouseEnter = new();
     public static i302Event OnMouseExit = new();
 
+    // Activity Events
     public static i302Event OpenCalendarDayDetails = new();
     public static i302Event<Activity> OnOpenActivityWheel = new();
+    public static i302Event<float,UnityEvent,Sprite> OnStartActivity = new();
+    public static i302Event OnCancelActivity = new();
+    public static i302Event OnEndActivity = new();
     public static i302Event OnCloseActivityWheel = new();
 
     public static i302Event OnChangeTime = new();
@@ -82,6 +86,7 @@ public class GameEvents : MonoBehaviour
     public static i302Event OnItemRelease = new();
     public static i302Event OnChangeRide = new();
     
+    public static i302Event OnPlayerMoved = new();
     public static i302Event OnLevelUp = new();
     public static i302Event OnCartQuantityChange = new();
 

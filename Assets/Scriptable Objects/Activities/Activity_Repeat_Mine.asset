@@ -41,6 +41,9 @@ MonoBehaviour:
     - Name: <UseAny>k__BackingField
       Entry: 5
       Data: false
+    - Name: <ConsumeOnUse>k__BackingField
+      Entry: 5
+      Data: false
     - Name: <Inventory>k__BackingField
       Entry: 10
       Data: 1
@@ -54,7 +57,8 @@ MonoBehaviour:
       Entry: 8
       Data: 
   ActionName: Mine
-  ActionIcon: {fileID: 939904893, guid: cf35ac889fac4744886ed265f4dd5d5a, type: 3}
+  ActionIcon: {fileID: -1048988953, guid: 270433e7734629f41b0967a1f646c712, type: 3}
+  actionTime: 1
   <ActivityActions>k__BackingField:
     m_PersistentCalls:
       m_Calls:

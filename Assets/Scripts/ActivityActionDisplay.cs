@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class ActivityActionDisplay : MonoBehaviour
 {
+    public ActivityAction activityAction;
     [FoldoutGroup("Display")][SerializeField] private Image actionIconDisplay;
     [FoldoutGroup("Display")][SerializeField] private TextMeshProUGUI actionNameText;
     [FoldoutGroup("Data")][SerializeField] private Color highlightColor;
@@ -18,10 +19,11 @@ public class ActivityActionDisplay : MonoBehaviour
 
     public void Setup(ActivityAction incomingAction, string extraText = "", bool useIcon = true)
     {
-        actionNameText.text = $"{incomingAction.signature.ActionName}{extraText}";
+        activityAction = incomingAction;
+        actionNameText.text = $"{activityAction.signature.ActionName}{extraText}";
         
         if (useIcon)
-            actionIconDisplay.sprite = incomingAction.signature.ActionIcon;
+            actionIconDisplay.sprite = activityAction.signature.ActionIcon;
         else actionIconDisplay.enabled = false;
     }
 

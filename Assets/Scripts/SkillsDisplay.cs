@@ -15,41 +15,52 @@ public class SkillsDisplay : Window
 
     private void OnEnable()
     {
-        GameEvents.OnLevelUp += UpdateSkillsDisplay;
+        GameEvents.OnLevelUp += UpdateDisplays;
+        PopulateSkillsDisplays();
+    }
+
+    private void UpdateDisplays(Sprite arg1, string arg2)
+    {
+        UpdateDisplays();
     }
 
     private void OnDisable()
     {
-        GameEvents.OnLevelUp -= UpdateSkillsDisplay;
+        GameEvents.OnLevelUp -= UpdateDisplays;
     }
 
     public override void Show()
     {
         base.Show();
-        displayObjects.Clear();
-        UpdateSkillsDisplay();
+        UpdateDisplays();
     }
 
-    public void UpdateSkillsDisplay()
+    public void PopulateSkillsDisplays()
     {
+        displayObjects.Clear();
         foreach (var skill in skills)
         {
-            if(skill.Level == 0) continue;
-            var existingObject = displayObjects.FindAll(o => o.skill == skill);
-            if(existingObject.Count == 0)
-                SpawnListObject(Instantiate(skillsDisplayListPrefab, skillsDisplayContainer),skill);
+            SpawnListObject(Instantiate(skillsDisplayListPrefab, skillsDisplayContainer),skill);
+        }
+    }
+
+    public void UpdateDisplays()
+    {
+        foreach (var display in displayObjects)
+        {
+            display.obj.SetActive(display.skill.Level != 0);
         }
     }
 
     public void SpawnListObject(GameObject obj, Skill skill)
     {
         SkillDisplayObject newDisplayObject = new SkillDisplayObject();
-        var bar = obj.GetComponent<SkillDisplayBar>();
-        newDisplayObject.bar = bar;
-        bar.targetSkill = skill;
+        newDisplayObject.obj = obj;
+        newDisplayObject.bar = obj.GetComponent<SkillDisplayBar>();
+        newDisplayObject.bar.targetSkill = skill;
         newDisplayObject.skill = skill;
+        newDisplayObject.bar.Setup();
         displayObjects.Add(newDisplayObject);
-        bar.Setup();
     }
     
 #if UNITY_EDITOR
@@ -73,4 +84,5 @@ public class SkillDisplayObject
 {
     public SkillDisplayBar bar;
     public Skill skill;
+    public GameObject obj;
 }
