@@ -104,7 +104,7 @@ using UnityEngine;
             SaveInventory();
         }
         
-        public void TryUseItem(Item neededItem, int amount = 1)
+        public int TryUseItem(Item neededItem, int amount = 1)
         {
             for (int i = 0; i < InventoryItems.Length; i++)
             {
@@ -124,8 +124,9 @@ using UnityEngine;
                     InventoryItems[i].Item = null;
                 if (amount == 0) break;
             }
-            
+
             SaveInventory();
+            return amount;
         }
 
         public bool HasItem(Item itemQuery, int quantity = 1)

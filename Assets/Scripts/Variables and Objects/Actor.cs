@@ -11,7 +11,8 @@ public class Actor : ScriptableObject
     public Sprite actionIcon;
     public Color hairColor;
     public List<ReputationTier> reputationTiers = new();
-    [Range(-1,100)]public int currentReputation = -1;
+    public List<AcceptableItemGifts> acceptedGifts = new();
+    [Range(-1,99)]public int currentReputation = -1;
     [FoldoutGroup("Gear"), SerializeField] public Gear GearBody;
     [FoldoutGroup("Gear"), SerializeField] public Gear GearShoes;
     [FoldoutGroup("Gear"), SerializeField] public Gear GearPants;
@@ -24,9 +25,15 @@ public class Actor : ScriptableObject
     [Button]
     public void AdjustReputation(int adjustAmount)
     {
-        currentReputation -= adjustAmount;
+        string currentTier = GetCurrentReputationTier();
+        currentReputation += adjustAmount;
         currentReputation = Mathf.Clamp(currentReputation, 0, 99);
-        GameEvents.OnReputationChange.Raise();
+        
+        string newTier = GetCurrentReputationTier();
+        if (newTier != currentTier)
+        {
+            GameEvents.OnReputationChange.Raise(this);
+        }
     }
     
     [Button]
@@ -35,13 +42,8 @@ public class Actor : ScriptableObject
         for (var index = reputationTiers.Count-1; index > -1; index--)
         {
             var tier = reputationTiers[index];
-            if (currentReputation >= tier.requiredValue)
-            {
-             return tier.tierName;
-            }
+            if (currentReputation >= tier.requiredValue) return tier.tierName;
         }
-
-        Debug.Log($"Reputation Name: UNKNOWN");
         return "UNKNOWN";
     }
 }
@@ -52,4 +54,11 @@ public class ReputationTier
     public string tierName;
     public int requiredValue;
     [PreviewField] public Sprite tierIcon;
+}
+
+[Serializable]
+public class AcceptableItemGifts
+{
+    public Item giftItem;
+    public int reputationChange;
 }

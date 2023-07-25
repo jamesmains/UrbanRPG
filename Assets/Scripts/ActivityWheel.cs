@@ -198,13 +198,14 @@ public class ActivityWheel : Window
 
     private bool SetupWheelListObject(ActivityAction action,GameObject displayObject, bool useIcon = true)
     {
-        if (!action.signature.IsConditionMet()) return false;
+        if (!action.signature.IsConditionMet() || !action.IsConditionMet()) return false;
         displayObject.SetActive(true);
         var display = displayObject.GetComponent<ActivityActionDisplay>();
         var WheelAction = new ActivityWheelAction(display, (delegate
         {
             Debug.Log("Performing action");
             action.worldActions.Invoke();
+            action.InvokeSpecialActions();
             action.signature.InvokeActivity();
         }));
         WheelActions.Add(WheelAction);

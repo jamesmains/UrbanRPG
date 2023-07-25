@@ -88,7 +88,7 @@ public class GameEvents : MonoBehaviour
     public static i302Event OnChangeRide = new();
     
     // NPC
-    public static i302Event OnReputationChange;
+    public static i302Event<Actor> OnReputationChange = new();
     
     // Quests
     public static i302Event<Quest> OnAcceptQuest = new();

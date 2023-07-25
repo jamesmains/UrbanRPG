@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.5761506, g: 0.62481266, b: 0.71806324, a: 1}
+  m_IndirectSpecularColor: {r: 0.1915145, g: 0.15159789, b: 0.40856802, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1863,13 +1863,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 438c56773015ae64d97c1c746c0c60d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 2006200290}
-  descriptionText: {fileID: 0}
-  iconImage: {fileID: 1605126090}
-  fillBarImageRect: {fileID: 1038233405}
-  fillSpeed: 3
-  fillBarSizeRange: {x: 12, y: 217}
-  targetNeed: {fileID: 11400000, guid: c3f0d22d61e122040a36ee8426cfa584, type: 2}
 --- !u!1 &101666032
 GameObject:
   m_ObjectHideFlags: 0
@@ -2263,8 +2256,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7f39e1262fdac46a08e7b303c9689d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Activities
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[ActivityAction, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   isActive: 0
-  Activities: []
 --- !u!135 &129370012
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3943,13 +3957,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 438c56773015ae64d97c1c746c0c60d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 910940509}
-  descriptionText: {fileID: 0}
-  iconImage: {fileID: 1407375934}
-  fillBarImageRect: {fileID: 26104144}
-  fillSpeed: 3
-  fillBarSizeRange: {x: 12, y: 217}
-  targetNeed: {fileID: 11400000, guid: 8b6890c00275f3148937f18be12912fe, type: 2}
 --- !u!1 &224748748
 GameObject:
   m_ObjectHideFlags: 0
@@ -5617,38 +5624,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea29517cc11ce27448f6824f6d17a454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rarity: 100
-  runOnAwake: 0
-  onPass:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1327454224}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  onFail:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 267514226}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!135 &267514231
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5682,8 +5657,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7f39e1262fdac46a08e7b303c9689d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Activities
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[ActivityAction, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   isActive: 0
-  Activities: []
 --- !u!1 &271710071
 GameObject:
   m_ObjectHideFlags: 0
@@ -5827,13 +5823,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 438c56773015ae64d97c1c746c0c60d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 1153188439}
-  descriptionText: {fileID: 0}
-  iconImage: {fileID: 1514664297}
-  fillBarImageRect: {fileID: 1271087025}
-  fillSpeed: 3
-  fillBarSizeRange: {x: 12, y: 217}
-  targetNeed: {fileID: 11400000, guid: a50603218b97a4e47bc9a321ee36eeba, type: 2}
 --- !u!1 &274066059
 GameObject:
   m_ObjectHideFlags: 0
@@ -7194,7 +7183,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 379205837}
-  m_LocalRotation: {x: 0.17350298, y: -0.00000000847271, z: 0.0000000014926795, w: 0.98483336}
+  m_LocalRotation: {x: 0.17350298, y: 0.000000008472708, z: -0.0000000014926792, w: 0.98483336}
   m_LocalPosition: {x: 0, y: 2.4, z: -5.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -33605,8 +33594,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7f39e1262fdac46a08e7b303c9689d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Activities
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[ActivityAction, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   isActive: 0
-  Activities: []
 --- !u!135 &453907494
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -51650,7 +51660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 127ec6993de17c745a6a914d3df1ec1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  description: Gear Window
   canvasGroup: {fileID: 597050122}
   isActive: 0
   windowIcon: {fileID: 0}
@@ -52848,13 +52858,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 438c56773015ae64d97c1c746c0c60d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 1708594050}
-  descriptionText: {fileID: 0}
-  iconImage: {fileID: 547423806}
-  fillBarImageRect: {fileID: 1406549839}
-  fillSpeed: 3
-  fillBarSizeRange: {x: 12, y: 217}
-  targetNeed: {fileID: 11400000, guid: 1e7897751ea8af449b1f6c5329b30fa7, type: 2}
 --- !u!1 &717507284
 GameObject:
   m_ObjectHideFlags: 0
@@ -54249,24 +54252,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7f39e1262fdac46a08e7b303c9689d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Activities
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[ActivityAction, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   isActive: 0
-  Activities:
-  - signature: {fileID: 11400000, guid: 35c1b5d766724b62b6b07024da1448af, type: 2}
-    worldActions:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 11400000, guid: d2b8df0c78432ea4caf21dc16ee78a55, type: 2}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!135 &875637562
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -54802,13 +54810,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 438c56773015ae64d97c1c746c0c60d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 2058446382}
-  descriptionText: {fileID: 0}
-  iconImage: {fileID: 181569277}
-  fillBarImageRect: {fileID: 148056272}
-  fillSpeed: 3
-  fillBarSizeRange: {x: 12, y: 217}
-  targetNeed: {fileID: 11400000, guid: 4f75a24680cf92d4fbdfec181b252273, type: 2}
 --- !u!1 &906228954
 GameObject:
   m_ObjectHideFlags: 0
@@ -57264,7 +57265,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1147750266}
-  m_LocalRotation: {x: 0.17350298, y: -0.00000000847271, z: 0.0000000014926795, w: 0.98483336}
+  m_LocalRotation: {x: 0.17350298, y: 0.000000008472708, z: -0.0000000014926792, w: 0.98483336}
   m_LocalPosition: {x: 0, y: 2.4, z: -5.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -57285,7 +57286,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd05875f65058cd448ed3b2143bd27b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  confiner: {fileID: 1147750269}
 --- !u!114 &1147750269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57580,8 +57580,76 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7f39e1262fdac46a08e7b303c9689d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 35c1b5d766724b62b6b07024da1448af, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Activities
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[ActivityAction, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|ActivityAction, Assembly-CSharp
+    - Name: specialConditions
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: signature
+      Entry: 10
+      Data: 0
+    - Name: worldActions
+      Entry: 7
+      Data: 3|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 4|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 5|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   isActive: 0
-  Activities: []
 --- !u!135 &1164755491
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -62884,8 +62952,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7f39e1262fdac46a08e7b303c9689d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Activities
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[ActivityAction, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   isActive: 0
-  Activities: []
 --- !u!135 &1539322570
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -65005,13 +65094,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 438c56773015ae64d97c1c746c0c60d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 339126710}
-  descriptionText: {fileID: 0}
-  iconImage: {fileID: 1418108008}
-  fillBarImageRect: {fileID: 241079402}
-  fillSpeed: 3
-  fillBarSizeRange: {x: 12, y: 217}
-  targetNeed: {fileID: 11400000, guid: 5d123da421c74a144b5dadfc300d5322, type: 2}
 --- !u!1 &1665505353
 GameObject:
   m_ObjectHideFlags: 0
@@ -67321,8 +67403,76 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7f39e1262fdac46a08e7b303c9689d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 35c1b5d766724b62b6b07024da1448af, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Activities
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[ActivityAction, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|ActivityAction, Assembly-CSharp
+    - Name: specialConditions
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: signature
+      Entry: 10
+      Data: 0
+    - Name: worldActions
+      Entry: 7
+      Data: 3|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 4|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 5|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   isActive: 0
-  Activities: []
 --- !u!135 &1777377250
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -67571,8 +67721,76 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7f39e1262fdac46a08e7b303c9689d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 35c1b5d766724b62b6b07024da1448af, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Activities
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[ActivityAction, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|ActivityAction, Assembly-CSharp
+    - Name: specialConditions
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: signature
+      Entry: 10
+      Data: 0
+    - Name: worldActions
+      Entry: 7
+      Data: 3|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 4|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 5|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   isActive: 0
-  Activities: []
 --- !u!1 &1838860767
 GameObject:
   m_ObjectHideFlags: 0
@@ -68659,8 +68877,76 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7f39e1262fdac46a08e7b303c9689d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 35c1b5d766724b62b6b07024da1448af, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Activities
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[ActivityAction, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|ActivityAction, Assembly-CSharp
+    - Name: specialConditions
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: signature
+      Entry: 10
+      Data: 0
+    - Name: worldActions
+      Entry: 7
+      Data: 3|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 4|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 5|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   isActive: 0
-  Activities: []
 --- !u!135 &1889940073
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -69028,9 +69314,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eacb447989df70408ad4975c417359f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTimeVariable: {fileID: 11400000, guid: a79214c1d800e9d4dba41eddeeb65b01, type: 2}
-  timeDisplayText: {fileID: 1909437687}
-  use12HourClock: 0
 --- !u!114 &1909437687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72684,7 +72967,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -72698,7 +72981,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2131381228}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.418, y: 0.315, z: 0.428}
+  m_LocalPosition: {x: 14.168, y: 0.315, z: -10.072}
   m_LocalScale: {x: 1, y: 0.63127, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -72732,12 +73015,102 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7f39e1262fdac46a08e7b303c9689d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 73b8f9733b2b21943ba185259521a253, type: 2}
+    - {fileID: 11400000, guid: 42243ad2ac72a29428096f0978b9bb06, type: 2}
+    - {fileID: 11400000, guid: 8c6337e3d5714c76aba3c8146df2ff11, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Activities
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[ActivityAction, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|ActivityAction, Assembly-CSharp
+    - Name: specialConditions
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 3|ReputationItemFavorConditional, Assembly-CSharp
+    - Name: <Item>k__BackingField
+      Entry: 6
+      Data: 
+    - Name: <RequiredAmount>k__BackingField
+      Entry: 3
+      Data: 1
+    - Name: <UseAny>k__BackingField
+      Entry: 5
+      Data: true
+    - Name: <ConsumeOnUse>k__BackingField
+      Entry: 5
+      Data: true
+    - Name: <Inventory>k__BackingField
+      Entry: 10
+      Data: 0
+    - Name: <TargetActor>k__BackingField
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: signature
+      Entry: 10
+      Data: 2
+    - Name: worldActions
+      Entry: 7
+      Data: 4|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 5|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 6|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   isActive: 0
-  Activities:
-  - signature: {fileID: 11400000, guid: cae8cc177ba04114b80ced1bee6244fa, type: 2}
-    worldActions:
-      m_PersistentCalls:
-        m_Calls: []
 --- !u!1 &2135858087
 GameObject:
   m_ObjectHideFlags: 0
@@ -73097,15 +73470,15 @@ GameObject:
   - component: {fileID: 635586788785234140}
   - component: {fileID: 635586788785234141}
   - component: {fileID: 635586788785234144}
-  - component: {fileID: 635586788785234145}
   - component: {fileID: 635586788785234151}
+  - component: {fileID: 635586788785234152}
   m_Layer: 5
-  m_Name: Quest Status Change Text
+  m_Name: Popup Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &635586788785234140
 RectTransform:
   m_ObjectHideFlags: 0
@@ -73161,20 +73534,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &635586788785234145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 635586788785234139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34cb6d7e2eea21641af9b9fd6b084f6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  iconImage: {fileID: 635586790094155295}
-  valueText: {fileID: 635586789820704550}
 --- !u!222 &635586788785234151
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -73183,6 +73542,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 635586788785234139}
   m_CullTransparentMesh: 1
+--- !u!114 &635586788785234152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635586788785234139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dc86c7d2049aab42a09871641e8b101, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 635586789820704550}
+  animator: {fileID: 635586788785234144}
 --- !u!1 &635586789820704548
 GameObject:
   m_ObjectHideFlags: 0
@@ -73241,9 +73614,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Balloons!
-
-    - Quest Complete -'
+  m_text: Now <allcaps>Friends </allcaps>with <allcaps>Balloon Boy</allcaps>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e2e00528a2164b144871240bc7da8d63, type: 2}
   m_sharedMaterial: {fileID: -1606783549103231062, guid: e2e00528a2164b144871240bc7da8d63, type: 2}

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using I302.Manu;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -196,6 +197,27 @@ public class ItemConditional : Condition
     }
 }
 
+public class QuestItemConditional : ItemConditional
+{
+    [field: SerializeField]
+    public Quest TargetQuest { get; private set; }
+    [field: SerializeField]
+    public QuestTask TargetTask { get; private set; }
+    public override bool IsConditionMet()
+    {
+        return Inventory.HasItem(Item, RequiredAmount) || (UseAny && Inventory.HasItemAt(Item) != -1);
+    }
+
+    public override void Use()
+    {
+        if (ConsumeOnUse)
+        {
+            int leftover = Inventory.TryUseItem(Item,RequiredAmount);
+            TargetQuest.TryCompleteTask(TargetTask, RequiredAmount - leftover);
+        }
+    }
+}
+
 public class ReputationConditional : Condition
 {
     [field: SerializeField]
@@ -213,6 +235,25 @@ public class ReputationConditional : Condition
     }
 }
 
+public class ReputationItemFavorConditional : ItemConditional
+{
+    [field: SerializeField]
+    public Actor TargetActor { get; private set; }
+    
+    public override bool IsConditionMet()
+    {
+        Debug.Log("Checking");
+        return (UseAny && Inventory.InventoryItems[0].Item != null && TargetActor.acceptedGifts.Any(i => i.giftItem == Inventory.InventoryItems[0].Item));
+    }
+
+    public override void Use()
+    {
+        var i = TargetActor.acceptedGifts.FindIndex(i => i.giftItem == Inventory.InventoryItems[0].Item);
+        TargetActor.AdjustReputation(TargetActor.acceptedGifts[i].reputationChange);
+        if(ConsumeOnUse) Inventory.TryUseItem(Inventory.InventoryItems[0].Item,1);
+        GameEvents.OnEndActivity.Raise();
+    }
+}
 
 
 

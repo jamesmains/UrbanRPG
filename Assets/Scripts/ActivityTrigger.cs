@@ -2,14 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using UnityEngine;
 using UnityEngine.Events;
 
 
-public class ActivityTrigger : MonoBehaviour
+public class ActivityTrigger : SerializedMonoBehaviour
 {
     [ReadOnly] public bool isActive;
-    public List<ActivityAction> Activities = new();
+    [OdinSerialize] public List<ActivityAction> Activities = new();
 
     public static bool ActivityLock;
 
@@ -96,12 +97,23 @@ public class ActivityTrigger : MonoBehaviour
     }
 }
 
-[Serializable]
 public class ActivityAction
 {
     public Activity signature;
+    [ShowInInspector,OdinSerialize] public List<Condition> specialConditions { get; set; } = new();
     [FoldoutGroup("World Action")] public UnityEvent worldActions = new();
 
+    public void InvokeSpecialActions()
+    {
+        specialConditions.ForEach(c => c.Use());
+    }
+    
+    public bool IsConditionMet()
+    {
+        if (specialConditions.Count == 0) return true;
+        return specialConditions.TrueForAll(c => c.IsConditionMet());
+    }
+    
     public void AssignListeners(Action[] actions)
     {
         for (int i = 0; i < actions.Length; i++)

@@ -34,6 +34,9 @@ MonoBehaviour:
   - tierName: Bestest Friends Forever
     requiredValue: 99
     tierIcon: {fileID: -1608568821, guid: cf35ac889fac4744886ed265f4dd5d5a, type: 3}
+  acceptedGifts:
+  - giftItem: {fileID: 11400000, guid: 2953451449f32d844bc49d99f2234bd9, type: 2}
+    reputationChange: 10
   currentReputation: -1
   GearBody: {fileID: 11400000, guid: 0b120cc8384aa7e42bb88af7a3459bac, type: 2}
   GearShoes: {fileID: 11400000, guid: f10075e1397e2954da1f89dd034c93e3, type: 2}

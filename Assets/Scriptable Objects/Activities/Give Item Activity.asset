@@ -26,28 +26,7 @@ MonoBehaviour:
       Data: 0|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 1|ItemConditional, Assembly-CSharp
-    - Name: <Item>k__BackingField
-      Entry: 6
-      Data: 
-    - Name: <RequiredAmount>k__BackingField
-      Entry: 3
       Data: 0
-    - Name: <UseAny>k__BackingField
-      Entry: 5
-      Data: false
-    - Name: <ConsumeOnUse>k__BackingField
-      Entry: 5
-      Data: false
-    - Name: <Inventory>k__BackingField
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: 
       Entry: 13
       Data: 

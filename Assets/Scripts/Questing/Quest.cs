@@ -34,13 +34,13 @@ public class Quest : Activity
         GameEvents.OnAcceptQuest.Raise(this);
     }
     
-    public int TryCompleteTask(QuestTask taskTask, int amount = 1)
+    public void TryCompleteTask(QuestTask incomingTask, int amount = 1)
     {
-        if (CurrentState is not QuestState.Started or QuestState.ReadyToComplete) return 0;
+        if (CurrentState is not QuestState.Started or QuestState.ReadyToComplete) return;
         
         var task = Tasks[TaskIndex];
 
-        if (task.taskTask != taskTask) return 0;
+        if (task.taskTask != incomingTask) return;
         if (amount > (task.numberOfRequiredHits - task.hits)) amount = task.numberOfRequiredHits - task.hits;
         
         task.Hit(amount);
@@ -51,8 +51,6 @@ public class Quest : Activity
             StartNextTask();
         }
         else SaveQuest();
-
-        return amount;
     }
 
     [Button, TabGroup("Functions","Progress Functions")]
