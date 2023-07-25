@@ -14,7 +14,7 @@ public class Activity : SerializedScriptableObject
     [PropertyOrder(70)] public string ActivityName;
     [PropertyOrder(70),PreviewField] public Sprite ActivityIcon;
     [PropertyOrder(70)] public ActivityType ActivityType;
-    [PropertyOrder(70)]  public float actionTime;
+    [PropertyOrder(70)] public float actionTime;
     [PropertyOrder(70)]
     public float ActionTime => actionTime - 0; // TODO: Replace '- 0' with some kind of stat or status modifier
 

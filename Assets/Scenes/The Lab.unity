@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.57385945, g: 0.74126947, b: 0.8159647, a: 1}
+  m_IndirectSpecularColor: {r: 0.5761506, g: 0.62481266, b: 0.71806324, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2263,10 +2263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7f39e1262fdac46a08e7b303c9689d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activityName: 
-  activityDescription: 
   isActive: 0
-  ActivityActions: []
+  Activities: []
 --- !u!135 &129370012
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5684,14 +5682,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7f39e1262fdac46a08e7b303c9689d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activityName: 
-  activityDescription: 
   isActive: 0
-  ActivityActions:
-  - signature: {fileID: 11400000, guid: 66887b98018cc9b4c9b22928ceecd2e8, type: 2}
-    worldActions:
-      m_PersistentCalls:
-        m_Calls: []
+  Activities: []
 --- !u!1 &271710071
 GameObject:
   m_ObjectHideFlags: 0
@@ -33613,30 +33605,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7f39e1262fdac46a08e7b303c9689d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activityName: 
-  activityDescription: 
   isActive: 0
-  ActivityActions:
-  - signature: {fileID: 11400000, guid: 330eac2560b883b47a9782be845d1af0, type: 2}
-    worldActions:
-      m_PersistentCalls:
-        m_Calls: []
-  - signature: {fileID: 11400000, guid: cae8cc177ba04114b80ced1bee6244fa, type: 2}
-    worldActions:
-      m_PersistentCalls:
-        m_Calls: []
-  - signature: {fileID: 11400000, guid: 66887b98018cc9b4c9b22928ceecd2e8, type: 2}
-    worldActions:
-      m_PersistentCalls:
-        m_Calls: []
-  - signature: {fileID: 11400000, guid: 4fe6fae0c49f0aa4cb4a67ffd44682dc, type: 2}
-    worldActions:
-      m_PersistentCalls:
-        m_Calls: []
-  - signature: {fileID: 11400000, guid: f9d5d41bd5adedb48a52bd8444e8beec, type: 2}
-    worldActions:
-      m_PersistentCalls:
-        m_Calls: []
+  Activities: []
 --- !u!135 &453907494
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -54279,54 +54249,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7f39e1262fdac46a08e7b303c9689d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activityName: 
-  activityDescription: 
   isActive: 0
-  ActivityActions:
-  - signature: {fileID: 11400000, guid: 0bc090e2881e0bc40a4d7816458f971a, type: 2}
-    worldActions:
-      m_PersistentCalls:
-        m_Calls: []
-  - signature: {fileID: 11400000, guid: 79edbf11c0e685241a86f5a33bc3316d, type: 2}
+  Activities:
+  - signature: {fileID: 11400000, guid: 35c1b5d766724b62b6b07024da1448af, type: 2}
     worldActions:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 11400000, guid: a2da190245fc1134c8c5c1e61d915b53, type: 2}
-          m_TargetAssemblyTypeName: IntVariable, Assembly-CSharp
-          m_MethodName: ApplyChange
-          m_Mode: 3
+        - m_Target: {fileID: 11400000, guid: d2b8df0c78432ea4caf21dc16ee78a55, type: 2}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 200
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - signature: {fileID: 11400000, guid: f6642dbbb85aa904b87adfd159d98667, type: 2}
-    worldActions:
-      m_PersistentCalls:
-        m_Calls: []
-  - signature: {fileID: 11400000, guid: bd1ca61656562b143b6bdd59e868ea4b, type: 2}
-    worldActions:
-      m_PersistentCalls:
-        m_Calls: []
-  - signature: {fileID: 11400000, guid: 29e55b50ae4e9ea48aaa812bc8134778, type: 2}
-    worldActions:
-      m_PersistentCalls:
-        m_Calls: []
-  - signature: {fileID: 11400000, guid: 81c1366510094f35a63ca1e68db4059d, type: 2}
-    worldActions:
-      m_PersistentCalls:
-        m_Calls: []
-  - signature: {fileID: 11400000, guid: 8c6337e3d5714c76aba3c8146df2ff11, type: 2}
-    worldActions:
-      m_PersistentCalls:
-        m_Calls: []
-  - signature: {fileID: 11400000, guid: 35c1b5d766724b62b6b07024da1448af, type: 2}
-    worldActions:
-      m_PersistentCalls:
-        m_Calls: []
 --- !u!135 &875637562
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -57640,26 +57580,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7f39e1262fdac46a08e7b303c9689d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activityName: Debug Mining Skill
-  activityDescription: 
   isActive: 0
-  ActivityActions:
-  - signature: {fileID: 11400000, guid: 35c1b5d766724b62b6b07024da1448af, type: 2}
-    worldActions:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 141689208}
-          m_TargetAssemblyTypeName: Node, Assembly-CSharp
-          m_MethodName: Deactivate
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+  Activities: []
 --- !u!135 &1164755491
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -62962,14 +62884,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7f39e1262fdac46a08e7b303c9689d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activityName: 
-  activityDescription: 
   isActive: 0
-  ActivityActions:
-  - signature: {fileID: 11400000, guid: 876d2b835621d364783c888b745da429, type: 2}
-    worldActions:
-      m_PersistentCalls:
-        m_Calls: []
+  Activities: []
 --- !u!135 &1539322570
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -67405,26 +67321,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7f39e1262fdac46a08e7b303c9689d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activityName: Debug Mining Skill
-  activityDescription: 
   isActive: 0
-  ActivityActions:
-  - signature: {fileID: 11400000, guid: 35c1b5d766724b62b6b07024da1448af, type: 2}
-    worldActions:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 141689208}
-          m_TargetAssemblyTypeName: Node, Assembly-CSharp
-          m_MethodName: Deactivate
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+  Activities: []
 --- !u!135 &1777377250
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -67673,26 +67571,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7f39e1262fdac46a08e7b303c9689d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activityName: Debug Mining Skill
-  activityDescription: 
   isActive: 0
-  ActivityActions:
-  - signature: {fileID: 11400000, guid: 35c1b5d766724b62b6b07024da1448af, type: 2}
-    worldActions:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 141689208}
-          m_TargetAssemblyTypeName: Node, Assembly-CSharp
-          m_MethodName: Deactivate
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+  Activities: []
 --- !u!1 &1838860767
 GameObject:
   m_ObjectHideFlags: 0
@@ -68779,26 +68659,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7f39e1262fdac46a08e7b303c9689d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activityName: Debug Mining Skill
-  activityDescription: 
   isActive: 0
-  ActivityActions:
-  - signature: {fileID: 11400000, guid: 35c1b5d766724b62b6b07024da1448af, type: 2}
-    worldActions:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 141689208}
-          m_TargetAssemblyTypeName: Node, Assembly-CSharp
-          m_MethodName: Deactivate
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+  Activities: []
 --- !u!135 &1889940073
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -72798,6 +72660,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2131381230}
   - component: {fileID: 2131381229}
+  - component: {fileID: 2131381231}
+  - component: {fileID: 2131381232}
   m_Layer: 0
   m_Name: Balloon Boy Test
   m_TagString: Untagged
@@ -72843,6 +72707,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2131381231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131381228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaa37193bcb7f2b46a20d8986671e6e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actor: {fileID: 11400000, guid: 42243ad2ac72a29428096f0978b9bb06, type: 2}
+--- !u!114 &2131381232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131381228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c7f39e1262fdac46a08e7b303c9689d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 0
+  Activities:
+  - signature: {fileID: 11400000, guid: cae8cc177ba04114b80ced1bee6244fa, type: 2}
+    worldActions:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &2135858087
 GameObject:
   m_ObjectHideFlags: 0

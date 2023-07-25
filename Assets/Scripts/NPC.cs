@@ -4,4 +4,5 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour
 {
+    [SerializeField] private Actor actor;
 }

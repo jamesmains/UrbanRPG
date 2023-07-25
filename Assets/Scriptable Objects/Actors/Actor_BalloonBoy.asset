@@ -15,6 +15,26 @@ MonoBehaviour:
   actorName: Balloon Boy
   actionIcon: {fileID: 21300000, guid: 3d11f5ab4382ef644ba422d07a08e19b, type: 3}
   hairColor: {r: 0.4056604, g: 0.12055002, b: 0.12055002, a: 1}
+  reputationTiers:
+  - tierName: Not Friends
+    requiredValue: 0
+    tierIcon: {fileID: -136313411, guid: cf35ac889fac4744886ed265f4dd5d5a, type: 3}
+  - tierName: Friends
+    requiredValue: 35
+    tierIcon: {fileID: 1882380033, guid: cf35ac889fac4744886ed265f4dd5d5a, type: 3}
+  - tierName: Good Friends
+    requiredValue: 55
+    tierIcon: {fileID: 736159891, guid: cf35ac889fac4744886ed265f4dd5d5a, type: 3}
+  - tierName: Best Friends
+    requiredValue: 65
+    tierIcon: {fileID: 2079964652, guid: cf35ac889fac4744886ed265f4dd5d5a, type: 3}
+  - tierName: Bestest Friends
+    requiredValue: 85
+    tierIcon: {fileID: -1043459160, guid: cf35ac889fac4744886ed265f4dd5d5a, type: 3}
+  - tierName: Bestest Friends Forever
+    requiredValue: 99
+    tierIcon: {fileID: -1608568821, guid: cf35ac889fac4744886ed265f4dd5d5a, type: 3}
+  currentReputation: -1
   GearBody: {fileID: 11400000, guid: 0b120cc8384aa7e42bb88af7a3459bac, type: 2}
   GearShoes: {fileID: 11400000, guid: f10075e1397e2954da1f89dd034c93e3, type: 2}
   GearPants: {fileID: 11400000, guid: 2183973c42644ed419f3dbda552ea09a, type: 2}
@@ -22,5 +42,4 @@ MonoBehaviour:
   GearEyes: {fileID: 11400000, guid: e45e282df72f0c946b1d623be46f7b3b, type: 2}
   GearShirt: {fileID: 11400000, guid: e313d3be786598244b7d8fd0e52743cd, type: 2}
   GearHair: {fileID: 11400000, guid: 060521d0dc55fbc4d821e756959ccd92, type: 2}
-  GearAccessory1: {fileID: 0}
-  GearAccessory2: {fileID: 0}
+  GearAccessory: {fileID: 0}

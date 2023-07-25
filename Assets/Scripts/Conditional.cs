@@ -187,7 +187,7 @@ public class ItemConditional : Condition
     
     public override bool IsConditionMet()
     {
-        return Inventory.HasItem(Item, RequiredAmount);
+        return Inventory.HasItem(Item, RequiredAmount) || (UseAny && Inventory.InventoryItems[0].Item != null);
     }
 
     public override void Use()
@@ -196,6 +196,22 @@ public class ItemConditional : Condition
     }
 }
 
+public class ReputationConditional : Condition
+{
+    [field: SerializeField]
+    public int RequiredReputation { get; private set; }
+    [field: SerializeField]
+    public Actor TargetActor { get; private set; }
+    
+    public override bool IsConditionMet()
+    {
+        return TargetActor.currentReputation >= RequiredReputation;
+    }
+
+    public override void Use()
+    {
+    }
+}
 
 
 

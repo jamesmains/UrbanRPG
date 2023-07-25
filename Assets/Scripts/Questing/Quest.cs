@@ -13,11 +13,10 @@ public class Quest : Activity
     public string QuestName;
     public QuestType QuestType;
     public QuestState CurrentState;
-    [TextArea] public string QuestDescription;
-    
+    [TextArea] 
+    public string QuestDescription;
     [Space(10),PropertyOrder(70)]
     public List<QuestTaskData> Tasks = new();
-    
     [Space(10)]
     public QuestTask CurrentStep;
     public int TaskIndex;
@@ -28,7 +27,7 @@ public class Quest : Activity
     [Button, TabGroup("Functions","Progress Functions")]
     public void StartQuest()
     {
-        if (CurrentState == QuestState.Started || CurrentState == QuestState.Completed) return;
+        if (CurrentState is QuestState.Started or QuestState.Completed) return;
         TaskIndex = -1;
         CurrentState = QuestState.Started;
         StartNextTask();
@@ -41,14 +40,8 @@ public class Quest : Activity
         
         var task = Tasks[TaskIndex];
 
-        if (task.taskTask != taskTask)
-        {
-            return 0;
-        }
-        if (amount > (task.numberOfRequiredHits - task.hits))
-        {
-            amount = task.numberOfRequiredHits - task.hits;
-        }
+        if (task.taskTask != taskTask) return 0;
+        if (amount > (task.numberOfRequiredHits - task.hits)) amount = task.numberOfRequiredHits - task.hits;
         
         task.Hit(amount);
         GameEvents.OnMakeQuestProgress.Raise(this);
@@ -72,6 +65,7 @@ public class Quest : Activity
             return;
         }
         else if(TaskIndex >= Tasks.Count) TaskIndex--;
+        
         CurrentStep = Tasks[TaskIndex].taskTask;
         var lastQuestTask = Tasks.Last();
         if (CurrentStep == lastQuestTask.taskTask &&
@@ -117,15 +111,10 @@ public class Quest : Activity
     private void LoadQuest()
     {
         QuestSaveData loadedData = SaveLoad.LoadQuest(QuestName);
-        if (loadedData == null)
-        {
-            return;
-        }
+        if (loadedData == null) return;
+        
         TaskIndex = loadedData.SavedTaskIndex;
-        if (Tasks.Count < TaskIndex)
-        {
-            CurrentStep = Tasks[TaskIndex].taskTask;
-        }
+        if (Tasks.Count < TaskIndex) CurrentStep = Tasks[TaskIndex].taskTask;
         
         int j = 0;
         Tasks.ForEach(o =>

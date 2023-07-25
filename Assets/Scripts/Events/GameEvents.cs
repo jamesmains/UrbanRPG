@@ -71,6 +71,7 @@ public class GameEvents : MonoBehaviour
     public static i302Event OnEndActivity = new();
     public static i302Event OnCloseActivityWheel = new();
 
+    // Systems
     public static i302Event OnChangeTime = new();
     public static i302Event OnLoadNextScene = new();
     
@@ -86,23 +87,25 @@ public class GameEvents : MonoBehaviour
     public static i302Event OnItemRelease = new();
     public static i302Event OnChangeRide = new();
     
-    public static i302Event OnPlayerMoved = new();
-    public static i302Event OnLevelUp = new();
-    public static i302Event OnCartQuantityChange = new();
-
-    public static i302Event<UnityAction> OnCreateMessageBox = new();
+    // NPC
+    public static i302Event OnReputationChange;
     
+    // Quests
     public static i302Event<Quest> OnAcceptQuest = new();
     public static i302Event<Quest> OnMakeQuestProgress = new();
     public static i302Event<Quest> OnReadyToComplete = new();
     public static i302Event<Quest> OnCompleteQuest = new();
     
+    // Skills & Needs
+    public static i302Event OnLevelUp = new();
     public static i302Event<Sprite,string> OnGainExperience = new();
     public static i302Event<Sprite> OnNeedDecayTrigger = new();
     
+    // Dialogue
     public static i302Event<Dialogue> StartDialogueEvent = new();
     
-    
-    
-    // Todo add keybinding events
+    // Unsorted
+    public static i302Event OnPlayerMoved = new();
+    public static i302Event OnCartQuantityChange = new();
+    public static i302Event<UnityAction> OnCreateMessageBox = new();
 }
