@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class ActivityNodeManager : MonoBehaviour
 {
+    
+    // TODO: may need to serialize if the world isn't loaded at all times
+
     [SerializeField] private List<ActivityTrigger> Activities = new();
     [SerializeField] private float ReactivationTime;
     private List<Node> Nodes = new();

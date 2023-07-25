@@ -16,6 +16,7 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
     [field: SerializeField,FoldoutGroup("Debug"),ReadOnly] private static InventorySlot movingItem;
     [field: SerializeField,FoldoutGroup("Debug"),ReadOnly] private bool mouseDown;
     [field: SerializeField,FoldoutGroup("Debug"),ReadOnly] private bool waitingForDrag;
+    [field: SerializeField,FoldoutGroup("Debug"),ReadOnly] private bool tryingToSplit;
     [field: SerializeField,FoldoutGroup("Debug"),ReadOnly] private Inventory thisInventory;
 
     [field: SerializeField] public InventoryItemData storedItemData = new(null,0,-1);
@@ -24,7 +25,19 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
     private void OnEnable()
     {
         GameEvents.OnMouseScroll += TryMoveItemToOtherOpenWindow;
-        GameEvents.OnAltMouseButtonDown += TryConsumeItem;
+        GameEvents.OnAltMouseButtonUp += delegate
+        {
+            if (tryingToSplit)
+            {
+                tryingToSplit = false;
+                return;
+            }
+            TryConsumeItem();
+        };
+        GameEvents.OnAltMouseButtonDown += delegate
+        {
+            tryingToSplit = true;
+        };
     }
 
     private void OnDisable()
@@ -32,7 +45,19 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         movingItem = null;
         GameEvents.OnItemRelease.Raise();
         GameEvents.OnMouseScroll -= TryMoveItemToOtherOpenWindow;
-        GameEvents.OnAltMouseButtonDown -= TryConsumeItem;
+        GameEvents.OnAltMouseButtonUp -= delegate
+        {
+            if (tryingToSplit)
+            {
+                tryingToSplit = false;
+                return;
+            }
+            TryConsumeItem();
+        };
+        GameEvents.OnAltMouseButtonDown -= delegate
+        {
+            tryingToSplit = true;
+        };
     }
 
     private void Update()
@@ -108,6 +133,7 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         var pickup = Instantiate(pickupItemObject, spawnPos,Quaternion.identity).GetComponent<Pickup>();
         var itemData = parentInventoryWindow.inventory.InventoryItems[storedItemData.Index];
         int quantity = q < 0 ? itemData.Quantity : q;
+        quantity = tryingToSplit ? quantity / 2 : quantity;
 
         pickup.Setup(itemData.Item,quantity);
         this.thisInventory.TryRemoveItemAt(storedItemData.Index,quantity);
@@ -124,7 +150,8 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         }
         else if (InventoryWindow.highlightedInventoryWindow != parentInventoryWindow && InventoryWindow.highlightedInventoryWindow != null)
         {
-            TryMoveItemToInventoryWindow(InventoryWindow.highlightedInventoryWindow,storedItemData.Quantity);
+            int quantity = tryingToSplit ? storedItemData.Quantity / 2 : storedItemData.Quantity; 
+            TryMoveItemToInventoryWindow(InventoryWindow.highlightedInventoryWindow,quantity);
         }
         else if(!Global.IsMouseOverUI)
         {
@@ -139,7 +166,7 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
 
     private void TryConsumeItem()
     {
-        if (highlightedInventorySlot != this) return;
+        if (highlightedInventorySlot != this || storedItemData.Item == null) return;
         if (storedItemData.Item.IsConsumable)
         {
             foreach (var itemEffect in storedItemData.Item.ItemEffects)
@@ -157,7 +184,7 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
 
         if (hisWindow.removeOnly) return;
         
-        if (storedItemData.Item == his.storedItemData.Item)
+        if (storedItemData.Item == his.storedItemData.Item || his.storedItemData.Item == null)
             AddItemToExistingStack(hisWindow,his.storedItemData.Index);
         else
             SwapItemStacks(hisWindow,his.storedItemData.Index);  
@@ -166,7 +193,8 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
     private void AddItemToExistingStack(InventoryWindow hisWindow, int hisIndex)
     {
         int quantity = thisInventory.InventoryItems[storedItemData.Index].Quantity;
-        var overflow = hisWindow.inventory.TryAddItemAt(hisIndex, quantity);
+        quantity = tryingToSplit ? quantity / 2 : quantity;
+        var overflow = hisWindow.inventory.TryAddItemAt(hisIndex, quantity, storedItemData.Item);
         thisInventory.TryRemoveItemAt(storedItemData.Index,quantity - overflow);
     }
 

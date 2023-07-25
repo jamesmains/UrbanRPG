@@ -12,11 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c4ce2b6c07e534f841dbb71bf61d4c, type: 3}
   m_Name: BasicAxe
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: <ItemEffects>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[ItemEffect, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   <Sprite>k__BackingField: {fileID: -1048988953, guid: 270433e7734629f41b0967a1f646c712, type: 3}
   <Name>k__BackingField: Iron Axe
   <Description>k__BackingField: Gets the job done.
-  <ItemType>k__BackingField: 1
+  <ItemType>k__BackingField: 0
   <SellValue>k__BackingField: 0
   <BuyValue>k__BackingField: 1500
+  <IsConsumable>k__BackingField: 0
   amount: 1
   <StackLimit>k__BackingField: 1

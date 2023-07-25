@@ -5,6 +5,7 @@ using I302.Manu;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,IPointerMoveHandler
 {
@@ -13,13 +14,13 @@ public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,I
     public bool isLocked;
     public bool removeOnly;
     public bool restrictByItemType;
+    public bool ignoreScrollInput;
     [ShowIf("restrictByItemType")] public ItemType itemTypeRestriction;
 
     private bool flaggedToUpdate;
     private List<GameObject> InventorySlots = new();
     public static InventoryWindow highlightedInventoryWindow;
     public static List<InventoryWindow> openInventoryWindows = new();
-    public List<InventoryWindow> DEBUGopenInventoryWindows = new();
 
     private void OnEnable()
     {
@@ -40,14 +41,12 @@ public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,I
         
         UpdateInventoryDisplay();
         openInventoryWindows.Add(this);
-        DEBUGopenInventoryWindows = openInventoryWindows;
     }
 
     public override void Hide()
     {
         base.Hide();
         openInventoryWindows.Remove(this);
-        DEBUGopenInventoryWindows = openInventoryWindows;
     }
 
     private void PopulateDisplay()
@@ -56,7 +55,8 @@ public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,I
         {
             for (int i = 0; i < inventory.InventorySlotLimit.Value; i++)
             {
-                InventorySlots.Add(Instantiate(InventorySlotPrefab, this.transform));
+                var obj = Instantiate(InventorySlotPrefab, this.transform);
+                InventorySlots.Add(obj);
             }
         }
     }

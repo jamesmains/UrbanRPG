@@ -77,10 +77,17 @@ using UnityEngine;
             SaveInventory();
         }
 
-        public int TryAddItemAt(int targetIndex, int value = 1)
+        public int TryAddItemAt(int targetIndex, int value = 1, Item incomingItem = null)
         {
             int overflow = 0;
             int remaining = value;
+            if (remaining == 0) return 0;
+
+            if (InventoryItems[targetIndex].Item == null && incomingItem != null)
+            {
+                InventoryItems[targetIndex].Item = incomingItem;
+                InventoryItems[targetIndex].Quantity = 0;
+            }
             
             overflow = (remaining - InventoryItems[targetIndex].Item.StackLimit) + InventoryItems[targetIndex].Quantity;
             InventoryItems[targetIndex].Quantity = InventoryItems[targetIndex].Item.StackLimit;

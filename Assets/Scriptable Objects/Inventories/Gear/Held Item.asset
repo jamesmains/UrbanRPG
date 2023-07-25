@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c13a827b681be242a4cbd6e81745612, type: 3}
   m_Name: Held Item
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Held Item
+  <Name>k__BackingField: Held item, typically for gift giving
   InventorySlotLimit: {fileID: 11400000, guid: de6a91b7bccf518478d67fb71805d69b, type: 2}
   lookupTable: {fileID: 11400000, guid: 3cf4055abc210f7488b2727555b7b07b, type: 2}
   InventoryItems:
