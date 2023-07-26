@@ -211,7 +211,6 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         int quantity = thisItemData.Quantity;
         quantity = tryingToSplit ? quantity / 2 : quantity;
         var overflow = hisWindow.inventory.TryAddItemAt(hisIndex, quantity, storedItemData.Item);
-        Debug.Log($"Removing {quantity}, with overflow of {overflow}");
         thisInventory.TryRemoveItemAt(storedItemData.Index,quantity - overflow);
     }
 
@@ -262,7 +261,7 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         }
         var i = targetWindow.inventory.HasItemAt(storedItemData.Item);
         if (i < 0) return;
-        var overflow = parentInventoryWindow.inventory.TryAddItem(storedItemData.Item,amount);
+        var overflow = parentInventoryWindow.inventory.TryAddItemAt(storedItemData.Index,amount,storedItemData.Item);
         targetWindow.inventory.TryRemoveItemAt(i,amount - overflow);
     }
     
@@ -291,6 +290,4 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         highlightedInventorySlot = null;
         GameEvents.OnMouseExitInventorySlot.Raise();
     }
-
-    
 }
