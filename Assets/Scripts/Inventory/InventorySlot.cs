@@ -16,7 +16,9 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
     [field: SerializeField,FoldoutGroup("Debug"),ReadOnly] private static InventorySlot movingItem;
     [field: SerializeField,FoldoutGroup("Debug"),ReadOnly] private bool mouseDown;
     [field: SerializeField,FoldoutGroup("Debug"),ReadOnly] private bool waitingForDrag;
+    [field: SerializeField,FoldoutGroup("Debug"),ReadOnly] private bool splitting;
     [field: SerializeField,FoldoutGroup("Debug"),ReadOnly] private bool tryingToSplit;
+    [field: SerializeField,FoldoutGroup("Debug"),ReadOnly] private bool tryingToConsume;
     [field: SerializeField,FoldoutGroup("Debug"),ReadOnly] private Inventory thisInventory;
 
     [field: SerializeField] public InventoryItemData storedItemData = new(null,0,-1);
@@ -27,16 +29,21 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         GameEvents.OnMouseScroll += TryMoveItemToOtherOpenWindow;
         GameEvents.OnAltMouseButtonUp += delegate
         {
-            if (tryingToSplit)
+            if (splitting)
             {
                 tryingToSplit = false;
+                splitting = false;
                 return;
             }
+            tryingToSplit = false;
+            splitting = false;
             TryConsumeItem();
         };
         GameEvents.OnAltMouseButtonDown += delegate
         {
+            if (highlightedInventorySlot != this) return;
             tryingToSplit = true;
+            tryingToConsume = true;
         };
     }
 
@@ -47,16 +54,21 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         GameEvents.OnMouseScroll -= TryMoveItemToOtherOpenWindow;
         GameEvents.OnAltMouseButtonUp -= delegate
         {
-            if (tryingToSplit)
+            if (splitting)
             {
                 tryingToSplit = false;
+                splitting = false;
                 return;
             }
+            tryingToSplit = false;
+            splitting = false;
             TryConsumeItem();
         };
         GameEvents.OnAltMouseButtonDown -= delegate
         {
+            if (highlightedInventorySlot != this) return;
             tryingToSplit = true;
+            tryingToConsume = true;
         };
     }
 
@@ -121,6 +133,8 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
     private void Drag()
     {
         if (parentInventoryWindow.inventory.InventoryItems[storedItemData.Index].Quantity <= 0 || storedItemData.Item == null) return;
+        if (tryingToSplit) splitting = true;
+        tryingToConsume = false;
         movingItem = this;
         GameEvents.OnItemMove.Raise(parentInventoryWindow.inventory.InventoryItems[storedItemData.Index].Item);
         iconDisplay.color = new Color(1, 1, 1, 0.5f);
@@ -128,13 +142,14 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
     
     private void DropItem(int q = -1)
     {
-        Vector3 spawnPos = playerPositionVariable.Value;
-        
-        var pickup = Instantiate(pickupItemObject, spawnPos,Quaternion.identity).GetComponent<Pickup>();
         var itemData = parentInventoryWindow.inventory.InventoryItems[storedItemData.Index];
         int quantity = q < 0 ? itemData.Quantity : q;
         quantity = tryingToSplit ? quantity / 2 : quantity;
-
+        if (quantity == 0) return;
+        
+        Vector3 spawnPos = playerPositionVariable.Value;
+        var pickup = Instantiate(pickupItemObject, spawnPos,Quaternion.identity).GetComponent<Pickup>();
+        
         pickup.Setup(itemData.Item,quantity);
         this.thisInventory.TryRemoveItemAt(storedItemData.Index,quantity);
         if (this.thisInventory.InventoryItems[storedItemData.Index].Quantity <= 0)
@@ -166,7 +181,7 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
 
     private void TryConsumeItem()
     {
-        if (highlightedInventorySlot != this || storedItemData.Item == null) return;
+        if (highlightedInventorySlot != this || storedItemData.Item == null || !tryingToConsume) return;
         if (storedItemData.Item.IsConsumable)
         {
             foreach (var itemEffect in storedItemData.Item.ItemEffects)
@@ -192,9 +207,11 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
 
     private void AddItemToExistingStack(InventoryWindow hisWindow, int hisIndex)
     {
-        int quantity = thisInventory.InventoryItems[storedItemData.Index].Quantity;
+        var thisItemData = thisInventory.InventoryItems[storedItemData.Index];
+        int quantity = thisItemData.Quantity;
         quantity = tryingToSplit ? quantity / 2 : quantity;
         var overflow = hisWindow.inventory.TryAddItemAt(hisIndex, quantity, storedItemData.Item);
+        Debug.Log($"Removing {quantity}, with overflow of {overflow}");
         thisInventory.TryRemoveItemAt(storedItemData.Index,quantity - overflow);
     }
 

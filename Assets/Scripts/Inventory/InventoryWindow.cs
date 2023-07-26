@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using I302.Manu;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -40,13 +41,15 @@ public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,I
         base.Show();
         
         UpdateInventoryDisplay();
-        openInventoryWindows.Add(this);
+        if(!ignoreScrollInput)
+            openInventoryWindows.Add(this);
     }
 
     public override void Hide()
     {
         base.Hide();
-        openInventoryWindows.Remove(this);
+        if(!ignoreScrollInput && openInventoryWindows.Contains(this))
+            openInventoryWindows.Remove(this);
     }
 
     private void PopulateDisplay()

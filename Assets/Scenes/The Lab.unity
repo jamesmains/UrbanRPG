@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.29428047, g: 0.30616483, b: 0.6927643, a: 1}
+  m_IndirectSpecularColor: {r: 0.5452257, g: 0.68671185, b: 0.805277, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1108,6 +1108,7 @@ MonoBehaviour:
   parentInventoryWindow: {fileID: 1880471290}
   mouseDown: 0
   waitingForDrag: 0
+  tryingToSplit: 0
   thisInventory: {fileID: 11400000, guid: cde99a8fbd764f044bcba51677d52117, type: 2}
   storedItemData:
     Item: {fileID: 0}
@@ -1701,11 +1702,8 @@ MonoBehaviour:
   isLocked: 0
   removeOnly: 0
   restrictByItemType: 1
-  useWindowIcon: 0
+  ignoreScrollInput: 1
   itemTypeRestriction: 0
-  DEBUGopenInventoryWindows:
-  - {fileID: 101666041}
-  - {fileID: 71847174}
 --- !u!225 &71847175
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2261,11 +2259,8 @@ MonoBehaviour:
   isLocked: 0
   removeOnly: 0
   restrictByItemType: 0
-  useWindowIcon: 0
+  ignoreScrollInput: 0
   itemTypeRestriction: 0
-  DEBUGopenInventoryWindows:
-  - {fileID: 101666041}
-  - {fileID: 597050123}
 --- !u!225 &101666042
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2917,9 +2912,8 @@ MonoBehaviour:
   isLocked: 0
   removeOnly: 0
   restrictByItemType: 0
-  useWindowIcon: 0
+  ignoreScrollInput: 0
   itemTypeRestriction: 0
-  DEBUGopenInventoryWindows: []
 --- !u!114 &143157700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3854,6 +3848,7 @@ MonoBehaviour:
   parentInventoryWindow: {fileID: 1707700676}
   mouseDown: 0
   waitingForDrag: 0
+  tryingToSplit: 0
   thisInventory: {fileID: 11400000, guid: 6b47082d2c1a1044bbb6f95ea814d1c4, type: 2}
   storedItemData:
     Item: {fileID: 11400000, guid: 2953451449f32d844bc49d99f2234bd9, type: 2}
@@ -4858,6 +4853,7 @@ MonoBehaviour:
   parentInventoryWindow: {fileID: 1707700676}
   mouseDown: 0
   waitingForDrag: 0
+  tryingToSplit: 0
   thisInventory: {fileID: 11400000, guid: 6b47082d2c1a1044bbb6f95ea814d1c4, type: 2}
   storedItemData:
     Item: {fileID: 0}
@@ -5099,11 +5095,8 @@ MonoBehaviour:
   isLocked: 0
   removeOnly: 0
   restrictByItemType: 1
-  useWindowIcon: 0
+  ignoreScrollInput: 0
   itemTypeRestriction: 2
-  DEBUGopenInventoryWindows:
-  - {fileID: 101666041}
-  - {fileID: 248496338}
 --- !u!225 &248496339
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -7679,7 +7672,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 379205837}
-  m_LocalRotation: {x: 0.17350298, y: -0.00000000847271, z: 0.0000000014926795, w: 0.98483336}
+  m_LocalRotation: {x: 0.17350298, y: 0.000000008472708, z: -0.0000000014926792, w: 0.98483336}
   m_LocalPosition: {x: 0, y: 2.4, z: -5.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8209,6 +8202,7 @@ MonoBehaviour:
   parentInventoryWindow: {fileID: 1707700676}
   mouseDown: 0
   waitingForDrag: 0
+  tryingToSplit: 0
   thisInventory: {fileID: 11400000, guid: 6b47082d2c1a1044bbb6f95ea814d1c4, type: 2}
   storedItemData:
     Item: {fileID: 11400000, guid: 2953451449f32d844bc49d99f2234bd9, type: 2}
@@ -52300,11 +52294,8 @@ MonoBehaviour:
   isLocked: 0
   removeOnly: 0
   restrictByItemType: 1
-  useWindowIcon: 1
+  ignoreScrollInput: 1
   itemTypeRestriction: 2
-  DEBUGopenInventoryWindows:
-  - {fileID: 101666041}
-  - {fileID: 597050123}
 --- !u!114 &597050124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57006,6 +56997,7 @@ MonoBehaviour:
   parentInventoryWindow: {fileID: 1707700676}
   mouseDown: 0
   waitingForDrag: 0
+  tryingToSplit: 0
   thisInventory: {fileID: 11400000, guid: 6b47082d2c1a1044bbb6f95ea814d1c4, type: 2}
   storedItemData:
     Item: {fileID: 11400000, guid: 13279af2563825e4d8df835315abb350, type: 2}
@@ -57285,6 +57277,7 @@ MonoBehaviour:
   parentInventoryWindow: {fileID: 1707700676}
   mouseDown: 0
   waitingForDrag: 0
+  tryingToSplit: 0
   thisInventory: {fileID: 11400000, guid: 6b47082d2c1a1044bbb6f95ea814d1c4, type: 2}
   storedItemData:
     Item: {fileID: 0}
@@ -58034,7 +58027,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1147750266}
-  m_LocalRotation: {x: 0.17350298, y: -0.00000000847271, z: 0.0000000014926795, w: 0.98483336}
+  m_LocalRotation: {x: 0.17350298, y: 0.000000008472708, z: -0.0000000014926792, w: 0.98483336}
   m_LocalPosition: {x: 0, y: 2.4, z: -5.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -60486,6 +60479,7 @@ MonoBehaviour:
   parentInventoryWindow: {fileID: 1707700676}
   mouseDown: 0
   waitingForDrag: 0
+  tryingToSplit: 0
   thisInventory: {fileID: 11400000, guid: 6b47082d2c1a1044bbb6f95ea814d1c4, type: 2}
   storedItemData:
     Item: {fileID: 11400000, guid: 94176e2ad07ea2a4db67cb10c1990258, type: 2}
@@ -61367,6 +61361,7 @@ MonoBehaviour:
   parentInventoryWindow: {fileID: 248496338}
   mouseDown: 0
   waitingForDrag: 0
+  tryingToSplit: 0
   thisInventory: {fileID: 11400000, guid: cde99a8fbd764f044bcba51677d52117, type: 2}
   storedItemData:
     Item: {fileID: 0}
@@ -64607,9 +64602,8 @@ MonoBehaviour:
   isLocked: 0
   removeOnly: 0
   restrictByItemType: 0
-  useWindowIcon: 0
+  ignoreScrollInput: 0
   itemTypeRestriction: 0
-  DEBUGopenInventoryWindows: []
 --- !u!114 &1577567284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64920,7 +64914,7 @@ GameObject:
   - component: {fileID: 1586860260}
   - component: {fileID: 1586860261}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: Gear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67701,10 +67695,8 @@ MonoBehaviour:
   isLocked: 0
   removeOnly: 0
   restrictByItemType: 0
-  useWindowIcon: 0
+  ignoreScrollInput: 0
   itemTypeRestriction: 0
-  DEBUGopenInventoryWindows:
-  - {fileID: 1707700676}
 --- !u!114 &1707700677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68944,6 +68936,7 @@ MonoBehaviour:
   parentInventoryWindow: {fileID: 1707700676}
   mouseDown: 0
   waitingForDrag: 0
+  tryingToSplit: 0
   thisInventory: {fileID: 11400000, guid: 6b47082d2c1a1044bbb6f95ea814d1c4, type: 2}
   storedItemData:
     Item: {fileID: 11400000, guid: e4a3e7d384c87bd4db26d8d2dd3dc332, type: 2}
@@ -69409,9 +69402,8 @@ MonoBehaviour:
   isLocked: 1
   removeOnly: 1
   restrictByItemType: 1
-  useWindowIcon: 0
+  ignoreScrollInput: 0
   itemTypeRestriction: 1
-  DEBUGopenInventoryWindows: []
 --- !u!114 &1879006809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69548,6 +69540,7 @@ MonoBehaviour:
   parentInventoryWindow: {fileID: 1707700676}
   mouseDown: 0
   waitingForDrag: 0
+  tryingToSplit: 0
   thisInventory: {fileID: 11400000, guid: 6b47082d2c1a1044bbb6f95ea814d1c4, type: 2}
   storedItemData:
     Item: {fileID: 0}
@@ -69655,11 +69648,8 @@ MonoBehaviour:
   isLocked: 0
   removeOnly: 0
   restrictByItemType: 1
-  useWindowIcon: 0
+  ignoreScrollInput: 0
   itemTypeRestriction: 2
-  DEBUGopenInventoryWindows:
-  - {fileID: 101666041}
-  - {fileID: 1880471290}
 --- !u!225 &1880471291
 CanvasGroup:
   m_ObjectHideFlags: 0

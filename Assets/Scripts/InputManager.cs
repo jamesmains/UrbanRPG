@@ -64,7 +64,7 @@ public class InputManager : MonoBehaviour
                     break;
                 case InputActionName.AlternateMouseButton:
                     CurrentKeybinds[i].OnButtonDown.AddListener(delegate { GameEvents.OnAltMouseButtonDown.Raise(); });
-                    CurrentKeybinds[i].OnButtonUp.AddListener(delegate { GameEvents.OnAltMouseButtonUp.Raise(); });
+                    CurrentKeybinds[i].OnButtonUp.AddListener(delegate { GameEvents.OnAltMouseButtonUp.Raise();});
                     CurrentKeybinds[i].OnButtonHeld.AddListener(delegate { GameEvents.OnAltMouseButtonHeld.Raise(); });
                     CurrentKeybinds[i].OnButtonReleased.AddListener(delegate { GameEvents.OnAltMouseButtonReleased.Raise(); });
                     break;

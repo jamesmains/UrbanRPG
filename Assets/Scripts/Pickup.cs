@@ -70,7 +70,8 @@ public class Pickup : MonoBehaviour
         {
             var displayAmount = amount;
             amount = pockets.TryAddItem(item, amount);
-            GameEvents.OnPickupItem.Raise(item.Sprite,$"+{displayAmount}");
+            if(displayAmount != amount)
+                GameEvents.OnPickupItem.Raise(item.Sprite,$"+{displayAmount}");
             if(amount <= 0)
                 Destroy(this.gameObject); 
         }

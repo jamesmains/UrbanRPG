@@ -36,7 +36,6 @@ public class ActivityNodeManager : MonoBehaviour
     {
         foreach (var node in Nodes)
         {
-            print(node.Timer);
             if (node.Timer > 0)
             {
                 node.Timer -= Time.deltaTime * TimeManager.TimeMultiplier;

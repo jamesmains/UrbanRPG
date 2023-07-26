@@ -35,32 +35,32 @@ using UnityEngine;
         {
             int remaining = value;
 
-            foreach (var itemData in InventoryItems)
+            foreach (var existingItemData in InventoryItems)
             {
                 if (remaining <= 0) break;
-                if (incomingItem != itemData.Item ||
-                    itemData.Item == null)continue;
+                if (incomingItem != existingItemData.Item ||
+                    existingItemData.Item == null)continue;
 
-                if (itemData.Quantity == itemData.Item.StackLimit) continue;
+                if (existingItemData.Quantity == existingItemData.Item.StackLimit) continue;
                 
                 for (int r = remaining; r > 0; r--)
                 {
-                    if (remaining <= 0) continue;
-                    itemData.Quantity++;
+                    if (remaining <= 0 || existingItemData.Quantity >= existingItemData.Item.StackLimit) continue;
+                    existingItemData.Quantity++;
                     remaining--;
                 }
             }
             
-            foreach (var itemData in InventoryItems)
+            foreach (var potentialEmptySlot in InventoryItems)
             {
                 if (remaining <= 0) break;
-                if (itemData.Item != null) continue;
-                itemData.Item = incomingItem;
-                itemData.Quantity = 0;
+                if (potentialEmptySlot.Item != null) continue;
+                potentialEmptySlot.Item = incomingItem;
+                potentialEmptySlot.Quantity = 0;
                 for (int r = remaining; r > 0; r--)
                 {
-                    if (remaining <= 0) continue;
-                    itemData.Quantity++;
+                    if (remaining <= 0 || potentialEmptySlot.Quantity >= potentialEmptySlot.Item.StackLimit) continue;
+                    potentialEmptySlot.Quantity++;
                     remaining--;
                 }
             }
@@ -79,7 +79,6 @@ using UnityEngine;
 
         public int TryAddItemAt(int targetIndex, int value = 1, Item incomingItem = null)
         {
-            int overflow = 0;
             int remaining = value;
             if (remaining == 0) return 0;
 
@@ -89,13 +88,12 @@ using UnityEngine;
                 InventoryItems[targetIndex].Quantity = 0;
             }
             
-            overflow = (remaining - InventoryItems[targetIndex].Item.StackLimit) + InventoryItems[targetIndex].Quantity;
-            InventoryItems[targetIndex].Quantity = InventoryItems[targetIndex].Item.StackLimit;
-            if (overflow <= 0)
+            for (int r = remaining; r > 0; r--)
             {
-                remaining -= InventoryItems[targetIndex].Quantity += overflow;
+                if (remaining <= 0 || InventoryItems[targetIndex].Quantity >= InventoryItems[targetIndex].Item.StackLimit) break;
+                InventoryItems[targetIndex].Quantity++;
+                remaining--;
             }
-            else remaining = overflow;
             SaveInventory();
             return remaining;
         }
