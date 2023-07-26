@@ -6,50 +6,62 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueDisplay : MonoBehaviour
+public class DialogueDisplay : Window
 {
-    [FoldoutGroup("Data")][SerializeField] private KeyCode interactionKey; // todo replace with scriptable objects for key rebinding
-    [FoldoutGroup("Data")][SerializeField] private IntVariable playerLockVariable;
     [FoldoutGroup("Data")][SerializeField] private float textSpeed;
-    [FoldoutGroup("Data")][SerializeField] private CanvasGroup displayGroup;
     [FoldoutGroup("Display")][SerializeField] private Image actorDisplayImage;
     [FoldoutGroup("Display")][SerializeField] private TextMeshProUGUI actorNameText;
     [FoldoutGroup("Display")][SerializeField] private TextMeshProUGUI displayText;
 
-    public Dialogue currentDialogue;
-    public int dialogueSegmentIndex;
-    public string currentDialogueSegmentText;
-    public bool atEndOfDialogueSegment;
-    public bool active;
+    [SerializeField,FoldoutGroup("Debug"),ReadOnly] private Dialogue currentDialogue;
+    [SerializeField,FoldoutGroup("Debug"),ReadOnly] private int dialogueSegmentIndex;
+    [SerializeField,FoldoutGroup("Debug"),ReadOnly] private string currentDialogueSegmentText;
+    [SerializeField,FoldoutGroup("Debug"),ReadOnly] private bool atEndOfDialogueSegment;
     
     private DialogueSegment currentSegment;
 
-    private void Awake()
+    private void OnEnable()
     {
-        displayGroup.alpha = 0;
+        GameEvents.StartDialogueEvent += StartDialogue;
+        GameEvents.OnInteractButtonDown += delegate
+        {
+            switch (isActive)
+            {
+                case true when !atEndOfDialogueSegment:
+                    SkipToEndOfSegement();
+                    break;
+                case true when atEndOfDialogueSegment:
+                    SetupNextDialogueSegment();
+                    break;
+            }
+        };
     }
 
-    private void Update()
+    private void OnDisable()
     {
-        if (active && !atEndOfDialogueSegment && Input.GetKeyDown(interactionKey)) // skip to end of line
+        GameEvents.StartDialogueEvent -= StartDialogue;
+        GameEvents.OnInteractButtonDown -= delegate
         {
-            SkipToEndOfSegement();
-        }
-        else if (active && atEndOfDialogueSegment && Input.GetKeyDown(interactionKey)) // go to next text
-        {
-            SetupNextDialogueSegment();
-        }
+            switch (isActive)
+            {
+                case true when !atEndOfDialogueSegment:
+                    SkipToEndOfSegement();
+                    break;
+                case true when atEndOfDialogueSegment:
+                    SetupNextDialogueSegment();
+                    break;
+            }
+        };
     }
     
     public void StartDialogue(Dialogue incomingDialogue)
     {
-        if (!incomingDialogue.IsConditionMet() || active) return;
+        if (!incomingDialogue.IsConditionMet()) return;
+        Show();
         displayText.text = "";
-        playerLockVariable.Value++;
+        Global.PlayerLock++;
         currentDialogue = incomingDialogue;
         dialogueSegmentIndex = 0;
-        active = true;
-        displayGroup.alpha = 1;
         NextDialogueSegment();
     }
 
@@ -69,7 +81,7 @@ public class DialogueDisplay : MonoBehaviour
             EndDialogue();
             if (currentSegment.IsConditionMet())
             {
-                currentSegment?.OnFinishSegment.Invoke();
+                currentSegment?.OnFinishSegment?.Invoke();
             }
         }
         else
@@ -79,7 +91,7 @@ public class DialogueDisplay : MonoBehaviour
             {
                 if (currentSegment.IsConditionMet())
                 {
-                    currentSegment?.OnFinishSegment.Invoke();
+                    currentSegment?.OnFinishSegment?.Invoke();
                 }
             }
         }
@@ -92,8 +104,8 @@ public class DialogueDisplay : MonoBehaviour
         {
             if (currentSegment.IsInstantSegment)
             {
-                currentSegment.OnStartSegment.Invoke();
-                currentSegment.OnFinishSegment.Invoke();
+                currentSegment.OnStartSegment?.Invoke();
+                currentSegment.OnFinishSegment?.Invoke();
                 SetupNextDialogueSegment();
             }
             else
@@ -109,12 +121,22 @@ public class DialogueDisplay : MonoBehaviour
     {
         int charIndex = 0;
 
-        currentSegment?.OnStartSegment.Invoke();
-        actorNameText.text = currentSegment.actor.actorName;
-        actorDisplayImage.sprite = currentSegment.actor.actionIcon;
-        
-        displayText.text = "";
-        currentDialogueSegmentText = currentSegment.speech;
+        currentSegment?.OnStartSegment?.Invoke();
+        if (currentSegment != null)
+        {
+            bool hasActor = currentSegment.actor != null;
+            actorNameText.transform.parent.gameObject.SetActive(hasActor);
+            actorDisplayImage.enabled = hasActor;
+            if (hasActor)
+            {
+                actorNameText.text = currentSegment.actor.actorName;
+                actorDisplayImage.sprite = currentSegment.actor.actionIcon;    
+            }
+
+            displayText.text = "";
+            currentDialogueSegmentText = currentSegment.speech;
+        }
+
         while (charIndex < currentDialogueSegmentText.Length)
         {
             displayText.text += currentDialogueSegmentText[charIndex];
@@ -128,9 +150,8 @@ public class DialogueDisplay : MonoBehaviour
     private void EndDialogue()
     {
         StopAllCoroutines();
-        active = false;
-        playerLockVariable.Value--;
-        displayGroup.alpha = 0;
+        Hide();
+        Global.PlayerLock--;
         currentDialogue.EndDialogue();
     }
 }

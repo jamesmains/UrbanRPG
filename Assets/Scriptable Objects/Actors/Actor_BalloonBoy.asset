@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Actor_BalloonBoy
   m_EditorClassIdentifier: 
   actorName: Balloon Boy
-  actionIcon: {fileID: 21300000, guid: 3d11f5ab4382ef644ba422d07a08e19b, type: 3}
+  actionIcon: {fileID: -687874475, guid: 85a163205c7fbe84bba9882d79159d12, type: 3}
   hairColor: {r: 0.4056604, g: 0.12055002, b: 0.12055002, a: 1}
   reputationTiers:
   - tierName: Not Friends

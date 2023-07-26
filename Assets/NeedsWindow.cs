@@ -11,26 +11,15 @@ public class NeedsWindow : Window
     [SerializeField] private GameObject needsDisplayListPrefab;
     [SerializeField] private List<Need> needs = new();
     public List<NeedDisplayObject> displayObjects = new List<NeedDisplayObject>();
-    
-    private void OnEnable()
-    {
-        // GameEvents.OnLevelUp += UpdateDisplays;
-        PopulateSkillsDisplays();
-    }
 
-    private void OnDisable()
-    {
-        // GameEvents.OnLevelUp -= UpdateDisplays;
-    }
-    
     public override void Show()
     {
         base.Show();
+        PopulateSkillsDisplays();
     }
 
     public void PopulateSkillsDisplays()
     {
-        displayObjects.Clear();
         foreach (var need in needs)
         {
             SpawnListObject(Instantiate(needsDisplayListPrefab, needsDisplayContainer),need);
@@ -61,6 +50,13 @@ public class NeedsWindow : Window
             var asset = AssetDatabase.LoadAssetAtPath<Need>( assetPath );
             needs.Add(asset);
         }
+    }
+    
+    [Button]
+    private void ClearDisplays()
+    {
+        needsDisplayContainer.DestroyChildrenInEditor();
+        displayObjects.Clear();
     }
 #endif
 }

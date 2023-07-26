@@ -12,12 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c4ce2b6c07e534f841dbb71bf61d4c, type: 3}
   m_Name: Movie_Skybound
   m_EditorClassIdentifier: 
-  <Sprite>k__BackingField: {fileID: -664978858, guid: cf35ac889fac4744886ed265f4dd5d5a, type: 3}
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: <ItemEffects>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[ItemEffect, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  <Sprite>k__BackingField: {fileID: 226261699, guid: 85a163205c7fbe84bba9882d79159d12, type: 3}
   <Name>k__BackingField: Skybound
   <Description>k__BackingField: 'A movie about an old man and an unlikely young companion
     as they... It''s Up. It''s a parody of Up. TODO: replace this text'
   <ItemType>k__BackingField: 0
-  <SellValue>k__BackingField: 0
+  <SellValue>k__BackingField: 500
   <BuyValue>k__BackingField: 1500
+  <IsConsumable>k__BackingField: 0
   amount: 0
   <StackLimit>k__BackingField: 100

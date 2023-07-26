@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce965a22c0c61ec48940f3ce27c604ea, type: 3}
-  m_Name: InventorySlotLimitSmall
+  m_Name: 16 Slot
   m_EditorClassIdentifier: 
   DeveloperDescription: 
-  Value: 8
+  Value: 16
   ChainVariable: {fileID: 0}
   MaxValue: 0

@@ -24,5 +24,5 @@ MonoBehaviour:
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
         Item: {fileID: 11400000, guid: 2953451449f32d844bc49d99f2234bd9, type: 2}
-        Quantity: 37
-        Index: -1
+        Quantity: 99
+        Index: 0

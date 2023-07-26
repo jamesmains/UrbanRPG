@@ -21,15 +21,27 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
+    - Name: <ItemEffects>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[ItemEffect, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: <GearEffects>k__BackingField
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[GearEffect, Assembly-CSharp]], mscorlib
+      Data: 1|System.Collections.Generic.List`1[[GearEffect, Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 1|RideEffect, Assembly-CSharp
+      Data: 2|RideEffect, Assembly-CSharp
     - Name: effectText
       Entry: 6
       Data: 
@@ -45,12 +57,13 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  <Sprite>k__BackingField: {fileID: 521721525, guid: 270433e7734629f41b0967a1f646c712, type: 3}
+  <Sprite>k__BackingField: {fileID: 1903880234, guid: 85a163205c7fbe84bba9882d79159d12, type: 3}
   <Name>k__BackingField: Swift Skateboard
   <Description>k__BackingField: 
   <ItemType>k__BackingField: 2
   <SellValue>k__BackingField: 0
   <BuyValue>k__BackingField: 0
+  <IsConsumable>k__BackingField: 0
   amount: 0
   <StackLimit>k__BackingField: 1
   spriteSheetId: 

@@ -61,7 +61,7 @@ public class ActivityProgress : Window
     public void FinishActivity()
     {
         IsActive = false;
-        ActivityCompleteAction.Invoke();
+        ActivityCompleteAction?.Invoke();
         GameEvents.OnEndActivity.Raise();
         Hide();
     }

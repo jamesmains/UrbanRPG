@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Mental
   m_EditorClassIdentifier: 
   Name: Mental
-  Description: 
-  Icon: {fileID: 936697910, guid: ea6a10dcc554eae44a2af6bb1de0479d, type: 3}
-  IsDepleted: 1
+  Description: You must take care of yourself, both inside and out!
+  Icon: {fileID: -440709802, guid: 36ba90ed1d045e9498f8ccb8ffbe4e8e, type: 3}
+  IsDepleted: 0
   DecayRate: 1
-  value: 0
+  value: 1.7320668

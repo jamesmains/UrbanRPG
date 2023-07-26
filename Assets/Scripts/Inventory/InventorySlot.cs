@@ -7,10 +7,14 @@ using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    [field: SerializeField] private VectorVariable playerPositionVariable;
-    [field: SerializeField] private GameObject pickupItemObject;
-    [field: SerializeField] private Image iconDisplay;
-    [field: SerializeField] private TextMeshProUGUI countDisplayText;
+    [field: SerializeField, FoldoutGroup("Looks")] private Color normalColor;
+    [field: SerializeField, FoldoutGroup("Looks")] private Color highlightedColor;
+
+    [field: SerializeField,FoldoutGroup("Hooks")] private VectorVariable playerPositionVariable;
+    [field: SerializeField,FoldoutGroup("Hooks")] private GameObject pickupItemObject;
+    [field: SerializeField,FoldoutGroup("Hooks")] private Image frameDisplay;
+    [field: SerializeField,FoldoutGroup("Hooks")] private Image iconDisplay;
+    [field: SerializeField,FoldoutGroup("Hooks")] private TextMeshProUGUI countDisplayText;
     
     [field: SerializeField,FoldoutGroup("Debug"),ReadOnly] private InventoryWindow parentInventoryWindow;
     [field: SerializeField,FoldoutGroup("Debug"),ReadOnly] private static InventorySlot movingItem;
@@ -264,6 +268,11 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         var overflow = parentInventoryWindow.inventory.TryAddItemAt(storedItemData.Index,amount,storedItemData.Item);
         targetWindow.inventory.TryRemoveItemAt(i,amount - overflow);
     }
+
+    public void ToggleHighlight(bool state)
+    {
+        frameDisplay.color = state ? highlightedColor : normalColor;
+    }
     
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -280,14 +289,23 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
     public void OnPointerEnter(PointerEventData eventData)
     {
         if ((highlightedInventorySlot is null || highlightedInventorySlot != this) && !parentInventoryWindow.isLocked)
+        {
+            if (highlightedInventorySlot is not null) highlightedInventorySlot.ToggleHighlight(false);
             highlightedInventorySlot = this;
-        
-        GameEvents.OnMouseEnterInventorySlot.Raise(this);
+            ToggleHighlight(true);
+        }
+        if(storedItemData.Item != null)
+            GameEvents.OnShowTooltip.Raise(storedItemData.Item.Name);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        highlightedInventorySlot = null;
+        if (highlightedInventorySlot != null)
+        {
+            highlightedInventorySlot.ToggleHighlight(false);
+            highlightedInventorySlot = null;   
+        }
         GameEvents.OnMouseExitInventorySlot.Raise();
+        GameEvents.OnHideTooltip.Raise();
     }
 }

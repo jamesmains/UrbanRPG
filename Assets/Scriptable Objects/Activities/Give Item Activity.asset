@@ -15,7 +15,9 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 73b8f9733b2b21943ba185259521a253, type: 2}
+    - {fileID: 11400000, guid: 42243ad2ac72a29428096f0978b9bb06, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -26,7 +28,31 @@ MonoBehaviour:
       Data: 0|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|ReputationItemFavorConditional, Assembly-CSharp
+    - Name: <Item>k__BackingField
+      Entry: 6
+      Data: 
+    - Name: <RequiredAmount>k__BackingField
+      Entry: 3
+      Data: 1
+    - Name: <UseAny>k__BackingField
+      Entry: 5
+      Data: true
+    - Name: <ConsumeOnUse>k__BackingField
+      Entry: 5
+      Data: true
+    - Name: <Inventory>k__BackingField
+      Entry: 10
       Data: 0
+    - Name: <TargetActor>k__BackingField
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 

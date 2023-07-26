@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Fun
   m_EditorClassIdentifier: 
   Name: Fun
-  Description: 
-  Icon: {fileID: -1650558467, guid: 70a7ebef66edbd946b06fcb7a2388811, type: 3}
-  IsDepleted: 1
+  Description: Get out there and party!
+  Icon: {fileID: 200210789, guid: 36ba90ed1d045e9498f8ccb8ffbe4e8e, type: 3}
+  IsDepleted: 0
   DecayRate: 0.65
-  value: 0
+  value: 36.12577

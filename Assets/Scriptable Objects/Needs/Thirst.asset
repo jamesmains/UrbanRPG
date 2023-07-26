@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Thirst
   m_EditorClassIdentifier: 
   Name: Thirst
-  Description: 
-  Icon: {fileID: 513011294, guid: 70a7ebef66edbd946b06fcb7a2388811, type: 3}
+  Description: It's like hunger but for water!
+  Icon: {fileID: 368166618, guid: 36ba90ed1d045e9498f8ccb8ffbe4e8e, type: 3}
   IsDepleted: 1
-  DecayRate: 1
+  DecayRate: 1.2
   value: 0

@@ -54,192 +54,192 @@ MonoBehaviour:
     - rid: 7305477810402623618
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
-        Quantity: 0
+        Item: {fileID: 11400000, guid: e4a3e7d384c87bd4db26d8d2dd3dc332, type: 2}
+        Quantity: 20
         Index: 0
     - rid: 7305477810402623619
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 1
     - rid: 7305477810402623620
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
-        Quantity: 0
+        Item: {fileID: 11400000, guid: 51ff94c96197b5c4199a05e7d75ebf77, type: 2}
+        Quantity: 10
         Index: 2
     - rid: 7305477810402623621
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 3
     - rid: 7305477810402623622
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
-        Quantity: 0
+        Item: {fileID: 11400000, guid: 68d3257838350b640ba418407854ae2f, type: 2}
+        Quantity: 16
         Index: 4
     - rid: 7305477810402623623
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 5
     - rid: 7305477810402623624
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 6
     - rid: 7305477810402623625
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 7
     - rid: 7305477810402623626
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 8
     - rid: 7305477810402623627
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 9
     - rid: 7305477810402623628
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 10
     - rid: 7305477810402623629
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 11
     - rid: 7305477810402623630
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 12
     - rid: 7305477810402623631
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 13
     - rid: 7305477810402623632
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 14
     - rid: 7305477810402623633
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 15
     - rid: 7305477810402623634
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 16
     - rid: 7305477810402623635
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 17
     - rid: 7305477810402623636
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 18
     - rid: 7305477810402623637
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 19
     - rid: 7305477810402623638
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 20
     - rid: 7305477810402623639
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 21
     - rid: 7305477810402623640
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 22
     - rid: 7305477810402623641
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 23
     - rid: 7305477810402623642
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 24
     - rid: 7305477810402623643
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 25
     - rid: 7305477810402623644
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 26
     - rid: 7305477810402623645
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 27
     - rid: 7305477810402623646
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 28
     - rid: 7305477810402623647
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 29
     - rid: 7305477810402623648
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 30
     - rid: 7305477810402623649
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 31

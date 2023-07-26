@@ -10,7 +10,7 @@ using UnityEngine.Events;
 [CreateAssetMenu(fileName = "Item", menuName = "Items and Inventory/Item")]
 public class Item : SerializedScriptableObject
 {
-    [FoldoutGroup("Details")][field: SerializeField] public Sprite Sprite { get; private set; }
+    [FoldoutGroup("Details")][field: SerializeField,PreviewField] public Sprite Sprite { get; private set; }
     [FoldoutGroup("Details")][field: SerializeField] public string Name { get; protected set; }
     [FoldoutGroup("Details")][field: SerializeField] public string Description { get; private set; }
     [FoldoutGroup("Data")][field: SerializeField] public ItemType ItemType { get; protected set; }

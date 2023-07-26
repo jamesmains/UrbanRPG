@@ -74,9 +74,11 @@ public class GameEvents : MonoBehaviour
     // Systems
     public static i302Event OnChangeTime = new();
     public static i302Event OnLoadNextScene = new();
-    
+    public static i302Event<string> OnShowTooltip = new();
+    public static i302Event OnHideTooltip = new();
+
+
     // Inventory and items
-    public static i302Event<InventorySlot> OnMouseEnterInventorySlot = new();
     public static i302Event OnMouseExitInventorySlot = new();
     public static i302Event OnUpdateInventory = new();
     public static i302Event OnUpdateMoneyDisplay = new();

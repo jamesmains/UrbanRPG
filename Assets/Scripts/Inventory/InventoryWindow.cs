@@ -11,11 +11,12 @@ using UnityEngine.UI;
 public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,IPointerMoveHandler
 {
     public Inventory inventory;
+    [SerializeField] private Transform InventoryContainer;
     [SerializeField] private GameObject InventorySlotPrefab;
-    public bool isLocked;
-    public bool removeOnly;
-    public bool restrictByItemType;
-    public bool ignoreScrollInput;
+    [field: SerializeField, FoldoutGroup("Toggles")] public bool isLocked {get; private set;}
+    [field: SerializeField, FoldoutGroup("Toggles")] public bool removeOnly {get; private set;}
+    [field: SerializeField, FoldoutGroup("Toggles")] public bool restrictByItemType {get; private set;}
+    [field: SerializeField, FoldoutGroup("Toggles")] public bool ignoreScrollInput {get; private set;}
     [ShowIf("restrictByItemType")] public ItemType itemTypeRestriction;
 
     private bool flaggedToUpdate;
@@ -58,7 +59,7 @@ public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,I
         {
             for (int i = 0; i < inventory.InventorySlotLimit.Value; i++)
             {
-                var obj = Instantiate(InventorySlotPrefab, this.transform);
+                var obj = Instantiate(InventorySlotPrefab, InventoryContainer);
                 InventorySlots.Add(obj);
             }
         }
@@ -86,7 +87,8 @@ public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,I
     [Button]
     private void ClearDisplays()
     {
-        this.transform.DestroyChildrenInEditor();
+        InventoryContainer.DestroyChildrenInEditor();
+        InventorySlots.Clear();
     }
     
     #endif

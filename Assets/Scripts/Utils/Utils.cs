@@ -144,7 +144,7 @@ public static class ExtensionMethods
     {
         foreach (Transform child in t)
         {
-            GameObject.DestroyImmediate(child.gameObject);
+            Object.DestroyImmediate(child.gameObject);
         }
     }
     
@@ -166,4 +166,5 @@ public static class UrbanDebugger
 public static class Global
 {
     public static bool IsMouseOverUI;
+    public static int PlayerLock;
 }

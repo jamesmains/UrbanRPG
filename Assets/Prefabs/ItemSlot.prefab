@@ -111,8 +111,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -19.1626}
-  m_SizeDelta: {x: 0, y: -38.3251}
+  m_AnchoredPosition: {x: -7.0000043, y: -19.97644}
+  m_SizeDelta: {x: -14.000009, y: -39.9528}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6481328505762885413
 CanvasRenderer:
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 999
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e2e00528a2164b144871240bc7da8d63, type: 2}
   m_sharedMaterial: {fileID: -1606783549103231062, guid: e2e00528a2164b144871240bc7da8d63, type: 2}
@@ -169,15 +169,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.49
-  m_fontSizeBase: 26.49
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 4
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -273,15 +273,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 0.7882353}
+  m_Color: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 43e7cacbfdad05d458799a02f3be8a9a, type: 3}
+  m_Type: 1
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
@@ -289,7 +289,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 2.46
 --- !u!114 &4524274454374534580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,13 +302,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95f02d166d7fedc4986cc73c0df5d5bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalColor: {r: 0.5764706, g: 0.5764706, b: 0.5764706, a: 1}
+  highlightedColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   playerPositionVariable: {fileID: 11400000, guid: 6288af3102c54ea44a226875cc734233, type: 2}
   pickupItemObject: {fileID: 5792344445435472291, guid: d0c8bfe55dba4c446a34988ccc711e05, type: 3}
+  frameDisplay: {fileID: 6481328506026311403}
   iconDisplay: {fileID: 5423615946509147235}
   countDisplayText: {fileID: 6481328505762885414}
   parentInventoryWindow: {fileID: 0}
   mouseDown: 0
   waitingForDrag: 0
+  splitting: 0
+  tryingToSplit: 0
+  tryingToConsume: 0
   thisInventory: {fileID: 0}
   storedItemData:
     Item: {fileID: 0}

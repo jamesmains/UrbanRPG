@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Bladder
   m_EditorClassIdentifier: 
   Name: Bladder
-  Description: 
-  Icon: {fileID: -1512765002, guid: 70a7ebef66edbd946b06fcb7a2388811, type: 3}
-  IsDepleted: 1
+  Description: Don't need to tell you what happens if it reaches zero...
+  Icon: {fileID: -225755932, guid: 36ba90ed1d045e9498f8ccb8ffbe4e8e, type: 3}
+  IsDepleted: 0
   DecayRate: 1
-  value: 0
+  value: 1.7320668

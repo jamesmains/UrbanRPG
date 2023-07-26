@@ -79,7 +79,7 @@ public class ActivityTrigger : SerializedMonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (isActive || ActivityLock) return;
+        if (isActive || ActivityLock || Global.PlayerLock > 0) return;
         if (other.CompareTag("Player"))
         {
             GameEvents.OnOpenActivityWheel.Raise(this);
