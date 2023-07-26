@@ -8,19 +8,17 @@ using UnityEngine.UI;
 
 public class NeedDisplayBar : DisplayBar
 {
-    [FoldoutGroup("Data")] [SerializeField] private Need targetNeed;
-
-    protected void Awake()
-    {
-        if(nameText!=null) nameText.text = targetNeed.Name;
-        if(descriptionText!=null) descriptionText.text = targetNeed.Description;
-        if (iconImage != null) iconImage.sprite = targetNeed.Icon;
-    }
-
+    public Need targetNeed;
+    
     protected void Update()
     {
         UpdateBar(targetNeed.Value / 100);
     }
     
-    
+    public void Setup()
+    {
+        if(nameText!=null) nameText.text = targetNeed.Name;
+        if(descriptionText!=null) descriptionText.text = targetNeed.Description;
+        if (iconImage != null) iconImage.sprite = targetNeed.Icon;
+    }
 }

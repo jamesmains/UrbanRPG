@@ -6,7 +6,7 @@ using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
 
-public class SkillsDisplay : Window
+public class SkillsWindow : Window
 {
     [SerializeField] private RectTransform skillsDisplayContainer;
     [SerializeField] private GameObject skillsDisplayListPrefab;

@@ -8,11 +8,7 @@ using UnityEngine;
 public class SkillDisplayBar : DisplayBar
 {
     [FoldoutGroup("Display")] [SerializeField] private TextMeshProUGUI levelText;
-    [FoldoutGroup("Data")] public Skill targetSkill;
-    protected void Awake()
-    {
-        Setup();
-    }
+    public Skill targetSkill;
 
     private void Update()
     {
@@ -29,7 +25,6 @@ public class SkillDisplayBar : DisplayBar
 
     public void UpdateSkillDisplayBar()
     {
-        
         if (levelText != null) levelText.text = $"Lvl {targetSkill.Level.ToString()}";
         UpdateBar((float)targetSkill.CurrentExp / (float)targetSkill.ExpRequiredForLevelUp);
     }
