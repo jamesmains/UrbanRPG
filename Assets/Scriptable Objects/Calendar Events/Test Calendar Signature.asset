@@ -137,6 +137,6 @@ MonoBehaviour:
       Entry: 8
       Data: 
   Active: 1
-  DisplayName: Test
+  DisplayName: 
   DisplayText: Special things happen today!
   DisplayIcon: {fileID: 1866530113, guid: cf35ac889fac4744886ed265f4dd5d5a, type: 3}
