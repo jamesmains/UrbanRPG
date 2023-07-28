@@ -202,7 +202,11 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         InventoryWindow hisWindow = his.parentInventoryWindow;
 
         if (hisWindow.removeOnly) return;
-        
+        if(hisWindow.restrictByItemType &&
+           hisWindow.itemTypeRestriction != storedItemData.Item.ItemType)
+        {
+            return;
+        }
         if (storedItemData.Item == his.storedItemData.Item || his.storedItemData.Item == null)
             AddItemToExistingStack(hisWindow,his.storedItemData.Index);
         else

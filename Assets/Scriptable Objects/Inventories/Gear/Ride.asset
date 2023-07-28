@@ -16,13 +16,13 @@ MonoBehaviour:
   InventorySlotLimit: {fileID: 11400000, guid: de6a91b7bccf518478d67fb71805d69b, type: 2}
   lookupTable: {fileID: 11400000, guid: 3cf4055abc210f7488b2727555b7b07b, type: 2}
   InventoryItems:
-  - rid: 7305477810402623650
+  - rid: 7305478049103872002
   references:
     version: 2
     RefIds:
-    - rid: 7305477810402623650
+    - rid: 7305478049103872002
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 0
