@@ -138,6 +138,7 @@ public class ChangeTextEffect : HoverEffect
     {
         if(targetTextObject == null && !string.IsNullOrEmpty(targetTextObjectTag))
             targetTextObject = GameObject.FindWithTag(targetTextObjectTag).GetComponent<TextMeshProUGUI>();
+        targetTextObject.text = "";
     }
 
     public override void OnMouseUp()
