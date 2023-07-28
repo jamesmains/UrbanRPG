@@ -14,9 +14,7 @@ public class Calendar : Window
     [FoldoutGroup("Display")][SerializeField] private GameObject calendarDayDisplayObject;
     [FoldoutGroup("Data")][SerializeField] private TimeVariable dayVariable;
     [FoldoutGroup("Data")][SerializeField] private TimeVariable monthVariable;
-    [FoldoutGroup("Details")][SerializeField] private Sprite multipleEventsOnDaySprite;
-
-    [SerializeField] private Window detailsWindow;
+    
     public TextMeshProUGUI calendarDayDetailsText;
     public List<CalendarSignature> calendarSignatures = new();
     
@@ -25,18 +23,9 @@ public class Calendar : Window
     public override void Show()
     {
         base.Show();
-        detailsWindow.Hide();
         UpdateCalendar();
-        GameEvents.OpenCalendarDayDetails += detailsWindow.Show;
     }
-
-    public override void Hide()
-    {
-        base.Hide();
-        GameEvents.OpenCalendarDayDetails -= detailsWindow.Show;
-        detailsWindow.Hide();
-    }
-
+    
     private void Update()
     {
         monthNameDisplay.text = $"{((Month) monthVariable.Value).ToString()} the {UtilFunctions.AddOrdinal((int)(dayVariable.Value+1))}";
@@ -55,7 +44,6 @@ public class Calendar : Window
             bool isHighlighted = day == (int) dayVariable.Value;
             int signaturesPerDayCount = 0;
             string detailString = "";
-            Sprite icon = null;
 
             detailString += $"<b><u>{((Month) monthVariable.Value).ToString()} the {UtilFunctions.AddOrdinal((int)(day+1))}</b></u><br><br>";
             foreach (CalendarSignature signature in calendarSignatures)
@@ -63,22 +51,16 @@ public class Calendar : Window
                 if (signature.Active == false) continue;
                 if (signature.IsConditionMet(day, -1))
                 {
-                    detailString += $"<b>{signature.DisplayName}</b><br>";
+                    detailString += $"<b>{signature.DisplayName}</b>";
                     detailString += $"{signature.DisplayText}<br>";
-                    icon = signature.DisplayIcon;
                     signaturesPerDayCount++;
                 }
-            }
-            
-            if (signaturesPerDayCount > 1)
-            {
-                icon = multipleEventsOnDaySprite;
             }
             
             var display = calendarDaySlots[day];
             
             calendarDayDetailsText.text = "";
-            display.Setup(isHighlighted,day,icon,this);
+            display.Setup(isHighlighted,day,signaturesPerDayCount > 0,this);
             display.AssignInteract(delegate
             {
                 calendarDayDetailsText.text = detailString; 
@@ -105,6 +87,11 @@ public class Calendar : Window
             var asset = AssetDatabase.LoadAssetAtPath<CalendarSignature>( assetPath );
             calendarSignatures.Add(asset);
         }
+    }    [Button]
+    private void ClearDisplays()
+    {
+        calendaryDisplayContainer.DestroyChildrenInEditor();
+        calendarDaySlots.Clear();
     }
 #endif
 }

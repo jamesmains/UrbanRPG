@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class ActivityProgress : Window
 {
     [SerializeField] private Image ActivityIcon;
-    [SerializeField] private Image ActivityIconBg;
     [SerializeField] private Image FillWheel;
     [SerializeField] private bool IsActive;
     [SerializeField] private float TotalTime;
@@ -46,7 +45,7 @@ public class ActivityProgress : Window
         Timer = 0;
         TotalTime = t;
         ActivityCompleteAction = e;
-        ActivityIconBg.sprite = ActivityIcon.sprite = s;
+        FillWheel.sprite = ActivityIcon.sprite = s;
         Show();
     }
 

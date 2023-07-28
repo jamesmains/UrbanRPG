@@ -1,12 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class WindowGroup : Window
 {
-    [SerializeField, Tooltip("Index zero is always the home window")] private Window[] windows;
+    [SerializeField] private Window[] windows;
+    [SerializeField] private Window homeWindow;
+    [SerializeField] private TextMeshProUGUI windowNameDisplay;
     [SerializeField] private GameObject selectionButtonPrefab;
     [SerializeField] private Transform selectionButtonContainer;
     [SerializeField] private bool toggleWindowsWhenSelected;
@@ -33,28 +36,35 @@ public class WindowGroup : Window
         }
     }
 
-    private void GotoHomeWindow()
+    public void GotoHomeWindow()
     {
-        windows[0].Show();
-        for (int i = 1; i < windows.Length; i++)
+        foreach (var t in windows)
         {
-            windows[i].Hide();
+            t.Hide();
         }
+        if(homeWindow != null) homeWindow.Show();
     }
 
     private void PopulateSelectionButtons()
     {
         for (int i = 0; i < windows.Length; i++)
         {
+            var cachedWindow = windows[i];
+            if(cachedWindow.excludeInLists) continue;
             var obj = Instantiate(selectionButtonPrefab, selectionButtonContainer);
-            var button = obj.GetComponent<Button>();
-            var image = obj.GetComponent<Image>();
-            var animator = obj.GetComponent<Animator>();
-            image.sprite = windows[i].windowIcon;
+            var button = obj.GetComponentInChildren<Button>();
+            var image = obj.transform.GetChild(0).GetComponent<Image>();
+            image.sprite = cachedWindow.windowIcon;
             int indexer = i;
+
+            if (windowNameDisplay != null)
+            {
+                var effects = button.gameObject.AddComponent<MouseInteractionEffects>();
+                effects.Effects.Add(new ChangeTextEffect(windowNameDisplay,cachedWindow.description));
+            }
+            
             button.onClick.AddListener(delegate
             {
-                animator.SetTrigger("Press");
                 for (int j = 0; j < windows.Length; j++)
                 {
                     if (j == indexer)

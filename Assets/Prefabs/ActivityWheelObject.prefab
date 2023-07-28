@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Do the thing
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d9c5d32a60990244081bdd185defcf64, type: 2}
-  m_sharedMaterial: {fileID: -1606783549103231062, guid: d9c5d32a60990244081bdd185defcf64, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 38e840be14a09c746b300b3a2e21559b, type: 2}
+  m_sharedMaterial: {fileID: -171366831515947614, guid: 38e840be14a09c746b300b3a2e21559b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -190,8 +190,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionIconDisplay: {fileID: 2423731535415583019}
   actionNameText: {fileID: 5891685465810743389}
-  rectTransform: {fileID: 0}
-  transitionSpeed: 25
   highlightColor: {r: 1, g: 1, b: 1, a: 1}
   normalColor: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
 --- !u!223 &1008054286037871334
@@ -212,7 +210,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0

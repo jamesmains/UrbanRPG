@@ -53,7 +53,13 @@ public class DialogueDisplay : Window
             }
         };
     }
-    
+
+    public override void Show()
+    {
+        base.Show();
+        CloseOtherWindows(this);
+    }
+
     public void StartDialogue(Dialogue incomingDialogue)
     {
         if (!incomingDialogue.IsConditionMet()) return;

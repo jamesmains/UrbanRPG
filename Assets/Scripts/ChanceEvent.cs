@@ -20,7 +20,6 @@ public class ChanceEvent : MonoBehaviour
             CheckChance();
         }
     }
-
     public void CheckChance()
     {
         float roll = Random.Range(0.0f, 100f);

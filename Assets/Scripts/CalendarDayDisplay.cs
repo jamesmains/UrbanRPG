@@ -11,12 +11,15 @@ public class CalendarDayDisplay : MonoBehaviour,IPointerEnterHandler,IPointerExi
 {
     [SerializeField] private Image frameIcon;
     [SerializeField] private TextMeshProUGUI dayText;
-    [SerializeField] private Image dayIcon;
+    [SerializeField] private Image eventIndicator;
+    [SerializeField] private Color highlightColor;
+    [SerializeField] private Color currentDayColor;
+    [SerializeField] private Color normalColor;
 
     private UnityAction onInteract;
     [HideInInspector]public Window parentWindow;
     private bool isMouseOver;
-    private bool isHighlighted;
+    private bool isCurrentDay;
     
     int clicked = 0;
     float clicktime = 0;
@@ -34,20 +37,13 @@ public class CalendarDayDisplay : MonoBehaviour,IPointerEnterHandler,IPointerExi
         GameEvents.OnPrimaryMouseButtonUp -= Interact;
     }
     
-    public void Setup(bool highlight, int day, Sprite specialDaySprite, Window parent)
+    public void Setup(bool currentDayHighlight, int day, bool hasEvents, Window parent)
     {
-        isHighlighted = highlight;
-        frameIcon.color = highlight ? Color.white : Color.gray;
+        isCurrentDay = currentDayHighlight;
+        frameIcon.color = currentDayHighlight ? currentDayColor : normalColor;
         dayText.text = (day+1).ToString();
         parentWindow = parent;
-        if (specialDaySprite != null)
-        {
-            dayIcon.sprite = specialDaySprite;
-        }
-        else
-        {
-            dayIcon.enabled = false;
-        }
+        eventIndicator.enabled = hasEvents;
     }
 
     public void ToggleTemporaryHighlight(bool state)
@@ -59,7 +55,7 @@ public class CalendarDayDisplay : MonoBehaviour,IPointerEnterHandler,IPointerExi
         }
 
         LastInteractedDayDisplay = this;
-        frameIcon.color = state ? Color.cyan : isHighlighted ? Color.white : Color.gray;
+        frameIcon.color = state ? highlightColor : isCurrentDay ? currentDayColor : normalColor;
     }
 
     public void Interact()
@@ -67,12 +63,13 @@ public class CalendarDayDisplay : MonoBehaviour,IPointerEnterHandler,IPointerExi
         if (!parentWindow.isActive) return;
         if (isMouseOver)
         {
-            if (IsDoubleClick())
-            {
-                print("Double click");
-                GameEvents.OpenCalendarDayDetails.Raise();
-            }
-            else onInteract.Invoke();
+            // if (IsDoubleClick())
+            // {
+            //     print("Double click");
+            //     GameEvents.OpenCalendarDayDetails.Raise();
+            // }
+            // else
+            onInteract.Invoke();
         }
     }
 

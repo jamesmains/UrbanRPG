@@ -8,7 +8,7 @@ public class Skill : ScriptableObject
 {
     [FoldoutGroup("Details")]public string Name;
     [FoldoutGroup("Details")]public string Description;
-    [FoldoutGroup("Details")]public Sprite Icon;
+    [FoldoutGroup("Details"),PreviewField]public Sprite Icon;
     [FoldoutGroup("Data")]public int Level;
     [FoldoutGroup("Data")]public int ExpRequiredForLevelUp;
     [FoldoutGroup("Data")]public int CurrentExp;

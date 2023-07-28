@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Mining
   Description: ???
-  Icon: {fileID: 2098659648, guid: cf35ac889fac4744886ed265f4dd5d5a, type: 3}
-  Level: 2
-  ExpRequiredForLevelUp: 300
+  Icon: {fileID: 1700830203, guid: 85a163205c7fbe84bba9882d79159d12, type: 3}
+  Level: 8
+  ExpRequiredForLevelUp: 900
   CurrentExp: 0

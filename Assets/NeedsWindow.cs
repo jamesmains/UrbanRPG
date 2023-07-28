@@ -20,6 +20,7 @@ public class NeedsWindow : Window
 
     public void PopulateSkillsDisplays()
     {
+        if (needsDisplayContainer.childCount > 0) return;
         foreach (var need in needs)
         {
             SpawnListObject(Instantiate(needsDisplayListPrefab, needsDisplayContainer),need);

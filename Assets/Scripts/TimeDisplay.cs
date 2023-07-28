@@ -25,4 +25,5 @@ public class TimeDisplay : MonoBehaviour
         }
         timeDisplayText.text = $"{hour:00}:{minute:00} {addendum}";
     }
+    
 }

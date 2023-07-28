@@ -55,11 +55,17 @@ public enum QuestType
 
 public enum Month
 {
-    Flubuary = 0,
-    Smarch,
+    Jan = 0,
+    Feb,
+    Mar,
+    Apr,
+    May,
+    Jun,
     Jul,
-    Autumn,
-    AutumnAgain,
+    Aug,
+    Sep,
+    Oct,
+    Nov,
     Dec
 }
 

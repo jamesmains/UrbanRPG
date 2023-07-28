@@ -20,4 +20,5 @@ public class CameraConfiner : MonoBehaviour
 
         confiner.m_BoundingVolume = boundingBox.GetComponent<MeshCollider>();
     }
+    
 }
