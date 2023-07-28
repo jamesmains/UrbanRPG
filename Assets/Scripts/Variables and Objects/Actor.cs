@@ -32,7 +32,7 @@ public class Actor : ScriptableObject
         string newTier = GetCurrentReputationTier();
         if (newTier != currentTier)
         {
-            GameEvents.OnReputationChange.Raise(this);
+            GameEvents.OnSendReputationChangeMessage.Raise(this);
         }
     }
     

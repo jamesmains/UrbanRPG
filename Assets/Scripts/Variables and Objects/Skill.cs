@@ -34,6 +34,7 @@ public class Skill : ScriptableObject
         CurrentExp = 0;
         Level++;
         GameEvents.OnLevelUp.Raise();
+        GameEvents.OnSendGenericMessage.Raise($"{Name} raised to level {Level}!");
     }
 
     [Button]
