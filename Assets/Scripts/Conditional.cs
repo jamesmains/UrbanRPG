@@ -161,15 +161,29 @@ public class QuestStateConditional : Condition
 {
     [field: SerializeField] private Quest Quest { get; set; }
     [field: SerializeField] private QuestState State { get; set; }
-    [field: SerializeField] private QuestTask Step { get; set; }
+    
     public override bool IsConditionMet()
     {
-        return (Quest.CurrentState == State && Quest.CurrentStep == Step);
+        return (Quest.CurrentState == State);
     }
 
     public override void Use()
     {
         
+    }
+}
+
+public class QuestStepConditional : Condition
+{
+    [field: SerializeField] private Quest Quest { get; set; }
+    [field: SerializeField] private QuestTask Step { get; set; }
+    public override bool IsConditionMet()
+    {
+        return (Quest.CurrentStep == Step);
+    }
+
+    public override void Use()
+    {
     }
 }
 
@@ -194,6 +208,7 @@ public class ItemConditional : Condition
     public override void Use()
     {
         if(ConsumeOnUse) Inventory.TryUseItem(Item,RequiredAmount);
+        GameEvents.OnCreateImageStringMessage.Raise(Item.Sprite,$"-{RequiredAmount}");
     }
 }
 

@@ -12,14 +12,14 @@ public class PopupDisplayController : MonoBehaviour
     private void OnEnable()
     {
         GameEvents.OnGainExperience += OnCreateHorizontalPopup;
-        GameEvents.OnPickupItem += OnCreateHorizontalPopup;
+        GameEvents.OnCreateImageStringMessage += OnCreateHorizontalPopup;
         GameEvents.OnNeedDecayTrigger += OnCreateIconPopup;
     }
 
     private void OnDisable()
     {
         GameEvents.OnGainExperience -= OnCreateHorizontalPopup;
-        GameEvents.OnPickupItem -= OnCreateHorizontalPopup;
+        GameEvents.OnCreateImageStringMessage -= OnCreateHorizontalPopup;
         GameEvents.OnNeedDecayTrigger -= OnCreateIconPopup;
     }
 

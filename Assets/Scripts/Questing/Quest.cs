@@ -32,6 +32,12 @@ public class Quest : Activity
         CurrentState = QuestState.Started;
         StartNextTask();
         GameEvents.OnAcceptQuest.Raise(this);
+        GameEvents.OnSendGenericMessage.Raise($"Started Quest: {QuestName}");
+    }
+
+    public void TryCompleteTask(QuestTask incomingTask)
+    {
+        TryCompleteTask(incomingTask,1);
     }
     
     public void TryCompleteTask(QuestTask incomingTask, int amount = 1)
@@ -44,6 +50,7 @@ public class Quest : Activity
         if (amount > (task.numberOfRequiredHits - task.hits)) amount = task.numberOfRequiredHits - task.hits;
         
         task.Hit(amount);
+        Debug.Log(task.hits);
         GameEvents.OnMakeQuestProgress.Raise(this);
         
         if (task.IsTaskComplete())
@@ -84,8 +91,9 @@ public class Quest : Activity
     public void CompleteQuest()
     {
         CurrentStep = null;
-        CurrentState = QuestState.Completed;
+        CurrentState = QuestType == QuestType.Repeatable ? QuestState.NotStarted : QuestState.Completed;
         GameEvents.OnCompleteQuest.Raise(this);
+        GameEvents.OnSendGenericMessage.Raise($"Completed Quest: {QuestName}");
         SaveQuest();
     }
 
@@ -97,6 +105,7 @@ public class Quest : Activity
         TaskIndex = 0;
         CurrentStep = null;
         CurrentState = QuestState.NotStarted;
+        SaveQuest();
     }
 
     [Button, TabGroup("Functions","Data Functions")]

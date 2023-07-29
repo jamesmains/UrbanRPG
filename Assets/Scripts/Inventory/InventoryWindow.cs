@@ -27,13 +27,13 @@ public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,I
     private void OnEnable()
     {
         PopulateDisplay();
-        GameEvents.OnPickupItem += delegate { UpdateInventoryDisplay();};
+        GameEvents.OnPickupItem += UpdateInventoryDisplay;
         GameEvents.OnMoveOrAddItem += UpdateInventoryDisplay;
     }
 
     private void OnDisable()
     {
-        GameEvents.OnPickupItem -= delegate { UpdateInventoryDisplay();};
+        GameEvents.OnPickupItem -= UpdateInventoryDisplay;
         GameEvents.OnMoveOrAddItem -= UpdateInventoryDisplay;
     }
 

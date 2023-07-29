@@ -17,8 +17,7 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: 42243ad2ac72a29428096f0978b9bb06, type: 2}
-    - {fileID: 11400000, guid: a2da190245fc1134c8c5c1e61d915b53, type: 2}
-    - {fileID: 0}
+    - {fileID: 11400000, guid: 19db9213dfa9ba140aafa196c451a0fb, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -30,7 +29,7 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 4
+      Data: 1
     - Name: 
       Entry: 7
       Data: 1|DialogueSegment, Assembly-CSharp
@@ -54,173 +53,8 @@ MonoBehaviour:
       Data: 0
     - Name: speech
       Entry: 1
-      Data: Here you got! Moolah!
-    - Name: OnStartSegment
-      Entry: 6
-      Data: 
-    - Name: OnFinishSegment
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 3|DialogueSegment, Assembly-CSharp
-    - Name: SegmentConditions
-      Entry: 7
-      Data: 4|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: IsInstantSegment
-      Entry: 5
-      Data: true
-    - Name: actor
-      Entry: 6
-      Data: 
-    - Name: speech
-      Entry: 6
-      Data: 
-    - Name: OnStartSegment
-      Entry: 6
-      Data: 
-    - Name: OnFinishSegment
-      Entry: 7
-      Data: 5|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
-    - Name: m_PersistentCalls
-      Entry: 7
-      Data: 6|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
-    - Name: m_Calls
-      Entry: 7
-      Data: 7|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
-        UnityEngine.CoreModule]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 8|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
-    - Name: m_Target
-      Entry: 10
-      Data: 1
-    - Name: m_TargetAssemblyTypeName
-      Entry: 1
-      Data: IntVariable, Assembly-CSharp
-    - Name: m_MethodName
-      Entry: 1
-      Data: ApplyChange
-    - Name: m_Mode
-      Entry: 3
-      Data: 3
-    - Name: m_Arguments
-      Entry: 7
-      Data: 9|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
-    - Name: m_ObjectArgument
-      Entry: 10
-      Data: 2
-    - Name: m_ObjectArgumentAssemblyTypeName
-      Entry: 1
-      Data: UnityEngine.Object, UnityEngine
-    - Name: m_IntArgument
-      Entry: 3
-      Data: 500
-    - Name: m_FloatArgument
-      Entry: 4
-      Data: 0
-    - Name: m_StringArgument
-      Entry: 1
-      Data: 
-    - Name: m_BoolArgument
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: m_CallState
-      Entry: 3
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 10|DialogueSegment, Assembly-CSharp
-    - Name: SegmentConditions
-      Entry: 7
-      Data: 11|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: IsInstantSegment
-      Entry: 5
-      Data: false
-    - Name: actor
-      Entry: 6
-      Data: 
-    - Name: speech
-      Entry: 1
-      Data: '*You notice something or perform an action*'
-    - Name: OnStartSegment
-      Entry: 6
-      Data: 
-    - Name: OnFinishSegment
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 12|DialogueSegment, Assembly-CSharp
-    - Name: SegmentConditions
-      Entry: 7
-      Data: 13|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: IsInstantSegment
-      Entry: 5
-      Data: false
-    - Name: actor
-      Entry: 10
-      Data: 0
-    - Name: speech
-      Entry: 1
-      Data: Let me know if you need anything else!
+      Data: Oh! Hey thanks for bringing me my object! Here's a powercell for your
+        trouble!
     - Name: OnStartSegment
       Entry: 6
       Data: 
@@ -238,10 +72,22 @@ MonoBehaviour:
       Data: 
     - Name: <DialogueConditions>k__BackingField
       Entry: 7
-      Data: 14|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
+      Data: 3|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 0
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 4|QuestStateConditional, Assembly-CSharp
+    - Name: <Quest>k__BackingField
+      Entry: 10
+      Data: 1
+    - Name: <State>k__BackingField
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -253,4 +99,16 @@ MonoBehaviour:
       m_Calls: []
   OnFinishDialogue:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 19db9213dfa9ba140aafa196c451a0fb, type: 2}
+        m_TargetAssemblyTypeName: Quest, Assembly-CSharp
+        m_MethodName: TryCompleteTask
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 27bb4735c0416ff4ba5f2e6554e85cef, type: 2}
+          m_ObjectArgumentAssemblyTypeName: QuestTask, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

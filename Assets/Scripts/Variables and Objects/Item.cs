@@ -17,6 +17,8 @@ public class Item : SerializedScriptableObject
     [FoldoutGroup("Data")][field: SerializeField] public int SellValue { get; private set; }
     [FoldoutGroup("Data")][field: SerializeField] public int BuyValue { get; private set; }
     [FoldoutGroup("Data")][field: SerializeField] public bool IsConsumable { get; private set; }
+    [field: SerializeField,PropertyOrder(70),Space(10)] 
+    public UnityEvent OnPickupItem = new();
     [field: SerializeField,PropertyOrder(80),Space(10)] 
     public List<ItemEffect> ItemEffects { get; set; } = new();
 

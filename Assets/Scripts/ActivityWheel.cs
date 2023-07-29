@@ -100,7 +100,7 @@ public class ActivityWheel : Window
 
     private void InvokeSelectedActivityAction()
     {
-        if (!isActive || Global.PlayerLock > 0) return;
+        if (!isActive || Global.PlayerLock > 0 || WheelActions.Count == 0) return;
         int offsetIndex = selectIndex + 1;
         offsetIndex = offsetIndex >= WheelActions.Count ? 0 : offsetIndex < 0 ? WheelActions.Count -1 : offsetIndex;
         float t = WheelActions[offsetIndex].WheelActionDisplay.activityAction.signature.ActionTime;

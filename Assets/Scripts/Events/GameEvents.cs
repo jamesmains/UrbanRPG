@@ -82,7 +82,7 @@ public class GameEvents : MonoBehaviour
     public static i302Event OnMouseExitInventorySlot = new();
     public static i302Event OnUpdateInventory = new();
     public static i302Event OnUpdateMoneyDisplay = new();
-    public static i302Event<Sprite, string> OnPickupItem = new();
+    public static i302Event OnPickupItem = new();
     public static i302Event OnDespawnItem = new();
     public static i302Event OnMoveOrAddItem = new();
     public static i302Event<Item> OnItemMove = new();
@@ -92,6 +92,7 @@ public class GameEvents : MonoBehaviour
     // POPUP MESSAGES
     public static i302Event<Actor> OnSendReputationChangeMessage = new();
     public static i302Event<string> OnSendGenericMessage = new();
+    public static i302Event<Sprite, string> OnCreateImageStringMessage = new();
     
     // Quests
     public static i302Event<Quest> OnAcceptQuest = new();
