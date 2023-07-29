@@ -13,7 +13,7 @@ public class TimeDisplay : MonoBehaviour
     private void Update()
     {
         float hour = (int) Math.Truncate(currentTimeVariable.Value / 60f);
-        float minute = currentTimeVariable.Value % 60f;
+        int minute = Mathf.FloorToInt((currentTimeVariable.Value % 60f));
         string addendum = "";
         if (use12HourClock)
         {

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.22998974, g: 0.23995335, b: 0.6783396, a: 1}
+  m_IndirectSpecularColor: {r: 0.77192104, g: 0.7723191, b: 0.72047174, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -78594,7 +78594,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3364325394453186252, guid: 3940a4795f91c674fb48d6d4e299297a, type: 3}
       propertyPath: m_Name
-      value: DayNightAndLightController
+      value: TimeManager
       objectReference: {fileID: 0}
     - target: {fileID: 3364325394453186253, guid: 3940a4795f91c674fb48d6d4e299297a, type: 3}
       propertyPath: m_RootOrder

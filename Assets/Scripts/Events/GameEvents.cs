@@ -72,11 +72,14 @@ public class GameEvents : MonoBehaviour
     public static i302Event OnCloseActivityWheel = new();
 
     // Systems
-    public static i302Event OnChangeTime = new();
+    
     public static i302Event OnLoadNextScene = new();
     public static i302Event<string> OnShowTooltip = new();
     public static i302Event OnHideTooltip = new();
 
+    // Time
+    public static i302Event OnChangeTime = new();
+    public static i302Event OnNewDay = new();
 
     // Inventory and items
     public static i302Event OnMouseExitInventorySlot = new();

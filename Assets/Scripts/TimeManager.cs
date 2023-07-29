@@ -16,9 +16,9 @@ public class TimeManager : MonoBehaviour //todo rename class
     [SerializeField, Tooltip("Angle to rotate the sun")] private float SunDirection = 170f;
     [SerializeField, Tooltip("How fast time will go")] public static float TimeMultiplier = 1;
     [SerializeField] private bool ControlLights = true;
-
-    private bool canChangeDay = true;
+    
     private const float inverseDayLength = 1f / 1440f;
+    private float dayTimer;
 
     /// <summary>
     /// On project start, if controlLights is true, collect all non-directional lights in the current scene and place in a list
@@ -26,6 +26,7 @@ public class TimeManager : MonoBehaviour //todo rename class
     private void Start()
     {
         TimeOfDay = currentTimeVariable.Value;
+        dayTimer = 1440 - TimeOfDay;
         if (ControlLights)
         {
             Light[] lights = FindObjectsOfType<Light>();
@@ -62,26 +63,16 @@ public class TimeManager : MonoBehaviour //todo rename class
             return;
 
         TimeOfDay = TimeOfDay + (Time.deltaTime * TimeMultiplier);
-        
-        if (canChangeDay)
+        dayTimer -= Time.deltaTime * TimeMultiplier;
+        if (dayTimer <= 0)
         {
-            if (TimeOfDay >= currentTimeVariable.MaxValue)
-            {
-                canChangeDay = false;
-                StartCoroutine(DayChangeProtection());
-            }
-            
+            dayTimer = 1440;
+            GameEvents.OnNewDay.Raise();
         }
         currentTimeVariable.SetValue(TimeOfDay);
         
         TimeOfDay = TimeOfDay % 1440;
         UpdateLighting(TimeOfDay * inverseDayLength);
-    }
-
-    IEnumerator DayChangeProtection()
-    {
-        yield return new WaitForSeconds(2f);
-        canChangeDay = true;
     }
 
     /// <summary>

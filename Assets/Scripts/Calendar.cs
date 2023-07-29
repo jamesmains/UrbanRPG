@@ -19,7 +19,17 @@ public class Calendar : Window
     public List<CalendarSignature> calendarSignatures = new();
     
     private readonly List<CalendarDayDisplay> calendarDaySlots = new();
-    
+
+    private void OnEnable()
+    {
+        GameEvents.OnNewDay += UpdateCalendar;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.OnNewDay -= UpdateCalendar;
+    }
+
     public override void Show()
     {
         base.Show();
