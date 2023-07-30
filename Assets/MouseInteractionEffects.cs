@@ -16,7 +16,7 @@ public class MouseInteractionEffects : SerializedMonoBehaviour, IPointerEnterHan
     {
         foreach (var effect in Effects)
         {
-            effect.SetupEffect();
+            effect.Init();
         }
     }
 
@@ -56,7 +56,7 @@ public class MouseInteractionEffects : SerializedMonoBehaviour, IPointerEnterHan
 [Serializable]
 public abstract class HoverEffect
 {
-    public abstract void SetupEffect();
+    public abstract void Init();
     public abstract void OnMouseUp();
     public abstract void OnMouseDown();
     public abstract void OnMouseEnter();
@@ -71,7 +71,7 @@ public class PopEffect : HoverEffect
     [SerializeField,FoldoutGroup("Debug"),ReadOnly]private bool isMouseOver;
     protected GameObject cachedGameObject;
     
-    public override void SetupEffect()
+    public override void Init()
     {
         cachedGameObject = targetImage.gameObject;
         cachedStartPosition = targetImage.anchoredPosition;
@@ -106,9 +106,9 @@ public class ShadowPopEffect : PopEffect
 {
     [SerializeField] private Vector2 shadowPopDistance;
     [SerializeField,FoldoutGroup("Debug"),ReadOnly]private Shadow shadow;
-    public override void SetupEffect()
+    public override void Init()
     {
-        base.SetupEffect();
+        base.Init();
         if (cachedGameObject.GetComponent<Shadow>() == null)
         {
             cachedGameObject.AddComponent<Shadow>();
@@ -162,7 +162,7 @@ public class ChangeTextEffect : HoverEffect
     [SerializeField] private string targetTextObjectTag;
     [SerializeField] private string message;
     
-    public override void SetupEffect()
+    public override void Init()
     {
         if(targetTextObject == null && !string.IsNullOrEmpty(targetTextObjectTag))
             targetTextObject = GameObject.FindWithTag(targetTextObjectTag).GetComponent<TextMeshProUGUI>();

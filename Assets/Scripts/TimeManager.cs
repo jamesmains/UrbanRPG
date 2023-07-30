@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimeManager : MonoBehaviour //todo rename class
+public class TimeManager : MonoBehaviour
 {
     [SerializeField, Header("Managed Objects")] private Light DirectionalLight = null;
     [SerializeField] private LightPreset DayNightPreset, DayNightSkyboxPreset;
@@ -17,8 +17,17 @@ public class TimeManager : MonoBehaviour //todo rename class
     [SerializeField, Tooltip("How fast time will go")] public static float TimeMultiplier = 1;
     [SerializeField] private bool ControlLights = true;
     
-    private const float inverseDayLength = 1f / 1440f;
-    private float dayTimer;
+    private const float InverseDayLength = 1f / 1440f;
+    public const float DayLength = 1440f;
+    private float TimeRemainingInDay;
+
+    public static TimeManager Instance;
+    
+    private void Awake()
+    {
+        if(Instance != null) Destroy(this);
+        Instance = this;
+    }
 
     /// <summary>
     /// On project start, if controlLights is true, collect all non-directional lights in the current scene and place in a list
@@ -26,7 +35,7 @@ public class TimeManager : MonoBehaviour //todo rename class
     private void Start()
     {
         TimeOfDay = currentTimeVariable.Value;
-        dayTimer = 1440 - TimeOfDay;
+        TimeRemainingInDay = 1440 - TimeOfDay;
         if (ControlLights)
         {
             Light[] lights = FindObjectsOfType<Light>();
@@ -63,16 +72,17 @@ public class TimeManager : MonoBehaviour //todo rename class
             return;
 
         TimeOfDay = TimeOfDay + (Time.deltaTime * TimeMultiplier);
-        dayTimer -= Time.deltaTime * TimeMultiplier;
-        if (dayTimer <= 0)
-        {
-            dayTimer = 1440;
-            GameEvents.OnNewDay.Raise();
-        }
+        TimeRemainingInDay -= Time.deltaTime * TimeMultiplier;
         currentTimeVariable.SetValue(TimeOfDay);
         
+        if (TimeRemainingInDay <= 0)
+        {
+            TimeRemainingInDay = 1440;
+            GameEvents.OnNewDay.Raise();
+        }
+        
         TimeOfDay = TimeOfDay % 1440;
-        UpdateLighting(TimeOfDay * inverseDayLength);
+        UpdateLighting(TimeOfDay * InverseDayLength);
     }
 
     /// <summary>
@@ -100,5 +110,15 @@ public class TimeManager : MonoBehaviour //todo rename class
             skyboxMaterial.SetColor("_SkyGradientTop",DayNightSkyboxPreset.DirectionalColour.Evaluate(timePercent));
             skyboxMaterial.SetColor("_SkyGradientBottom",DayNightSkyboxPreset.AmbientColour.Evaluate(timePercent));
         }
+    }
+
+    public float GetCurrentTimeOfDay()
+    {
+        return TimeOfDay;
+    }
+
+    public float GetTimeRemainingInDay()
+    {
+        return TimeRemainingInDay;
     }
 }
