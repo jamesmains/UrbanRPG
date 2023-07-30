@@ -63,54 +63,82 @@ public abstract class HoverEffect
     public abstract void OnMouseExit();
 }
 
-public class ShadowPopEffect : HoverEffect
+public class PopEffect : HoverEffect
 {
-    [SerializeField] private Image targetImage;
+    [SerializeField] private RectTransform targetImage;
     [SerializeField] private Vector2 imagePopDistance;
-    [SerializeField] private Vector2 shadowPopDistance;
-    [SerializeField,FoldoutGroup("Debug"),ReadOnly]private RectTransform cachedRect;
     [SerializeField,FoldoutGroup("Debug"),ReadOnly]private Vector2 cachedStartPosition;
-    [SerializeField,FoldoutGroup("Debug"),ReadOnly]private Shadow shadow;
     [SerializeField,FoldoutGroup("Debug"),ReadOnly]private bool isMouseOver;
-
+    protected GameObject cachedGameObject;
+    
     public override void SetupEffect()
     {
-        var targetGO = targetImage.gameObject;
-        if (targetGO.GetComponent<Shadow>() == null)
-        {
-            targetGO.AddComponent<Shadow>();
-        }
-        cachedRect = targetGO.GetComponent<RectTransform>();
-        cachedStartPosition = cachedRect.anchoredPosition;
-        shadow = targetGO.GetComponent<Shadow>();
-        shadow.effectDistance = Vector2.zero;
+        cachedGameObject = targetImage.gameObject;
+        cachedStartPosition = targetImage.anchoredPosition;
     }
 
     public override void OnMouseUp()
     {
         if (!isMouseOver) return;
-        cachedRect.anchoredPosition = cachedStartPosition + imagePopDistance;
-        shadow.effectDistance = shadowPopDistance;
+        targetImage.anchoredPosition = cachedStartPosition + imagePopDistance;
     }
 
     public override void OnMouseDown()
     {
         if (!isMouseOver) return;
-        cachedRect.anchoredPosition = cachedStartPosition;
-        shadow.effectDistance = Vector2.zero;
+        targetImage.anchoredPosition = cachedStartPosition;
     }
 
     public override void OnMouseEnter()
     {
         isMouseOver = true;
-        cachedRect.anchoredPosition = cachedStartPosition + imagePopDistance;
-        shadow.effectDistance = shadowPopDistance;
+        targetImage.anchoredPosition = cachedStartPosition + imagePopDistance;
     }
 
     public override void OnMouseExit()
     {
         isMouseOver = false;
-        cachedRect.anchoredPosition = cachedStartPosition;
+        targetImage.anchoredPosition = cachedStartPosition;
+    }
+}
+
+public class ShadowPopEffect : PopEffect
+{
+    [SerializeField] private Vector2 shadowPopDistance;
+    [SerializeField,FoldoutGroup("Debug"),ReadOnly]private Shadow shadow;
+    public override void SetupEffect()
+    {
+        base.SetupEffect();
+        if (cachedGameObject.GetComponent<Shadow>() == null)
+        {
+            cachedGameObject.AddComponent<Shadow>();
+        }
+        
+        shadow = cachedGameObject.GetComponent<Shadow>();
+        shadow.effectDistance = Vector2.zero;
+    }
+
+    public override void OnMouseUp()
+    {
+        base.OnMouseUp();
+        shadow.effectDistance = shadowPopDistance;
+    }
+
+    public override void OnMouseDown()
+    {
+        base.OnMouseDown();
+        shadow.effectDistance = Vector2.zero;
+    }
+
+    public override void OnMouseEnter()
+    {
+        base.OnMouseEnter();
+        shadow.effectDistance = shadowPopDistance;
+    }
+
+    public override void OnMouseExit()
+    {
+        base.OnMouseExit();
         shadow.effectDistance = Vector2.zero;
     }
 }

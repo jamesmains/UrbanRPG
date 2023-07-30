@@ -32,18 +32,17 @@ public class QuestBook : Window
         
         foreach (Quest quest in questList)
         {
-            if (quest.CurrentState != QuestState.Completed && quest.CurrentState != QuestState.NotStarted)
-            {
-                QuestTaskData questTask = quest.GetCurrentQuestTask();
-                string qTaskProgress = questTask.numberOfRequiredHits > 1 ? $"{questTask.hits} / {questTask.numberOfRequiredHits}" : "";
+            if (quest.CurrentState == QuestState.Completed || quest.CurrentState == QuestState.NotStarted) continue;
+            
+            QuestTaskData questTask = quest.GetCurrentQuestTask();
+            string qTaskProgress = questTask.numberOfRequiredHits > 1 ? $"{questTask.hits} / {questTask.numberOfRequiredHits}" : "";
                 
-                Instantiate(questDisplayObject,questDisplayObjectContainer).GetComponent<QuestDisplay>().Setup(
-                    quest.QuestName,
-                    quest.QuestDescription,
-                    questTask.TaskDescription,
-                    qTaskProgress
-                    );
-            }
+            // Instantiate(questDisplayObject,questDisplayObjectContainer).GetComponent<QuestDisplay>().Setup(
+            //     quest.QuestName,
+            //     quest.QuestDescription,
+            //     questTask.TaskDescription,
+            //     qTaskProgress
+            // );
         }
     }
 

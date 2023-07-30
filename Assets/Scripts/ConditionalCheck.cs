@@ -8,20 +8,17 @@ using UnityEngine.Events;
 
 public class ConditionalCheck : SerializedMonoBehaviour
 {
-    [SerializeField] private bool checkOnAwake;
     [SerializeField] private bool continousCheck;
     [SerializeField] private float tickRate;
     private float timer;
     [FoldoutGroup("Events")][SerializeField] private UnityEvent onMeetsRequirements;
     [FoldoutGroup("Events")][SerializeField] private UnityEvent onFailsRequirements;
     public List<Condition> Conditions = new();
+    private bool cachedState;
 
     private void Awake()
     {
-        if (checkOnAwake)
-        {
-            CheckStatus();
-        }
+        CheckStatus(true);
     }
 
     private void Update()
@@ -38,18 +35,23 @@ public class ConditionalCheck : SerializedMonoBehaviour
         }
     }
 
-    public void CheckStatus()
+    public void CheckStatus(bool resetCache = false)
     {
         bool canDo = IsConditionMet();
+        if (resetCache)
+        {
+            cachedState = !canDo;
+        }
 
-        if (canDo)
+        if (canDo && (!cachedState))
         {
             onMeetsRequirements.Invoke();    
         }
-        else
+        else if(!canDo && (cachedState))
         {
             onFailsRequirements.Invoke();
         }
+        cachedState = canDo;
     }
     
     private bool IsConditionMet()

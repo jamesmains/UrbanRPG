@@ -102,6 +102,7 @@ public class GameEvents : MonoBehaviour
     public static i302Event<Quest> OnMakeQuestProgress = new();
     public static i302Event<Quest> OnReadyToComplete = new();
     public static i302Event<Quest> OnCompleteQuest = new();
+    public static i302Event OnUpdateQuests = new();
     
     // Skills & Needs
     public static i302Event OnLevelUp = new();

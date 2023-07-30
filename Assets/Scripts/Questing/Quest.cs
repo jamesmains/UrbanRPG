@@ -14,7 +14,7 @@ public class Quest : Activity
     public QuestType QuestType;
     public QuestState CurrentState;
     [TextArea] 
-    public string QuestDescription;
+    public string QuestCompleteText;
     [Space(10),PropertyOrder(70)]
     public List<QuestTaskData> Tasks = new();
     [Space(10)]
@@ -32,6 +32,7 @@ public class Quest : Activity
         CurrentState = QuestState.Started;
         StartNextTask();
         GameEvents.OnAcceptQuest.Raise(this);
+        GameEvents.OnUpdateQuests.Raise();
         GameEvents.OnSendGenericMessage.Raise($"Started Quest: {QuestName}");
     }
 
@@ -52,6 +53,7 @@ public class Quest : Activity
         task.Hit(amount);
         Debug.Log(task.hits);
         GameEvents.OnMakeQuestProgress.Raise(this);
+        GameEvents.OnUpdateQuests.Raise();
         
         if (task.IsTaskComplete())
         {
@@ -78,21 +80,27 @@ public class Quest : Activity
         {
             CurrentState = QuestState.ReadyToComplete;
             GameEvents.OnReadyToComplete.Raise(this);
+            GameEvents.OnUpdateQuests.Raise();
         }
         SaveQuest();
     }
 
     public QuestTaskData GetCurrentQuestTask()
     {
-        return Tasks[TaskIndex];
+        return TaskIndex >= Tasks.Count ? null : Tasks[TaskIndex];
     }
     
     [Button, TabGroup("Functions","Progress Functions")]
     public void CompleteQuest()
     {
         CurrentStep = null;
-        CurrentState = QuestType == QuestType.Repeatable ? QuestState.NotStarted : QuestState.Completed;
+        if (QuestType == QuestType.Repeatable)
+        {
+            ResetQuest();
+        }
+        else CurrentState = QuestState.Completed;
         GameEvents.OnCompleteQuest.Raise(this);
+        GameEvents.OnUpdateQuests.Raise();
         GameEvents.OnSendGenericMessage.Raise($"Completed Quest: {QuestName}");
         SaveQuest();
     }
@@ -105,6 +113,7 @@ public class Quest : Activity
         TaskIndex = 0;
         CurrentStep = null;
         CurrentState = QuestState.NotStarted;
+        GameEvents.OnUpdateQuests.Raise();
         SaveQuest();
     }
 

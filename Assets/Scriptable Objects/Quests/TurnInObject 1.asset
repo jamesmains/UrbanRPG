@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0bb7834ceb4e5c04894aba976e9d1a97, type: 3}
-  m_Name: QuestStep_LostBalloon_GetBalloon
+  m_Name: TurnInObject 1
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 11400000, guid: 876d2b835621d364783c888b745da429, type: 2}
-    - {fileID: 11400000}
-    - {fileID: 11400000, guid: 2953451449f32d844bc49d99f2234bd9, type: 2}
+    - {fileID: 11400000, guid: 2f98313718e2c8f488fb90dbd7f6e2c2, type: 2}
     - {fileID: 11400000, guid: 6b47082d2c1a1044bbb6f95ea814d1c4, type: 2}
+    - {fileID: 11400000, guid: 19db9213dfa9ba140aafa196c451a0fb, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -30,46 +29,37 @@ MonoBehaviour:
       Data: 0|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 1|AndCondition, Assembly-CSharp
-    - Name: <Conditions>k__BackingField
-      Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
       Data: 2
     - Name: 
       Entry: 7
-      Data: 3|QuestStateConditional, Assembly-CSharp
-    - Name: <Quest>k__BackingField
-      Entry: 10
-      Data: 0
-    - Name: <State>k__BackingField
-      Entry: 3
-      Data: 1
-    - Name: <Step>k__BackingField
-      Entry: 10
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 4|ItemConditional, Assembly-CSharp
+      Data: 1|ItemConditional, Assembly-CSharp
     - Name: <Item>k__BackingField
       Entry: 10
-      Data: 2
+      Data: 0
     - Name: <RequiredAmount>k__BackingField
       Entry: 3
       Data: 1
     - Name: <UseAny>k__BackingField
       Entry: 5
       Data: true
+    - Name: <ConsumeOnUse>k__BackingField
+      Entry: 5
+      Data: true
     - Name: <Inventory>k__BackingField
       Entry: 10
-      Data: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 2|QuestStateConditional, Assembly-CSharp
+    - Name: <Quest>k__BackingField
+      Entry: 10
+      Data: 2
+    - Name: <State>k__BackingField
+      Entry: 3
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -79,18 +69,10 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-  actionType: 0
-  ActionName: 
-  ActionIcon: {fileID: 0}
+  ActivityName: Turn in object
+  ActivityIcon: {fileID: -687874475, guid: 85a163205c7fbe84bba9882d79159d12, type: 3}
+  ActivityType: 0
+  actionTime: 0
   <ActivityActions>k__BackingField:
     m_PersistentCalls:
       m_Calls: []

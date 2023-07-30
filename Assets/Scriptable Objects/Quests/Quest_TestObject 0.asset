@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c25c592687a7bb489fb90fb47f7dc4b, type: 3}
-  m_Name: Quest_BalloonBoy_LostBalloon
+  m_Name: Quest_TestObject 0
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -33,17 +33,22 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  actionType: 0
-  ActionName: Test
-  ActionIcon: {fileID: -296365671, guid: cf35ac889fac4744886ed265f4dd5d5a, type: 3}
+  ActivityName: 
+  ActivityIcon: {fileID: -567568229, guid: 85a163205c7fbe84bba9882d79159d12, type: 3}
+  ActivityType: 0
+  actionTime: 0
   <ActivityActions>k__BackingField:
     m_PersistentCalls:
       m_Calls: []
-  QuestName: Lost Balloon
+  QuestName: Mysterious Object
   QuestType: 0
   CurrentState: 2
-  QuestDescription: You've found a stray balloon...
-  Tasks: []
-  CurrentStep: {fileID: 11400000, guid: 9affcc2f26d8c974fbe434a4a55d85a0, type: 2}
-  TaskIndex: 0
-  AutoComplete: 0
+  QuestCompleteText: You gave the mysterious object to the Great Rat!
+  Tasks:
+  - taskTask: {fileID: 11400000, guid: 27bb4735c0416ff4ba5f2e6554e85cef, type: 2}
+    TaskDescription: Found a mysterious object... Wonder what it's for?
+    numberOfRequiredHits: 1
+    hits: 1
+  CurrentStep: {fileID: 0}
+  TaskIndex: 1
+  AutoComplete: 1

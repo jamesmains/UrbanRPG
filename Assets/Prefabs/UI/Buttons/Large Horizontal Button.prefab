@@ -150,7 +150,6 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 8791582900010779582}
     - {fileID: 6855521711082209320}
     SerializedBytesString: 
     Prefab: {fileID: 0}
@@ -182,21 +181,6 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: shadowPopDistance
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 6
-    - Name: 
-      Entry: 4
-      Data: 6
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: cachedRect
-      Entry: 10
-      Data: 1
     - Name: cachedStartPosition
       Entry: 7
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
@@ -209,12 +193,24 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: shadow
-      Entry: 6
-      Data: 
     - Name: isMouseOver
       Entry: 5
       Data: false
+    - Name: shadowPopDistance
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 6
+    - Name: 
+      Entry: 4
+      Data: 6
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: shadow
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
