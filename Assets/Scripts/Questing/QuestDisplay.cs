@@ -13,12 +13,15 @@ public class QuestDisplay : Window
     [SerializeField] private RectTransform displayRect;
     [SerializeField] private RectTransform foldoutRect;
     [SerializeField] private GameObject checkMark;
-    // [SerializeField] private VerticalLayoutGroup foldoutLayoutGroup;
+    [SerializeField] private float openSpeed;
     
     private Quest heldQuest;
     private bool isOpen;
     private bool hidden;
+    private Vector2 openSize;
+    private Vector2 closedSize;
     private static QuestDisplay openedDisplay;
+    private string heldQuestDescription;
 
     private void OnEnable()
     {
@@ -30,16 +33,33 @@ public class QuestDisplay : Window
         GameEvents.OnUpdateQuests -= UpdateDisplay;
     }
 
+    private void Update()
+    {
+        
+        if (isOpen && displayRect.sizeDelta != openSize)
+        {
+            var size = displayRect.sizeDelta;
+            size.y = Mathf.Lerp(size.y, openSize.y, openSpeed * Time.deltaTime);
+            displayRect.sizeDelta = size;
+        }
+        else if (!isOpen && displayRect.sizeDelta != closedSize)
+        {
+            var size = displayRect.sizeDelta;
+            size.y = Mathf.Lerp(size.y, closedSize.y, openSpeed * Time.deltaTime);
+            displayRect.sizeDelta = size;
+        }
+    }
+
     public void Setup(Quest quest)
     {
         heldQuest = quest;
+        closedSize = new Vector2(displayRect.rect.width, 50);
         UpdateDisplay();
     }
 
     public void UpdateDisplay()
     {
         Show();
-        LayoutRebuilder.ForceRebuildLayoutImmediate(foldoutRect);
         
         if(openedDisplay != null) openedDisplay.CloseFoldout();
         var currentQuestState = heldQuest.CurrentState;
@@ -50,20 +70,23 @@ public class QuestDisplay : Window
         if (questTask != null)
         {
             string qTaskProgress = questTask.numberOfRequiredHits > 1 ? $"\n{questTask.hits} / {questTask.numberOfRequiredHits}" : "";
-            questTaskDescriptionText.text = heldQuest.GetCurrentQuestTask().TaskDescription + qTaskProgress;
+            heldQuestDescription = heldQuest.GetCurrentQuestTask().TaskDescription + qTaskProgress;
         }
         else
         {
-            questTaskDescriptionText.text = heldQuest.QuestCompleteText;
+            heldQuestDescription = heldQuest.QuestCompleteText;
         }
         
-        questTaskDescriptionText.text = hidden ? "I could have sworn there was something I was supposed to do..." : questTaskDescriptionText.text;
+        heldQuestDescription = hidden ? "I could have sworn there was something I was supposed to do..." : heldQuestDescription;
         questNameText.text = hidden ? "???" : heldQuest.QuestName;
-        
-        
-        foldoutRect.gameObject.SetActive(false);
     }
 
+    private void SetOpenSize()
+    {
+        LayoutRebuilder.ForceRebuildLayoutImmediate(foldoutRect);
+        openSize = new Vector2(displayRect.rect.height, 58 + foldoutRect.sizeDelta.y);
+    }
+    
     public void ToggleDisplay()
     {
         if(openedDisplay == null)
@@ -88,19 +111,14 @@ public class QuestDisplay : Window
 
     private void OpenFoldout()
     {
-        LayoutRebuilder.ForceRebuildLayoutImmediate(foldoutRect);
-        Vector2 rectSize = new Vector2(displayRect.sizeDelta.x, 58 + foldoutRect.sizeDelta.y);// Todo: maybe replace 58 with proper padding?
-        foldoutRect.gameObject.SetActive(true);
-        displayRect.sizeDelta = rectSize;
+        questTaskDescriptionText.text = heldQuestDescription;
+        SetOpenSize();
         isOpen = true;
     }
 
     public void CloseFoldout()
     {
-        LayoutRebuilder.ForceRebuildLayoutImmediate(foldoutRect);
-        Vector2 rectSize = new Vector2(displayRect.sizeDelta.x, 50);
-        foldoutRect.gameObject.SetActive(false);
-        displayRect.sizeDelta = rectSize;
+        questTaskDescriptionText.text = "";
         isOpen = false;
     }
     

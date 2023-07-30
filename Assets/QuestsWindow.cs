@@ -5,11 +5,12 @@ using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QuestsWindow : Window
 {
     [FoldoutGroup("Display")][SerializeField] private GameObject questDisplayObject;
-    [FoldoutGroup("Display")][SerializeField] private Transform questDisplayContainer;
+    [FoldoutGroup("Display")][SerializeField] private RectTransform questDisplayContainer;
     [FoldoutGroup("Display")][SerializeField] private List<QuestDisplay> questDisplays;
     public List<Quest> quests = new();
 

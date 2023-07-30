@@ -42,13 +42,13 @@ MonoBehaviour:
       m_Calls: []
   QuestName: Mysterious Object 2
   QuestType: 0
-  CurrentState: 1
-  QuestDescription: 
+  CurrentState: 0
+  QuestCompleteText: 
   Tasks:
   - taskTask: {fileID: 11400000, guid: 5bbd057f8d0130e46813fa8ec1077597, type: 2}
     TaskDescription: Found a mysterious object... But the sequel
     numberOfRequiredHits: 1
     hits: 0
-  CurrentStep: {fileID: 11400000, guid: 27bb4735c0416ff4ba5f2e6554e85cef, type: 2}
+  CurrentStep: {fileID: 0}
   TaskIndex: 0
   AutoComplete: 1

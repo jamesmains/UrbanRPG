@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.27344343, g: 0.28466958, b: 0.6881358, a: 1}
+  m_IndirectSpecularColor: {r: 0.25835, g: 0.1947205, b: 0.37135807, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7491,7 +7491,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 379205837}
-  m_LocalRotation: {x: 0.18910751, y: -0.000000018890205, z: 0.0000000036379209, w: 0.9819564}
+  m_LocalRotation: {x: 0.18910751, y: 0.000000018890205, z: -0.0000000036379209, w: 0.9819564}
   m_LocalPosition: {x: 0.031000137, y: 1.9, z: -3.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -60315,7 +60315,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1147750266}
-  m_LocalRotation: {x: 0.18910751, y: -0.000000018890205, z: 0.0000000036379209, w: 0.9819564}
+  m_LocalRotation: {x: 0.18910751, y: 0.000000018890205, z: -0.0000000036379209, w: 0.9819564}
   m_LocalPosition: {x: 0.031000137, y: 1.9, z: -3.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -72532,6 +72532,7 @@ MonoBehaviour:
   onHideWindow:
     m_PersistentCalls:
       m_Calls: []
+  rect: {fileID: 900646719}
   questDisplayObject: {fileID: 5167593523328721718, guid: c24d10e56da1f5e4f8565191396c2239, type: 3}
   questDisplayContainer: {fileID: 900646719}
   questDisplays: []
@@ -75985,7 +75986,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh58380
+  m_Name: pb_Mesh30830
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -77123,7 +77124,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh58574
+  m_Name: pb_Mesh31020
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
