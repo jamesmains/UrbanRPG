@@ -39,6 +39,7 @@ MonoBehaviour:
     reputationChange: 10
   - giftItem: {fileID: 11400000, guid: e4a3e7d384c87bd4db26d8d2dd3dc332, type: 2}
     reputationChange: -25
+  talkSfx: {fileID: 8300000, guid: db1321a9057b8ed46939b49516aefd4c, type: 3}
   currentReputation: -1
   GearBody: {fileID: 11400000, guid: 0b120cc8384aa7e42bb88af7a3459bac, type: 2}
   GearShoes: {fileID: 11400000, guid: f10075e1397e2954da1f89dd034c93e3, type: 2}

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.20308393, g: 0.106713, b: 0.051338453, a: 1}
+  m_IndirectSpecularColor: {r: 0.0015629302, g: 0.0062550213, b: 0.02869069, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2127,7 +2127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dfa0850a960b6a4a88a717b8da96a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  windowName: 
   canvasGroup: {fileID: 75133377}
   isActive: 0
   priority: 0
@@ -6542,7 +6542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 504222ab3f288d447a2fcd4a0ed8cae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Phone
+  windowName: Phone
   canvasGroup: {fileID: 340208136}
   isActive: 1
   priority: 0
@@ -6812,7 +6812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 504222ab3f288d447a2fcd4a0ed8cae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  windowName: 
   canvasGroup: {fileID: 357674347}
   isActive: 1
   priority: 0
@@ -7432,7 +7432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59923a68a9f152f499cd16ee1db0f4c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  windowName: 
   canvasGroup: {fileID: 373255822}
   isActive: 0
   priority: 0
@@ -7491,7 +7491,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 379205837}
-  m_LocalRotation: {x: 0.18910751, y: 0.000000018890205, z: -0.0000000036379209, w: 0.9819564}
+  m_LocalRotation: {x: 0.18910751, y: -0.000000018890205, z: 0.0000000036379209, w: 0.9819564}
   m_LocalPosition: {x: 0.031000137, y: 1.9, z: -3.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -33789,7 +33789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4ae415df6376904d97b6d02b9e6cad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Activity Wheel
+  windowName: 
   canvasGroup: {fileID: 441393993}
   isActive: 1
   priority: 0
@@ -53204,6 +53204,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 654979090}
+  - component: {fileID: 654979091}
   m_Layer: 0
   m_Name: ============World============
   m_TagString: Untagged
@@ -53236,6 +53237,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &654979091
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654979089}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b0b545cb723febf4ead30f535fa83727, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.07
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &670880283
 GameObject:
   m_ObjectHideFlags: 0
@@ -54245,7 +54342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f28fa6cc35c6a340b7f9d0aa857b9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Exit
+  windowName: 
   canvasGroup: {fileID: 711734158}
   isActive: 0
   priority: 0
@@ -55767,7 +55864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e23d3c04a4f9e4b4a99fdcd8397713d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  windowName: 
   canvasGroup: {fileID: 796929440}
   isActive: 1
   priority: 0
@@ -56239,7 +56336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f28fa6cc35c6a340b7f9d0aa857b9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  windowName: 
   canvasGroup: {fileID: 837190770}
   isActive: 0
   priority: 0
@@ -56343,7 +56440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8bc39962270f34418971b49fd138693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  windowName: 
   canvasGroup: {fileID: 839535853}
   isActive: 0
   priority: 0
@@ -56788,10 +56885,7 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 11400000, guid: 27bb4735c0416ff4ba5f2e6554e85cef, type: 2}
-    - {fileID: 11400000, guid: 3b8c27b2699064b4c9926888c7e14b2f, type: 2}
-    - {fileID: 0}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -56803,98 +56897,7 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 1|ActivityAction, Assembly-CSharp
-    - Name: specialConditions
-      Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
       Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: signature
-      Entry: 10
-      Data: 0
-    - Name: worldActions
-      Entry: 7
-      Data: 3|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
-    - Name: m_PersistentCalls
-      Entry: 7
-      Data: 4|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
-    - Name: m_Calls
-      Entry: 7
-      Data: 5|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
-        UnityEngine.CoreModule]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 6|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
-    - Name: m_Target
-      Entry: 10
-      Data: 1
-    - Name: m_TargetAssemblyTypeName
-      Entry: 1
-      Data: Dialogue, Assembly-CSharp
-    - Name: m_MethodName
-      Entry: 1
-      Data: StartDialogue
-    - Name: m_Mode
-      Entry: 3
-      Data: 1
-    - Name: m_Arguments
-      Entry: 7
-      Data: 7|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
-    - Name: m_ObjectArgument
-      Entry: 10
-      Data: 2
-    - Name: m_ObjectArgumentAssemblyTypeName
-      Entry: 1
-      Data: UnityEngine.Object, UnityEngine
-    - Name: m_IntArgument
-      Entry: 3
-      Data: 0
-    - Name: m_FloatArgument
-      Entry: 4
-      Data: 0
-    - Name: m_StringArgument
-      Entry: 1
-      Data: 
-    - Name: m_BoolArgument
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: m_CallState
-      Entry: 3
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -58335,7 +58338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f28fa6cc35c6a340b7f9d0aa857b9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Settings
+  windowName: 
   canvasGroup: {fileID: 958862198}
   isActive: 0
   priority: 0
@@ -59518,7 +59521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f28fa6cc35c6a340b7f9d0aa857b9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  windowName: Gear
   canvasGroup: {fileID: 1054451079}
   isActive: 0
   priority: 0
@@ -60230,7 +60233,6 @@ RectTransform:
   m_Children:
   - {fileID: 451100213}
   - {fileID: 728064689}
-  - {fileID: 1626894851}
   - {fileID: 960421646}
   - {fileID: 1223520058}
   - {fileID: 839535845}
@@ -60238,6 +60240,7 @@ RectTransform:
   - {fileID: 357674345}
   - {fileID: 635586788785234140}
   - {fileID: 75133372}
+  - {fileID: 1626894851}
   - {fileID: 1572025768}
   - {fileID: 1315910319}
   - {fileID: 1360808654}
@@ -60411,7 +60414,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1147750266}
-  m_LocalRotation: {x: 0.18910751, y: 0.000000018890205, z: -0.0000000036379209, w: 0.9819564}
+  m_LocalRotation: {x: 0.18910751, y: -0.000000018890205, z: 0.0000000036379209, w: 0.9819564}
   m_LocalPosition: {x: 0.031000137, y: 1.9, z: -3.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -60947,7 +60950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 499c78f77b49e2a4e844ee2a804c13a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  windowName: 
   canvasGroup: {fileID: 1176050506}
   isActive: 0
   priority: 0
@@ -61674,7 +61677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ff13542366c994793fd476666b1c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  windowName: Needs
   canvasGroup: {fileID: 1223520065}
   isActive: 0
   priority: 0
@@ -61851,7 +61854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f28fa6cc35c6a340b7f9d0aa857b9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Phone Home
+  windowName: Home
   canvasGroup: {fileID: 1233906386}
   isActive: 0
   priority: 0
@@ -61941,7 +61944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e23d3c04a4f9e4b4a99fdcd8397713d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Calendar
+  windowName: Calendar
   canvasGroup: {fileID: 1258731493}
   isActive: 0
   priority: 0
@@ -68245,6 +68248,7 @@ GameObject:
   - component: {fileID: 1626894851}
   - component: {fileID: 1626894853}
   - component: {fileID: 1626894854}
+  - component: {fileID: 1626894855}
   m_Layer: 2
   m_Name: Dialogue Window
   m_TagString: Untagged
@@ -68287,7 +68291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0933c13fbb1d94347849865d59d13f79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  windowName: 
   canvasGroup: {fileID: 1626894854}
   isActive: 1
   priority: 0
@@ -68299,10 +68303,12 @@ MonoBehaviour:
   onHideWindow:
     m_PersistentCalls:
       m_Calls: []
-  textSpeed: 0.05
+  textSpeed: 0.01
+  textSfxSpeed: 17
   actorDisplayImage: {fileID: 1838860768}
   actorNameText: {fileID: 1730654714}
   displayText: {fileID: 682236889}
+  talkSfxSource: {fileID: 1626894855}
   currentDialogue: {fileID: 0}
   dialogueSegmentIndex: 0
   currentDialogueSegmentText: 
@@ -68319,6 +68325,102 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!82 &1626894855
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626894850}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.486
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1643687768
 GameObject:
   m_ObjectHideFlags: 0
@@ -72314,7 +72416,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh32456
+  m_Name: pb_Mesh32388
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -72719,7 +72821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cee4d92e9ed3c146b5425bc715eed0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: To-Do
+  windowName: To-Do
   canvasGroup: {fileID: 1870889290}
   isActive: 1
   priority: 0
@@ -74482,7 +74584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f28fa6cc35c6a340b7f9d0aa857b9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  windowName: 
   canvasGroup: {fileID: 1941082055}
   isActive: 0
   priority: 0
@@ -78227,8 +78329,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 9fdacfc965df20c408f38d3700094551, type: 2}
     - {fileID: 11400000, guid: 3b8c27b2699064b4c9926888c7e14b2f, type: 2}
     - {fileID: 0}
-    - {fileID: 11400000, guid: 42243ad2ac72a29428096f0978b9bb06, type: 2}
-    - {fileID: 0}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -78271,7 +78371,7 @@ MonoBehaviour:
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 1
     - Name: 
       Entry: 7
       Data: 6|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
@@ -78299,51 +78399,6 @@ MonoBehaviour:
     - Name: m_IntArgument
       Entry: 3
       Data: 0
-    - Name: m_FloatArgument
-      Entry: 4
-      Data: 0
-    - Name: m_StringArgument
-      Entry: 1
-      Data: 
-    - Name: m_BoolArgument
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: m_CallState
-      Entry: 3
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 8|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
-    - Name: m_Target
-      Entry: 10
-      Data: 3
-    - Name: m_TargetAssemblyTypeName
-      Entry: 1
-      Data: Actor, Assembly-CSharp
-    - Name: m_MethodName
-      Entry: 1
-      Data: AdjustReputation
-    - Name: m_Mode
-      Entry: 3
-      Data: 3
-    - Name: m_Arguments
-      Entry: 7
-      Data: 9|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
-    - Name: m_ObjectArgument
-      Entry: 10
-      Data: 4
-    - Name: m_ObjectArgumentAssemblyTypeName
-      Entry: 1
-      Data: UnityEngine.Object, UnityEngine
-    - Name: m_IntArgument
-      Entry: 3
-      Data: 36
     - Name: m_FloatArgument
       Entry: 4
       Data: 0
@@ -78399,8 +78454,7 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 11400000, guid: 42243ad2ac72a29428096f0978b9bb06, type: 2}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -78411,37 +78465,7 @@ MonoBehaviour:
       Data: 0|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 1|NotCondition, Assembly-CSharp
-    - Name: <Conditions>k__BackingField
-      Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 3|ReputationConditional, Assembly-CSharp
-    - Name: <RequiredReputation>k__BackingField
-      Entry: 3
-      Data: 99
-    - Name: <TargetActor>k__BackingField
-      Entry: 10
       Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -78774,7 +78798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 127ec6993de17c745a6a914d3df1ec1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  windowName: Pockets
   canvasGroup: {fileID: 2452578878775672100}
   isActive: 0
   priority: 0
@@ -79555,7 +79579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 127ec6993de17c745a6a914d3df1ec1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  windowName: 
   canvasGroup: {fileID: 7168265263736495810}
   isActive: 1
   priority: 0
@@ -82338,7 +82362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 127ec6993de17c745a6a914d3df1ec1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  windowName: 
   canvasGroup: {fileID: 3192570971944366144}
   isActive: 1
   priority: 0

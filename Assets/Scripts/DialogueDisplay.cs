@@ -5,13 +5,16 @@ using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class DialogueDisplay : Window
 {
     [FoldoutGroup("Data")][SerializeField] private float textSpeed;
+    [FoldoutGroup("Data")][SerializeField] private int textSfxSpeed;
     [FoldoutGroup("Display")][SerializeField] private Image actorDisplayImage;
     [FoldoutGroup("Display")][SerializeField] private TextMeshProUGUI actorNameText;
     [FoldoutGroup("Display")][SerializeField] private TextMeshProUGUI displayText;
+    [FoldoutGroup("Display")][SerializeField] private AudioSource talkSfxSource;
 
     [SerializeField,FoldoutGroup("Debug"),ReadOnly] private Dialogue currentDialogue;
     [SerializeField,FoldoutGroup("Debug"),ReadOnly] private int dialogueSegmentIndex;
@@ -20,8 +23,9 @@ public class DialogueDisplay : Window
     
     private DialogueSegment currentSegment;
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         GameEvents.StartDialogueEvent += StartDialogue;
         GameEvents.OnInteractButtonDown += delegate
         {
@@ -37,8 +41,9 @@ public class DialogueDisplay : Window
         };
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
+        base.OnDisable();
         GameEvents.StartDialogueEvent -= StartDialogue;
         GameEvents.OnInteractButtonDown -= delegate
         {
@@ -92,14 +97,14 @@ public class DialogueDisplay : Window
         }
         else
         {
-            NextDialogueSegment();
-            if (dialogueSegmentIndex != currentDialogue.DialogueSegments.Count - 1)
+            if (dialogueSegmentIndex < currentDialogue.DialogueSegments.Count)
             {
                 if (currentSegment.IsConditionMet())
                 {
                     currentSegment?.OnFinishSegment?.Invoke();
                 }
             }
+            NextDialogueSegment();
         }
     }
     
@@ -135,17 +140,29 @@ public class DialogueDisplay : Window
             actorDisplayImage.enabled = hasActor;
             if (hasActor)
             {
-                actorNameText.text = currentSegment.actor.actorName;
-                actorDisplayImage.sprite = currentSegment.actor.actionIcon;    
+                var actor = currentSegment.actor;
+                actorNameText.text = actor.actorName;
+                actorDisplayImage.sprite = actor.actionIcon;
+                talkSfxSource.clip = actor.talkSfx;
             }
+            else talkSfxSource.clip = null;
 
             displayText.text = "";
             currentDialogueSegmentText = currentSegment.speech;
         }
 
+        int t = 0;
         while (charIndex < currentDialogueSegmentText.Length)
         {
             displayText.text += currentDialogueSegmentText[charIndex];
+            if (talkSfxSource.clip != null && t == 0)
+            {
+                talkSfxSource.pitch = Random.Range(0.775f, 1.15f);
+                talkSfxSource.Play();
+            }
+
+            t++;
+            if (t >= textSfxSpeed) t = 0;
             charIndex++;
             yield return new WaitForSeconds(textSpeed);
         }
@@ -158,6 +175,7 @@ public class DialogueDisplay : Window
         StopAllCoroutines();
         Hide();
         Global.PlayerLock--;
+        GameEvents.OnEndActivity.Raise();
         currentDialogue.EndDialogue();
     }
 }

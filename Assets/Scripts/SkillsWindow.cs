@@ -13,8 +13,9 @@ public class SkillsWindow : Window
     [SerializeField] private List<Skill> skills = new();
     public List<SkillDisplayObject> displayObjects = new List<SkillDisplayObject>();
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         GameEvents.OnLevelUp += UpdateDisplays;
         PopulateSkillsDisplays();
     }
@@ -24,8 +25,9 @@ public class SkillsWindow : Window
         UpdateDisplays();
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
+        base.OnDisable();
         GameEvents.OnLevelUp -= UpdateDisplays;
     }
 

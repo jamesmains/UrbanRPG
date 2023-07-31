@@ -14,8 +14,9 @@ public class QuestsWindow : Window
     [FoldoutGroup("Display")][SerializeField] private List<QuestDisplay> questDisplays;
     public List<Quest> quests = new();
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         PopulateQuests();
     }
 

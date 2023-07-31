@@ -12,6 +12,7 @@ public class Actor : ScriptableObject
     public Color hairColor;
     public List<ReputationTier> reputationTiers = new();
     public List<AcceptableItemGifts> acceptedGifts = new();
+    public AudioClip talkSfx;
     [Range(-1,99)]public int currentReputation = -1;
     [FoldoutGroup("Gear"), SerializeField] public Gear GearBody;
     [FoldoutGroup("Gear"), SerializeField] public Gear GearShoes;

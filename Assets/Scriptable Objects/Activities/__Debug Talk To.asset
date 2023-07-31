@@ -36,7 +36,7 @@ MonoBehaviour:
   ActivityName: Chit chat
   ActivityIcon: {fileID: -524268504, guid: 85a163205c7fbe84bba9882d79159d12, type: 3}
   ActivityType: 0
-  actionTime: 1
+  actionTime: 0
   <ActivityActions>k__BackingField:
     m_PersistentCalls:
       m_Calls: []

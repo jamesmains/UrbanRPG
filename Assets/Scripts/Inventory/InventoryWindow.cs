@@ -20,19 +20,21 @@ public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,I
     [ShowIf("restrictByItemType")] public ItemType itemTypeRestriction;
 
     private bool flaggedToUpdate;
-    private List<GameObject> InventorySlots = new();
+    private readonly List<GameObject> InventorySlots = new();
     public static InventoryWindow highlightedInventoryWindow;
-    public static List<InventoryWindow> openInventoryWindows = new();
+    public static readonly List<InventoryWindow> openInventoryWindows = new();
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         PopulateDisplay();
         GameEvents.OnPickupItem += UpdateInventoryDisplay;
         GameEvents.OnMoveOrAddItem += UpdateInventoryDisplay;
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
+        base.OnDisable();
         GameEvents.OnPickupItem -= UpdateInventoryDisplay;
         GameEvents.OnMoveOrAddItem -= UpdateInventoryDisplay;
     }

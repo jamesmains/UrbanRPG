@@ -31,8 +31,9 @@ public class ActivityWheel : Window
     private float FacingAngle;
     private bool needsToBeNormalized;
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         GameEvents.OnOpenActivityWheel += SetCurrentActivity;
         GameEvents.OnCloseActivityWheel += Hide;
         GameEvents.OnInteractButtonDown += InvokeSelectedActivityAction;
@@ -45,9 +46,10 @@ public class ActivityWheel : Window
         }
         ActivityListContainer.SetChildrenActiveState(false);
     }
-    
-    private void OnDisable()
+
+    protected override void OnDisable()
     {
+        base.OnDisable();
         GameEvents.OnOpenActivityWheel -= SetCurrentActivity;
         GameEvents.OnCloseActivityWheel -= Hide;
         GameEvents.OnInteractButtonDown -= InvokeSelectedActivityAction;

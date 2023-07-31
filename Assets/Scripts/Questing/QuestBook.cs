@@ -18,8 +18,9 @@ public class QuestBook : Window
         HasDreamQuestVariable.Value = HasDreamQuestVariable;
     }
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         PopulateQuestDisplay();
     }
 

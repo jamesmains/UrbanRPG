@@ -23,13 +23,15 @@ public class QuestDisplay : Window
     private static QuestDisplay openedDisplay;
     private string heldQuestDescription;
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         GameEvents.OnUpdateQuests += UpdateDisplay;
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
+        base.OnDisable();
         GameEvents.OnUpdateQuests -= UpdateDisplay;
     }
 

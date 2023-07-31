@@ -17,7 +17,19 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: 42243ad2ac72a29428096f0978b9bb06, type: 2}
-    - {fileID: 11400000, guid: 19db9213dfa9ba140aafa196c451a0fb, type: 2}
+    - {fileID: 11400000, guid: 99a245a20c8eba441a4a0967be13a735, type: 2}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -29,7 +41,7 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 7
     - Name: 
       Entry: 7
       Data: 1|DialogueSegment, Assembly-CSharp
@@ -53,8 +65,969 @@ MonoBehaviour:
       Data: 0
     - Name: speech
       Entry: 1
-      Data: Oh! Hey thanks for bringing me my object! Here's a powercell for your
-        trouble!
+      Data: So you wanna learn about the menus? Sure!
+    - Name: OnStartSegment
+      Entry: 6
+      Data: 
+    - Name: OnFinishSegment
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 3|DialogueSegment, Assembly-CSharp
+    - Name: SegmentConditions
+      Entry: 7
+      Data: 4|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: IsInstantSegment
+      Entry: 5
+      Data: false
+    - Name: actor
+      Entry: 10
+      Data: 0
+    - Name: speech
+      Entry: 1
+      Data: First we have the needs menu. These show all the stats you have to manage
+        to keep your character in good health!
+    - Name: OnStartSegment
+      Entry: 7
+      Data: 5|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 6|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 7|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 8|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 1
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: WindowUtility, Assembly-CSharp
+    - Name: m_MethodName
+      Entry: 1
+      Data: OpenWindow
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 9|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 2
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: Needs
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: OnFinishSegment
+      Entry: 7
+      Data: 10|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 11|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 12|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 13|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 1
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: WindowUtility, Assembly-CSharp
+    - Name: m_MethodName
+      Entry: 1
+      Data: CloseWindow
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 14|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 3
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: Needs
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 15|DialogueSegment, Assembly-CSharp
+    - Name: SegmentConditions
+      Entry: 7
+      Data: 16|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: IsInstantSegment
+      Entry: 5
+      Data: false
+    - Name: actor
+      Entry: 10
+      Data: 0
+    - Name: speech
+      Entry: 1
+      Data: Next is the Gear and Pockets windows. Essential where the majority of
+        your stuff will be stored while you're out in the world!
+    - Name: OnStartSegment
+      Entry: 7
+      Data: 17|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 18|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 19|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 20|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 1
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: WindowUtility, Assembly-CSharp
+    - Name: m_MethodName
+      Entry: 1
+      Data: OpenWindow
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 21|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 4
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: Gear
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 22|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 1
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: WindowUtility, Assembly-CSharp
+    - Name: m_MethodName
+      Entry: 1
+      Data: OpenWindow
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 23|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 5
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: Pockets
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: OnFinishSegment
+      Entry: 7
+      Data: 24|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 25|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 26|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 27|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 1
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: WindowUtility, Assembly-CSharp
+    - Name: m_MethodName
+      Entry: 1
+      Data: CloseWindow
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 28|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 6
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: Gear
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 29|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 1
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: WindowUtility, Assembly-CSharp
+    - Name: m_MethodName
+      Entry: 1
+      Data: CloseWindow
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 30|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 7
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: Pockets
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 31|DialogueSegment, Assembly-CSharp
+    - Name: SegmentConditions
+      Entry: 7
+      Data: 32|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: IsInstantSegment
+      Entry: 5
+      Data: false
+    - Name: actor
+      Entry: 10
+      Data: 0
+    - Name: speech
+      Entry: 1
+      Data: Your phone is a great way to check on things going on around the city!
+    - Name: OnStartSegment
+      Entry: 7
+      Data: 33|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 34|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 35|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 36|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 1
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: WindowUtility, Assembly-CSharp
+    - Name: m_MethodName
+      Entry: 1
+      Data: OpenWindow
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 37|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 8
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: Phone
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: OnFinishSegment
+      Entry: 7
+      Data: 38|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 39|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 40|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 41|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 1
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: WindowUtility, Assembly-CSharp
+    - Name: m_MethodName
+      Entry: 1
+      Data: CloseWindow
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 42|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 9
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: Home
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 43|DialogueSegment, Assembly-CSharp
+    - Name: SegmentConditions
+      Entry: 7
+      Data: 44|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: IsInstantSegment
+      Entry: 5
+      Data: false
+    - Name: actor
+      Entry: 10
+      Data: 0
+    - Name: speech
+      Entry: 1
+      Data: From the calendar you can check everything you have going on and where
+        you need to be!
+    - Name: OnStartSegment
+      Entry: 7
+      Data: 45|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 46|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 47|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 48|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 1
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: WindowUtility, Assembly-CSharp
+    - Name: m_MethodName
+      Entry: 1
+      Data: OpenWindow
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 49|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 10
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: Calendar
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: OnFinishSegment
+      Entry: 7
+      Data: 50|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 51|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 52|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 53|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 1
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: WindowUtility, Assembly-CSharp
+    - Name: m_MethodName
+      Entry: 1
+      Data: CloseWindow
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 54|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 11
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: Calendar
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 55|DialogueSegment, Assembly-CSharp
+    - Name: SegmentConditions
+      Entry: 7
+      Data: 56|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: IsInstantSegment
+      Entry: 5
+      Data: false
+    - Name: actor
+      Entry: 10
+      Data: 0
+    - Name: speech
+      Entry: 1
+      Data: The To-Do list holds all of your quest like tasks to do around the city!
+    - Name: OnStartSegment
+      Entry: 7
+      Data: 57|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 58|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 59|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 60|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 1
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: WindowUtility, Assembly-CSharp
+    - Name: m_MethodName
+      Entry: 1
+      Data: OpenWindow
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 61|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 12
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: To-Do
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: OnFinishSegment
+      Entry: 7
+      Data: 62|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 63|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 64|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 65|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 1
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: WindowUtility, Assembly-CSharp
+    - Name: m_MethodName
+      Entry: 1
+      Data: CloseWindow
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 66|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 13
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: Phone
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 67|DialogueSegment, Assembly-CSharp
+    - Name: SegmentConditions
+      Entry: 7
+      Data: 68|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: IsInstantSegment
+      Entry: 5
+      Data: false
+    - Name: actor
+      Entry: 10
+      Data: 0
+    - Name: speech
+      Entry: 1
+      Data: The sk--- Oh... Well I guess that's not in yet... Well there will be
+        more menus soon!
     - Name: OnStartSegment
       Entry: 6
       Data: 
@@ -72,22 +1045,10 @@ MonoBehaviour:
       Data: 
     - Name: <DialogueConditions>k__BackingField
       Entry: 7
-      Data: 3|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
+      Data: 69|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 4|QuestStateConditional, Assembly-CSharp
-    - Name: <Quest>k__BackingField
-      Entry: 10
-      Data: 1
-    - Name: <State>k__BackingField
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
+      Data: 0
     - Name: 
       Entry: 13
       Data: 
@@ -99,16 +1060,4 @@ MonoBehaviour:
       m_Calls: []
   OnFinishDialogue:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 19db9213dfa9ba140aafa196c451a0fb, type: 2}
-        m_TargetAssemblyTypeName: Quest, Assembly-CSharp
-        m_MethodName: TryCompleteTask
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 27bb4735c0416ff4ba5f2e6554e85cef, type: 2}
-          m_ObjectArgumentAssemblyTypeName: QuestTask, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []

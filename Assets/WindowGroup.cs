@@ -60,7 +60,7 @@ public class WindowGroup : Window
             if (windowNameDisplay != null)
             {
                 var effects = button.gameObject.AddComponent<MouseInteractionEffects>();
-                effects.Effects.Add(new ChangeTextEffect(windowNameDisplay,cachedWindow.description));
+                effects.Effects.Add(new ChangeTextEffect(windowNameDisplay,cachedWindow.windowName));
             }
             
             button.onClick.AddListener(delegate

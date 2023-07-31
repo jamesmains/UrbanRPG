@@ -8,7 +8,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(CanvasGroup))]
 public class Window : MonoBehaviour, UIWindow
 {
-    [FoldoutGroup("UI Window")]public string description;
+    [FoldoutGroup("UI Window")]public string windowName;
     [FoldoutGroup("UI Window")] public CanvasGroup canvasGroup;
     [FoldoutGroup("UI Window")] public bool isActive;
     [FoldoutGroup("UI Window")] public int priority;
@@ -17,13 +17,37 @@ public class Window : MonoBehaviour, UIWindow
     [FoldoutGroup("UI Window/Events")] public UnityEvent onShowWindow;
     [FoldoutGroup("UI Window/Events")] public UnityEvent onHideWindow;
 
-    protected static List<Window> OpenWindows = new();
-    
+    private static readonly List<Window> OpenWindows = new();
+
+    protected virtual void OnEnable()
+    {
+        WindowUtility.OnOpenWindow += OpenWindow;
+        WindowUtility.OnCloseWindow += CloseWindow;
+    }
+
+    protected virtual void OnDisable()
+    {
+        WindowUtility.OnOpenWindow -= OpenWindow;
+        WindowUtility.OnCloseWindow -= CloseWindow;
+    }
+
     private void Awake()
     {
         Hide();
     }
 
+    private void OpenWindow(string openingWindow)
+    {
+        if(windowName == openingWindow)
+            Show();
+    }
+    
+    private void CloseWindow(string closingWindow)
+    {
+        if(windowName == closingWindow)
+            Hide();
+    }
+    
     public void Toggle()
     {
         if (isActive)

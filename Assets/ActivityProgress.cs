@@ -14,14 +14,16 @@ public class ActivityProgress : Window
     [SerializeField] private float Timer;
     [SerializeField] private UnityEvent ActivityCompleteAction = new();
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         GameEvents.OnStartActivity += StartActivity;
         GameEvents.OnPlayerMoved += CancelActivity;
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
+        base.OnDisable();
         GameEvents.OnStartActivity -= StartActivity;
         GameEvents.OnPlayerMoved -= CancelActivity;
     }

@@ -13,14 +13,16 @@ public class Tooltip : Window
     [FoldoutGroup("Details")][SerializeField] private RectTransform rect;
     [FoldoutGroup("Details")][SerializeField] private Canvas scaler;
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         GameEvents.OnShowTooltip += ShowMessage;
         GameEvents.OnHideTooltip += Hide;
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
+        base.OnDisable();
         GameEvents.OnShowTooltip -= ShowMessage;
         GameEvents.OnHideTooltip -= Hide;
     }
