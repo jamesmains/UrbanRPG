@@ -96,6 +96,7 @@ public class GameEvents : MonoBehaviour
     public static i302Event<Actor> OnSendReputationChangeMessage = new();
     public static i302Event<string> OnSendGenericMessage = new();
     public static i302Event<Sprite, string> OnCreateImageStringMessage = new();
+    public static i302Event<Sprite,string> OnCreateSpriteStringPopup = new();
     
     // Quests
     public static i302Event<Quest> OnAcceptQuest = new();
@@ -106,7 +107,7 @@ public class GameEvents : MonoBehaviour
     
     // Skills & Needs
     public static i302Event OnLevelUp = new();
-    public static i302Event<Sprite,string> OnGainExperience = new();
+    public static i302Event OnGainExperience = new();
     public static i302Event<Sprite> OnNeedDecayTrigger = new();
     
     // Dialogue

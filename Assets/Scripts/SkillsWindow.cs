@@ -11,18 +11,13 @@ public class SkillsWindow : Window
     [SerializeField] private RectTransform skillsDisplayContainer;
     [SerializeField] private GameObject skillsDisplayListPrefab;
     [SerializeField] private List<Skill> skills = new();
-    public List<SkillDisplayObject> displayObjects = new List<SkillDisplayObject>();
+    public List<SkillDisplay> skillDisplays = new List<SkillDisplay>();
 
     protected override void OnEnable()
     {
         base.OnEnable();
         GameEvents.OnLevelUp += UpdateDisplays;
-        PopulateSkillsDisplays();
-    }
-
-    private void UpdateDisplays(Sprite arg1, string arg2)
-    {
-        UpdateDisplays();
+        PopulateSkills();
     }
 
     protected override void OnDisable()
@@ -36,34 +31,35 @@ public class SkillsWindow : Window
         base.Show();
         UpdateDisplays();
     }
-
-    public void PopulateSkillsDisplays()
+    
+    public override void Hide()
     {
-        displayObjects.Clear();
-        foreach (var skill in skills)
+        base.Hide();
+        foreach (var skillDisplay in skillDisplays)
         {
-            SpawnListObject(Instantiate(skillsDisplayListPrefab, skillsDisplayContainer),skill);
+            skillDisplay.CloseFoldout();
+        }
+    }
+    
+    private void PopulateSkills()
+    {
+        foreach (Skill skill in skills)
+        {
+            var SkillDisplay = Instantiate(skillsDisplayListPrefab,skillsDisplayContainer).GetComponent<SkillDisplay>();
+            SkillDisplay.Setup(skill);
+            skillDisplays.Add(SkillDisplay);
         }
     }
 
-    public void UpdateDisplays()
+    private void UpdateDisplays()
     {
-        foreach (var display in displayObjects)
+        foreach (var sklillDisplay in skillDisplays)
         {
-            display.obj.SetActive(display.skill.Level != 0);
+            sklillDisplay.gameObject.SetActive(sklillDisplay.heldSkill.Level != 0);
+            sklillDisplay.UpdateDisplay();
         }
     }
 
-    public void SpawnListObject(GameObject obj, Skill skill)
-    {
-        SkillDisplayObject newDisplayObject = new SkillDisplayObject();
-        newDisplayObject.obj = obj;
-        newDisplayObject.bar = obj.GetComponent<SkillDisplayBar>();
-        newDisplayObject.bar.targetSkill = skill;
-        newDisplayObject.skill = skill;
-        newDisplayObject.bar.Setup();
-        displayObjects.Add(newDisplayObject);
-    }
     
 #if UNITY_EDITOR
     [Button]
@@ -80,11 +76,4 @@ public class SkillsWindow : Window
         }
     }
 #endif
-}
-[Serializable]
-public class SkillDisplayObject
-{
-    public SkillDisplayBar bar;
-    public Skill skill;
-    public GameObject obj;
 }

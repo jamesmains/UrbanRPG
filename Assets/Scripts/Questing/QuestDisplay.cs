@@ -6,52 +6,19 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class QuestDisplay : Window
+public class QuestDisplay : FoldoutDisplay
 {
     [SerializeField] private TextMeshProUGUI questNameText;
     [SerializeField] private TextMeshProUGUI questTaskDescriptionText;
-    [SerializeField] private RectTransform displayRect;
-    [SerializeField] private RectTransform foldoutRect;
     [SerializeField] private GameObject checkMark;
-    [SerializeField] private float openSpeed;
-    
     private Quest heldQuest;
-    private bool isOpen;
     private bool hidden;
-    private Vector2 openSize;
-    private Vector2 closedSize;
-    private static QuestDisplay openedDisplay;
+    
+    
     private string heldQuestDescription;
 
-    protected override void OnEnable()
-    {
-        base.OnEnable();
-        GameEvents.OnUpdateQuests += UpdateDisplay;
-    }
-
-    protected override void OnDisable()
-    {
-        base.OnDisable();
-        GameEvents.OnUpdateQuests -= UpdateDisplay;
-    }
-
-    private void Update()
-    {
-        
-        if (isOpen && displayRect.sizeDelta != openSize)
-        {
-            var size = displayRect.sizeDelta;
-            size.y = Mathf.Lerp(size.y, openSize.y, openSpeed * Time.deltaTime);
-            displayRect.sizeDelta = size;
-        }
-        else if (!isOpen && displayRect.sizeDelta != closedSize)
-        {
-            var size = displayRect.sizeDelta;
-            size.y = Mathf.Lerp(size.y, closedSize.y, openSpeed * Time.deltaTime);
-            displayRect.sizeDelta = size;
-        }
-    }
-
+    
+    
     public void Setup(Quest quest)
     {
         heldQuest = quest;
@@ -61,8 +28,6 @@ public class QuestDisplay : Window
 
     public void UpdateDisplay()
     {
-        Show();
-        
         if(openedDisplay != null) openedDisplay.CloseFoldout();
         var currentQuestState = heldQuest.CurrentState;
         checkMark.SetActive(currentQuestState == QuestState.Completed);
@@ -83,45 +48,15 @@ public class QuestDisplay : Window
         questNameText.text = hidden ? "???" : heldQuest.QuestName;
     }
 
-    private void SetOpenSize()
-    {
-        LayoutRebuilder.ForceRebuildLayoutImmediate(foldoutRect);
-        openSize = new Vector2(displayRect.rect.height, 58 + foldoutRect.sizeDelta.y);
-    }
-    
-    public void ToggleDisplay()
-    {
-        if(openedDisplay == null)
-            openedDisplay = this;
-        
-        if(openedDisplay != null && openedDisplay != this)
-        {
-            openedDisplay.CloseFoldout();
-        }
-        
-        openedDisplay = this;
-        
-        if (isOpen)
-        {
-            CloseFoldout();
-        }
-        else
-        {
-            OpenFoldout();
-        }
-    }
-
-    private void OpenFoldout()
+    protected override void OpenFoldout()
     {
         questTaskDescriptionText.text = heldQuestDescription;
-        SetOpenSize();
-        isOpen = true;
+        base.OpenFoldout();
     }
 
-    public void CloseFoldout()
+    public override void CloseFoldout()
     {
         questTaskDescriptionText.text = "";
-        isOpen = false;
+        base.CloseFoldout();
     }
-    
 }

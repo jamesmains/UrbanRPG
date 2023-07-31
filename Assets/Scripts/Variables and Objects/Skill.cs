@@ -25,7 +25,8 @@ public class Skill : ScriptableObject
         if(remainingExp > 0)
             AddExperience(remainingExp);
         
-        GameEvents.OnGainExperience.Raise(Icon,$"+{incomingExperience}");
+        GameEvents.OnGainExperience.Raise();
+        GameEvents.OnCreateSpriteStringPopup.Raise(Icon,$"+{incomingExperience}");
     }
 
     private void LevelUp()

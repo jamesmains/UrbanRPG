@@ -14,9 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Felling
   Description: Chopping trees
-  Icon: {fileID: 21300000, guid: d711e9b8b24c3574c9674e8b34c625c9, type: 3}
+  Icon: {fileID: 1275497120, guid: 85a163205c7fbe84bba9882d79159d12, type: 3}
   Level: 1
   ExpRequiredForLevelUp: 200
   CurrentExp: 125
-  OnLevelUp: {fileID: 11400000, guid: 24bcc29fbddf15f4fbe46114e3d0ccd3, type: 2}
-  OnGainExperience: {fileID: 11400000, guid: 4e403e74ee8e9ce40a75dfd727ead74d, type: 2}

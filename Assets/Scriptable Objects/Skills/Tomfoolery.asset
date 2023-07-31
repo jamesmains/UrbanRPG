@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Tomfoolery
   Description: ???
-  Icon: {fileID: 21300000, guid: 29e27d405e313584a9c5fa1cb545e310, type: 3}
+  Icon: {fileID: -1024390094, guid: 85a163205c7fbe84bba9882d79159d12, type: 3}
   Level: 1
   ExpRequiredForLevelUp: 200
   CurrentExp: 125

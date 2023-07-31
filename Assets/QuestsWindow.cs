@@ -14,10 +14,19 @@ public class QuestsWindow : Window
     [FoldoutGroup("Display")][SerializeField] private List<QuestDisplay> questDisplays;
     public List<Quest> quests = new();
 
+
+    
     protected override void OnEnable()
     {
         base.OnEnable();
+        GameEvents.OnUpdateQuests += UpdateQuests;
         PopulateQuests();
+    }
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        GameEvents.OnUpdateQuests -= UpdateQuests;
     }
 
     public override void Show()
