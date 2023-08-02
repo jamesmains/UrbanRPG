@@ -90,9 +90,9 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         else if (!mouseDown) waitingForDrag = false;
     }
 
+    
     public void Setup(InventoryItemData inventoryItemData, int index, InventoryWindow origin, string overrideText = "")
     {
-        
         if (inventoryItemData.Item is Gear item && inventoryItemData != storedItemData && origin.restrictByItemType)
         {
             if (inventoryItemData.Item.ItemType == origin.itemTypeRestriction)
@@ -102,7 +102,6 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
                     effect.OnEquip();
                 }
             }
-            
         }
         
         storedItemData = inventoryItemData;
@@ -277,7 +276,7 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
     {
         frameDisplay.color = state ? highlightedColor : normalColor;
     }
-    
+
     public void OnPointerDown(PointerEventData eventData)
     {
         mouseDown = true;

@@ -36,6 +36,9 @@ public class Tooltip : Window
     private void Update()
     {
         if (!isActive) return;
-        rect.anchoredPosition = (Input.mousePosition / scaler.scaleFactor)+offset;
+        var targetPosition = (Input.mousePosition / scaler.scaleFactor) +offset;
+        targetPosition.x = Mathf.Clamp(targetPosition.x, 0, 1920 - (rect.rect.width));
+        targetPosition.y = Mathf.Clamp(targetPosition.y, 0, 1080 - (rect.rect.height));
+        rect.anchoredPosition = targetPosition;
     }
 }

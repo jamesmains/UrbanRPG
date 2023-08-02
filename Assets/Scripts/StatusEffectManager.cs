@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class StatusEffectManager : MonoBehaviour
 {
@@ -12,15 +13,13 @@ public class StatusEffectManager : MonoBehaviour
         for (var index = 0; index < playerEffectsInventory.InventoryItems.Length; index++)
         {
             var itemData = playerEffectsInventory.InventoryItems[index];
-            if(itemData.Item == null) continue;
+            if (itemData.Item == null) continue;
             foreach (var effect in itemData.Item.ItemEffects)
             {
-                print(effect);
                 if (effect is not ItemStatusEffect statusEffect) continue;
                 if (statusEffect.OnTick())
                 {
-                    print("Removing effect");
-                    playerEffectsInventory.TryRemoveItemAt(index,1);
+                    playerEffectsInventory.TryRemoveItemAt(index, 1);
                 }
             }
         }
