@@ -297,8 +297,11 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
             highlightedInventorySlot = this;
             ToggleHighlight(true);
         }
-        if(storedItemData.Item != null)
+
+        if (storedItemData.Item != null)
+        {
             GameEvents.OnShowTooltip.Raise(storedItemData.Item.Name);
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)

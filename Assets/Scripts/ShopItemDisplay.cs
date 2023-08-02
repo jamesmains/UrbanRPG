@@ -39,7 +39,7 @@ public class ShopItemDisplay : MonoBehaviour
         nameText.text = item.Name;
         descriptionText.text = item.Description;
         iconDisplay.sprite = item.Sprite;
-        costText.text = item.BuyValue.ToString();
+        costText.text = item.Value.x.ToString();
         itemQuantity = quantity;
         AdjustCartAmount(0);
     }
@@ -55,7 +55,7 @@ public class ShopItemDisplay : MonoBehaviour
         inCartAmount += changeValue;
         
         
-        if (inCartAmount * item.BuyValue > playerWalletVariable.Value)
+        if (inCartAmount * item.Value.x > playerWalletVariable.Value)
         {
             inCartAmount = lastValidInCartAmount;
         }
@@ -72,19 +72,19 @@ public class ShopItemDisplay : MonoBehaviour
         }
         else
         {
-            cartCalculationText.text = $"{inCartAmount}\nx{item.BuyValue.ToString("n0").TrimStart('0')} =\n{(inCartAmount*item.BuyValue):0,000}";
+            cartCalculationText.text = $"{inCartAmount}\nx{item.Value.x.ToString("n0").TrimStart('0')} =\n{(inCartAmount*item.Value.x):0,000}";
         }
     }
     
     public int GetCartCost()
     {
-        return inCartAmount * item.BuyValue;
+        return inCartAmount * (int)item.Value.x;
     }
 
     public void UpdateItemButtons()
     {
         int availableFunds = playerWalletVariable.Value - cartCostVariable.Value;
         decreaseCartAmountButton.interactable = inCartAmount > 0;
-        increaseCartAmountButton.interactable = inCartAmount < itemQuantity && (item.BuyValue < availableFunds);
+        increaseCartAmountButton.interactable = inCartAmount < itemQuantity && (item.Value.x < availableFunds);
     }
 }

@@ -26,7 +26,7 @@ using UnityEngine;
 #endif
         }
         
-        public void TryAddItem(Item incomingItem) // Need this signature to call it from UnityEvent
+        public void TryAddItem(Item incomingItem) // Need this signature to call it from UnityEvent so ignore the warning on the other function
         {
             TryAddItem(incomingItem, 1); 
         }
@@ -93,6 +93,29 @@ using UnityEngine;
                 if (remaining <= 0 || InventoryItems[targetIndex].Quantity >= InventoryItems[targetIndex].Item.StackLimit) break;
                 InventoryItems[targetIndex].Quantity++;
                 remaining--;
+            }
+            SaveInventory();
+            return remaining;
+        }
+
+        public int TryRemoveItem(Item incomingItem, int value = 1)
+        {
+            int remaining = value;
+
+            foreach (var existingItemData in InventoryItems)
+            {
+                if (remaining <= 0) break;
+                if (incomingItem != existingItemData.Item ||
+                    existingItemData.Item == null)continue;
+
+                if (existingItemData.Quantity <= 0) continue;
+                
+                for (int r = remaining; r > 0; r--)
+                {
+                    if (remaining <= 0 || existingItemData.Quantity <= 0) continue;
+                    existingItemData.Quantity--;
+                    remaining--;
+                }
             }
             SaveInventory();
             return remaining;

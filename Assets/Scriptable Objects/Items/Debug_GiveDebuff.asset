@@ -10,15 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54c4ce2b6c07e534f841dbb71bf61d4c, type: 3}
-  m_Name: Balloon
+  m_Name: Debug_GiveDebuff
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 11400000, guid: 5d123da421c74a144b5dadfc300d5322, type: 2}
     - {fileID: 11400000, guid: d9a9a6020f117e245bc8b49f84d233cf, type: 2}
-    - {fileID: 11400000, guid: a80410c8272fe9c4c86136d7a160d3d1, type: 2}
+    - {fileID: 11400000, guid: 135b002d19620b245b33116ef625ac34, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -29,13 +28,13 @@ MonoBehaviour:
       Data: 0|System.Collections.Generic.List`1[[ItemEffect, Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 1
     - Name: 
       Entry: 7
-      Data: 1|RestoreNeedEffect, Assembly-CSharp
+      Data: 1|AddItemEffect, Assembly-CSharp
     - Name: effectText
       Entry: 1
-      Data: Restore Hunger
+      Data: Add Restore Hunger Buffs
     - Name: OnConsumeEvent
       Entry: 7
       Data: 2|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
@@ -61,55 +60,15 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: TargetNeed
-      Entry: 10
-      Data: 0
-    - Name: AdjustByValue
-      Entry: 4
-      Data: 10
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 5|AddItemEffect, Assembly-CSharp
-    - Name: effectText
-      Entry: 1
-      Data: Add Restore Hunger Buffs
-    - Name: OnConsumeEvent
-      Entry: 7
-      Data: 6|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
-    - Name: m_PersistentCalls
-      Entry: 7
-      Data: 7|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
-    - Name: m_Calls
-      Entry: 7
-      Data: 8|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
-        UnityEngine.CoreModule]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: inventory
       Entry: 10
-      Data: 1
+      Data: 0
     - Name: amount
       Entry: 3
-      Data: 10
+      Data: 5
     - Name: item
       Entry: 10
-      Data: 2
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -119,13 +78,14 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  <Sprite>k__BackingField: {fileID: -524268504, guid: 85a163205c7fbe84bba9882d79159d12, type: 3}
-  <Name>k__BackingField: Balloon
+  <Sprite>k__BackingField: {fileID: -1116591090, guid: 85a163205c7fbe84bba9882d79159d12, type: 3}
+  <Name>k__BackingField: DEBUG Give Debuff
   <Description>k__BackingField: 
   <ItemType>k__BackingField: 0
   <Value>k__BackingField: {x: 0, y: 0}
   <IsConsumable>k__BackingField: 1
+  <IsIdentified>k__BackingField: 0
   OnPickupItem:
     m_PersistentCalls:
       m_Calls: []
-  <StackLimit>k__BackingField: 100
+  <StackLimit>k__BackingField: 999

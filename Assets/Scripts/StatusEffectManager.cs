@@ -17,7 +17,7 @@ public class StatusEffectManager : MonoBehaviour
             foreach (var effect in itemData.Item.ItemEffects)
             {
                 if (effect is not ItemStatusEffect statusEffect) continue;
-                if (statusEffect.OnTick())
+                if (statusEffect.OnTick() || itemData.Quantity == 0)
                 {
                     playerEffectsInventory.TryRemoveItemAt(index, 1);
                 }

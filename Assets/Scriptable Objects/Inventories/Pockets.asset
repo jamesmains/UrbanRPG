@@ -57,25 +57,25 @@ MonoBehaviour:
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
         Item: {fileID: 11400000, guid: 2953451449f32d844bc49d99f2234bd9, type: 2}
-        Quantity: 78
+        Quantity: 39
         Index: 3
     - rid: 7305478016068747292
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        Item: {fileID: 0}
-        Quantity: 0
+        Item: {fileID: 11400000, guid: 2f98313718e2c8f488fb90dbd7f6e2c2, type: 2}
+        Quantity: 15
         Index: 4
     - rid: 7305478016068747293
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        Item: {fileID: 0}
-        Quantity: 0
+        Item: {fileID: 11400000, guid: cc6c7d13da00bfb43840609d259d9f09, type: 2}
+        Quantity: 99
         Index: 5
     - rid: 7305478016068747294
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        Item: {fileID: 0}
-        Quantity: 0
+        Item: {fileID: 11400000, guid: d5f254540e2d9e24f92906ad42436159, type: 2}
+        Quantity: 99
         Index: 6
     - rid: 7305478016068747295
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
