@@ -21,7 +21,7 @@ public class MainMenuManager : MonoBehaviour
         UpdateSaveSlotDisplay();
     }
 
-    public void UpdateSaveSlotDisplay()
+    private void UpdateSaveSlotDisplay()
     {
         int remainingSaveSlots = totalSaveSlotCount;
         string saveDirectoryPath = $"{Application.persistentDataPath}/";
@@ -121,7 +121,7 @@ public class MainMenuManager : MonoBehaviour
     {
         playerSaveSlot.saveSlot = saveName;
         playerSaveSlot.LoadData();
-        GameEvents.OnLoadNextScene.Raise();
+        GameEvents.OnLoadNextScene.Raise(playerSaveSlot.NextSceneTransition);
     }
 
     private void ExitGame(bool save = false)

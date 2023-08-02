@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TestLT
   m_EditorClassIdentifier: 
   TargetScene: The Lab
-  SpawnLocation: {x: 17, y: 0.4, z: -8.75}
+  SpawnLocation: {x: 12, y: 0.4, z: -8.75}

@@ -72,8 +72,7 @@ public class GameEvents : MonoBehaviour
     public static i302Event OnCloseActivityWheel = new();
 
     // Systems
-    
-    public static i302Event OnLoadNextScene = new();
+    public static i302Event<SceneTransition> OnLoadNextScene = new();
     public static i302Event<string> OnShowTooltip = new();
     public static i302Event OnHideTooltip = new();
 

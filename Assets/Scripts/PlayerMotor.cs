@@ -24,9 +24,9 @@ public class PlayerMotor : MonoBehaviour
     private void Awake()
     {
         Global.PlayerLock = 0;
-        if (playerSaveSlot.NextLevelTransition != null && !string.IsNullOrEmpty(playerSaveSlot.NextLevelTransition.TargetScene))
+        if (playerSaveSlot.NextSceneTransition != null && !string.IsNullOrEmpty(playerSaveSlot.NextSceneTransition.TargetScene))
         {
-            MovePlayerTo(playerSaveSlot.NextLevelTransition.SpawnLocation);
+            MovePlayerTo(playerSaveSlot.NextSceneTransition.SpawnLocation);
         }
     }
 

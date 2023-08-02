@@ -5,8 +5,8 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[CreateAssetMenu(fileName = "Level Transition Signature", menuName = "Signatures/Level Transition Signature")]
-public class LevelTransitionSignature : ScriptableObject
+[CreateAssetMenu(fileName = "Level Transition Signature", menuName = "Signatures/Scene Transition")]
+public class SceneTransition : ScriptableObject
 {
     public String TargetScene;
     public Vector3 SpawnLocation;

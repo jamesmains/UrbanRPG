@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,7 +14,7 @@ public class CollisionTrigger : MonoBehaviour
     // Todo allow to mark entities and not allow that specific one to invoke the events
     
     [SerializeField] protected string targetTag;
-    [SerializeField] protected UnityEvent onEnter;
+    [SerializeField, PropertyOrder(100)] protected UnityEvent onEnter;
 
     private void OnTriggerEnter(Collider other)
     {

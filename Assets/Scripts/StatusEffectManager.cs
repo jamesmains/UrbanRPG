@@ -7,6 +7,12 @@ using UnityEngine.EventSystems;
 public class StatusEffectManager : MonoBehaviour
 {
     [SerializeField] private Inventory playerEffectsInventory;
+    [SerializeField] private string windowName;
+    
+    private void OnEnable()
+    {
+        WindowUtility.OnOpenWindow.Raise(windowName); // Todo: Find more appropriate area to call hud window functions
+    }
 
     private void Update()
     {

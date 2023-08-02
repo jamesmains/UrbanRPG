@@ -12,8 +12,8 @@ public class PlayerSaveSlot : ScriptableObject
     public string saveSlot;
     public string characterName;
     public string cityName;
-    public LevelTransitionSignature NewSaveFileSpawnLocation;
-    public LevelTransitionSignature NextLevelTransition;
+    public SceneTransition NewSaveFileSpawnLocation;
+    public SceneTransition NextSceneTransition;
     public VectorVariable PlayerPositionVariable;
     public IntVariable PlayerMoneyVariable;
     public bool Loaded;
@@ -35,7 +35,7 @@ public class PlayerSaveSlot : ScriptableObject
 
     public void LoadData()
     {
-        NextLevelTransition = ScriptableObject.CreateInstance<LevelTransitionSignature>();
+        NextSceneTransition = ScriptableObject.CreateInstance<SceneTransition>();
         PlayerSaveData saveData = SaveLoad.LoadPlayerData();
         if (saveData == null)
         {
@@ -43,13 +43,13 @@ public class PlayerSaveSlot : ScriptableObject
             {
                 Debug.Log($"Failed to load save slot [{saveSlot}] because it does not exist (PlayerSaveSlot.cs)");
             }
-            NextLevelTransition = NewSaveFileSpawnLocation;
+            NextSceneTransition = NewSaveFileSpawnLocation;
             return;
         }
-        NextLevelTransition.TargetScene = saveData.SavedScene;
+        NextSceneTransition.TargetScene = saveData.SavedScene;
         characterName = saveData.SavedCharacterName;
         cityName = saveData.SavedCityName;
-        NextLevelTransition.SpawnLocation = new Vector3(
+        NextSceneTransition.SpawnLocation = new Vector3(
             saveData.SavedSpawnLocationX,
             saveData.SavedSpawnLocationY,
             saveData.SavedSpawnLocationZ
@@ -67,11 +67,6 @@ public class PlayerSaveSlot : ScriptableObject
             cityName,
             PlayerPositionVariable.Value,
             PlayerMoneyVariable.Value));
-    }
-
-    public void SetValue(LevelTransitionSignature targetLevelSignature)
-    {
-        NextLevelTransition = targetLevelSignature;
     }
 }
 

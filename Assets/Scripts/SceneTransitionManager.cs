@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelTransition : MonoBehaviour
+public class SceneTransitionManager : MonoBehaviour
 {
     [SerializeField] private PlayerSaveSlot saveSlot;
     [SerializeField] private bool debugRunOnStart = true;
@@ -26,22 +26,23 @@ public class LevelTransition : MonoBehaviour
         if (!saveSlot.Loaded && debugRunOnStart) // NOTE this should be for debugging only. It should be true before hitting this in build.
         {
             saveSlot.LoadData();
-            if (saveSlot.NextLevelTransition == null)
+            if (saveSlot.NextSceneTransition == null)
             {
                 saveSlot.Loaded = true;
                 return;
             }
-            BeginLoadingNextScene();
+            BeginLoadingNextScene(saveSlot.NextSceneTransition);
         }
     }
 
-    private void BeginLoadingNextScene()
+    private void BeginLoadingNextScene(SceneTransition targetScene)
     {
+        saveSlot.NextSceneTransition = targetScene;
         animator.SetTrigger("FadeOut");
     }
 
     public void LoadNextScene() // Called from animator
     {
-        SceneManager.LoadScene(saveSlot.NextLevelTransition.TargetScene);
+        SceneManager.LoadScene(saveSlot.NextSceneTransition.TargetScene);
     }
 }
