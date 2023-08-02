@@ -88,7 +88,6 @@ public class ActivityWheel : Window
     public override void Hide()
     {
         base.Hide();
-        //ClearWheel();
     }
 
     private void ClearWheel()

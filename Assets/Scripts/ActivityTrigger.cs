@@ -37,10 +37,12 @@ public class ActivityTrigger : SerializedMonoBehaviour
         };
         GameEvents.OnCancelActivity += delegate
         {
+            isActive = false;
             ActivityLock = false;
         };
         GameEvents.OnEndActivity += delegate
         {
+            isActive = false;
             ActivityLock = false;
         };
 
@@ -79,6 +81,7 @@ public class ActivityTrigger : SerializedMonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        Debug.Log($"Is Active: {isActive}, ActivityLock: {ActivityLock}, PlayerLock: {Global.PlayerLock}");
         if (isActive || ActivityLock || Global.PlayerLock > 0) return;
         if (other.CompareTag("Player"))
         {
