@@ -26,6 +26,7 @@ public class StatusEffectManager : MonoBehaviour
                 if (statusEffect.OnTick() || itemData.Quantity == 0)
                 {
                     playerEffectsInventory.TryRemoveItemAt(index, 1);
+                    playerEffectsInventory.SortIventoryByEmptySlots();
                 }
             }
         }

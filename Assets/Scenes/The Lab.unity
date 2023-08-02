@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0006574812, g: 0.004664257, b: 0.019744923, a: 1}
+  m_IndirectSpecularColor: {r: 0.40614277, g: 0.50788087, b: 0.14078341, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7748,7 +7748,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 379205837}
-  m_LocalRotation: {x: 0.18910751, y: 0.000000018890205, z: -0.0000000036379209, w: 0.9819564}
+  m_LocalRotation: {x: 0.18910751, y: -0.000000018890205, z: 0.0000000036379209, w: 0.9819564}
   m_LocalPosition: {x: 0.031000137, y: 1.9, z: -3.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -35501,6 +35501,7 @@ GameObject:
   - component: {fileID: 502199373}
   - component: {fileID: 502199372}
   - component: {fileID: 502199374}
+  - component: {fileID: 502199375}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -35698,6 +35699,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerEffectsInventory: {fileID: 11400000, guid: d9a9a6020f117e245bc8b49f84d233cf, type: 2}
   windowName: Status
+--- !u!114 &502199375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502199370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726b0cec3e802644fbc7fa70af3bcd7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNeeds:
+  - {fileID: 11400000, guid: 4f75a24680cf92d4fbdfec181b252273, type: 2}
+  - {fileID: 11400000, guid: a50603218b97a4e47bc9a321ee36eeba, type: 2}
+  - {fileID: 11400000, guid: 8b6890c00275f3148937f18be12912fe, type: 2}
+  - {fileID: 11400000, guid: 5d123da421c74a144b5dadfc300d5322, type: 2}
+  - {fileID: 11400000, guid: 1e7897751ea8af449b1f6c5329b30fa7, type: 2}
+  - {fileID: 11400000, guid: c3f0d22d61e122040a36ee8426cfa584, type: 2}
+  hospitalScene: {fileID: 11400000, guid: 6da6efcd44f9cf14d8a3fc25f9b9d4cd, type: 2}
+  triggerEvents:
+  - targetAmount: 10
+    targetNeed: {fileID: 11400000, guid: 5d123da421c74a144b5dadfc300d5322, type: 2}
+    outSprite: {fileID: 1453493370, guid: 36ba90ed1d045e9498f8ccb8ffbe4e8e, type: 3}
+    canTrigger: 0
+  - targetAmount: 50
+    targetNeed: {fileID: 11400000, guid: 5d123da421c74a144b5dadfc300d5322, type: 2}
+    outSprite: {fileID: -617902692, guid: 36ba90ed1d045e9498f8ccb8ffbe4e8e, type: 3}
+    canTrigger: 0
+  - targetAmount: 50
+    targetNeed: {fileID: 11400000, guid: 4f75a24680cf92d4fbdfec181b252273, type: 2}
+    outSprite: {fileID: -225755932, guid: 36ba90ed1d045e9498f8ccb8ffbe4e8e, type: 3}
+    canTrigger: 0
+  - targetAmount: 10
+    targetNeed: {fileID: 11400000, guid: 4f75a24680cf92d4fbdfec181b252273, type: 2}
+    outSprite: {fileID: 836568656, guid: 36ba90ed1d045e9498f8ccb8ffbe4e8e, type: 3}
+    canTrigger: 0
+  - targetAmount: 5
+    targetNeed: {fileID: 11400000, guid: 8b6890c00275f3148937f18be12912fe, type: 2}
+    outSprite: {fileID: -1034011787, guid: 36ba90ed1d045e9498f8ccb8ffbe4e8e, type: 3}
+    canTrigger: 0
+  - targetAmount: 5
+    targetNeed: {fileID: 11400000, guid: a50603218b97a4e47bc9a321ee36eeba, type: 2}
+    outSprite: {fileID: 819724084, guid: 36ba90ed1d045e9498f8ccb8ffbe4e8e, type: 3}
+    canTrigger: 0
+  - targetAmount: 10
+    targetNeed: {fileID: 11400000, guid: c3f0d22d61e122040a36ee8426cfa584, type: 2}
+    outSprite: {fileID: 1060363079, guid: 36ba90ed1d045e9498f8ccb8ffbe4e8e, type: 3}
+    canTrigger: 0
+  - targetAmount: 10
+    targetNeed: {fileID: 11400000, guid: 1e7897751ea8af449b1f6c5329b30fa7, type: 2}
+    outSprite: {fileID: 1316744764, guid: 36ba90ed1d045e9498f8ccb8ffbe4e8e, type: 3}
+    canTrigger: 0
 --- !u!224 &502427446 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8620791298639499881, guid: c24d10e56da1f5e4f8565191396c2239, type: 3}
@@ -60918,7 +60972,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1147750266}
-  m_LocalRotation: {x: 0.18910751, y: 0.000000018890205, z: -0.0000000036379209, w: 0.9819564}
+  m_LocalRotation: {x: 0.18910751, y: -0.000000018890205, z: 0.0000000036379209, w: 0.9819564}
   m_LocalPosition: {x: 0.031000137, y: 1.9, z: -3.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -67900,7 +67954,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1207973015}
   - component: {fileID: 1587867084}
-  - component: {fileID: 1587867083}
   - component: {fileID: 1587867082}
   - component: {fileID: 1587867081}
   - component: {fileID: 1587867085}
@@ -67961,58 +68014,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &1587867083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1587867080}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 726b0cec3e802644fbc7fa70af3bcd7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerNeeds:
-  - {fileID: 11400000, guid: 4f75a24680cf92d4fbdfec181b252273, type: 2}
-  - {fileID: 11400000, guid: a50603218b97a4e47bc9a321ee36eeba, type: 2}
-  - {fileID: 11400000, guid: 8b6890c00275f3148937f18be12912fe, type: 2}
-  - {fileID: 11400000, guid: 5d123da421c74a144b5dadfc300d5322, type: 2}
-  - {fileID: 11400000, guid: 1e7897751ea8af449b1f6c5329b30fa7, type: 2}
-  - {fileID: 11400000, guid: c3f0d22d61e122040a36ee8426cfa584, type: 2}
-  triggerEvents:
-  - targetAmount: 10
-    targetNeed: {fileID: 11400000, guid: 5d123da421c74a144b5dadfc300d5322, type: 2}
-    outSprite: {fileID: 1453493370, guid: 36ba90ed1d045e9498f8ccb8ffbe4e8e, type: 3}
-    canTrigger: 0
-  - targetAmount: 50
-    targetNeed: {fileID: 11400000, guid: 5d123da421c74a144b5dadfc300d5322, type: 2}
-    outSprite: {fileID: -617902692, guid: 36ba90ed1d045e9498f8ccb8ffbe4e8e, type: 3}
-    canTrigger: 0
-  - targetAmount: 50
-    targetNeed: {fileID: 11400000, guid: 4f75a24680cf92d4fbdfec181b252273, type: 2}
-    outSprite: {fileID: -225755932, guid: 36ba90ed1d045e9498f8ccb8ffbe4e8e, type: 3}
-    canTrigger: 0
-  - targetAmount: 10
-    targetNeed: {fileID: 11400000, guid: 4f75a24680cf92d4fbdfec181b252273, type: 2}
-    outSprite: {fileID: 836568656, guid: 36ba90ed1d045e9498f8ccb8ffbe4e8e, type: 3}
-    canTrigger: 0
-  - targetAmount: 5
-    targetNeed: {fileID: 11400000, guid: 8b6890c00275f3148937f18be12912fe, type: 2}
-    outSprite: {fileID: -1034011787, guid: 36ba90ed1d045e9498f8ccb8ffbe4e8e, type: 3}
-    canTrigger: 0
-  - targetAmount: 5
-    targetNeed: {fileID: 11400000, guid: a50603218b97a4e47bc9a321ee36eeba, type: 2}
-    outSprite: {fileID: 819724084, guid: 36ba90ed1d045e9498f8ccb8ffbe4e8e, type: 3}
-    canTrigger: 0
-  - targetAmount: 10
-    targetNeed: {fileID: 11400000, guid: c3f0d22d61e122040a36ee8426cfa584, type: 2}
-    outSprite: {fileID: 1060363079, guid: 36ba90ed1d045e9498f8ccb8ffbe4e8e, type: 3}
-    canTrigger: 0
-  - targetAmount: 10
-    targetNeed: {fileID: 11400000, guid: 1e7897751ea8af449b1f6c5329b30fa7, type: 2}
-    outSprite: {fileID: 1316744764, guid: 36ba90ed1d045e9498f8ccb8ffbe4e8e, type: 3}
-    canTrigger: 0
 --- !u!114 &1587867084
 MonoBehaviour:
   m_ObjectHideFlags: 0

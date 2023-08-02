@@ -19,6 +19,12 @@ public enum ItemType
     Ride
 }
 
+public enum EffectType
+{
+    Buff,
+    Debuff
+}
+
 public enum GearType
 {
     GearBody,

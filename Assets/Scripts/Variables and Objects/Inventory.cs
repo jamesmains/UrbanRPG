@@ -180,6 +180,22 @@ using UnityEngine;
             return v;
         }
         
+        [Button]
+        public void SortIventoryByEmptySlots()
+        {
+            for (int i = 0; i < InventorySlotLimit.Value; i++)
+            {
+                var targetItem = InventoryItems[i].Item; 
+                if (targetItem == null) continue;
+                for (int j = 0; j < InventorySlotLimit.Value; j++)
+                {
+                    if (InventoryItems[j].Item != null) continue;
+                    TrySwapItem(i,j,this);
+                }
+            }
+            SaveInventory();
+        }
+        
         [FoldoutGroup("Saving and Loading")][Button]
         public void SaveInventory()
         {

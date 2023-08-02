@@ -107,6 +107,7 @@ public class GameEvents : MonoBehaviour
     // Skills & Needs
     public static i302Event OnLevelUp = new();
     public static i302Event OnGainExperience = new();
+    public static i302Event OnPassout = new();
     public static i302Event<Sprite> OnNeedDecayTrigger = new();
     
     // Dialogue
