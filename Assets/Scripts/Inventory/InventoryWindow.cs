@@ -17,7 +17,7 @@ public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,I
     [field: SerializeField, FoldoutGroup("Toggles")] public bool removeOnly {get; private set;}
     [field: SerializeField, FoldoutGroup("Toggles")] public bool restrictByItemType {get; private set;}
     [field: SerializeField, FoldoutGroup("Toggles")] public bool ignoreScrollInput {get; private set;}
-    [ShowIf("restrictByItemType")] public ItemType itemTypeRestriction;
+    [ShowIf("restrictByItemType")] public List<ItemTypeListItem> allowedTypes = new();
 
     private bool flaggedToUpdate;
     private readonly List<GameObject> InventorySlots = new();
@@ -75,7 +75,9 @@ public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,I
         {
             var itemData = inventory.InventoryItems[i];
             var slot = InventorySlots[i].GetComponent<InventorySlot>();
-            if (restrictByItemType && inventory.InventoryItems[i].Item != null &&inventory.InventoryItems[i].Item.ItemType != itemTypeRestriction)
+            
+            bool hasAllowedItemType = allowedTypes.Any(o => itemData.Item == null || o.Type == itemData.Item.ItemType);
+            if ((restrictByItemType && !hasAllowedItemType) || inventory.InventoryItems[i].Item == null )
             {
                 itemData = new InventoryItemData(null, 0, -1);
                 slot.Disable();
@@ -110,4 +112,10 @@ public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,I
     {
         
     }
+}
+
+[Serializable]
+public class ItemTypeListItem
+{
+    public ItemType Type;
 }

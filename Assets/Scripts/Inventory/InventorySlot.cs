@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -95,7 +97,7 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
     {
         if (inventoryItemData.Item is Gear item && inventoryItemData != storedItemData && origin.restrictByItemType)
         {
-            if (inventoryItemData.Item.ItemType == origin.itemTypeRestriction)
+            if ( !HasAllowedItemType(origin,inventoryItemData.Item))
             {
                 foreach (var effect in item.GearEffects)
                 {
@@ -201,8 +203,7 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         InventoryWindow hisWindow = his.parentInventoryWindow;
 
         if (hisWindow.removeOnly) return;
-        if(hisWindow.restrictByItemType &&
-           hisWindow.itemTypeRestriction != storedItemData.Item.ItemType)
+        if(hisWindow.restrictByItemType && !HasAllowedItemType(hisWindow))
         {
             return;
         }
@@ -223,8 +224,7 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
 
     private void SwapItemStacks(InventoryWindow hisWindow, int hisIndex)
     {
-        if (hisWindow.restrictByItemType &&
-            hisWindow.itemTypeRestriction != storedItemData.Item.ItemType)
+        if (hisWindow.restrictByItemType && !HasAllowedItemType(hisWindow))
         {
             return;
         }
@@ -249,8 +249,7 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
     
     private void TryMoveItemToInventoryWindow(InventoryWindow targetWindow, int amount)
     {
-        if ((targetWindow.restrictByItemType &&
-            targetWindow.itemTypeRestriction != storedItemData.Item.ItemType) || targetWindow.removeOnly)
+        if ((targetWindow.restrictByItemType && !HasAllowedItemType(targetWindow)) || targetWindow.removeOnly)
         {
             return;
         }
@@ -261,8 +260,7 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
 
     private void TryGetItemFromInventoryWindow(InventoryWindow targetWindow, int amount)
     {
-        if (targetWindow.restrictByItemType &&
-            targetWindow.itemTypeRestriction != storedItemData.Item.ItemType)
+        if (targetWindow.restrictByItemType && !HasAllowedItemType(targetWindow))
         {
             return;
         }
@@ -272,6 +270,18 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         targetWindow.inventory.TryRemoveItemAt(i,amount - overflow);
     }
 
+    private bool HasAllowedItemType(InventoryWindow targetWindow)
+    {
+        if (storedItemData.Item == null) return false;
+        return targetWindow.allowedTypes.Any(o => o.Type == storedItemData.Item.ItemType);
+    }
+
+    private bool HasAllowedItemType(InventoryWindow targetWindow, Item targetItem)
+    {
+        if (targetItem == null) return false;
+        return targetWindow.allowedTypes.Any(o => o.Type == targetItem.ItemType);
+    }
+    
     public void ToggleHighlight(bool state)
     {
         frameDisplay.color = state ? highlightedColor : normalColor;
@@ -300,7 +310,11 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
 
         if (storedItemData.Item != null)
         {
-            GameEvents.OnShowTooltip.Raise(storedItemData.Item.Name);
+            string n = storedItemData.Item.Name;
+            string t = storedItemData.Item.ItemType.ToString();
+            string d = storedItemData.Item.Description;
+            string tooltipMessage = $"{n}\n{t}\n{d}";
+            GameEvents.OnShowTooltip.Raise(tooltipMessage);
         }
     }
 

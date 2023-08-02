@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.40614277, g: 0.50788087, b: 0.14078341, a: 1}
+  m_IndirectSpecularColor: {r: 0.06739187, g: 0.43833515, b: 0.92638314, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -79559,7 +79559,10 @@ MonoBehaviour:
   <removeOnly>k__BackingField: 0
   <restrictByItemType>k__BackingField: 0
   <ignoreScrollInput>k__BackingField: 0
-  itemTypeRestriction: 0
+  allowedTypes: []
+  test:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &305940883780714667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80458,7 +80461,11 @@ MonoBehaviour:
   <removeOnly>k__BackingField: 0
   <restrictByItemType>k__BackingField: 1
   <ignoreScrollInput>k__BackingField: 1
-  itemTypeRestriction: 2
+  allowedTypes:
+  - Type: 2
+  test:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1276155091924947316
 GameObject:
   m_ObjectHideFlags: 0
@@ -83791,7 +83798,10 @@ MonoBehaviour:
   <removeOnly>k__BackingField: 0
   <restrictByItemType>k__BackingField: 0
   <ignoreScrollInput>k__BackingField: 0
-  itemTypeRestriction: 0
+  allowedTypes: []
+  test:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &6825336289771606839
 GameObject:
   m_ObjectHideFlags: 0
@@ -84016,7 +84026,10 @@ MonoBehaviour:
   <removeOnly>k__BackingField: 0
   <restrictByItemType>k__BackingField: 0
   <ignoreScrollInput>k__BackingField: 0
-  itemTypeRestriction: 0
+  allowedTypes: []
+  test:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!222 &7320204763874815801
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -84316,8 +84329,11 @@ MonoBehaviour:
   <isLocked>k__BackingField: 1
   <removeOnly>k__BackingField: 0
   <restrictByItemType>k__BackingField: 0
-  <ignoreScrollInput>k__BackingField: 0
-  itemTypeRestriction: 0
+  <ignoreScrollInput>k__BackingField: 1
+  allowedTypes: []
+  test:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!224 &7830448949800305388
 RectTransform:
   m_ObjectHideFlags: 0
