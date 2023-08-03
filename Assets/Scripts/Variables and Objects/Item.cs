@@ -12,7 +12,7 @@ public class Item : SerializedScriptableObject
 {
     [FoldoutGroup("Details")][field: SerializeField,PreviewField] public Sprite Sprite { get; private set; }
     [FoldoutGroup("Details")][field: SerializeField] public string Name { get; protected set; }
-    [FoldoutGroup("Details")][field: SerializeField] public string Description { get; private set; }
+    [FoldoutGroup("Details")][field: SerializeField,TextArea] public string Description { get; private set; }
     [FoldoutGroup("Data")][field: SerializeField] public ItemType ItemType { get; protected set; }
     [FoldoutGroup("Data"),Tooltip("Buy,Sell")][field: SerializeField] public Vector2 Value { get; private set; }
     [FoldoutGroup("Data")][field: SerializeField] public bool IsConsumable { get; private set; }

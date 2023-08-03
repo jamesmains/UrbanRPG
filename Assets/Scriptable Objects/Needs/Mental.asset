@@ -16,5 +16,6 @@ MonoBehaviour:
   Description: You must take care of yourself, both inside and out!
   Icon: {fileID: -440709802, guid: 36ba90ed1d045e9498f8ccb8ffbe4e8e, type: 3}
   IsDepleted: 0
-  DecayRate: 1
-  value: 1.7320668
+  CanCausePassout: 0
+  DecayRate: 0.25
+  value: 72.81855

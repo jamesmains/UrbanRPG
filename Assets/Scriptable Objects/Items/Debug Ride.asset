@@ -59,8 +59,10 @@ MonoBehaviour:
       Data: 
   <Sprite>k__BackingField: {fileID: -97898811, guid: 85a163205c7fbe84bba9882d79159d12, type: 3}
   <Name>k__BackingField: Skateboard
-  <Description>k__BackingField: 
-  <ItemType>k__BackingField: 2
+  <Description>k__BackingField: 'For going REAL fast!
+
+    125% Movement Speed'
+  <ItemType>k__BackingField: 4
   <Value>k__BackingField: {x: 0, y: 0}
   <IsConsumable>k__BackingField: 0
   <IsIdentified>k__BackingField: 0

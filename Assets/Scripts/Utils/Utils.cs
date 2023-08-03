@@ -14,7 +14,9 @@ public enum ActivityType
 
 public enum ItemType
 {
-    UNDEFINED,
+    Junk,
+    Item,
+    Tool,
     Quest,
     Ride
 }

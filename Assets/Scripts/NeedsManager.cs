@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class NeedsManager : MonoBehaviour
 {
+    [SerializeField] private bool canPassOut = true; // Todo flag as true for build, For debugging only
     [SerializeField] private Need[] playerNeeds;
     [SerializeField] private SceneTransition hospitalScene;
     [FoldoutGroup("Events")][SerializeField] private List<NeedsTriggerEvent> triggerEvents = new();
@@ -14,7 +15,7 @@ public class NeedsManager : MonoBehaviour
     
     private void PassOut()
     {
-        if (passedOut) return;
+        if (passedOut || !canPassOut) return;
         passedOut = true;
         GameEvents.OnSendGenericMessage.Raise("You passed out...");
         Global.PlayerLock++;
@@ -35,13 +36,13 @@ public class NeedsManager : MonoBehaviour
     
     void Update()
     {
-        if (passedOut) return;
-        for (int i = 0; i < playerNeeds.Length; i++)
+        if (passedOut || Global.PlayerLock > 0) return;
+        foreach (var need in playerNeeds)
         {
-            playerNeeds[i].Value -= Time.deltaTime * playerNeeds[i].DecayRate;
+            need.Value -= Time.deltaTime * need.DecayRate * TimeManager.TimeMultiplier;
             foreach (var e in triggerEvents)
             {
-                if (playerNeeds[i] != e.targetNeed) continue;
+                if (need != e.targetNeed) continue;
                 if (e.targetNeed.Value <= e.targetAmount && e.canTrigger)
                 {
                     e.canTrigger = false;
@@ -52,7 +53,7 @@ public class NeedsManager : MonoBehaviour
                     e.canTrigger = true;
                 }
             }
-            if(playerNeeds[i].IsDepleted && playerNeeds[i].CanCausePassout)
+            if(need.IsDepleted && need.CanCausePassout)
                 PassOut();
         }
     }

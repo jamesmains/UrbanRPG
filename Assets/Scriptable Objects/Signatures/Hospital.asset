@@ -9,13 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27c71476840383f40847b957f53c2c3e, type: 3}
-  m_Name: Fun
+  m_Script: {fileID: 11500000, guid: 17352b886108db947a2759f784da250b, type: 3}
+  m_Name: Hospital
   m_EditorClassIdentifier: 
-  Name: Fun
-  Description: Get out there and party!
-  Icon: {fileID: 200210789, guid: 36ba90ed1d045e9498f8ccb8ffbe4e8e, type: 3}
-  IsDepleted: 0
-  CanCausePassout: 0
-  DecayRate: 0.25
-  value: 82.33191
+  TargetScene: The Lab
+  SpawnLocation: {x: 25.75, y: 0.4, z: -1.5}

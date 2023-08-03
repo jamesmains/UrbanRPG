@@ -35,10 +35,12 @@ MonoBehaviour:
       Data: 
   <Sprite>k__BackingField: {fileID: 1799902676, guid: 85a163205c7fbe84bba9882d79159d12, type: 3}
   <Name>k__BackingField: Computer Part
-  <Description>k__BackingField: 
+  <Description>k__BackingField: Looks busted...
   <ItemType>k__BackingField: 0
-  <SellValue>k__BackingField: 14444
-  <BuyValue>k__BackingField: 50000
+  <Value>k__BackingField: {x: 0, y: 0}
   <IsConsumable>k__BackingField: 0
-  amount: 0
+  <IsIdentified>k__BackingField: 0
+  OnPickupItem:
+    m_PersistentCalls:
+      m_Calls: []
   <StackLimit>k__BackingField: 100

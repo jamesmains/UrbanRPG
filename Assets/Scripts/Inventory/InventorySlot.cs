@@ -35,6 +35,7 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         GameEvents.OnMouseScroll += TryMoveItemToOtherOpenWindow;
         GameEvents.OnAltMouseButtonUp += delegate
         {
+            if (Global.PlayerLock > 0) return;
             if (splitting)
             {
                 tryingToSplit = false;
@@ -43,7 +44,8 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
             }
             tryingToSplit = false;
             splitting = false;
-            TryConsumeItem();
+            
+                TryConsumeItem();
         };
         GameEvents.OnAltMouseButtonDown += delegate
         {
@@ -60,6 +62,7 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         GameEvents.OnMouseScroll -= TryMoveItemToOtherOpenWindow;
         GameEvents.OnAltMouseButtonUp -= delegate
         {
+            if (Global.PlayerLock > 0) return;
             if (splitting)
             {
                 tryingToSplit = false;

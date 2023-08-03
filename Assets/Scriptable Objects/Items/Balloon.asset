@@ -121,10 +121,11 @@ MonoBehaviour:
       Data: 
   <Sprite>k__BackingField: {fileID: -524268504, guid: 85a163205c7fbe84bba9882d79159d12, type: 3}
   <Name>k__BackingField: Balloon
-  <Description>k__BackingField: 
-  <ItemType>k__BackingField: 0
+  <Description>k__BackingField: Happy Henry's Helium House brand
+  <ItemType>k__BackingField: 1
   <Value>k__BackingField: {x: 0, y: 0}
   <IsConsumable>k__BackingField: 1
+  <IsIdentified>k__BackingField: 0
   OnPickupItem:
     m_PersistentCalls:
       m_Calls: []

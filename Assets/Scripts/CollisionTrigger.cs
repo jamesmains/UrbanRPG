@@ -12,9 +12,23 @@ public class CollisionTrigger : MonoBehaviour
     // Todo allow onExit events
     // Todo allow onStay events
     // Todo allow to mark entities and not allow that specific one to invoke the events
-    
+
+    [SerializeField] private bool destroyAfterSomeTime;
+    [SerializeField, ShowIf("destroyAfterSomeTime")] private float destroyTimer;
     [SerializeField] protected string targetTag;
     [SerializeField, PropertyOrder(100)] protected UnityEvent onEnter;
+
+    private void Awake()
+    {
+        if (destroyAfterSomeTime)
+            StartCoroutine(DestroyDelay());
+    }
+
+    IEnumerator DestroyDelay()
+    {
+        yield return new WaitForSeconds(destroyTimer);
+        Destroy(this.gameObject);
+    }
 
     private void OnTriggerEnter(Collider other)
     {

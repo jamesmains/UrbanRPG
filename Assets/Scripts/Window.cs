@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -89,7 +90,8 @@ public class Window : MonoBehaviour, UIWindow
 
         foreach (var window in windowsToHide)
         {
-            window.Hide();
+            if(window!= null)
+                window.Hide();
         }
     }
 }

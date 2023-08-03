@@ -36,10 +36,10 @@ MonoBehaviour:
   <Sprite>k__BackingField: {fileID: -687874475, guid: 85a163205c7fbe84bba9882d79159d12, type: 3}
   <Name>k__BackingField: Mysterious Object
   <Description>k__BackingField: 
-  <ItemType>k__BackingField: 1
-  <SellValue>k__BackingField: 0
-  <BuyValue>k__BackingField: 0
+  <ItemType>k__BackingField: 3
+  <Value>k__BackingField: {x: 0, y: 0}
   <IsConsumable>k__BackingField: 0
+  <IsIdentified>k__BackingField: 0
   OnPickupItem:
     m_PersistentCalls:
       m_Calls:
@@ -55,5 +55,4 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  amount: 0
   <StackLimit>k__BackingField: 999
