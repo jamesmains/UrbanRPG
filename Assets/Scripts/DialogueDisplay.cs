@@ -43,7 +43,6 @@ public class DialogueDisplay : Window
 
     protected override void OnDisable()
     {
-        Debug.Log("DISABLE");
         base.OnDisable();
         GameEvents.StartDialogueEvent -= StartDialogue;
         GameEvents.OnInteractButtonDown -= delegate
@@ -68,7 +67,6 @@ public class DialogueDisplay : Window
 
     public void StartDialogue(Dialogue incomingDialogue)
     {
-        Debug.Log(incomingDialogue);
         if (!incomingDialogue.IsConditionMet()) return;
         displayText.text = "";
         Global.PlayerLock++;

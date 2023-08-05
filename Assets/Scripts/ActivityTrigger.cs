@@ -81,7 +81,6 @@ public class ActivityTrigger : SerializedMonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log($"Gameobject: {gameObject.name}, Is Active: {isActive}, ActivityLock: {ActivityLock}, PlayerLock: {Global.PlayerLock}");
         if (isActive || ActivityLock || Global.PlayerLock > 0) return;
         if (other.CompareTag("Player"))
         {
