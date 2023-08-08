@@ -37,7 +37,7 @@ MonoBehaviour:
   <Name>k__BackingField: Computer Part
   <Description>k__BackingField: Looks busted...
   <ItemType>k__BackingField: 0
-  <Value>k__BackingField: {x: 0, y: 0}
+  <Value>k__BackingField: {x: 25, y: 10}
   <IsConsumable>k__BackingField: 0
   <IsIdentified>k__BackingField: 0
   OnPickupItem:

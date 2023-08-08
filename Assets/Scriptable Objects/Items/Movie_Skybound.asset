@@ -38,8 +38,10 @@ MonoBehaviour:
   <Description>k__BackingField: 'A movie about an old man and an unlikely young companion
     as they... It''s Up. It''s a parody of Up. TODO: replace this text'
   <ItemType>k__BackingField: 0
-  <SellValue>k__BackingField: 500
-  <BuyValue>k__BackingField: 1500
+  <Value>k__BackingField: {x: 2, y: 1}
   <IsConsumable>k__BackingField: 0
-  amount: 0
+  <IsIdentified>k__BackingField: 0
+  OnPickupItem:
+    m_PersistentCalls:
+      m_Calls: []
   <StackLimit>k__BackingField: 100

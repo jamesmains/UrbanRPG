@@ -112,9 +112,12 @@ public class GameEvents : MonoBehaviour
     
     // Dialogue
     public static i302Event<Dialogue> StartDialogueEvent = new();
-    
+
+    // Shop
+    public static i302Event<Shop> OnOpenShop = new();
+    public static i302Event OnCartQuantityChange = new();
+
     // Unsorted
     public static i302Event OnPlayerMoved = new();
-    public static i302Event OnCartQuantityChange = new();
     public static i302Event<UnityAction> OnCreateMessageBox = new();
 }

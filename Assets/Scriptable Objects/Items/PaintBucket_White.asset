@@ -37,8 +37,10 @@ MonoBehaviour:
   <Name>k__BackingField: Paint Bucket (White)
   <Description>k__BackingField: 
   <ItemType>k__BackingField: 0
-  <SellValue>k__BackingField: 1
-  <BuyValue>k__BackingField: 5
+  <Value>k__BackingField: {x: 3, y: 1}
   <IsConsumable>k__BackingField: 0
-  amount: 34
+  <IsIdentified>k__BackingField: 0
+  OnPickupItem:
+    m_PersistentCalls:
+      m_Calls: []
   <StackLimit>k__BackingField: 100

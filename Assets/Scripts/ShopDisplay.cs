@@ -18,21 +18,31 @@ public class ShopDisplay : Window
     [SerializeField] private Shop debugShop;
     private Shop currentShop;
 
-    private void Awake()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         for (int i = 0; i < 25; i++)
         {
             shopItemDisplays.Add(Instantiate(shopItemDisplayObject,shopItemDisplayObjectContainer).GetComponent<ShopItemDisplay>());
             shopItemDisplays[i].inCartAmount = 0;
             shopItemDisplays[i].gameObject.SetActive(false);
         }
-        //OpenShop(debugShop);
+        GameEvents.OnOpenShop += OpenShop;
+        GameEvents.OnCartQuantityChange += UpdateCartCost;
     }
 
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        GameEvents.OnOpenShop -= OpenShop;
+        GameEvents.OnCartQuantityChange -= UpdateCartCost;
+    }
+    
     public void OpenShop(Shop incomingShop)
     {
         Show();
         currentShop = incomingShop;
+        Global.PlayerLock++;
         cartCostVariable.Value = 0;
         cartCostText.text = cartCostVariable.Value.ToString();
         PopulateShopDisplay();
@@ -84,11 +94,13 @@ public class ShopDisplay : Window
         GameEvents.OnUpdateInventory.Raise();
     }
 
-    public void CancelCheckout()
+    public void CloseShop()
     {
         foreach (var shopItemDisplay in shopItemDisplays)
         {
             shopItemDisplay.AdjustCartAmount(-999);
         }
+        Global.PlayerLock--;
+        Hide();
     }
 }

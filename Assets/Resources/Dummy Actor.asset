@@ -17,7 +17,7 @@ MonoBehaviour:
   hairColor: {r: 0.8584906, g: 0.43407354, b: 0.3361072, a: 1}
   reputationTiers: []
   acceptedGifts: []
-  talkSfx: {fileID: 0}
+  talkSfx: {fileID: 8300000, guid: 59e75ee3cc7af674bab867f33d97a5f4, type: 3}
   currentReputation: -1
   GearBody: {fileID: 11400000, guid: 0b120cc8384aa7e42bb88af7a3459bac, type: 2}
   GearShoes: {fileID: 11400000, guid: f10075e1397e2954da1f89dd034c93e3, type: 2}

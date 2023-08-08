@@ -16,6 +16,7 @@ public class NeedsManager : MonoBehaviour
     private void PassOut()
     {
         if (passedOut || !canPassOut) return;
+        print("Passed out");
         passedOut = true;
         GameEvents.OnSendGenericMessage.Raise("You passed out...");
         Global.PlayerLock++;

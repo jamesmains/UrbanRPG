@@ -71,6 +71,8 @@ public class TimeManager : MonoBehaviour
         if (DayNightPreset == null)
             return;
 
+        if (Global.PlayerLock > 0) TimeMultiplier = 0;
+        
         TimeOfDay = TimeOfDay + (Time.deltaTime * TimeMultiplier);
         TimeRemainingInDay -= Time.deltaTime * TimeMultiplier;
         currentTimeVariable.SetValue(TimeOfDay);
