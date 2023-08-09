@@ -5,7 +5,7 @@ using I302.Manu;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Shop", menuName = "Signature/Shop")]
+[CreateAssetMenu(fileName = "Shop", menuName = "Signatures/Shop")]
 public class Shop : SerializedScriptableObject
 {
     // TODO: Add save / load function to capture how many items are left between play sessions

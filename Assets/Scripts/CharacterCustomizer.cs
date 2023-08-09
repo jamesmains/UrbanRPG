@@ -134,3 +134,9 @@ public class CharacterCustomizer : MonoBehaviour
         // currentActor.GearAccessory2 = accessory1GearOptions[accessory1Index];
     }
 }
+
+[Serializable]
+public class GearOption
+{
+    
+}

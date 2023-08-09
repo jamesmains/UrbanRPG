@@ -9,6 +9,7 @@ using UnityEngine.Events;
 
 public class ActivityTrigger : SerializedMonoBehaviour
 {
+    [SerializeField, FoldoutGroup("Details"),TextArea] private string description;
     [ReadOnly] public bool isActive;
     [OdinSerialize] public List<ActivityAction> Activities = new();
 
