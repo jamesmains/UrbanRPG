@@ -6,7 +6,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "Activity Signature", menuName = "Signatures/Activity Signature")]
+[CreateAssetMenu(fileName = "Activity", menuName = "Signatures/Activity")]
 public class Activity : SerializedScriptableObject
 {
     // [FoldoutGroup("Activity Details"),PropertyOrder(70)] public ActionType actionType;

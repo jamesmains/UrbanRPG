@@ -37,13 +37,13 @@ public class Window : MonoBehaviour, UIWindow
         Hide();
     }
 
-    private void OpenWindow(string openingWindow)
+    private void OpenWindow(string openingWindow) // Called via event
     {
         if(windowName == openingWindow)
             Show();
     }
     
-    private void CloseWindow(string closingWindow)
+    private void CloseWindow(string closingWindow) // Called via event
     {
         if(windowName == closingWindow)
             Hide();

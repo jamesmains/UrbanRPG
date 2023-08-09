@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Actor", menuName = "Dialogue/Actor")]
+[CreateAssetMenu(fileName = "Actor", menuName = "Signatures/Actor")]
 public class Actor : ScriptableObject
 {
     public string actorName;

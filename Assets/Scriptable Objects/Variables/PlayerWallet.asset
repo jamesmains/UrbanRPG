@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PlayerWallet
   m_EditorClassIdentifier: 
   DeveloperDescription: Money Money Money ar ar ar ar
-  Value: 100
+  Value: 10000
   ChainVariable: {fileID: 0}
   MaxValue: 0

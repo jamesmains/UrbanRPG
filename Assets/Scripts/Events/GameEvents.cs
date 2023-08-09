@@ -62,6 +62,8 @@ public class GameEvents : MonoBehaviour
     // UI Events
     public static i302Event OnMouseEnter = new();
     public static i302Event OnMouseExit = new();
+    public static i302Event ShowPlayerHud = new();
+    public static i302Event HidePlayerHud = new();
 
     // Activity Events
     public static i302Event OpenCalendarDayDetails = new();

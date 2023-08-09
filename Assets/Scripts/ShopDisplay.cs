@@ -15,8 +15,7 @@ public class ShopDisplay : Window
     [SerializeField] private IntVariable playerWalletVariable;
     [SerializeField] private List<ShopItemDisplay> shopItemDisplays = new();
     [SerializeField] private RectTransform shopItemDisplayObjectContainer;
-    [SerializeField] private Shop debugShop;
-    private Shop currentShop;
+    [SerializeField, ReadOnly] private Shop currentShop;
 
     protected override void OnEnable()
     {
@@ -40,11 +39,13 @@ public class ShopDisplay : Window
     
     public void OpenShop(Shop incomingShop)
     {
-        Show();
         currentShop = incomingShop;
         Global.PlayerLock++;
         cartCostVariable.Value = 0;
         cartCostText.text = cartCostVariable.Value.ToString();
+        Show();
+        CloseOtherWindows(this);
+        WindowUtility.OnOpenWindow.Raise("Pockets");
         PopulateShopDisplay();
     }
 
@@ -53,11 +54,13 @@ public class ShopDisplay : Window
         cartCostVariable.Value = 0;
         foreach (var shopItemDisplay in shopItemDisplays)
         {
+            if(!shopItemDisplay.isActiveAndEnabled) continue;
             cartCostVariable.Value += shopItemDisplay.GetCartCost();
         }
         
         foreach (var shopItemDisplay in shopItemDisplays)
         {
+            if(!shopItemDisplay.isActiveAndEnabled) continue;
             shopItemDisplay.UpdateItemButtons();
         }
         cartCostText.text = cartCostVariable.Value.ToString();
@@ -75,7 +78,7 @@ public class ShopDisplay : Window
             shopItemDisplays[index].gameObject.SetActive(true);
             
             var i = currentShop.storeItems[index];
-            shopItemDisplays[index].Setup(i, 999);
+            shopItemDisplays[index].Setup(i);
         }
     }
 
@@ -86,9 +89,15 @@ public class ShopDisplay : Window
         foreach (var shopItemDisplay in shopItemDisplays)
         {
             if (shopItemDisplay.inCartAmount == 0) continue;
-            currentShop.targetInventory.TryAddItem(shopItemDisplay.item, shopItemDisplay.inCartAmount);
-            shopItemDisplay.itemQuantity -= shopItemDisplay.inCartAmount;
+            int r = currentShop.targetInventory.TryAddItem(shopItemDisplay.shopItem.item, shopItemDisplay.inCartAmount);
+            shopItemDisplay.itemQuantity -= shopItemDisplay.inCartAmount - r;
+            shopItemDisplay.shopItem.currentQuantity -= shopItemDisplay.inCartAmount - r;
+            playerWalletVariable.Value += (int)shopItemDisplay.shopItem.item.Value.x * r;
             shopItemDisplay.inCartAmount = 0;
+            if (r > 0)
+            {
+                GameEvents.OnSendGenericMessage.Raise("Pockets are full!");
+            }
             shopItemDisplay.AdjustCartAmount(0);
         }
         GameEvents.OnUpdateInventory.Raise();
@@ -98,9 +107,12 @@ public class ShopDisplay : Window
     {
         foreach (var shopItemDisplay in shopItemDisplays)
         {
+            if(!shopItemDisplay.isActiveAndEnabled) continue;
             shopItemDisplay.AdjustCartAmount(-999);
         }
         Global.PlayerLock--;
+        WindowUtility.OnCloseWindow.Raise("Pockets");
         Hide();
+        GameEvents.ShowPlayerHud.Raise();
     }
 }

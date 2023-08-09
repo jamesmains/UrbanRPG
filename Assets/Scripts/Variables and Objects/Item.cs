@@ -7,7 +7,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "Item", menuName = "Items and Inventory/Item")]
+[CreateAssetMenu(fileName = "Item", menuName = "Items/Item")]
 public class Item : SerializedScriptableObject
 {
     [FoldoutGroup("Details")][field: SerializeField,PreviewField] public Sprite Sprite { get; private set; }

@@ -8,7 +8,7 @@ using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Gear", menuName = "Unsorted/Gear")]
+[CreateAssetMenu(fileName = "Gear", menuName = "Items/Gear")]
 public class Gear : Item
 {
     // public GearType GearType;

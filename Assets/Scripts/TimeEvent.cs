@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TimeEvent : SerializedMonoBehaviour
 {
@@ -107,5 +108,15 @@ public class ObjectToggleTimeEffect : TimeEffect
     {
         base.InvokeEffect();
         TargetObject.SetActive(SetState);
+    }
+}
+
+public class InvokeEventTimeEffect : TimeEffect
+{
+    public UnityEvent OnTimeMet;
+    public override void InvokeEffect()
+    {
+        base.InvokeEffect();
+        OnTimeMet.Invoke();
     }
 }

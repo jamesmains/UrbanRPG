@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Skill", menuName = "Player/Skill")]
+[CreateAssetMenu(fileName = "Skill", menuName = "Signature/Skill")]
 public class Skill : ScriptableObject
 {
     [FoldoutGroup("Details")]public string Name;

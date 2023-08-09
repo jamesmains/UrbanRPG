@@ -6,7 +6,7 @@ using I302.Manu;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Quest", menuName = "Questing/Quest")]
+[CreateAssetMenu(fileName = "Quest", menuName = "Signatures/Quest")]
 public class Quest : Activity
 {
     [Title("Quest Settings")]

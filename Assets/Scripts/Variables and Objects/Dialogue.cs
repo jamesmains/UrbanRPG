@@ -7,7 +7,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "Dialogue", menuName = "Dialogue/Dialogue")]
+[CreateAssetMenu(fileName = "Dialogue", menuName = "Signatures/Dialogue")]
 public class Dialogue : SerializedScriptableObject
 {
     [OdinSerialize] public List<DialogueSegment> DialogueSegments = new();

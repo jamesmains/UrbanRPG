@@ -129,4 +129,4 @@ MonoBehaviour:
   OnPickupItem:
     m_PersistentCalls:
       m_Calls: []
-  <StackLimit>k__BackingField: 100
+  <StackLimit>k__BackingField: 2

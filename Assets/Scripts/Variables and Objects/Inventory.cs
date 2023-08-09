@@ -8,7 +8,7 @@ using Sirenix.Utilities;
 using UnityEngine;
 
 
-    [CreateAssetMenu(fileName = "Inventory", menuName = "Items and Inventory/Inventory")]
+    [CreateAssetMenu(fileName = "Inventory", menuName = "Items/Inventory")]
     public class Inventory : ScriptableObject
     {
         [field: SerializeField] public string Name { get; private set; }

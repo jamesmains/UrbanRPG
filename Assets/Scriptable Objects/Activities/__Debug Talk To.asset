@@ -33,7 +33,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  ActivityName: Chit chat
+  ActivityName: Checkout Shop
   ActivityIcon: {fileID: -524268504, guid: 85a163205c7fbe84bba9882d79159d12, type: 3}
   ActivityType: 0
   actionTime: 0

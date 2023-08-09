@@ -15,7 +15,7 @@ public class ShopItemDisplay : MonoBehaviour
     [SerializeField, FoldoutGroup("Display")] private TextMeshProUGUI costText;
     [SerializeField, FoldoutGroup("Display")] private TextMeshProUGUI cartCalculationText;
     [SerializeField, FoldoutGroup("Display")] private Image iconDisplay;
-    [SerializeField, FoldoutGroup("Display")] private TMP_InputField quantityInput;
+    [SerializeField, FoldoutGroup("Display")] private GameObject outOfStockIndicator;
 
     [SerializeField, FoldoutGroup("Display")] private Button decreaseCartAmountButton;
     [SerializeField, FoldoutGroup("Display")] private Button increaseCartAmountButton;
@@ -25,22 +25,23 @@ public class ShopItemDisplay : MonoBehaviour
     [FoldoutGroup("Data")] public int inCartAmount;
     [SerializeField, FoldoutGroup("Data")] private int lastValidInCartAmount;
     [FoldoutGroup("Data")] public int itemQuantity;
-    [FoldoutGroup("Data")] public Item item;
+    [FoldoutGroup("Data")] public ShopItem shopItem;
 
     private void Awake()
     {
         //quantityInput.onValueChanged.AddListener(delegate { SetQuantity(quantityInput); }); 
     }
 
-    public void Setup(Item incomingItem, int quantity)
+    public void Setup(ShopItem incomingItem)
     {
-        item = incomingItem;
-        quantityText.text = quantity.ToString();
-        nameText.text = item.Name;
-        descriptionText.text = item.Description;
-        iconDisplay.sprite = item.Sprite;
-        costText.text = item.Value.x.ToString();
-        itemQuantity = quantity;
+        shopItem = incomingItem;
+        quantityText.text = shopItem.currentQuantity.ToString();
+        nameText.text = shopItem.item.Name;
+        descriptionText.text = shopItem.item.Description;
+        iconDisplay.sprite = shopItem.item.Sprite;
+        costText.text = shopItem.item.Value.x.ToString();
+        itemQuantity = incomingItem.currentQuantity;
+        outOfStockIndicator.SetActive(itemQuantity <= 0);
         AdjustCartAmount(0);
     }
 
@@ -55,7 +56,7 @@ public class ShopItemDisplay : MonoBehaviour
         inCartAmount += changeValue;
         
         
-        if (inCartAmount * item.Value.x > playerWalletVariable.Value)
+        if (inCartAmount * shopItem.item.Value.x > playerWalletVariable.Value)
         {
             inCartAmount = lastValidInCartAmount;
         }
@@ -72,19 +73,22 @@ public class ShopItemDisplay : MonoBehaviour
         }
         else
         {
-            cartCalculationText.text = $"{inCartAmount}\nx{item.Value.x.ToString("n0").TrimStart('0')} =\n{(inCartAmount*item.Value.x):0,000}";
+            cartCalculationText.text = $"{inCartAmount}\nx{shopItem.item.Value.x.ToString("n0").TrimStart('0')} =\n{(inCartAmount*shopItem.item.Value.x):0,000}";
         }
+        
+        quantityText.text = shopItem.currentQuantity.ToString();
+        outOfStockIndicator.SetActive(itemQuantity <= 0);
     }
     
     public int GetCartCost()
     {
-        return inCartAmount * (int)item.Value.x;
+        return inCartAmount * (int)shopItem.item.Value.x;
     }
 
     public void UpdateItemButtons()
     {
         int availableFunds = playerWalletVariable.Value - cartCostVariable.Value;
         decreaseCartAmountButton.interactable = inCartAmount > 0;
-        increaseCartAmountButton.interactable = inCartAmount < itemQuantity && (item.Value.x < availableFunds);
+        increaseCartAmountButton.interactable = inCartAmount < itemQuantity && (shopItem.item.Value.x < availableFunds);
     }
 }

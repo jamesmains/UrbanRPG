@@ -24,8 +24,6 @@ MonoBehaviour:
   storeName: DEBUG STORE
   targetInventory: {fileID: 11400000, guid: 6b47082d2c1a1044bbb6f95ea814d1c4, type: 2}
   storeItems:
-  - {fileID: 11400000, guid: 2953451449f32d844bc49d99f2234bd9, type: 2}
-  - {fileID: 11400000, guid: e4a3e7d384c87bd4db26d8d2dd3dc332, type: 2}
-  - {fileID: 11400000, guid: 68d3257838350b640ba418407854ae2f, type: 2}
-  - {fileID: 11400000, guid: 75d27fc667b25eb48857b74a4117b61a, type: 2}
-  - {fileID: 11400000, guid: 51ff94c96197b5c4199a05e7d75ebf77, type: 2}
+  - item: {fileID: 11400000, guid: 2953451449f32d844bc49d99f2234bd9, type: 2}
+    currentQuantity: 10
+    maxQuantity: 10

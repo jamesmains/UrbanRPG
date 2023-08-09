@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Need", menuName = "Player/Need")]
+[CreateAssetMenu(fileName = "Need", menuName = "Signatures/Need")]
 public class Need : ScriptableObject
 {
     [FoldoutGroup("Details")] public string Name;

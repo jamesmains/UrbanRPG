@@ -176,6 +176,7 @@ public class DialogueDisplay : Window
         Hide();
         Global.PlayerLock--;
         GameEvents.OnEndActivity.Raise();
+        GameEvents.ShowPlayerHud.Raise();
         currentDialogue.EndDialogue();
     }
 }
