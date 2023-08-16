@@ -13,12 +13,9 @@ public class QuestDisplay : FoldoutDisplay
     [SerializeField] private GameObject checkMark;
     private Quest heldQuest;
     private bool hidden;
-    
-    
+
     private string heldQuestDescription;
 
-    
-    
     public void Setup(Quest quest)
     {
         heldQuest = quest;
@@ -48,7 +45,7 @@ public class QuestDisplay : FoldoutDisplay
         questNameText.text = hidden ? "???" : heldQuest.QuestName;
     }
 
-    protected override void OpenFoldout()
+    public override void OpenFoldout()
     {
         questTaskDescriptionText.text = heldQuestDescription;
         base.OpenFoldout();

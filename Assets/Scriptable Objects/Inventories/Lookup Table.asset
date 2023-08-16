@@ -62,16 +62,21 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 1cd2edb4ff8e83a43a8c27a040c887d1, type: 2}
     - {fileID: 11400000, guid: 33aaddbeaa9a547479ae2a2c0d32683b, type: 2}
     - {fileID: 11400000, guid: c30fe999665c4f443a34a6cc29f8a920, type: 2}
+    - {fileID: 11400000, guid: 135b002d19620b245b33116ef625ac34, type: 2}
     - {fileID: 11400000, guid: a80410c8272fe9c4c86136d7a160d3d1, type: 2}
-    - {fileID: 11400000, guid: 8e1217f9233bbee4a97b2e7fde8ef5c4, type: 2}
     - {fileID: 11400000, guid: 2953451449f32d844bc49d99f2234bd9, type: 2}
     - {fileID: 11400000, guid: e4a3e7d384c87bd4db26d8d2dd3dc332, type: 2}
     - {fileID: 11400000, guid: 68d3257838350b640ba418407854ae2f, type: 2}
-    - {fileID: 11400000, guid: 94176e2ad07ea2a4db67cb10c1990258, type: 2}
-    - {fileID: 11400000, guid: 13279af2563825e4d8df835315abb350, type: 2}
+    - {fileID: 11400000, guid: cc6c7d13da00bfb43840609d259d9f09, type: 2}
+    - {fileID: 11400000, guid: e8143ea26df4c4440808c2d5cb3eb988, type: 2}
+    - {fileID: 11400000, guid: d5f254540e2d9e24f92906ad42436159, type: 2}
+    - {fileID: 11400000, guid: a528e363572d6384992ec51efc13e2be, type: 2}
+    - {fileID: 11400000, guid: 52bc168c68858e44293d7a91109c86fc, type: 2}
     - {fileID: 11400000, guid: 75d27fc667b25eb48857b74a4117b61a, type: 2}
-    - {fileID: 11400000, guid: a8dfd3134dabf7d49be79c0df69a3e57, type: 2}
     - {fileID: 11400000, guid: 51ff94c96197b5c4199a05e7d75ebf77, type: 2}
+    - {fileID: 11400000, guid: 2f98313718e2c8f488fb90dbd7f6e2c2, type: 2}
+    - {fileID: 11400000, guid: 934600cb8655a9f46879ef77e9514a6f, type: 2}
+    - {fileID: 11400000, guid: 2548c9d61dba8e94f9c97bc32206eb82, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -90,13 +95,13 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 56
+      Data: 61
     - Name: 
       Entry: 7
       Data: 
     - Name: $k
       Entry: 1
-      Data: Accessory 1
+      Data: Backpack
     - Name: $v
       Entry: 10
       Data: 0
@@ -108,7 +113,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Accessory 2
+      Data: Cool Shades
     - Name: $v
       Entry: 10
       Data: 1
@@ -120,7 +125,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Accessory 3
+      Data: Cooler Shades
     - Name: $v
       Entry: 10
       Data: 2
@@ -192,7 +197,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Body 2
+      Data: Body02
     - Name: $v
       Entry: 10
       Data: 8
@@ -204,7 +209,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Body 3
+      Data: Body03
     - Name: $v
       Entry: 10
       Data: 9
@@ -216,7 +221,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Eyes\Eye01
+      Data: Eye01
     - Name: $v
       Entry: 10
       Data: 10
@@ -228,7 +233,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Eyes\Eye01-Body03
+      Data: Eye01-Body03
     - Name: $v
       Entry: 10
       Data: 11
@@ -240,7 +245,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Eyes\Eye02
+      Data: Eye02
     - Name: $v
       Entry: 10
       Data: 12
@@ -252,7 +257,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Eyes\Eye02-Body03
+      Data: Eye02-Body03
     - Name: $v
       Entry: 10
       Data: 13
@@ -264,7 +269,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Eyes\Eye03
+      Data: Eye03
     - Name: $v
       Entry: 10
       Data: 14
@@ -276,7 +281,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Eyes\Eye03-Body03
+      Data: Eye03-Body03
     - Name: $v
       Entry: 10
       Data: 15
@@ -288,7 +293,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Eyes\Eye04
+      Data: Eye04
     - Name: $v
       Entry: 10
       Data: 16
@@ -300,7 +305,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Eyes\Eye05
+      Data: Eye05
     - Name: $v
       Entry: 10
       Data: 17
@@ -312,7 +317,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Hairstyles\Hair01
+      Data: Hair01
     - Name: $v
       Entry: 10
       Data: 18
@@ -324,7 +329,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Hairstyles\Hair02
+      Data: Hair02
     - Name: $v
       Entry: 10
       Data: 19
@@ -336,7 +341,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Hairstyles\Hair03
+      Data: Hair03
     - Name: $v
       Entry: 10
       Data: 20
@@ -348,7 +353,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Hairstyles\Hair04
+      Data: Hair04
     - Name: $v
       Entry: 10
       Data: 21
@@ -360,7 +365,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Hairstyles\Hair05
+      Data: Hair05
     - Name: $v
       Entry: 10
       Data: 22
@@ -372,7 +377,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Hairstyles\Hair06
+      Data: Hair06
     - Name: $v
       Entry: 10
       Data: 23
@@ -384,7 +389,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Hairstyles\Hair07
+      Data: Hair07
     - Name: $v
       Entry: 10
       Data: 24
@@ -396,7 +401,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Mouth\Mouth01
+      Data: Mouth01
     - Name: $v
       Entry: 10
       Data: 25
@@ -408,7 +413,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Mouth\Mouth02
+      Data: Mouth02
     - Name: $v
       Entry: 10
       Data: 26
@@ -420,7 +425,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Mouth\Mouth03
+      Data: Mouth03
     - Name: $v
       Entry: 10
       Data: 27
@@ -432,7 +437,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Pants\Pants01
+      Data: Pants01
     - Name: $v
       Entry: 10
       Data: 28
@@ -444,7 +449,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Pants\Pants02
+      Data: Pants02
     - Name: $v
       Entry: 10
       Data: 29
@@ -456,7 +461,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Pants\Pants03
+      Data: Pants03
     - Name: $v
       Entry: 10
       Data: 30
@@ -468,7 +473,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Pants\Pants04
+      Data: Pants04
     - Name: $v
       Entry: 10
       Data: 31
@@ -480,7 +485,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Pants\Pants05
+      Data: Pants05
     - Name: $v
       Entry: 10
       Data: 32
@@ -492,7 +497,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Pants\Pants06
+      Data: Pants06
     - Name: $v
       Entry: 10
       Data: 33
@@ -504,7 +509,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Pants\Pants07
+      Data: Pants07
     - Name: $v
       Entry: 10
       Data: 34
@@ -516,7 +521,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Shirts\Shirt01
+      Data: Shirt01
     - Name: $v
       Entry: 10
       Data: 35
@@ -528,7 +533,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Shirts\Shirt02
+      Data: Shirt02
     - Name: $v
       Entry: 10
       Data: 36
@@ -540,7 +545,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Shirts\Shirt03
+      Data: Shirt03
     - Name: $v
       Entry: 10
       Data: 37
@@ -552,7 +557,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Shirts\Shirt04
+      Data: Shirt04
     - Name: $v
       Entry: 10
       Data: 38
@@ -564,7 +569,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Shirts\Shirt05
+      Data: Shirt05
     - Name: $v
       Entry: 10
       Data: 39
@@ -576,7 +581,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Shirts\Shirt06
+      Data: Shirt06
     - Name: $v
       Entry: 10
       Data: 40
@@ -588,7 +593,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Shirts\Shirt07
+      Data: Shirt07
     - Name: $v
       Entry: 10
       Data: 41
@@ -600,7 +605,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Shoes\Shoes01
+      Data: Shoes01
     - Name: $v
       Entry: 10
       Data: 42
@@ -612,7 +617,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Shoes\Shoes02
+      Data: Shoes02
     - Name: $v
       Entry: 10
       Data: 43
@@ -624,7 +629,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Shoes\Shoes03
+      Data: Shoes03
     - Name: $v
       Entry: 10
       Data: 44
@@ -636,7 +641,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Male\Shoes\Shoes04
+      Data: Shoes04
     - Name: $v
       Entry: 10
       Data: 45
@@ -648,7 +653,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Restore Hunger
+      Data: Removes Hunger
     - Name: $v
       Entry: 10
       Data: 46
@@ -660,7 +665,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: EMPTY
+      Data: Restore Hunger
     - Name: $v
       Entry: 10
       Data: 47
@@ -708,7 +713,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Swift Skateboard
+      Data: DEBUG Give Debuff
     - Name: $v
       Entry: 10
       Data: 51
@@ -720,7 +725,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Skateboard
+      Data: Miracle Pill
     - Name: $v
       Entry: 10
       Data: 52
@@ -732,7 +737,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Skybound
+      Data: DEBUG Remove Debuff
     - Name: $v
       Entry: 10
       Data: 53
@@ -744,7 +749,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: SomeItem
+      Data: Test Ride
     - Name: $v
       Entry: 10
       Data: 54
@@ -756,10 +761,70 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Spray Paint
+      Data: 
     - Name: $v
       Entry: 10
       Data: 55
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Skybound
+    - Name: $v
+      Entry: 10
+      Data: 56
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Paint Bucket (White)
+    - Name: $v
+      Entry: 10
+      Data: 57
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Mysterious Object
+    - Name: $v
+      Entry: 10
+      Data: 58
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: '"Red" Mahogany'
+    - Name: $v
+      Entry: 10
+      Data: 59
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Red Mahogany
+    - Name: $v
+      Entry: 10
+      Data: 60
     - Name: 
       Entry: 8
       Data: 

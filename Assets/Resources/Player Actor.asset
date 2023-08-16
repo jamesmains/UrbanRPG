@@ -14,12 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actorName: 
   actionIcon: {fileID: 0}
-  hairColor: {r: 0.8584906, g: 0.43407354, b: 0.3361072, a: 1}
-  GearBody: {fileID: 11400000, guid: 0b120cc8384aa7e42bb88af7a3459bac, type: 2}
-  GearShoes: {fileID: 0}
-  GearPants: {fileID: 11400000, guid: cb669e295a57b0d4f886bab531a8a367, type: 2}
-  GearMouth: {fileID: 0}
-  GearEyes: {fileID: 11400000, guid: 7be92e30e0c8bda479c34433d3dc3669, type: 2}
-  GearShirt: {fileID: 11400000, guid: e313d3be786598244b7d8fd0e52743cd, type: 2}
-  GearHair: {fileID: 11400000, guid: 060521d0dc55fbc4d821e756959ccd92, type: 2}
-  GearAccessory: {fileID: 0}
+  hairColor: {r: 0.6173806, g: 0.20268014, b: 0.20268014, a: 1}
+  reputationTiers: []
+  acceptedGifts: []
+  talkSfx: {fileID: 0}
+  currentReputation: -1
+  EquippedGear:
+  - gear: {fileID: 11400000, guid: 993906421f2e78545b2afdbe36af520e, type: 2}
+    type: 0
+  - gear: {fileID: 11400000, guid: f10075e1397e2954da1f89dd034c93e3, type: 2}
+    type: 1
+  - gear: {fileID: 11400000, guid: 2183973c42644ed419f3dbda552ea09a, type: 2}
+    type: 2
+  - gear: {fileID: 11400000, guid: c2b9ef5227dbbd6409f9e704c9c6730c, type: 2}
+    type: 3
+  - gear: {fileID: 11400000, guid: e45e282df72f0c946b1d623be46f7b3b, type: 2}
+    type: 4
+  - gear: {fileID: 0}
+    type: 5
+  - gear: {fileID: 11400000, guid: 060521d0dc55fbc4d821e756959ccd92, type: 2}
+    type: 6
+  - gear: {fileID: 11400000, guid: 301c46efb6cb3d14b9998686fe1f1959, type: 2}
+    type: 7

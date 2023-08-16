@@ -39,7 +39,7 @@ public class MainMenuManager : MonoBehaviour
             tempData.LoadData(slotName);
             Instantiate(saveSlotListObject, saveSlotListObjectContainer)
                 .GetComponent<SaveSlotDisplay>()
-                .Setup(tempData.characterName,tempData.cityName,Actions);
+                .Setup(tempData.actorName,tempData.cityName,Actions);
             remainingSaveSlots--;
         }
 

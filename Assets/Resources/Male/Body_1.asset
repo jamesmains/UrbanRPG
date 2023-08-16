@@ -12,12 +12,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a29426f001bacb45b19df24724877ba, type: 3}
   m_Name: Body_1
   m_EditorClassIdentifier: 
-  <Sprite>k__BackingField: {fileID: 0}
-  <Name>k__BackingField: Body 2
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: <ItemEffects>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[ItemEffect, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: <GearEffects>k__BackingField
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[GearEffect, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  <Sprite>k__BackingField: {fileID: 21300000, guid: b9378c1f40240cf4fae58348475211f4, type: 3}
+  <Name>k__BackingField: Body02
   <Description>k__BackingField: 
   <ItemType>k__BackingField: 1
-  <SellValue>k__BackingField: 0
-  <BuyValue>k__BackingField: 0
-  amount: 0
+  <Value>k__BackingField: {x: 0, y: 0}
+  <IsConsumable>k__BackingField: 0
+  <IsIdentified>k__BackingField: 0
+  OnPickupItem:
+    m_PersistentCalls:
+      m_Calls: []
   <StackLimit>k__BackingField: 2147483647
+  GearType: 0
   spriteSheetId: Male\Body\Body02

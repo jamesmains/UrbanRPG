@@ -122,4 +122,7 @@ public class GameEvents : MonoBehaviour
     // Unsorted
     public static i302Event OnPlayerMoved = new();
     public static i302Event<UnityAction> OnCreateMessageBox = new();
+    
+    // Dressing Room
+    public static i302Event<Actor> OnUpdateOutfit = new();
 }

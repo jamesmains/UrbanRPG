@@ -29,14 +29,16 @@ public enum EffectType
 
 public enum GearType
 {
-    GearBody,
-    GearShoes,
-    GearPants,
-    GearMouth,
-    GearEyes,
-    GearShirt,
-    GearHair,
-    GearAccessory
+    Body,
+    Shoes,
+    Pants,
+    Mouth,
+    Eyes,
+    Shirt,
+    Hair,
+    Accessory,
+    
+    Ride
 }
 
 public enum Direction

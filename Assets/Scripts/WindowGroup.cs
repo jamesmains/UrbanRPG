@@ -14,6 +14,12 @@ public class WindowGroup : Window
     [SerializeField] private Transform selectionButtonContainer;
     [SerializeField] private bool toggleWindowsWhenSelected;
 
+    public WindowGroup(Window[] w, int homeWindowIndex = 0)
+    {
+        windows = w;
+        homeWindow = windows[homeWindowIndex];
+    }
+    
     public override void Show()
     {
         base.Show();

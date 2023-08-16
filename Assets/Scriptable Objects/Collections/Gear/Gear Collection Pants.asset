@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9067c5a270fca545a000b49c6b16d26, type: 3}
+  m_Name: Gear Collection Pants
+  m_EditorClassIdentifier: 
+  header: Pants
+  icon: {fileID: 21300000, guid: 5f32caee7ffbdd24fa100a15b9af70c4, type: 3}
+  type: 2
+  allowNull: 1
+  gear:
+  - {fileID: 11400000, guid: 2183973c42644ed419f3dbda552ea09a, type: 2}
+  - {fileID: 11400000, guid: 667647d970de61641ae1be305987345a, type: 2}
+  - {fileID: 11400000, guid: cb669e295a57b0d4f886bab531a8a367, type: 2}
+  - {fileID: 11400000, guid: 6823fb2274df64447a3ea63edb8112ec, type: 2}
+  - {fileID: 11400000, guid: d80ac993c06b1e344be3f1e5e6746637, type: 2}
+  - {fileID: 11400000, guid: 581dba1a585c0b340b2fb551e08e9c6c, type: 2}
+  - {fileID: 11400000, guid: bea85b312643f7340bbf8ad566dffa0d, type: 2}

@@ -14,15 +14,8 @@ public class Actor : ScriptableObject
     public List<AcceptableItemGifts> acceptedGifts = new();
     public AudioClip talkSfx;
     [Range(-1,99)]public int currentReputation = -1;
-    [FoldoutGroup("Gear"), SerializeField] public Gear GearBody;
-    [FoldoutGroup("Gear"), SerializeField] public Gear GearShoes;
-    [FoldoutGroup("Gear"), SerializeField] public Gear GearPants;
-    [FoldoutGroup("Gear"), SerializeField] public Gear GearMouth;
-    [FoldoutGroup("Gear"), SerializeField] public Gear GearEyes;
-    [FoldoutGroup("Gear"), SerializeField] public Gear GearShirt;
-    [FoldoutGroup("Gear"), SerializeField] public Gear GearHair;
-    [FoldoutGroup("Gear"), SerializeField] public Gear GearAccessory;
-
+    public List<GearOption> EquippedGear;
+    
     [Button]
     public void AdjustReputation(int adjustAmount)
     {

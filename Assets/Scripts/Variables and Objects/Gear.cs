@@ -11,7 +11,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Gear", menuName = "Items/Gear")]
 public class Gear : Item
 {
-    // public GearType GearType;
+    [field: SerializeField,PropertyOrder(60),Space(10)]
+    public GearType GearType;
     [field: SerializeField,PropertyOrder(80),Space(10)] 
     public List<GearEffect> GearEffects { get; set; } = new();
     public string spriteSheetId;
@@ -20,7 +21,7 @@ public class Gear : Item
     [Button]
     public void SetTempName()
     {
-        Name = spriteSheetId;
+        Name = spriteSheetId.Split("\\").Last();
     }
     
     [Button]
@@ -56,4 +57,16 @@ public class RideEffect : GearEffect
     {
         return modValue;
     }
+}
+
+[Serializable]
+public class GearOption
+{
+    public GearOption(Gear g, GearType gearType)
+    {
+        gear = g;
+        type = gearType;
+    }
+    public Gear gear;
+    public GearType type;
 }

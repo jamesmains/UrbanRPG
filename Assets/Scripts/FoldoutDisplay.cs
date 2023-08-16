@@ -7,14 +7,14 @@ public class FoldoutDisplay : MonoBehaviour
 {
     [SerializeField] protected RectTransform displayRect;
     [SerializeField] protected RectTransform foldoutRect;
-    [SerializeField] private float openSpeed;
+    [SerializeField] protected float openSpeed;
     protected bool isOpen;
-    private Vector2 openSize;
+    protected Vector2 openSize;
     protected Vector2 closedSize;
     protected static FoldoutDisplay openedDisplay;
     
     
-    private void Update()
+    protected virtual void Update()
     {
         if (isOpen && displayRect.sizeDelta != openSize)
         {
@@ -30,7 +30,7 @@ public class FoldoutDisplay : MonoBehaviour
         }
     }
 
-    private void SetOpenSize()
+    protected virtual void SetOpenSize()
     {
         LayoutRebuilder.ForceRebuildLayoutImmediate(foldoutRect);
         openSize = new Vector2(displayRect.rect.height, 58 + foldoutRect.sizeDelta.y);
@@ -58,7 +58,7 @@ public class FoldoutDisplay : MonoBehaviour
         }
     }
 
-    protected virtual void OpenFoldout()
+    public virtual void OpenFoldout()
     {
         SetOpenSize();
         isOpen = true;

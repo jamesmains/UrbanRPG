@@ -20,14 +20,41 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
-  <Sprite>k__BackingField: {fileID: -664978858, guid: cf35ac889fac4744886ed265f4dd5d5a, type: 3}
+    SerializationNodes:
+    - Name: <ItemEffects>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[ItemEffect, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: <GearEffects>k__BackingField
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[GearEffect, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  <Sprite>k__BackingField: {fileID: 21300000, guid: a2c388a530aa8eb4e84f5d659e4ad665, type: 3}
   <Name>k__BackingField: Accessory 6
   <Description>k__BackingField: 
   <ItemType>k__BackingField: 8
-  <SellValue>k__BackingField: 0
-  <BuyValue>k__BackingField: 0
-  amount: 0
+  <Value>k__BackingField: {x: 0, y: 0}
+  <IsConsumable>k__BackingField: 0
+  <IsIdentified>k__BackingField: 0
+  OnPickupItem:
+    m_PersistentCalls:
+      m_Calls: []
   <StackLimit>k__BackingField: 2147483647
   GearType: 7
   spriteSheetId: Male\Accessories\Acc06

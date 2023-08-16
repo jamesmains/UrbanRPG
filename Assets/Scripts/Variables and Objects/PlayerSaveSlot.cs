@@ -7,10 +7,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(fileName = "Player Data Variable", menuName = "Variables/Player Data Variable")]
-public class PlayerSaveSlot : ScriptableObject
+public class PlayerSaveSlot : Actor
 {
     public string saveSlot;
-    public string characterName;
     public string cityName;
     public SceneTransition NewSaveFileSpawnLocation;
     public SceneTransition NextSceneTransition;
@@ -47,7 +46,7 @@ public class PlayerSaveSlot : ScriptableObject
             return;
         }
         NextSceneTransition.TargetScene = saveData.SavedScene;
-        characterName = saveData.SavedCharacterName;
+        actorName = saveData.SavedCharacterName;
         cityName = saveData.SavedCityName;
         NextSceneTransition.SpawnLocation = new Vector3(
             saveData.SavedSpawnLocationX,
@@ -58,12 +57,11 @@ public class PlayerSaveSlot : ScriptableObject
         Loaded = true;
     }
     
-    [Button]
-    public void SaveData()
+    [Button] public void SaveData()
     {
         SaveLoad.SavePlayerData(new PlayerSaveData(
             SceneManager.GetActiveScene().name,
-            characterName,
+            actorName,
             cityName,
             PlayerPositionVariable.Value,
             PlayerMoneyVariable.Value));

@@ -28,7 +28,7 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
     [field: SerializeField,FoldoutGroup("Debug"),ReadOnly] private Inventory thisInventory;
 
     [field: SerializeField] public InventoryItemData storedItemData = new(null,0,-1);
-    public static InventorySlot highlightedInventorySlot;
+    private static InventorySlot highlightedInventorySlot;
 
     private void OnEnable()
     {
@@ -284,8 +284,8 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         if (targetItem == null) return false;
         return targetWindow.allowedTypes.Any(o => o.Type == targetItem.ItemType);
     }
-    
-    public void ToggleHighlight(bool state)
+
+    private void ToggleHighlight(bool state)
     {
         frameDisplay.color = state ? highlightedColor : normalColor;
     }

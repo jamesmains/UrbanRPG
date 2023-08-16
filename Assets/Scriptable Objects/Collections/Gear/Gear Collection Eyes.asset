@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9067c5a270fca545a000b49c6b16d26, type: 3}
+  m_Name: Gear Collection Eyes
+  m_EditorClassIdentifier: 
+  header: Eyes
+  icon: {fileID: 21300000, guid: 57c494126bf239541bfb03aea1335783, type: 3}
+  type: 4
+  allowNull: 0
+  gear:
+  - {fileID: 11400000, guid: e45e282df72f0c946b1d623be46f7b3b, type: 2}
+  - {fileID: 11400000, guid: 7be92e30e0c8bda479c34433d3dc3669, type: 2}
+  - {fileID: 11400000, guid: ebe9fffbab0a27543a607ecccebfc76e, type: 2}
+  - {fileID: 11400000, guid: c8c2d479c01e7bc40870006376a5332b, type: 2}
+  - {fileID: 11400000, guid: db0d631294c757344b76c81e7a3c2446, type: 2}
+  - {fileID: 11400000, guid: 74bc3e5b22cb5c344b10cfb08aef73fa, type: 2}
+  - {fileID: 11400000, guid: dfee2b6e9adfd9c44aa0566f547ef750, type: 2}
+  - {fileID: 11400000, guid: a23a4138ad24cc64286e00d984eb62b9, type: 2}

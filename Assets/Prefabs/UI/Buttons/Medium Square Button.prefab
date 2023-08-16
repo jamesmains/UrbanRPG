@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 8984226746699530189}
   - component: {fileID: 1280898367172601063}
   m_Layer: 5
-  m_Name: App Icon
+  m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

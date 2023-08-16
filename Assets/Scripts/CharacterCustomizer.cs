@@ -6,137 +6,122 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Sirenix.OdinInspector;
+using UnityEditor;
 using UnityEngine.Diagnostics;
+using UnityEngine.Events;
 
 public class CharacterCustomizer : MonoBehaviour
 {
     [SerializeField] private Actor currentActor;
     [SerializeField] private CustoAnimator animator;
-    [SerializeField] private Transform gearOptionSelectorContainer;
-    [SerializeField] private GameObject gearOptionSelectorPrefab;
-    [SerializeField] private GearSlot[] gearSlots;
-    [field: SerializeField] private Gear[] GearOptions;
+    [SerializeField] private TextMeshProUGUI categoryNameDisplay;
+    [SerializeField] private FlexibleColorPicker hairColorPicker;
+    [SerializeField] private Transform categoryContainer;
+    [SerializeField] private Transform foldoutContainer;
+    [SerializeField] private Transform currentFoldoutContainer;
+    [SerializeField] private GameObject categoryButton;
+    [SerializeField] private GameObject gearFoldout;
+    [SerializeField] private GameObject gearButton;
+    [field: SerializeField] private List<GearCollection> GearOptionCollections = new();
 
+    private bool hairColorBuffer = true; // The color picker sets the color to a default color on frame 1,
+                                         // his prevents it from also setting the actor's hair color to the default
+    private readonly List<Window> categoryWindows = new();
     private int[] indexes;
+
+    private void Awake()
+    {
+        hairColorBuffer = true;
+    }
 
     private void Start()
     {
         animator.actor = currentActor;
-        animator.UpdateActor();
-        PopulateAllOptionsSelectors();
+        PopulateCategories();
+        animator.UpdateActor(currentActor);
+        hairColorPicker.SetColor(animator.actor.hairColor);
     }
 
-    private void PopulateAllOptionsSelectors()
+    private void PopulateCategories()
     {
-        // int i = 0;
-        // foreach (var gearType in Enum.GetNames(typeof(GearType)))
-        // {
-        //     print(gearSlots[i]);
-        //     var gearArray = GearOptions.Where(o => o.GearType.ToString() == gearType).ToArray();
-        //     if(gearArray.Length > 0)
-        //         PopulateOptionSelector(gearArray,currentActor.GearBody,gearSlots[i],indexes[i]);
-        //     i++;
-        // }
-    }
+        for (var i = 0; i < GearOptionCollections.Count; i++)
+        {
+            var t = GearOptionCollections[i];
+            var category = Instantiate(categoryButton, categoryContainer).GetComponent<GearCategory>();
+            var foldout = Instantiate(gearFoldout, foldoutContainer).GetComponent<GearFoldout>();
 
-    private void PopulateOptionSelector(Gear[] gearArray, Gear currentlyEquipped, GearSlot slot, int indexer, bool allowNull = false)
-    {
-        var obj = Instantiate(gearOptionSelectorPrefab, gearOptionSelectorContainer);
-        var text = obj.GetComponentInChildren<TextMeshProUGUI>();
-        for (int i = 0; i < gearArray.Length; i++)
-        {
-            if (gearArray[i] == currentlyEquipped)
+            var categoryWindow = foldout.gameObject.GetComponent<Window>();
+            categoryWindows.Add(categoryWindow);
+
+            currentFoldoutContainer = foldout.GetContainer();
+
+            foldout.ChangeHeader(t.header);         
+            
+            if (categoryNameDisplay != null)
             {
-                indexer = i;
-            }
-        }
-        text.text = gearArray[indexer].Name;
-        obj.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate
-        {
-            indexer--;
-            if (!allowNull)
-            {
-                if (indexer < 0) indexer = gearArray.Length - 1;
-                slot.gear = gearArray[indexer];
-                text.text = gearArray[indexer].Name;    
-            }
-            else
-            {
-                
-                if (indexer == -1)
-                {
-                    slot.gameObject.SetActive(false);
-                    slot.gear = null;
-                    text.text = "Nothing";
-                }
-                else
-                {
-                    if (indexer < -1)
-                    {
-                        slot.gameObject.SetActive(true);
-                        indexer = gearArray.Length - 1;
-                    }
-                    slot.gear = gearArray[indexer];
-                    text.text = gearArray[indexer].Name;
-                }
+                var effects = category.GetComponentInChildren<MouseInteractionEffects>();
+                effects.Effects.Add(new ChangeTextEffect(categoryNameDisplay,t.header));
             }
             
-        });
-        obj.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(delegate
-        {
-            indexer++;
-            if (!allowNull)
+            var onClickCategory = new UnityAction(delegate
             {
-                if (indexer >= gearArray.Length) indexer = 0;
-                slot.gear = gearArray[indexer];
-                text.text = gearArray[indexer].Name; 
-            }
-            else
-            {
-                if (indexer == gearArray.Length)
+                foreach (var window in categoryWindows)
                 {
-                    slot.gameObject.SetActive(false);
-                    slot.gear = null;
-                    text.text = "Nothing";
+                    window.Hide();
+                    window.gameObject.SetActive(false);
                 }
-                else
-                {
-                    if (indexer > gearArray.Length)
-                    {
-                        slot.gameObject.SetActive(true);
-                        indexer = 0;
-                    }
+                categoryWindow.gameObject.SetActive(true);
+                categoryWindow.Show();
+            });
+            category.Setup(onClickCategory, t.icon);
 
-                    slot.gear = gearArray[indexer];
-                    text.text = gearArray[indexer].Name;
-                }
-            }
-        });
+            PopulateGearButtons(t.gear.ToArray(),t.type,t.allowNull);
+        }
+    }
+
+    private void PopulateGearButtons(IEnumerable<Gear> gearArray, GearType type, bool allowNull = true)
+    {
+        if (allowNull)
+        {
+            var obj = Instantiate(gearButton, currentFoldoutContainer);
+            obj.GetComponent<GearButton>().Setup(currentActor,null,type);
+            // Todo, need some kind of empty icon
+        }
+        foreach (var gear in gearArray)
+        {
+            var obj = Instantiate(gearButton, currentFoldoutContainer);
+            obj.GetComponent<GearButton>().Setup(currentActor,gear,type);
+        }
+        
     }
     
     public void SetHairColor(Color incomingColor)
     {
+        if (hairColorBuffer)
+        {
+            hairColorBuffer = false;
+            return;
+        }
         currentActor.hairColor = incomingColor;
-        gearSlots[6].gameObject.GetComponent<SpriteRenderer>().color = incomingColor;
+        var hair = animator.gearSlots.FirstOrDefault(o => o.gearType == GearType.Hair);
+        if(hair != null) hair.gameObject.GetComponent<SpriteRenderer>().color = incomingColor;
+    }
+
+    public void SetCharacterFacingDirection(Vector2 direction)
+    {
+        animator.SetDirection(direction);
+    }
+
+    public void SetCharacterAnimation(int a)
+    {
+        animator.SetAction(a);
     }
 
     [Button]
     public void SaveOutfit()
     {
-        // currentActor.GearBody = bodyGearOptions[bodyIndex];
-        // currentActor.GearShoes = shoeGearOptions[shoeIndex];
-        // currentActor.GearPants = pantsGearOptions[pantsIndex];
-        // currentActor.GearMouth = mouthGearOptions[mouthIndex];
-        // currentActor.GearEyes = eyesGearOptions[eyesIndex];
-        // currentActor.GearShirt = shirtGearOptions[shirtIndex];
-        // currentActor.GearHair = hairGearOptions[hairIndex];
-        // currentActor.GearAccessory1 = accessoryGearOptions[accessoryIndex];
-        // currentActor.GearAccessory2 = accessory1GearOptions[accessory1Index];
     }
-}
-
-[Serializable]
-public class GearOption
-{
     
 }
+
+

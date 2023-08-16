@@ -9,6 +9,8 @@ namespace I302.Manu
 {
     public static class SaveLoad
     {
+        // Todo, convert to generics
+        
         private static PlayerSaveSlot _playerSaveSlot;
         
         public static void SaveInventory(InventorySaveData saveData)
@@ -143,6 +145,48 @@ namespace I302.Manu
         private static void LoadSaveSlot()
         {
             _playerSaveSlot = Resources.Load("Player Data Variable") as PlayerSaveSlot;
+        }
+
+        public static void SavePlayerOutfit(PlayerOutfitSaveData saveData)
+        {
+            if (_playerSaveSlot == null)
+            {
+                LoadSaveSlot();
+            }
+            var binaryFormatter = new BinaryFormatter();
+            string directory = $"{Application.persistentDataPath}/{_playerSaveSlot.saveSlot}/Player/";
+            string filePath = $"{directory}player.outfit";
+            
+            if (!Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+            
+            var fileStream = File.Create(filePath);
+
+            binaryFormatter.Serialize(fileStream, saveData);
+            fileStream.Close();
+        }
+
+        public static PlayerOutfitSaveData LoadPlayerOutfit()
+        {
+            if (_playerSaveSlot == null)
+            {
+                LoadSaveSlot();
+            }
+            string filePath = $"{Application.persistentDataPath}/{_playerSaveSlot.saveSlot}/Player/player.outfit";
+    
+            if (!File.Exists(filePath))
+            {
+                return null;
+            }
+
+            var binaryFormatter = new BinaryFormatter();
+            var fileStream = File.Open(filePath, FileMode.Open);
+            var saveData = (PlayerOutfitSaveData) binaryFormatter.Deserialize(fileStream);
+
+            fileStream.Close();
+            return saveData;
         }
     }
 }

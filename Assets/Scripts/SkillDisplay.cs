@@ -39,7 +39,7 @@ public class SkillDisplay : FoldoutDisplay
             skillDescriptionText.text = $"Level {heldSkill.Level} | {heldSkill.CurrentExp}/{heldSkill.ExpRequiredForLevelUp}\n{heldSkill.Description}";
     }
     
-    protected override void OpenFoldout()
+    public override void OpenFoldout()
     {
         skillDescriptionText.text = $"Level {heldSkill.Level} | {heldSkill.CurrentExp}/{heldSkill.ExpRequiredForLevelUp}\n{heldSkill.Description}";
         base.OpenFoldout();

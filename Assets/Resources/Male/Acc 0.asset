@@ -21,15 +21,27 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
+    - Name: <ItemEffects>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[ItemEffect, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: <GearEffects>k__BackingField
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[GearEffect, Assembly-CSharp]], mscorlib
+      Data: 1|System.Collections.Generic.List`1[[GearEffect, Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 1|RideEffect, Assembly-CSharp
+      Data: 2|RideEffect, Assembly-CSharp
     - Name: effectText
       Entry: 6
       Data: 
@@ -45,13 +57,16 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  <Sprite>k__BackingField: {fileID: 0}
-  <Name>k__BackingField: Accessory 1
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 0206c2f7cb6b6214aa13bce026999cd6, type: 3}
+  <Name>k__BackingField: Backpack
   <Description>k__BackingField: 
   <ItemType>k__BackingField: 8
-  <SellValue>k__BackingField: 0
-  <BuyValue>k__BackingField: 0
-  amount: 0
+  <Value>k__BackingField: {x: 0, y: 0}
+  <IsConsumable>k__BackingField: 0
+  <IsIdentified>k__BackingField: 0
+  OnPickupItem:
+    m_PersistentCalls:
+      m_Calls: []
   <StackLimit>k__BackingField: 2147483647
   GearType: 7
   spriteSheetId: Male\Accessories\Acc01

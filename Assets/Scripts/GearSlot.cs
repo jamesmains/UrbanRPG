@@ -7,54 +7,59 @@ using UnityEngine;
 public class GearSlot : MonoBehaviour
 {
     [SerializeField] public Gear gear;
-    [FoldoutGroup("Display")] [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] public GearType gearType;
+    [FoldoutGroup("Display")] [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private List<Sprite> sheet = new();
     
-    [FoldoutGroup("Data")] [SerializeField] private int frameIndex;
+    [FoldoutGroup("Data")] [SerializeField] public int frameIndex;
     [FoldoutGroup("Data")] [SerializeField] private int startIndex;
     [FoldoutGroup("Data")] [SerializeField] private int frameCount;
     [FoldoutGroup("Data")] [SerializeField] private AnimationSheet[] animationData;
 
+    private int currentAnimationIndex;
     private int currentDirection;
-    private Gear lastKnownGear;
-    
-    private void Start()
+    public CustoAnimator parentAnimator;
+
+    public void ChangeGear(Gear newGear)
     {
+        gear = newGear;
         LoadSpriteSheet(gear.spriteSheetId);
-        _spriteRenderer = GetComponent<SpriteRenderer>();
+        parentAnimator.SyncFrames();
+    }
+    
+    private void Awake()
+    {
+        if(spriteRenderer == null)
+            spriteRenderer = GetComponent<SpriteRenderer>();
     }
     
     public void Tick(int targetDirection, bool flip)
     {
-        if (lastKnownGear != gear)
-        {
-            lastKnownGear = gear;
-            LoadSpriteSheet(gear.spriteSheetId);
-        }
         currentDirection = targetDirection;
-        _spriteRenderer.flipX = flip;
+        spriteRenderer.flipX = flip;
         Animate();
     }
     
-    void SetSprite()
+    private void SetSprite()
     {
         int index = startIndex+(currentDirection * frameCount) + frameIndex;
         if(UrbanDebugger.DebugLevel>=1)
         {
             Debug.Log($"Sheet Length {sheet.Count}, index: {index} (GearSlot.cs)");
         }
-        _spriteRenderer.sprite = sheet[index];
+        spriteRenderer.sprite = sheet[index];
     }
     
-    void Animate()
+    private void Animate()
     {
+        if (sheet.Count <= 0) return;
         frameIndex++;
         if (frameIndex > frameCount-1)
             frameIndex = 0;
         SetSprite();
     }
-    
-    public void LoadSpriteSheet(string sheetName)
+
+    private void LoadSpriteSheet(string sheetName)
     {
         sheet.Clear();
         sheet = Resources.LoadAll<Sprite>(sheetName).ToList();
@@ -63,11 +68,22 @@ public class GearSlot : MonoBehaviour
     public void LoadAnimation(int actionIndex)
     {
         if (actionIndex == -1) return;
-        
+        currentAnimationIndex = actionIndex;
         startIndex = animationData[actionIndex].startIndex;
         frameCount  = animationData[actionIndex].frameCount;
         if (frameCount <= 0)
             frameCount = 8;
+    }
+
+    public void ClearAnimation()
+    {
+        spriteRenderer.sprite = null;
+        sheet.Clear();
+    }
+
+    public void ResetAnimation()
+    {
+        LoadAnimation(currentAnimationIndex);
     }
     
 }
