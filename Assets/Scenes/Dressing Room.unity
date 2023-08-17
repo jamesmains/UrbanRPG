@@ -678,7 +678,7 @@ Transform:
   - {fileID: 106138730}
   - {fileID: 387803375}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &105958348
 MonoBehaviour:
@@ -1564,7 +1564,7 @@ RectTransform:
   - {fileID: 8165142838583057009}
   - {fileID: 516815956}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1583,7 +1583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cea53b0ed635a2b408684277c9e071fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentActor: {fileID: 11400000, guid: f1585af4d791fe3459a489935b6f1ce4, type: 2}
+  currentActor: {fileID: 11400000, guid: 2034429e403d7b541899020f39dfc7ab, type: 2}
   animator: {fileID: 7094565163046360122}
   categoryNameDisplay: {fileID: 509369907}
   hairColorPicker: {fileID: 2130943085205605135}
@@ -2529,7 +2529,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &801641126
 GameObject:
@@ -2854,7 +2854,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.59375, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -3208,7 +3208,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh121506
+  m_Name: pb_Mesh30840
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -3471,7 +3471,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1000608512
 MonoBehaviour:
@@ -6046,7 +6046,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &2011139928
 GameObject:
@@ -7375,7 +7375,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.59375, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -9998,18 +9998,18 @@ RectTransform:
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2130943085207701666}
   - {fileID: 1546454420}
   - {fileID: 2137808476}
-  - {fileID: 2130943086450174044}
-  - {fileID: 2130943085207701666}
   - {fileID: 178687788}
   - {fileID: 2130943085627368888}
   - {fileID: 2130943086468993091}
   - {fileID: 2130943085389698624}
   - {fileID: 2130943084784787929}
+  - {fileID: 2130943086450174044}
+  - {fileID: 2130943085846618885}
   - {fileID: 2130943085314664775}
   - {fileID: 2130943085149438826}
-  - {fileID: 2130943085846618885}
   - {fileID: 2130943085016174607}
   m_Father: {fileID: 444591669}
   m_RootOrder: 0
@@ -16708,7 +16708,7 @@ Transform:
   - {fileID: 750567730696718512}
   - {fileID: 9080972077082595795}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8035069216259352834
 GameObject:

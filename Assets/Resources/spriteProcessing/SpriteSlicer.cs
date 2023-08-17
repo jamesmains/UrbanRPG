@@ -15,7 +15,7 @@ using System.Linq; // for Cast()
 /// </summary>
 
 public class SpriteSlicer : MonoBehaviour{
-    public static int[] skipPoints = {8, 9, 14, 19, 24, 29, 34, 39, 44, 49, 54, 59, 64};
+    private static readonly int[] skipPoints = {8, 9, 14, 19, 24, 29, 34, 39, 44, 49, 54, 59, 64};
 
     //[MenuItem("Tools/FCO/Compute Accessory Sprites")]
      static void ComputeAccessorySprites(){

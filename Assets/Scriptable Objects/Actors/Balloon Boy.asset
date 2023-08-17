@@ -17,20 +17,20 @@ MonoBehaviour:
   hairColor: {r: 0.4056604, g: 0.12055002, b: 0.12055002, a: 1}
   talkSfx: {fileID: 8300000, guid: db1321a9057b8ed46939b49516aefd4c, type: 3}
   EquippedGear:
-  - gear: {fileID: 11400000, guid: 993906421f2e78545b2afdbe36af520e, type: 2}
+  - gear: {fileID: 11400000, guid: 0b120cc8384aa7e42bb88af7a3459bac, type: 2}
     type: 0
-  - gear: {fileID: 11400000, guid: c30fe999665c4f443a34a6cc29f8a920, type: 2}
-    type: 1
-  - gear: {fileID: 11400000, guid: 2183973c42644ed419f3dbda552ea09a, type: 2}
-    type: 2
-  - gear: {fileID: 11400000, guid: c354f049dbae0404d924847f06532cda, type: 2}
-    type: 3
-  - gear: {fileID: 11400000, guid: db0d631294c757344b76c81e7a3c2446, type: 2}
-    type: 4
-  - gear: {fileID: 11400000, guid: 91f98533ee81bac4dbd5a7441408ba27, type: 2}
-    type: 5
-  - gear: {fileID: 11400000, guid: 7ec30ad8fcc837646ba8cd944b072538, type: 2}
-    type: 6
   - gear: {fileID: 0}
+    type: 1
+  - gear: {fileID: 0}
+    type: 2
+  - gear: {fileID: 11400000, guid: c2b9ef5227dbbd6409f9e704c9c6730c, type: 2}
+    type: 3
+  - gear: {fileID: 11400000, guid: e45e282df72f0c946b1d623be46f7b3b, type: 2}
+    type: 4
+  - gear: {fileID: 11400000, guid: e313d3be786598244b7d8fd0e52743cd, type: 2}
+    type: 5
+  - gear: {fileID: 11400000, guid: 060521d0dc55fbc4d821e756959ccd92, type: 2}
+    type: 6
+  - gear: {fileID: 11400000, guid: 9fdb04f4d0791cc41b34c5bb16a08c37, type: 2}
     type: 7
   faction: {fileID: 11400000, guid: a08047aa1ec4fe14b99ea7cd45414563, type: 2}

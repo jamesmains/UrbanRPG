@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a4d70c49933eb74789d9a5f32e8e57c, type: 3}
+  m_Name: Debug Dan
+  m_EditorClassIdentifier: 
+  actorName: 
+  actionIcon: {fileID: 0}
+  hairColor: {r: 0.24365771, g: 0, b: 0, a: 1}
+  talkSfx: {fileID: 0}
+  EquippedGear:
+  - gear: {fileID: 11400000, guid: cc7d9b5f525f0cd479dbe590a877f3e7, type: 2}
+    type: 0
+  - gear: {fileID: 0}
+    type: 1
+  - gear: {fileID: 0}
+    type: 2
+  - gear: {fileID: 11400000, guid: 560f85b4f0edaf049b5a101d604e4abe, type: 2}
+    type: 3
+  - gear: {fileID: 11400000, guid: 6e48c13b53eb4634297594774965ed47, type: 2}
+    type: 4
+  - gear: {fileID: 11400000, guid: d21db94fb94473a42a56d2c5bf6e73bf, type: 2}
+    type: 5
+  - gear: {fileID: 11400000, guid: 27cbd1a1901d03044bc6cf12a8fa5bfc, type: 2}
+    type: 6
+  - gear: {fileID: 0}
+    type: 7
+  faction: {fileID: 0}

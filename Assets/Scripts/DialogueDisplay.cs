@@ -20,6 +20,7 @@ public class DialogueDisplay : Window
     [SerializeField,FoldoutGroup("Debug"),ReadOnly] private int dialogueSegmentIndex;
     [SerializeField,FoldoutGroup("Debug"),ReadOnly] private string currentDialogueSegmentText;
     [SerializeField,FoldoutGroup("Debug"),ReadOnly] private bool atEndOfDialogueSegment;
+    [SerializeField,FoldoutGroup("Debug"),ReadOnly] private bool skipButtonProtection;
     
     private DialogueSegment currentSegment;
 
@@ -68,6 +69,8 @@ public class DialogueDisplay : Window
     public void StartDialogue(Dialogue incomingDialogue)
     {
         if (!incomingDialogue.IsConditionMet()) return;
+        atEndOfDialogueSegment = false;
+        skipButtonProtection = true;
         displayText.text = "";
         Global.PlayerLock++;
         currentDialogue = incomingDialogue;
@@ -78,6 +81,11 @@ public class DialogueDisplay : Window
 
     private void SkipToEndOfSegement()
     {
+        if (skipButtonProtection)
+        {
+            skipButtonProtection = false;
+            return;
+        }
         StopAllCoroutines();
         displayText.text = currentDialogueSegmentText;
         atEndOfDialogueSegment = true;

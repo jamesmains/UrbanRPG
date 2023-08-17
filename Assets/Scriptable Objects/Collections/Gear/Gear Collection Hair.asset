@@ -17,6 +17,11 @@ MonoBehaviour:
   type: 6
   allowNull: 1
   gear:
+  - {fileID: 11400000, guid: d33e0b8c70d9938419ed12883689a56f, type: 2}
+  - {fileID: 11400000, guid: 97d14a3c175f5d24989864fd05eea31d, type: 2}
+  - {fileID: 11400000, guid: 440c3a45a557d5d479408c104ae0cf42, type: 2}
+  - {fileID: 11400000, guid: beb1516fad1425a418c8a1efb9d929bd, type: 2}
+  - {fileID: 11400000, guid: 27cbd1a1901d03044bc6cf12a8fa5bfc, type: 2}
   - {fileID: 11400000, guid: 060521d0dc55fbc4d821e756959ccd92, type: 2}
   - {fileID: 11400000, guid: 333b6fb8c6768854f8ef284c44a35610, type: 2}
   - {fileID: 11400000, guid: 7ec30ad8fcc837646ba8cd944b072538, type: 2}

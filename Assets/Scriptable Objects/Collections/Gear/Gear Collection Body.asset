@@ -17,6 +17,9 @@ MonoBehaviour:
   type: 0
   allowNull: 0
   gear:
+  - {fileID: 11400000, guid: cc7d9b5f525f0cd479dbe590a877f3e7, type: 2}
+  - {fileID: 11400000, guid: 1f9890a1af9d47846852260ffdc025b1, type: 2}
+  - {fileID: 11400000, guid: 1910e01ebe4f039498c0b8d0b24532f8, type: 2}
   - {fileID: 11400000, guid: 0b120cc8384aa7e42bb88af7a3459bac, type: 2}
   - {fileID: 11400000, guid: 993906421f2e78545b2afdbe36af520e, type: 2}
   - {fileID: 11400000, guid: ea368daeb396d9c4395ae2f947902c3a, type: 2}

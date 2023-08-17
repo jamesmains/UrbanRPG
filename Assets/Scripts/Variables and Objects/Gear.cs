@@ -30,7 +30,9 @@ public class Gear : Item
         string relativePath = Path.GetDirectoryName(Application.dataPath+"/"+AssetDatabase.GetAssetPath(this).Split("Assets/")[1]);
         var relativeDir = Directory.GetFiles(relativePath).ToList();
         var targetString = relativeDir.FindAll(o => o.Contains(".png") && !o.Contains(".meta"));
-        spriteSheetId = targetString[0].Split("Resources\\")[1].Replace(".png","");
+        if(targetString[0].Contains(".png"))
+            targetString[0] = targetString[0].Split("Resources\\")[1].Replace(".png","");
+        spriteSheetId = targetString[0];
     }
 #endif
     

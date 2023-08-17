@@ -38,8 +38,8 @@ MonoBehaviour:
     - rid: 7305478016068747288
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        Item: {fileID: 0}
-        Quantity: 0
+        Item: {fileID: 11400000, guid: 934600cb8655a9f46879ef77e9514a6f, type: 2}
+        Quantity: 1
         Index: 0
     - rid: 7305478016068747289
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
