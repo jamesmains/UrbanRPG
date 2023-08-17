@@ -242,7 +242,7 @@ public class ReputationConditional : Condition
     
     public override bool IsConditionMet()
     {
-        return TargetActor.currentReputation >= RequiredReputation;
+        return TargetActor.faction.currentReputation >= RequiredReputation;
     }
 
     public override void Use()
@@ -258,13 +258,13 @@ public class ReputationItemFavorConditional : ItemConditional
     public override bool IsConditionMet()
     {
         Debug.Log("Checking");
-        return (UseAny && Inventory.InventoryItems[0].Item != null && TargetActor.acceptedGifts.Any(i => i.giftItem == Inventory.InventoryItems[0].Item));
+        return (UseAny && Inventory.InventoryItems[0].Item != null && TargetActor.faction.acceptedGifts.Any(i => i.giftItem == Inventory.InventoryItems[0].Item));
     }
 
     public override void Use()
     {
-        var i = TargetActor.acceptedGifts.FindIndex(i => i.giftItem == Inventory.InventoryItems[0].Item);
-        TargetActor.AdjustReputation(TargetActor.acceptedGifts[i].reputationChange);
+        var i = TargetActor.faction.acceptedGifts.FindIndex(i => i.giftItem == Inventory.InventoryItems[0].Item);
+        TargetActor.AdjustReputation(TargetActor.faction.acceptedGifts[i].reputationChange);
         if(ConsumeOnUse) Inventory.TryUseItem(Inventory.InventoryItems[0].Item,1);
         GameEvents.OnEndActivity.Raise();
     }

@@ -33,6 +33,14 @@ public class CharacterCustomizer : MonoBehaviour
     {
         hairColorBuffer = true;
     }
+    
+#if UNITY_EDITOR
+    private void OnDisable()
+    {
+        EditorUtility.SetDirty(currentActor);
+        AssetDatabase.SaveAssets();
+    }
+#endif
 
     private void Start()
     {

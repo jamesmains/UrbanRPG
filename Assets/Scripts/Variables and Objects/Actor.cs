@@ -10,18 +10,16 @@ public class Actor : ScriptableObject
     public string actorName;
     public Sprite actionIcon;
     public Color hairColor;
-    public List<ReputationTier> reputationTiers = new();
-    public List<AcceptableItemGifts> acceptedGifts = new();
     public AudioClip talkSfx;
-    [Range(-1,99)]public int currentReputation = -1;
     public List<GearOption> EquippedGear;
+    public Faction faction;
     
     [Button]
     public void AdjustReputation(int adjustAmount)
     {
         string currentTier = GetCurrentReputationTier();
-        currentReputation += adjustAmount;
-        currentReputation = Mathf.Clamp(currentReputation, 0, 99);
+        faction.currentReputation += adjustAmount;
+        faction.currentReputation = Mathf.Clamp(faction.currentReputation, 0, 99);
         
         string newTier = GetCurrentReputationTier();
         if (newTier != currentTier)
@@ -33,26 +31,12 @@ public class Actor : ScriptableObject
     [Button]
     public string GetCurrentReputationTier()
     {
-        for (var index = reputationTiers.Count-1; index > -1; index--)
+        for (var index = faction.reputationTiers.Count-1; index > -1; index--)
         {
-            var tier = reputationTiers[index];
-            if (currentReputation >= tier.requiredValue) return tier.tierName;
+            var tier = faction.reputationTiers[index];
+            if (faction.currentReputation >= tier.requiredValue) return tier.tierName;
         }
         return "UNKNOWN";
     }
 }
 
-[Serializable]
-public class ReputationTier
-{
-    public string tierName;
-    public int requiredValue;
-    [PreviewField] public Sprite tierIcon;
-}
-
-[Serializable]
-public class AcceptableItemGifts
-{
-    public Item giftItem;
-    public int reputationChange;
-}

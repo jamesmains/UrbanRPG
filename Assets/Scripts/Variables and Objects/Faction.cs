@@ -1,18 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class Faction : MonoBehaviour
+[CreateAssetMenu(fileName = "Faction", menuName = "Signatures/Faction")]
+public class Faction : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public string factionName;
+    public List<ReputationTier> reputationTiers = new();
+    public List<AcceptableItemGifts> acceptedGifts = new();
+    [Range(-1,99)]public int currentReputation = -1;
+}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+[Serializable]
+public class ReputationTier
+{
+    public string tierName;
+    public int requiredValue;
+    [PreviewField] public Sprite tierIcon;
+}
+
+[Serializable]
+public class AcceptableItemGifts
+{
+    public Item giftItem;
+    public int reputationChange;
 }
