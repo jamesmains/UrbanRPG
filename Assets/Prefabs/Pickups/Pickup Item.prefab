@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5868729040078939208}
   - component: {fileID: 7297332646056098723}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5792344443950730510}
   - component: {fileID: 5792344443950730497}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lit GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5792344444045135161}
   - component: {fileID: 5792344444045135160}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 5792344445435472293}
   - component: {fileID: 9061437220740579423}
   - component: {fileID: 4108078347553004705}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pickup Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}

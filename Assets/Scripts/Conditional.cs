@@ -193,8 +193,8 @@ public class ItemConditional : Condition
     public Item Item { get; private set; }
     [field: SerializeField]
     public int RequiredAmount { get; private set; }
-    [field: SerializeField]
-    public bool UseAny { get; private set; }
+    [field: SerializeField, Tooltip("This will use any item in the first slot")]
+    public bool IsGift { get; private set; }
     [field: SerializeField]
     public bool ConsumeOnUse { get; private set; }
     [field: SerializeField]
@@ -202,7 +202,7 @@ public class ItemConditional : Condition
     
     public override bool IsConditionMet()
     {
-        return Inventory.HasItem(Item, RequiredAmount) || (UseAny && Inventory.InventoryItems[0].Item != null);
+        return Inventory.HasItem(Item, RequiredAmount) || (IsGift && Inventory.InventoryItems[0].Item != null);
     }
 
     public override void Use()
@@ -215,12 +215,12 @@ public class ItemConditional : Condition
 public class QuestItemConditional : ItemConditional
 {
     [field: SerializeField]
-    public Quest TargetQuest { get; private set; }
-    [field: SerializeField]
-    public QuestTask TargetTask { get; private set; }
+    public Quest Quest { get; private set; }
+    [field: SerializeField] 
+    private QuestTask Step { get; set; }
     public override bool IsConditionMet()
     {
-        return Inventory.HasItem(Item, RequiredAmount) || (UseAny && Inventory.HasItemAt(Item) != -1);
+        return (Inventory.HasItem(Item, RequiredAmount) || (IsGift && Inventory.HasItemAt(Item) != -1) && (Quest.CurrentStep == Step));
     }
 
     public override void Use()
@@ -228,7 +228,7 @@ public class QuestItemConditional : ItemConditional
         if (ConsumeOnUse)
         {
             int leftover = Inventory.TryUseItem(Item,RequiredAmount);
-            TargetQuest.TryCompleteTask(TargetTask, RequiredAmount - leftover);
+            Quest.TryCompleteTask(Step, RequiredAmount - leftover);
         }
     }
 }
@@ -258,7 +258,7 @@ public class ReputationItemFavorConditional : ItemConditional
     public override bool IsConditionMet()
     {
         Debug.Log("Checking");
-        return (UseAny && Inventory.InventoryItems[0].Item != null && TargetActor.faction.acceptedGifts.Any(i => i.giftItem == Inventory.InventoryItems[0].Item));
+        return (IsGift && Inventory.InventoryItems[0].Item != null && TargetActor.faction.acceptedGifts.Any(i => i.giftItem == Inventory.InventoryItems[0].Item));
     }
 
     public override void Use()

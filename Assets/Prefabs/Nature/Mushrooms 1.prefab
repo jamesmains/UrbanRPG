@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3008744527458380987}
   - component: {fileID: 4669197288200593789}
   - component: {fileID: 6956986118627575434}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plane (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2785816633574831782}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mushrooms 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 6472901696436980215}
   - component: {fileID: 8931614226228184422}
   - component: {fileID: 8454933052320184250}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4384840805633026772}
   - component: {fileID: 5185366720748583804}
   - component: {fileID: 2414114238337326480}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: Pants
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 1041799826502318302}
   - component: {fileID: 4769361007811336430}
   - component: {fileID: 3661611359415489536}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: Accessory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 6998398030391765250}
   - component: {fileID: 7518086345158417799}
   - component: {fileID: 771586107649048655}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: Hair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 6931900336510070731}
   - component: {fileID: 607056047174980563}
   - component: {fileID: 349601475661351895}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: Shirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -446,7 +446,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6707381458548015504}
   - component: {fileID: 8589114413306869113}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -502,7 +502,6 @@ MonoBehaviour:
   - {fileID: 349601475661351895}
   - {fileID: 771586107649048655}
   - {fileID: 3661611359415489536}
-  - {fileID: 0}
   inputAdjustments:
   - xRequirement: -1
     yRequirement: 0
@@ -564,7 +563,7 @@ GameObject:
   - component: {fileID: 3144468666180810749}
   - component: {fileID: 324467531875502413}
   - component: {fileID: 1377542115522052510}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -673,7 +672,7 @@ GameObject:
   - component: {fileID: 7513323732880027497}
   - component: {fileID: 7454918445953971189}
   - component: {fileID: 4109754250779733702}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: Shoes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -782,7 +781,7 @@ GameObject:
   - component: {fileID: 2469081765615093004}
   - component: {fileID: 6877952855340280214}
   - component: {fileID: 2627362156988411923}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -890,7 +889,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4595582722867718687}
   - component: {fileID: 4077832253543824400}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -977,7 +976,7 @@ GameObject:
   - component: {fileID: 984641999028191639}
   - component: {fileID: 6614222854272068273}
   - component: {fileID: 7519681647014498981}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: NPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1241,7 +1240,7 @@ GameObject:
   - component: {fileID: 8060666244128025176}
   - component: {fileID: 6626915692583880973}
   - component: {fileID: 695944749984120571}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}

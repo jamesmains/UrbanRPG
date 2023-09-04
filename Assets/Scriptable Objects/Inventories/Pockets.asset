@@ -111,7 +111,7 @@ MonoBehaviour:
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
         Item: {fileID: 11400000, guid: e8143ea26df4c4440808c2d5cb3eb988, type: 2}
-        Quantity: 69
+        Quantity: 66
         Index: 12
     - rid: 7305478016068747301
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}

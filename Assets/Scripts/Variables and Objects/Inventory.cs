@@ -163,6 +163,7 @@ using UnityEngine;
             for (int i = 0; i < InventoryItems.Length; i++)
             {
                 if (itemQuery != InventoryItems[i].Item) continue;
+                Debug.Log($"Found match for {itemQuery.Name}, at {i}: {InventoryItems[i].Item.Name}");
                 availableQuantity += InventoryItems[i].Quantity;
             }
 

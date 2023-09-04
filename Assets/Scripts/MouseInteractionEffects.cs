@@ -189,3 +189,30 @@ public class ChangeTextEffect : HoverEffect
         targetTextObject.text = "";
     }
 }
+
+public class ImageToggleEngableEffect : HoverEffect
+{
+    [SerializeField] private Image image;
+    public override void Init()
+    {
+        image.enabled = false;
+    }
+
+    public override void OnMouseUp()
+    {
+    }
+
+    public override void OnMouseDown()
+    {
+    }
+
+    public override void OnMouseEnter()
+    {
+        image.enabled = true;
+    }
+
+    public override void OnMouseExit()
+    {
+        image.enabled = false;
+    }
+}
