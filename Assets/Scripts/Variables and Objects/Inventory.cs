@@ -13,6 +13,7 @@ using UnityEngine;
     {
         [field: SerializeField] public string Name { get; private set; }
         [field: SerializeField] public IntVariable InventorySlotLimit;
+        [field: SerializeField] public bool CanCreateImageStringMessages;
         [field: SerializeField] public ItemLookupTable lookupTable;
         [SerializeReference] public InventoryItemData[] InventoryItems;
         
@@ -26,9 +27,13 @@ using UnityEngine;
 #endif
         }
         
+        // This function is used but only from unityevents in the inspector
         public void TryAddItem(Item incomingItem) // Need this signature to call it from UnityEvent so ignore the warning on the other function
         {
             TryAddItem(incomingItem, 1); 
+           
+            if(CanCreateImageStringMessages)
+                GameEvents.OnCreateImageStringMessage.Raise(incomingItem.Sprite,"+1");
         }
 
         public int TryAddItem(Item incomingItem, int value = 1)
@@ -98,6 +103,14 @@ using UnityEngine;
             return remaining;
         }
 
+        public void TryRemoveItem(Item incomingItem)
+        {
+            TryRemoveItem(incomingItem, 1);
+            
+            if(CanCreateImageStringMessages)
+                GameEvents.OnCreateImageStringMessage.Raise(incomingItem.Sprite,"-1");
+        }
+        
         public int TryRemoveItem(Item incomingItem, int value = 1)
         {
             int remaining = value;
@@ -134,6 +147,8 @@ using UnityEngine;
         
         public int TryUseItem(Item neededItem, int amount = 1)
         {
+            if(CanCreateImageStringMessages)
+                GameEvents.OnCreateImageStringMessage.Raise(neededItem.Sprite,$"-{amount}");
             for (int i = 0; i < InventoryItems.Length; i++)
             {
                 if (neededItem != InventoryItems[i].Item) continue;
@@ -163,7 +178,6 @@ using UnityEngine;
             for (int i = 0; i < InventoryItems.Length; i++)
             {
                 if (itemQuery != InventoryItems[i].Item) continue;
-                Debug.Log($"Found match for {itemQuery.Name}, at {i}: {InventoryItems[i].Item.Name}");
                 availableQuantity += InventoryItems[i].Quantity;
             }
 

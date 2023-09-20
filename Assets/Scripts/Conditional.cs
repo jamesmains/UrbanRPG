@@ -208,7 +208,6 @@ public class ItemConditional : Condition
     public override void Use()
     {
         if(ConsumeOnUse) Inventory.TryUseItem(Item,RequiredAmount);
-        GameEvents.OnCreateImageStringMessage.Raise(Item.Sprite,$"-{RequiredAmount}");
     }
 }
 

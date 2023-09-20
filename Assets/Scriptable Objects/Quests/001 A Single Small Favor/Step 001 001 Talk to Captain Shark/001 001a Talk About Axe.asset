@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e11c51fbb0b0ce459c5067d578f3b0e, type: 3}
+  m_Name: 001 001a Talk About Axe
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 4cac779a6e3803e4b9fe8566db7aac68, type: 2}
+    - {fileID: 11400000, guid: 23b8a6c7d153eb64b8bec2fce2e6e066, type: 2}
+    - {fileID: 11400000, guid: 8b7d83ab27c07814ba4412719b708a07, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: <Conditions>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|AndCondition, Assembly-CSharp
+    - Name: <Conditions>k__BackingField
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 3|NotCondition, Assembly-CSharp
+    - Name: <Conditions>k__BackingField
+      Entry: 7
+      Data: 4|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 5|QuestStepConditional, Assembly-CSharp
+    - Name: <Quest>k__BackingField
+      Entry: 10
+      Data: 0
+    - Name: <Step>k__BackingField
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 6|QuestStepConditional, Assembly-CSharp
+    - Name: <Quest>k__BackingField
+      Entry: 10
+      Data: 0
+    - Name: <Step>k__BackingField
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 7|QuestStateConditional, Assembly-CSharp
+    - Name: <Quest>k__BackingField
+      Entry: 10
+      Data: 0
+    - Name: <State>k__BackingField
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  ActivityName: Talk About Shark's Axe
+  ActivityIcon: {fileID: 1313419380, guid: 85a163205c7fbe84bba9882d79159d12, type: 3}
+  ActivityType: 0
+  actionTime: 0
+  <ActivityActions>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: ce3a3a95f90260047aa8aefea749b16c, type: 2}
+        m_TargetAssemblyTypeName: Dialogue, Assembly-CSharp
+        m_MethodName: StartDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

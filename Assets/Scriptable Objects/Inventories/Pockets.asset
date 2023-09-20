@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Pockets
   InventorySlotLimit: {fileID: 11400000, guid: 19bb5aba12db75e489734c55a8ba9a1e, type: 2}
+  CanCreateImageStringMessages: 1
   lookupTable: {fileID: 11400000, guid: 3cf4055abc210f7488b2727555b7b07b, type: 2}
   InventoryItems:
   - rid: 7305478016068747288
@@ -44,8 +45,8 @@ MonoBehaviour:
     - rid: 7305478016068747289
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        Item: {fileID: 0}
-        Quantity: 0
+        Item: {fileID: 11400000, guid: e4a3e7d384c87bd4db26d8d2dd3dc332, type: 2}
+        Quantity: 1
         Index: 1
     - rid: 7305478016068747290
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
@@ -68,8 +69,8 @@ MonoBehaviour:
     - rid: 7305478016068747293
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        Item: {fileID: 0}
-        Quantity: 0
+        Item: {fileID: 11400000, guid: e4a3e7d384c87bd4db26d8d2dd3dc332, type: 2}
+        Quantity: 1
         Index: 5
     - rid: 7305478016068747294
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}

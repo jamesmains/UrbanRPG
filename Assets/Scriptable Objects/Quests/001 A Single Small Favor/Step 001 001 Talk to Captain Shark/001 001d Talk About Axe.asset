@@ -1,0 +1,256 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c430b68b037861b43998074cdb478344, type: 3}
+  m_Name: 001 001d Talk About Axe
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: d1b78be38c4b46040b6baae500496ee4, type: 2}
+    - {fileID: 11400000, guid: 408e660443f17574db251195982647c2, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: DialogueSegments
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[DialogueSegment, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 6
+    - Name: 
+      Entry: 7
+      Data: 1|DialogueSegment, Assembly-CSharp
+    - Name: SegmentConditions
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: IsInstantSegment
+      Entry: 5
+      Data: false
+    - Name: actor
+      Entry: 10
+      Data: 0
+    - Name: speech
+      Entry: 1
+      Data: Aye it be a special axe...
+    - Name: OnStartSegment
+      Entry: 6
+      Data: 
+    - Name: OnFinishSegment
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 3|DialogueSegment, Assembly-CSharp
+    - Name: SegmentConditions
+      Entry: 7
+      Data: 4|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: IsInstantSegment
+      Entry: 5
+      Data: false
+    - Name: actor
+      Entry: 6
+      Data: 
+    - Name: speech
+      Entry: 1
+      Data: '*The captain looks off into the distance*'
+    - Name: OnStartSegment
+      Entry: 6
+      Data: 
+    - Name: OnFinishSegment
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 5|DialogueSegment, Assembly-CSharp
+    - Name: SegmentConditions
+      Entry: 7
+      Data: 6|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: IsInstantSegment
+      Entry: 5
+      Data: false
+    - Name: actor
+      Entry: 10
+      Data: 1
+    - Name: speech
+      Entry: 1
+      Data: Yeah but WHAT exactly is special about it?
+    - Name: OnStartSegment
+      Entry: 6
+      Data: 
+    - Name: OnFinishSegment
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 7|DialogueSegment, Assembly-CSharp
+    - Name: SegmentConditions
+      Entry: 7
+      Data: 8|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: IsInstantSegment
+      Entry: 5
+      Data: false
+    - Name: actor
+      Entry: 6
+      Data: 
+    - Name: speech
+      Entry: 1
+      Data: '*The captain says nothing and you get the feeling that one day there
+        will be a story here instead of placeholder text*'
+    - Name: OnStartSegment
+      Entry: 6
+      Data: 
+    - Name: OnFinishSegment
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 9|DialogueSegment, Assembly-CSharp
+    - Name: SegmentConditions
+      Entry: 7
+      Data: 10|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: IsInstantSegment
+      Entry: 5
+      Data: false
+    - Name: actor
+      Entry: 10
+      Data: 1
+    - Name: speech
+      Entry: 1
+      Data: Well where was I supposed to go to get it sharpened?
+    - Name: OnStartSegment
+      Entry: 6
+      Data: 
+    - Name: OnFinishSegment
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 11|DialogueSegment, Assembly-CSharp
+    - Name: SegmentConditions
+      Entry: 7
+      Data: 12|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: IsInstantSegment
+      Entry: 5
+      Data: false
+    - Name: actor
+      Entry: 10
+      Data: 0
+    - Name: speech
+      Entry: 1
+      Data: The Thompson Alley Sisters! They do all that metal workin' behind the
+        Donut Shop down Park Street.
+    - Name: OnStartSegment
+      Entry: 6
+      Data: 
+    - Name: OnFinishSegment
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: <DialogueConditions>k__BackingField
+      Entry: 7
+      Data: 13|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  OnStartDialogue:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFinishDialogue:
+    m_PersistentCalls:
+      m_Calls: []

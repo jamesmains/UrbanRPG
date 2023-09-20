@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a4d70c49933eb74789d9a5f32e8e57c, type: 3}
   m_Name: Hunter Groats
   m_EditorClassIdentifier: 
-  actorName: Mia Thompson
+  actorName: Hunter Groats
   actionIcon: {fileID: 0}
   hairColor: {r: 1, g: 0.25943398, b: 0.25950813, a: 1}
   talkSfx: {fileID: 0}

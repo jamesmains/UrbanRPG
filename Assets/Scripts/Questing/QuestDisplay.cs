@@ -31,7 +31,7 @@ public class QuestDisplay : FoldoutDisplay
         hidden = currentQuestState == QuestState.NotStarted;
         
         QuestTaskData questTask = heldQuest.GetCurrentQuestTask();
-        if (questTask != null)
+        if (questTask != null && currentQuestState != QuestState.Completed)
         {
             string qTaskProgress = questTask.numberOfRequiredHits > 1 ? $"\n{questTask.hits} / {questTask.numberOfRequiredHits}" : "";
             heldQuestDescription = heldQuest.GetCurrentQuestTask().TaskDescription + qTaskProgress;

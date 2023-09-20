@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5868729040078939208}
   - component: {fileID: 7297332646056098723}
-  m_Layer: 8
+  m_Layer: 3
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0

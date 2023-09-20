@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e11c51fbb0b0ce459c5067d578f3b0e, type: 3}
+  m_Name: 001 007a Ask About Bailing Book
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: a21a0640f472aab4bb143c1861f761d3, type: 2}
+    - {fileID: 11400000, guid: 6b47082d2c1a1044bbb6f95ea814d1c4, type: 2}
+    - {fileID: 11400000, guid: 4cac779a6e3803e4b9fe8566db7aac68, type: 2}
+    - {fileID: 11400000, guid: 5c6a83f8332b3d54ea04d3e7de1cef93, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: <Conditions>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 1|ItemConditional, Assembly-CSharp
+    - Name: <Item>k__BackingField
+      Entry: 10
+      Data: 0
+    - Name: <RequiredAmount>k__BackingField
+      Entry: 3
+      Data: 1
+    - Name: <IsGift>k__BackingField
+      Entry: 5
+      Data: false
+    - Name: <ConsumeOnUse>k__BackingField
+      Entry: 5
+      Data: false
+    - Name: <Inventory>k__BackingField
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 2|QuestStateConditional, Assembly-CSharp
+    - Name: <Quest>k__BackingField
+      Entry: 10
+      Data: 2
+    - Name: <State>k__BackingField
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 3|QuestStepConditional, Assembly-CSharp
+    - Name: <Quest>k__BackingField
+      Entry: 10
+      Data: 2
+    - Name: <Step>k__BackingField
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  ActivityName: Ask About Note From Safe
+  ActivityIcon: {fileID: 0}
+  ActivityType: 0
+  actionTime: 0
+  <ActivityActions>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: f99a170c0efb4994795eb1908031b76f, type: 2}
+        m_TargetAssemblyTypeName: Dialogue, Assembly-CSharp
+        m_MethodName: StartDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

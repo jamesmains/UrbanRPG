@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Tomfoolery
   m_EditorClassIdentifier: 
   Name: Tomfoolery
-  Description: ???
+  Description: You Villain!
   Icon: {fileID: -1024390094, guid: 85a163205c7fbe84bba9882d79159d12, type: 3}
-  Level: 1
-  ExpRequiredForLevelUp: 200
-  CurrentExp: 125
+  Level: 0
+  ExpRequiredForLevelUp: 100
+  CurrentExp: 0
