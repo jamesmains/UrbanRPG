@@ -67,7 +67,7 @@ MonoBehaviour:
         m_CallState: 2
   QuestName: A Single Small Favor
   QuestType: 0
-  CurrentState: 2
+  CurrentState: 0
   QuestCompleteText: Yanni's "simple" task was finished.
   Tasks:
   - taskTask: {fileID: 11400000, guid: 23b8a6c7d153eb64b8bec2fce2e6e066, type: 2}
@@ -139,5 +139,5 @@ MonoBehaviour:
     numberOfRequiredHits: 1
     hits: 0
   CurrentStep: {fileID: 0}
-  TaskIndex: 7
+  TaskIndex: 0
   AutoComplete: 0

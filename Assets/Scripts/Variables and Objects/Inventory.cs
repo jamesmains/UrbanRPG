@@ -25,6 +25,7 @@ using UnityEngine;
                 Debug.LogError($"{this} inventory has no name! (Inventory.cs)");
             }
 #endif
+            LoadInventory();
         }
         
         // This function is used but only from unityevents in the inspector
@@ -210,16 +211,29 @@ using UnityEngine;
             }
             SaveInventory();
         }
+
+        [FoldoutGroup("Saving and Loading")]
+        [Button]
+        private void VerifyInventory()
+        {
+            foreach (var t in InventoryItems)
+            {
+                if (t.Quantity > 0) continue;
+                t.Item = null;
+                t.Quantity = 0;
+            }
+        }
         
         [FoldoutGroup("Saving and Loading")][Button]
-        public void SaveInventory()
+        private void SaveInventory()
         {
+            VerifyInventory();
             GameEvents.OnMoveOrAddItem.Raise();
             SaveLoad.SaveInventory(new InventorySaveData(this));
         }
 
         [FoldoutGroup("Saving and Loading")][Button]
-        public void LoadInventory()
+        private void LoadInventory()
         {
             InventoryItems = new InventoryItemData[InventorySlotLimit.Value];
             InventorySaveData saveData = SaveLoad.LoadInventory(Name);
@@ -240,10 +254,11 @@ using UnityEngine;
                 int loadedQuantity = saveData.InventorySaveDataQuantities[i];
                 InventoryItems[i] = new InventoryItemData(loadedItem,loadedQuantity,i);
             }
+            VerifyInventory();
         }
 
         [FoldoutGroup("Saving and Loading")][Button]
-        public void ClearInventory()
+        private void ClearInventory()
         {
             InventoryItems = new InventoryItemData[InventorySlotLimit.Value];
             for (int i = 0; i < InventoryItems.Length; i++)

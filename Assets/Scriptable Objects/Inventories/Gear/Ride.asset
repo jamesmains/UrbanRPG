@@ -14,15 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: For Rides
   InventorySlotLimit: {fileID: 11400000, guid: de6a91b7bccf518478d67fb71805d69b, type: 2}
+  CanCreateImageStringMessages: 0
   lookupTable: {fileID: 11400000, guid: 3cf4055abc210f7488b2727555b7b07b, type: 2}
   InventoryItems:
-  - rid: 7434656897983315993
+  - rid: 3915480105571582306
   references:
     version: 2
     RefIds:
-    - rid: 7434656897983315993
+    - rid: 3915480105571582306
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        Item: {fileID: 11400000, guid: 13279af2563825e4d8df835315abb350, type: 2}
-        Quantity: 1
+        Item: {fileID: 0}
+        Quantity: 0
         Index: 0

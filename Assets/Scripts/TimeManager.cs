@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class TimeManager : MonoBehaviour
@@ -62,6 +63,7 @@ public class TimeManager : MonoBehaviour
     /// On each frame, this will calculate the current time of day factoring game time and the time multiplier (1440 is how many minutes exist in a day 24 x 60)
     /// Then send a time percentage to UpdateLighting, to evaluate according to the set preset, what that time of day should look like
     /// </summary>
+    [Button]
     private void Update()
     {
         #if UNITY_EDITOR
