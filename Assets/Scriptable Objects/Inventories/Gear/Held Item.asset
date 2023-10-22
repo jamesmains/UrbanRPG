@@ -14,13 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Held item, typically for gift giving
   InventorySlotLimit: {fileID: 11400000, guid: de6a91b7bccf518478d67fb71805d69b, type: 2}
+  CanCreateImageStringMessages: 0
   lookupTable: {fileID: 11400000, guid: 3cf4055abc210f7488b2727555b7b07b, type: 2}
   InventoryItems:
-  - rid: 7305478049103872001
+  - rid: 9104265732654629545
   references:
     version: 2
     RefIds:
-    - rid: 7305478049103872001
+    - rid: 9104265732654629545
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
         Item: {fileID: 0}

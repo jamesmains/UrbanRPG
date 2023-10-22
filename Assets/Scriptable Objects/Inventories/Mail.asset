@@ -14,64 +14,65 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Mail
   InventorySlotLimit: {fileID: 11400000, guid: 73bdcd5ee0049984d8c3e1aa2b653e39, type: 2}
+  CanCreateImageStringMessages: 0
   lookupTable: {fileID: 11400000, guid: 3cf4055abc210f7488b2727555b7b07b, type: 2}
   InventoryItems:
-  - rid: 7305477810402623610
-  - rid: 7305477810402623611
-  - rid: 7305477810402623612
-  - rid: 7305477810402623613
-  - rid: 7305477810402623614
-  - rid: 7305477810402623615
-  - rid: 7305477810402623616
-  - rid: 7305477810402623617
+  - rid: 9104265732654629619
+  - rid: 9104265732654629620
+  - rid: 9104265732654629621
+  - rid: 9104265732654629622
+  - rid: 9104265732654629623
+  - rid: 9104265732654629624
+  - rid: 9104265732654629625
+  - rid: 9104265732654629626
   references:
     version: 2
     RefIds:
-    - rid: 7305477810402623610
+    - rid: 9104265732654629619
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 0
-    - rid: 7305477810402623611
+    - rid: 9104265732654629620
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 1
-    - rid: 7305477810402623612
+    - rid: 9104265732654629621
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 2
-    - rid: 7305477810402623613
+    - rid: 9104265732654629622
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 3
-    - rid: 7305477810402623614
+    - rid: 9104265732654629623
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 4
-    - rid: 7305477810402623615
+    - rid: 9104265732654629624
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 5
-    - rid: 7305477810402623616
+    - rid: 9104265732654629625
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 6
-    - rid: 7305477810402623617
+    - rid: 9104265732654629626
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
-        item: {fileID: 0}
+        Item: {fileID: 0}
         Quantity: 0
         Index: 7

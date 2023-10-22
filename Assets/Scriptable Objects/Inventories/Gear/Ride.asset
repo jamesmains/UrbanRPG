@@ -17,11 +17,11 @@ MonoBehaviour:
   CanCreateImageStringMessages: 0
   lookupTable: {fileID: 11400000, guid: 3cf4055abc210f7488b2727555b7b07b, type: 2}
   InventoryItems:
-  - rid: 3915480105571582306
+  - rid: 9104265732654629546
   references:
     version: 2
     RefIds:
-    - rid: 3915480105571582306
+    - rid: 9104265732654629546
       type: {class: InventoryItemData, ns: , asm: Assembly-CSharp}
       data:
         Item: {fileID: 0}

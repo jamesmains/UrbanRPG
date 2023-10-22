@@ -37,7 +37,7 @@ public class Tooltip : Window
     {
         if (!isActive) return;
         var targetPosition = (Input.mousePosition / scaler.scaleFactor) +offset;
-        targetPosition.x = Mathf.Clamp(targetPosition.x, 0, 1920 - (rect.rect.width));
+        targetPosition.x = Mathf.Clamp(targetPosition.x, 0, 1920 - (rect.rect.width)); // TODO: investigate if this needs to be using reference resolution or actual
         targetPosition.y = Mathf.Clamp(targetPosition.y, 0, 1080 - (rect.rect.height));
         rect.anchoredPosition = targetPosition;
     }

@@ -10,19 +10,20 @@ using UnityEngine.UI;
 
 public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,IPointerMoveHandler
 {
-    public Inventory inventory;
+    public Inventory Inventory;
     [SerializeField] private Transform InventoryContainer;
     [SerializeField] private GameObject InventorySlotPrefab;
-    [field: SerializeField, FoldoutGroup("Toggles")] public bool isLocked {get; private set;}
-    [field: SerializeField, FoldoutGroup("Toggles")] public bool removeOnly {get; private set;}
-    [field: SerializeField, FoldoutGroup("Toggles")] public bool restrictByItemType {get; private set;}
-    [field: SerializeField, FoldoutGroup("Toggles")] public bool ignoreScrollInput {get; private set;}
-    [ShowIf("restrictByItemType")] public List<ItemTypeListItem> allowedTypes = new();
+    [field: SerializeField, FoldoutGroup("Toggles")] public bool IsLocked {get; private set;}
+    [field: SerializeField, FoldoutGroup("Toggles")] public bool RemoveOnly {get; private set;}
+    [field: SerializeField, FoldoutGroup("Toggles")] public bool RestrictByItemType {get; private set;}
+    [field: SerializeField, FoldoutGroup("Toggles")] public bool IgnoreScrollInput {get; private set;}
+    [ShowIf("RestrictByItemType")] public List<ItemTypeListItem> AllowedTypes = new();
 
     private bool flaggedToUpdate;
-    private readonly List<GameObject> InventorySlots = new();
-    public static InventoryWindow highlightedInventoryWindow;
-    public static readonly List<InventoryWindow> openInventoryWindows = new();
+    private readonly List<GameObject> inventorySlots = new();
+    
+    public static InventoryWindow HighlightedInventoryWindow;
+    public static readonly List<InventoryWindow> OpenInventoryWindows = new();
 
     protected override void OnEnable()
     {
@@ -44,25 +45,25 @@ public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,I
         base.Show();
         
         UpdateInventoryDisplay();
-        if(!ignoreScrollInput)
-            openInventoryWindows.Add(this);
+        if(!IgnoreScrollInput)
+            OpenInventoryWindows.Add(this);
     }
 
     public override void Hide()
     {
         base.Hide();
-        if(!ignoreScrollInput && openInventoryWindows.Contains(this))
-            openInventoryWindows.Remove(this);
+        if(!IgnoreScrollInput && OpenInventoryWindows.Contains(this))
+            OpenInventoryWindows.Remove(this);
     }
 
     private void PopulateDisplay()
     {
-        if (InventorySlots.Count <= 0)
+        if (inventorySlots.Count <= Inventory.InventorySlotLimit.Value)
         {
-            for (int i = 0; i < inventory.InventorySlotLimit.Value; i++)
+            for (int i = inventorySlots.Count; i < Inventory.InventorySlotLimit.Value; i++)
             {
                 var obj = Instantiate(InventorySlotPrefab, InventoryContainer);
-                InventorySlots.Add(obj);
+                inventorySlots.Add(obj);
             }
         }
     }
@@ -70,19 +71,20 @@ public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,I
     [Button]
     public void UpdateInventoryDisplay()
     {
-        PopulateDisplay(); // Should only run correctly from editor
-        for (int i = 0; i < inventory.InventorySlotLimit.Value; i++)
+        PopulateDisplay();
+        for (int i = 0; i < Inventory.InventorySlotLimit.Value; i++)
         {
-            var itemData = inventory.InventoryItems[i];
-            var slot = InventorySlots[i].GetComponent<InventorySlot>();
+            var itemData = Inventory.InventoryItems[i];
+            var slot = inventorySlots[i].GetComponent<InventorySlot>();
             
-            bool hasAllowedItemType = allowedTypes.Any(o => itemData.Item == null || o.Type == itemData.Item.ItemType);
-            if ((restrictByItemType && !hasAllowedItemType) || inventory.InventoryItems[i].Item == null )
+            bool hasAllowedItemType = AllowedTypes.Any(o => itemData.Item == null || o.Type == itemData.Item.ItemType);
+            
+            if (RestrictByItemType && !hasAllowedItemType || Inventory.InventoryItems[i].Item == null )
             {
                 itemData = new InventoryItemData(null, 0, -1);
                 slot.Disable();
             }
-            slot.Setup(itemData,i,this);
+            slot.AssignItemData(itemData,i,this);
         }
     }
     
@@ -92,20 +94,20 @@ public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,I
     private void ClearDisplays()
     {
         InventoryContainer.DestroyChildrenInEditor();
-        InventorySlots.Clear();
+        inventorySlots.Clear();
     }
     
     #endif
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if ((highlightedInventoryWindow is null || highlightedInventoryWindow != this && !isLocked) && !removeOnly)
-            highlightedInventoryWindow = this;
+        if ((HighlightedInventoryWindow is null || HighlightedInventoryWindow != this && !IsLocked) && !RemoveOnly)
+            HighlightedInventoryWindow = this;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        highlightedInventoryWindow = null;
+        HighlightedInventoryWindow = null;
     }
 
     public void OnPointerMove(PointerEventData eventData)

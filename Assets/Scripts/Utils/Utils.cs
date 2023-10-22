@@ -158,9 +158,9 @@ public static class ExtensionMethods
 
     public static void DestroyChildrenInEditor(this Transform t)
     {
-        foreach (Transform child in t)
+        while (t.childCount > 0)
         {
-            Object.DestroyImmediate(child.gameObject);
+            Object.DestroyImmediate(t.GetChild(t.childCount-1).gameObject);
         }
     }
     
