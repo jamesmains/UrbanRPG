@@ -224,32 +224,32 @@ using UnityEngine;
         {
             VerifyInventory();
             GameEvents.OnMoveOrAddItem.Raise();
-            SaveLoad.SaveInventory(new InventorySaveData(this));
+            // SaveLoad.SaveInventory(new InventorySaveData(this));
         }
 
         [FoldoutGroup("Saving and Loading")][Button]
         private void LoadInventory()
         {
-            InventoryItems = new InventoryItemData[InventorySlotLimit];
-            InventorySaveData saveData = SaveLoad.LoadInventory(Name);
-        
-            if (saveData is null)
-            {
-                return;
-            }
-        
-            for (int i = 0; i < saveData.InventorySaveDataItems.Length; i++)
-            {
-                Item loadedItem = lookupTable.GetItem(saveData.InventorySaveDataItems[i]);
-                if (loadedItem == null)
-                {
-                    InventoryItems[i] = new InventoryItemData(null, 0,i);
-                    continue;
-                }
-                int loadedQuantity = saveData.InventorySaveDataQuantities[i];
-                InventoryItems[i] = new InventoryItemData(loadedItem,loadedQuantity,i);
-            }
-            VerifyInventory();
+            // InventoryItems = new InventoryItemData[InventorySlotLimit];
+            // InventorySaveData saveData = SaveLoad.LoadInventory(Name);
+            //
+            // if (saveData is null)
+            // {
+            //     return;
+            // }
+            //
+            // for (int i = 0; i < saveData.InventorySaveDataItems.Length; i++)
+            // {
+            //     Item loadedItem = lookupTable.GetItem(saveData.InventorySaveDataItems[i]);
+            //     if (loadedItem == null)
+            //     {
+            //         InventoryItems[i] = new InventoryItemData(null, 0,i);
+            //         continue;
+            //     }
+            //     int loadedQuantity = saveData.InventorySaveDataQuantities[i];
+            //     InventoryItems[i] = new InventoryItemData(loadedItem,loadedQuantity,i);
+            // }
+            // VerifyInventory();
         }
 
         [FoldoutGroup("Saving and Loading")][Button]

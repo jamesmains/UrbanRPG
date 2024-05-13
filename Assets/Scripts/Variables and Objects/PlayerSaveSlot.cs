@@ -26,36 +26,38 @@ public class PlayerSaveSlot : Actor
         LoadData();
     }
 
+    // Need to restructure using Json
+    // Vectors just work!
     public void LoadData()
     {
-        NextSceneTransition = ScriptableObject.CreateInstance<SceneTransition>();
-        PlayerSaveData saveData = SaveLoad.LoadPlayerData();
-        if (saveData == null)
-        {
-            Debug.Log($"Failed to load save slot [{saveSlot}] because it does not exist (PlayerSaveSlot.cs)");
-            NextSceneTransition = NewSaveFileSpawnLocation;
-            return;
-        }
-        NextSceneTransition.TargetScene = saveData.SavedScene;
-        actorName = saveData.SavedCharacterName;
-        cityName = saveData.SavedCityName;
-        NextSceneTransition.SpawnLocation = new Vector3(
-            saveData.SavedSpawnLocationX,
-            saveData.SavedSpawnLocationY,
-            saveData.SavedSpawnLocationZ
-        );
-        PlayerMoneyVariable = saveData.SavedMoney;
-        Loaded = true;
+        // NextSceneTransition = ScriptableObject.CreateInstance<SceneTransition>();
+        // PlayerSaveData saveData = SaveLoad.LoadPlayerData();
+        // if (saveData == null)
+        // {
+        //     Debug.Log($"Failed to load save slot [{saveSlot}] because it does not exist (PlayerSaveSlot.cs)");
+        //     NextSceneTransition = NewSaveFileSpawnLocation;
+        //     return;
+        // }
+        // NextSceneTransition.TargetScene = saveData.SavedScene;
+        // actorName = saveData.SavedCharacterName;
+        // cityName = saveData.SavedCityName;
+        // NextSceneTransition.SpawnLocation = new Vector3(
+        //     saveData.SavedSpawnLocationX,
+        //     saveData.SavedSpawnLocationY,
+        //     saveData.SavedSpawnLocationZ
+        // );
+        // PlayerMoneyVariable = saveData.SavedMoney;
+        // Loaded = true;
     }
     
     [Button] public void SaveData()
     {
-        SaveLoad.SavePlayerData(new PlayerSaveData(
-            SceneManager.GetActiveScene().name,
-            actorName,
-            cityName,
-            PlayerPositionVariable,
-            PlayerMoneyVariable));
+        // SaveLoad.SavePlayerData(new PlayerSaveData(
+        //     SceneManager.GetActiveScene().name,
+        //     actorName,
+        //     cityName,
+        //     PlayerPositionVariable,
+        //     PlayerMoneyVariable));
     }
 }
 

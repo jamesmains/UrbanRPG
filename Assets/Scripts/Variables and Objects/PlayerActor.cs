@@ -29,46 +29,46 @@ public class PlayerActor : MonoBehaviour
     public void SaveOutfit()
     {
         print(playerActor.hairColor);
-        SaveLoad.SavePlayerOutfit(new PlayerOutfitSaveData(playerActor.EquippedGear.ToArray(),playerActor.hairColor));
+        // SaveLoad.SavePlayerOutfit(new PlayerOutfitSaveData(playerActor.EquippedGear.ToArray(),playerActor.hairColor));
     }
 
     [FoldoutGroup("Saving and Loading")][Button]
     public void LoadOutfit()
     {
-        playerActor.EquippedGear.Clear();
-        PlayerOutfitSaveData loadedData = SaveLoad.LoadPlayerOutfit();
-        
-        if (loadedData is null)
-        {
-            playerActor.EquippedGear = defaultOutfit;
-            playerActor.hairColor = defaultHairColor;
-            SaveOutfit();
-            return;
-        }
-
-        for (var i = 0; i < loadedData.GearSaveDataItems.Length; i++)
-        {
-            var n = loadedData.GearSaveDataItems[i];
-            var t = loadedData.GearTypeSaveDataItems[i];
-            Gear loadedGear = (Gear) ItemLookupTable.GetItem(n);
-
-            playerActor.EquippedGear.Add(new GearOption(loadedGear, (GearType)t));
-            try
-            {
-                var slot = (Animator.gearSlots.First(o => o.gear.GearType == loadedGear.GearType));
-                if (slot != null)
-                    slot.gear = loadedGear;
-            }
-            catch
-            {
-                // ignored
-            }
-        }
-        if (ColorUtility.TryParseHtmlString(loadedData.HairColorHexCode, out Color c))
-        {
-            playerActor.hairColor = c;
-        }
-        Animator.UpdateActor(playerActor);
+        // playerActor.EquippedGear.Clear();
+        // PlayerOutfitSaveData loadedData = SaveLoad.LoadPlayerOutfit();
+        //
+        // if (loadedData is null)
+        // {
+        //     playerActor.EquippedGear = defaultOutfit;
+        //     playerActor.hairColor = defaultHairColor;
+        //     SaveOutfit();
+        //     return;
+        // }
+        //
+        // for (var i = 0; i < loadedData.GearSaveDataItems.Length; i++)
+        // {
+        //     var n = loadedData.GearSaveDataItems[i];
+        //     var t = loadedData.GearTypeSaveDataItems[i];
+        //     Gear loadedGear = (Gear) ItemLookupTable.GetItem(n);
+        //
+        //     playerActor.EquippedGear.Add(new GearOption(loadedGear, (GearType)t));
+        //     try
+        //     {
+        //         var slot = (Animator.gearSlots.First(o => o.gear.GearType == loadedGear.GearType));
+        //         if (slot != null)
+        //             slot.gear = loadedGear;
+        //     }
+        //     catch
+        //     {
+        //         // ignored
+        //     }
+        // }
+        // if (ColorUtility.TryParseHtmlString(loadedData.HairColorHexCode, out Color c))
+        // {
+        //     playerActor.hairColor = c;
+        // }
+        // Animator.UpdateActor(playerActor);
     }
 }
 

@@ -120,25 +120,25 @@ public class Quest : Activity
     [Button, TabGroup("Functions","Data Functions")]
     private void SaveQuest()
     {
-        SaveLoad.SaveQuest(new QuestSaveData(this));
+        // SaveLoad.SaveQuest(new QuestSaveData(this));
     }
 
     [Button, TabGroup("Functions","Data Functions")]
     private void LoadQuest()
     {
-        QuestSaveData loadedData = SaveLoad.LoadQuest(QuestName);
-        if (loadedData == null) return;
-        
-        TaskIndex = loadedData.SavedTaskIndex;
-        if (Tasks.Count < TaskIndex) CurrentStep = Tasks[TaskIndex].taskTask;
-        
-        int j = 0;
-        Tasks.ForEach(o =>
-        {
-            o.hits = loadedData.SavedTaskHits[j];
-            j++;
-        });
-        CurrentState = loadedData.SavedQuestState;
+        // QuestSaveData loadedData = SaveLoad.LoadQuest(QuestName);
+        // if (loadedData == null) return;
+        //
+        // TaskIndex = loadedData.SavedTaskIndex;
+        // if (Tasks.Count < TaskIndex) CurrentStep = Tasks[TaskIndex].taskTask;
+        //
+        // int j = 0;
+        // Tasks.ForEach(o =>
+        // {
+        //     o.hits = loadedData.SavedTaskHits[j];
+        //     j++;
+        // });
+        // CurrentState = loadedData.SavedQuestState;
     }
 
     private void OnEnable()
