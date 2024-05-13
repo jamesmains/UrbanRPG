@@ -11,7 +11,7 @@ public class PlayerMotor : MonoBehaviour
     
     [FoldoutGroup("Data")] [SerializeField] private Rigidbody rb;
     [FoldoutGroup("Data")] [SerializeField] private CustoAnimator animator;
-    [FoldoutGroup("Data")] [SerializeField] private VectorVariable playerPositionVariable;
+    [FoldoutGroup("Data")] [SerializeField] private Vector2 playerPositionVariable; // Todo - replace with static variable
     [FoldoutGroup("Data")] [SerializeField] private PlayerSaveSlot playerSaveSlot;
     [FoldoutGroup("Data")] [SerializeField] public ModdableFloat moveSpeed; // might be replaced with scriptable object float variable 
     
@@ -153,7 +153,7 @@ public class PlayerMotor : MonoBehaviour
         animator.ChangeDirection(new Vector2((int)inputX,(int)inputY),action);
         Vector3 moveForce = new Vector3(inputX,0, inputY).normalized;
         rb.AddForce(moveForce * moveSpeed.Value);
-        playerPositionVariable.Value = transform.position;
+        playerPositionVariable = transform.position;
     }
     
     public void MovePlayerTo(Transform newPosition)

@@ -34,32 +34,10 @@ public class TimeVariable : ScriptableObject
         GameEvents.OnChangeTime.Raise();
     }
 
-    public void SetValue(FloatVariable value)
-    {
-        Value = value.Value;
-        if (Value >= MaxValue && ChainVariable != null)
-        {
-            Value = 0;
-            ChainVariable.ApplyChange(1);
-        }
-        GameEvents.OnChangeTime.Raise();
-    }
-
     [Button]
     public void ApplyChange(float amount)
     {
         Value += amount;
-        if (Value >= MaxValue && ChainVariable != null)
-        {
-            Value = 0;
-            ChainVariable.ApplyChange(1);
-        }
-        GameEvents.OnChangeTime.Raise();
-    }
-
-    public void ApplyChange(FloatVariable amount)
-    {
-        Value += amount.Value;
         if (Value >= MaxValue && ChainVariable != null)
         {
             Value = 0;

@@ -43,10 +43,7 @@ public class GearSlot : MonoBehaviour
     private void SetSprite()
     {
         int index = startIndex+(currentDirection * frameCount) + frameIndex;
-        if(UrbanDebugger.DebugLevel>=1)
-        {
-            Debug.Log($"Sheet Length {sheet.Count}, index: {index} (GearSlot.cs)");
-        }
+        Debug.Log($"Sheet Length {sheet.Count}, index: {index} (GearSlot.cs)");
         spriteRenderer.sprite = sheet[index];
     }
     

@@ -174,11 +174,6 @@ public static class ExtensionMethods
     }
 }
 
-public static class UrbanDebugger
-{
-    public static int DebugLevel = 0; // 0 None, 1 Low, 2 Med, 3 High
-}
-
 public static class Global
 {
     public static bool IsMouseOverUI;

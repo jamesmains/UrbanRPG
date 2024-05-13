@@ -11,12 +11,6 @@ public class QuestBook : Window
     [SerializeField] private GameObject questDisplayObject;
     [SerializeField] private RectTransform questDisplayObjectContainer;
     public List<Quest> questList = new();
-    public BoolVariable HasDreamQuestVariable;
-
-    private void Awake()
-    {
-        HasDreamQuestVariable.Value = HasDreamQuestVariable;
-    }
 
     protected override void OnEnable()
     {

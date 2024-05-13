@@ -11,7 +11,7 @@ public class StatusEffectManager : MonoBehaviour
     
     private void OnEnable()
     {
-        WindowUtility.OnOpenWindow.Raise(windowName); // Todo: Find more appropriate area to call hud window functions
+        //WindowUtility.OnOpenWindow.Raise(windowName); // Todo: Find more appropriate area to call hud window functions
     }
 
     private void Update()

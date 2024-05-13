@@ -22,14 +22,16 @@ public class Window : MonoBehaviour, UIWindow
 
     protected virtual void OnEnable()
     {
-        WindowUtility.OnOpenWindow += OpenWindow;
-        WindowUtility.OnCloseWindow += CloseWindow;
+        // Todo - Fix with new menu system calls
+        // WindowUtility.OnOpenWindow += OpenWindow;
+        // WindowUtility.OnCloseWindow += CloseWindow;
     }
 
     protected virtual void OnDisable()
     {
-        WindowUtility.OnOpenWindow -= OpenWindow;
-        WindowUtility.OnCloseWindow -= CloseWindow;
+        // Todo - Fix with new menu system calls
+        // WindowUtility.OnOpenWindow -= OpenWindow;
+        // WindowUtility.OnCloseWindow -= CloseWindow;
     }
 
     private void Awake()

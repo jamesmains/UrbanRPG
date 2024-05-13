@@ -12,7 +12,7 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
     [field: SerializeField, FoldoutGroup("Looks")] private Color normalColor;
     [field: SerializeField, FoldoutGroup("Looks")] private Color highlightedColor;
 
-    [field: SerializeField,FoldoutGroup("Hooks")] private VectorVariable playerPositionVariable;
+    [field: SerializeField,FoldoutGroup("Hooks")] private Vector2 playerPositionVariable; // todo - why the fuck does the inventory slot need to know this?
     [field: SerializeField,FoldoutGroup("Hooks")] private GameObject pickupItemObject;
     [field: SerializeField,FoldoutGroup("Hooks")] private Image frameDisplay;
     [field: SerializeField,FoldoutGroup("Hooks")] private Image iconDisplay;
@@ -155,7 +155,8 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         quantity = tryingToSplit ? quantity / 2 : quantity;
         if (quantity == 0) return;
         
-        Vector3 spawnPos = playerPositionVariable.Value;
+        // Why is this responsible for this? Needs pooler
+        Vector3 spawnPos = playerPositionVariable;
         var pickup = Instantiate(pickupItemObject, spawnPos,Quaternion.identity).GetComponent<Pickup>();
         
         pickup.Setup(itemData.Item,quantity);

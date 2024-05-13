@@ -10,8 +10,8 @@ public class ShopDisplay : Window
 {
     [SerializeField, FoldoutGroup("Display")] private GameObject shopItemDisplayObject;
     [SerializeField, FoldoutGroup("Display")] private TextMeshProUGUI cartCostText;
-    [SerializeField] private IntVariable cartCostVariable;
-    [SerializeField] private IntVariable playerWalletVariable;
+    [SerializeField] private int cartCostVariable;
+    [SerializeField] private int playerWalletVariable; // Change to read out from player currency value
     [SerializeField] private List<ShopItemDisplay> shopItemDisplays = new();
     [SerializeField] private RectTransform shopItemDisplayObjectContainer;
     [SerializeField, ReadOnly] private Shop currentShop;
@@ -40,21 +40,21 @@ public class ShopDisplay : Window
     {
         currentShop = incomingShop;
         Global.PlayerLock++;
-        cartCostVariable.Value = 0;
-        cartCostText.text = cartCostVariable.Value.ToString();
+        cartCostVariable = 0;
+        cartCostText.text = cartCostVariable.ToString();
         Show();
         CloseOtherWindows(this);
-        WindowUtility.OnOpenWindow.Raise("Pockets");
+        //WindowUtility.OnOpenWindow.Raise("Pockets"); // Todo - Fix with new menu system calls
         PopulateShopDisplay();
     }
 
     public void UpdateCartCost()
     {
-        cartCostVariable.Value = 0;
+        cartCostVariable = 0;
         foreach (var shopItemDisplay in shopItemDisplays)
         {
             if(!shopItemDisplay.isActiveAndEnabled) continue;
-            cartCostVariable.Value += shopItemDisplay.GetCartCost();
+            cartCostVariable += shopItemDisplay.GetCartCost();
         }
         
         foreach (var shopItemDisplay in shopItemDisplays)
@@ -62,7 +62,7 @@ public class ShopDisplay : Window
             if(!shopItemDisplay.isActiveAndEnabled) continue;
             shopItemDisplay.UpdateItemButtons();
         }
-        cartCostText.text = cartCostVariable.Value.ToString();
+        cartCostText.text = cartCostVariable.ToString();
     }
     
     public void PopulateShopDisplay()
@@ -83,7 +83,7 @@ public class ShopDisplay : Window
 
     public void ProcessCheckout()
     {
-        playerWalletVariable.Value -= cartCostVariable.Value;
+        playerWalletVariable -= cartCostVariable;
         GameEvents.OnUpdateMoneyDisplay.Raise();
         foreach (var shopItemDisplay in shopItemDisplays)
         {
@@ -91,7 +91,7 @@ public class ShopDisplay : Window
             int r = currentShop.targetInventory.TryAddItem(shopItemDisplay.shopItem.item, shopItemDisplay.inCartAmount);
             shopItemDisplay.itemQuantity -= shopItemDisplay.inCartAmount - r;
             shopItemDisplay.shopItem.currentQuantity -= shopItemDisplay.inCartAmount - r;
-            playerWalletVariable.Value += (int)shopItemDisplay.shopItem.item.Value.x * r;
+            playerWalletVariable += (int)shopItemDisplay.shopItem.item.Value.x * r;
             shopItemDisplay.inCartAmount = 0;
             if (r > 0)
             {
@@ -110,7 +110,7 @@ public class ShopDisplay : Window
             shopItemDisplay.AdjustCartAmount(-999);
         }
         Global.PlayerLock--;
-        WindowUtility.OnCloseWindow.Raise("Pockets");
+        //WindowUtility.OnCloseWindow.Raise("Pockets"); // Todo - Fix with new menu system calls
         Hide();
         GameEvents.ShowPlayerHud.Raise();
     }

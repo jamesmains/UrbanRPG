@@ -20,8 +20,8 @@ public class ShopItemDisplay : MonoBehaviour
     [SerializeField, FoldoutGroup("Display")] private Button decreaseCartAmountButton;
     [SerializeField, FoldoutGroup("Display")] private Button increaseCartAmountButton;
     
-    [SerializeField] private IntVariable playerWalletVariable;
-    [SerializeField] private IntVariable cartCostVariable;
+    [SerializeField] private int playerWalletVariable; // todo - replace with static reference
+    [SerializeField] private int cartCostVariable;
     [FoldoutGroup("Data")] public int inCartAmount;
     [SerializeField, FoldoutGroup("Data")] private int lastValidInCartAmount;
     [FoldoutGroup("Data")] public int itemQuantity;
@@ -56,7 +56,7 @@ public class ShopItemDisplay : MonoBehaviour
         inCartAmount += changeValue;
         
         
-        if (inCartAmount * shopItem.item.Value.x > playerWalletVariable.Value)
+        if (inCartAmount * shopItem.item.Value.x > playerWalletVariable)
         {
             inCartAmount = lastValidInCartAmount;
         }
@@ -87,7 +87,7 @@ public class ShopItemDisplay : MonoBehaviour
 
     public void UpdateItemButtons()
     {
-        int availableFunds = playerWalletVariable.Value - cartCostVariable.Value;
+        int availableFunds = playerWalletVariable - cartCostVariable;
         decreaseCartAmountButton.interactable = inCartAmount > 0;
         increaseCartAmountButton.interactable = inCartAmount < itemQuantity && (shopItem.item.Value.x < availableFunds);
     }

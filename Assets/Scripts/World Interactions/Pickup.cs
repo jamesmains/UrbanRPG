@@ -16,7 +16,7 @@ public class Pickup : MonoBehaviour
     [FoldoutGroup("Data")][SerializeField] private float expulseForce;
     [FoldoutGroup("Data")][SerializeField] private float expulseHeightMultiplier;
     [FoldoutGroup("Data")][SerializeField] private float activationTime = 2f;
-    [FoldoutGroup("Data")][SerializeField] private FloatVariable despawnTimer;
+    [FoldoutGroup("Data")][SerializeField] private float despawnTimer;
     [FoldoutGroup("Data")] [SerializeField] private StringVariable itemNameVariable;
     [FoldoutGroup("Data")][SerializeField] private Rigidbody rb;
     [FoldoutGroup("Display")][SerializeField] private SpriteRenderer litRenderer;
@@ -58,7 +58,7 @@ public class Pickup : MonoBehaviour
 
     IEnumerator Despawn()
     {
-        yield return new WaitForSeconds(despawnTimer.Value);
+        yield return new WaitForSeconds(despawnTimer);
         lostInventory.TryAddItem(item, amount);
         GameEvents.OnDespawnItem.Raise();
         Destroy(this.gameObject);

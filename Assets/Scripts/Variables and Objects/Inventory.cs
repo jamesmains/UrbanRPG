@@ -12,20 +12,15 @@ using UnityEngine;
     public class Inventory : ScriptableObject
     {
         [field: SerializeField] public string Name { get; private set; }
-        [field: SerializeField] public IntVariable InventorySlotLimit;
+        [field: SerializeField] public int InventorySlotLimit = 32;
         [field: SerializeField] public bool CanCreateImageStringMessages;
         [field: SerializeField] public ItemLookupTable lookupTable;
         [SerializeReference] public InventoryItemData[] InventoryItems;
         
         private void OnEnable()
         {
-#if UNITY_EDITOR
-            if (Name.IsNullOrWhitespace() && UrbanDebugger.DebugLevel >= 1)
-            {
-                Debug.LogError($"{this} inventory has no name! (Inventory.cs)");
-            }
-#endif
-            LoadInventory();
+            
+            //LoadInventory();
         }
         
         // This function is used but only from unityevents in the inspector
@@ -199,11 +194,11 @@ using UnityEngine;
         [Button]
         public void SortIventoryByEmptySlots()
         {
-            for (int i = 0; i < InventorySlotLimit.Value; i++)
+            for (int i = 0; i < InventorySlotLimit; i++)
             {
                 var targetItem = InventoryItems[i].Item; 
                 if (targetItem == null) continue;
-                for (int j = 0; j < InventorySlotLimit.Value; j++)
+                for (int j = 0; j < InventorySlotLimit; j++)
                 {
                     if (InventoryItems[j].Item != null) continue;
                     TrySwapItem(i,j,this);
@@ -235,7 +230,7 @@ using UnityEngine;
         [FoldoutGroup("Saving and Loading")][Button]
         private void LoadInventory()
         {
-            InventoryItems = new InventoryItemData[InventorySlotLimit.Value];
+            InventoryItems = new InventoryItemData[InventorySlotLimit];
             InventorySaveData saveData = SaveLoad.LoadInventory(Name);
         
             if (saveData is null)
@@ -260,7 +255,7 @@ using UnityEngine;
         [FoldoutGroup("Saving and Loading")][Button]
         private void ClearInventory()
         {
-            InventoryItems = new InventoryItemData[InventorySlotLimit.Value];
+            InventoryItems = new InventoryItemData[InventorySlotLimit];
             for (int i = 0; i < InventoryItems.Length; i++)
             {
                 InventoryItems[i] = new InventoryItemData(null, 0,i);
@@ -301,7 +296,7 @@ public class InventorySaveData
     public InventorySaveData(Inventory inventory)
     {
         Name = inventory.Name;
-        int arrayLength = inventory.InventorySlotLimit.Value;
+        int arrayLength = inventory.InventorySlotLimit;
         InventorySaveDataItems = new string[arrayLength];
         InventorySaveDataQuantities = new int[arrayLength];
         for (int i = 0; i < arrayLength; i++)

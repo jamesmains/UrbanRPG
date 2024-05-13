@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using I302.Manu;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -13,8 +11,8 @@ public class PlayerSaveSlot : Actor
     public string cityName;
     public SceneTransition NewSaveFileSpawnLocation;
     public SceneTransition NextSceneTransition;
-    public VectorVariable PlayerPositionVariable;
-    public IntVariable PlayerMoneyVariable;
+    public Vector2 PlayerPositionVariable;
+    public int PlayerMoneyVariable;
     public bool Loaded;
     
     private void OnEnable()
@@ -24,10 +22,6 @@ public class PlayerSaveSlot : Actor
 
     public void LoadData(string slotName)
     {
-        if(UrbanDebugger.DebugLevel>=1)
-        {
-            Debug.Log($"Trying to load save slot [{slotName}] (PlayerSaveSlot.cs)");
-        }
         saveSlot = slotName;
         LoadData();
     }
@@ -38,10 +32,7 @@ public class PlayerSaveSlot : Actor
         PlayerSaveData saveData = SaveLoad.LoadPlayerData();
         if (saveData == null)
         {
-            if(UrbanDebugger.DebugLevel>=1)
-            {
-                Debug.Log($"Failed to load save slot [{saveSlot}] because it does not exist (PlayerSaveSlot.cs)");
-            }
+            Debug.Log($"Failed to load save slot [{saveSlot}] because it does not exist (PlayerSaveSlot.cs)");
             NextSceneTransition = NewSaveFileSpawnLocation;
             return;
         }
@@ -53,7 +44,7 @@ public class PlayerSaveSlot : Actor
             saveData.SavedSpawnLocationY,
             saveData.SavedSpawnLocationZ
         );
-        PlayerMoneyVariable.Value = saveData.SavedMoney;
+        PlayerMoneyVariable = saveData.SavedMoney;
         Loaded = true;
     }
     
@@ -63,8 +54,8 @@ public class PlayerSaveSlot : Actor
             SceneManager.GetActiveScene().name,
             actorName,
             cityName,
-            PlayerPositionVariable.Value,
-            PlayerMoneyVariable.Value));
+            PlayerPositionVariable,
+            PlayerMoneyVariable));
     }
 }
 

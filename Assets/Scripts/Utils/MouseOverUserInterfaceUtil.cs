@@ -35,10 +35,7 @@ public class MouseOverUserInterfaceUtil : MonoBehaviour
             RaycastResult curRaysastResult = eventSystemRaysastResults[index];
             if (curRaysastResult.gameObject.layer == layer)
             {
-                if(UrbanDebugger.DebugLevel>=1)
-                {
-                    Debug.Log($"Mouse is over {curRaysastResult.gameObject.name} (MouseOverUserInterfaceUtil.cs)");
-                }
+                Debug.Log($"Mouse is over {curRaysastResult.gameObject.name} (MouseOverUserInterfaceUtil.cs)");
                 return true;
             }
         }

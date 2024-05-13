@@ -1,12 +1,9 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using I302.Manu;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,IPointerMoveHandler
 {
@@ -58,9 +55,9 @@ public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,I
 
     private void PopulateDisplay()
     {
-        if (inventorySlots.Count <= Inventory.InventorySlotLimit.Value)
+        if (inventorySlots.Count <= Inventory.InventorySlotLimit)
         {
-            for (int i = inventorySlots.Count; i < Inventory.InventorySlotLimit.Value; i++)
+            for (int i = inventorySlots.Count; i < Inventory.InventorySlotLimit; i++)
             {
                 var obj = Instantiate(InventorySlotPrefab, InventoryContainer);
                 inventorySlots.Add(obj);
@@ -72,7 +69,7 @@ public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,I
     public void UpdateInventoryDisplay()
     {
         PopulateDisplay();
-        for (int i = 0; i < Inventory.InventorySlotLimit.Value; i++)
+        for (int i = 0; i < Inventory.InventorySlotLimit; i++)
         {
             var itemData = Inventory.InventoryItems[i];
             var slot = inventorySlots[i].GetComponent<InventorySlot>();
