@@ -16,15 +16,11 @@ public class Tooltip : Window
     protected override void OnEnable()
     {
         base.OnEnable();
-        GameEvents.OnShowTooltip += ShowMessage;
-        GameEvents.OnHideTooltip += Hide;
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
-        GameEvents.OnShowTooltip -= ShowMessage;
-        GameEvents.OnHideTooltip -= Hide;
     }
 
     private void ShowMessage(string message)

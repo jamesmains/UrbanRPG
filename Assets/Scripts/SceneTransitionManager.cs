@@ -12,12 +12,10 @@ public class SceneTransitionManager : MonoBehaviour
 
     private void OnEnable()
     {
-        GameEvents.OnLoadNextScene += BeginLoadingNextScene;
     }
 
     private void OnDisable()
     {
-        GameEvents.OnLoadNextScene -= BeginLoadingNextScene;
     }
 
     private void Start()

@@ -11,16 +11,10 @@ public class PopupDisplayController : MonoBehaviour
 
     private void OnEnable()
     {
-        GameEvents.OnCreateSpriteStringPopup += OnCreateHorizontalPopup;
-        GameEvents.OnCreateImageStringMessage += OnCreateHorizontalPopup;
-        GameEvents.OnNeedDecayTrigger += OnCreateIconPopup;
     }
 
     private void OnDisable()
     {
-        GameEvents.OnCreateSpriteStringPopup -= OnCreateHorizontalPopup;
-        GameEvents.OnCreateImageStringMessage -= OnCreateHorizontalPopup;
-        GameEvents.OnNeedDecayTrigger -= OnCreateIconPopup;
     }
 
     public void OnCreateHorizontalPopup(Sprite icon, string value)

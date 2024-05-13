@@ -265,7 +265,7 @@ public class ReputationItemFavorConditional : ItemConditional
         var i = TargetActor.faction.acceptedGifts.FindIndex(i => i.giftItem == Inventory.InventoryItems[0].Item);
         TargetActor.AdjustReputation(TargetActor.faction.acceptedGifts[i].reputationChange);
         if(ConsumeOnUse) Inventory.TryUseItem(Inventory.InventoryItems[0].Item,1);
-        GameEvents.OnEndActivity.Raise();
+        GameEvents.OnEndActivity.Invoke();
     }
 }
 

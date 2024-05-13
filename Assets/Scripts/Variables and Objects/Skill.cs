@@ -25,8 +25,8 @@ public class Skill : ScriptableObject
         if(remainingExp > 0)
             AddExperience(remainingExp);
         
-        GameEvents.OnGainExperience.Raise();
-        GameEvents.OnCreateSpriteStringPopup.Raise(Icon,$"+{incomingExperience}");
+        GameEvents.OnGainExperience.Invoke();
+        GameEvents.OnCreateSpriteStringPopup.Invoke(Icon,$"+{incomingExperience}");
     }
 
     private void LevelUp()
@@ -34,8 +34,8 @@ public class Skill : ScriptableObject
         ExpRequiredForLevelUp += 100;
         CurrentExp = 0;
         Level++;
-        GameEvents.OnLevelUp.Raise();
-        GameEvents.OnSendGenericMessage.Raise($"{Name} raised to level {Level}!");
+        GameEvents.OnLevelUp.Invoke();
+        GameEvents.OnSendGenericMessage.Invoke($"{Name} raised to level {Level}!");
     }
 
     [Button]

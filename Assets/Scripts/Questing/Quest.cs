@@ -31,9 +31,9 @@ public class Quest : Activity
         TaskIndex = -1;
         CurrentState = QuestState.Started;
         StartNextTask();
-        GameEvents.OnAcceptQuest.Raise(this);
-        GameEvents.OnUpdateQuests.Raise();
-        GameEvents.OnSendGenericMessage.Raise($"Started Quest: {QuestName}");
+        GameEvents.OnAcceptQuest.Invoke(this);
+        GameEvents.OnUpdateQuests.Invoke();
+        GameEvents.OnSendGenericMessage.Invoke($"Started Quest: {QuestName}");
     }
 
     public void TryCompleteTask(QuestTask incomingTask)
@@ -52,8 +52,8 @@ public class Quest : Activity
         
         task.Hit(amount);
         Debug.Log(task.hits);
-        GameEvents.OnMakeQuestProgress.Raise(this);
-        GameEvents.OnUpdateQuests.Raise();
+        GameEvents.OnMakeQuestProgress.Invoke(this);
+        GameEvents.OnUpdateQuests.Invoke();
         
         if (task.IsTaskComplete())
         {
@@ -79,8 +79,8 @@ public class Quest : Activity
             lastQuestTask.hits == lastQuestTask.numberOfRequiredHits && !AutoComplete)
         {
             CurrentState = QuestState.ReadyToComplete;
-            GameEvents.OnReadyToComplete.Raise(this);
-            GameEvents.OnUpdateQuests.Raise();
+            GameEvents.OnReadyToComplete.Invoke(this);
+            GameEvents.OnUpdateQuests.Invoke();
         }
         SaveQuest();
     }
@@ -99,9 +99,9 @@ public class Quest : Activity
             ResetQuest();
         }
         else CurrentState = QuestState.Completed;
-        GameEvents.OnCompleteQuest.Raise(this);
-        GameEvents.OnUpdateQuests.Raise();
-        GameEvents.OnSendGenericMessage.Raise($"Completed Quest: {QuestName}");
+        GameEvents.OnCompleteQuest.Invoke(this);
+        GameEvents.OnUpdateQuests.Invoke();
+        GameEvents.OnSendGenericMessage.Invoke($"Completed Quest: {QuestName}");
         SaveQuest();
     }
 
@@ -113,7 +113,7 @@ public class Quest : Activity
         TaskIndex = 0;
         CurrentStep = null;
         CurrentState = QuestState.NotStarted;
-        GameEvents.OnUpdateQuests.Raise();
+        GameEvents.OnUpdateQuests.Invoke();
         SaveQuest();
     }
 

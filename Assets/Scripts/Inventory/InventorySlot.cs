@@ -32,53 +32,30 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
 
     private void OnEnable()
     {
-        GameEvents.OnMouseScroll += TryMoveItemToOtherOpenWindow;
-        GameEvents.OnAltMouseButtonUp += delegate
-        {
-            if (Global.PlayerLock > 0) return;
-            if (splitting)
-            {
-                tryingToSplit = false;
-                splitting = false;
-                return;
-            }
-            tryingToSplit = false;
-            splitting = false;
-            
-                TryConsumeItem();
-        };
-        GameEvents.OnAltMouseButtonDown += delegate
-        {
-            if (highlightedInventorySlot != this) return;
-            tryingToSplit = true;
-            tryingToConsume = true;
-        };
+        // GameEvents.OnAltMouseButtonUp += delegate
+        // {
+        //     if (Global.PlayerLock > 0) return;
+        //     if (splitting)
+        //     {
+        //         tryingToSplit = false;
+        //         splitting = false;
+        //         return;
+        //     }
+        //     tryingToSplit = false;
+        //     splitting = false;
+        //     
+        //         TryConsumeItem();
+        // };
+        // GameEvents.OnAltMouseButtonDown += delegate
+        // {
+        //     if (highlightedInventorySlot != this) return;
+        //     tryingToSplit = true;
+        //     tryingToConsume = true;
+        // };
     }
 
     private void OnDisable()
     {
-        movingItem = null;
-        GameEvents.OnItemRelease.Raise();
-        GameEvents.OnMouseScroll -= TryMoveItemToOtherOpenWindow;
-        GameEvents.OnAltMouseButtonUp -= delegate
-        {
-            if (Global.PlayerLock > 0) return;
-            if (splitting)
-            {
-                tryingToSplit = false;
-                splitting = false;
-                return;
-            }
-            tryingToSplit = false;
-            splitting = false;
-            TryConsumeItem();
-        };
-        GameEvents.OnAltMouseButtonDown -= delegate
-        {
-            if (highlightedInventorySlot != this) return;
-            tryingToSplit = true;
-            tryingToConsume = true;
-        };
     }
 
     private void Update()
@@ -144,7 +121,7 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         if (tryingToSplit) splitting = true;
         tryingToConsume = false;
         movingItem = this;
-        GameEvents.OnItemMove.Raise(parentInventoryWindow.Inventory.InventoryItems[storedItemData.Index].Item);
+        GameEvents.OnItemMove.Invoke(parentInventoryWindow.Inventory.InventoryItems[storedItemData.Index].Item);
         iconDisplay.color = new Color(1, 1, 1, 0.5f);
     }
     
@@ -184,8 +161,8 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
 
         movingItem = null;
         iconDisplay.color = new Color(1, 1, 1, 1);
-        GameEvents.OnItemRelease.Raise();
-        GameEvents.OnMoveOrAddItem.Raise();
+        GameEvents.OnItemRelease.Invoke();
+        GameEvents.OnMoveOrAddItem.Invoke();
     }
 
     private void TryConsumeItem()
@@ -318,7 +295,7 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
             string t = storedItemData.Item.ItemType.ToString();
             string d = storedItemData.Item.Description;
             string tooltipMessage = $"{n}\n{t}\n{d}";
-            GameEvents.OnShowTooltip.Raise(tooltipMessage);
+            GameEvents.OnShowTooltip.Invoke(tooltipMessage);
         }
     }
 
@@ -329,7 +306,7 @@ public class InventorySlot : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
             highlightedInventorySlot.ToggleHighlight(false);
             highlightedInventorySlot = null;   
         }
-        GameEvents.OnMouseExitInventorySlot.Raise();
-        GameEvents.OnHideTooltip.Raise();
+        GameEvents.OnMouseExitInventorySlot.Invoke();
+        GameEvents.OnHideTooltip.Invoke();
     }
 }

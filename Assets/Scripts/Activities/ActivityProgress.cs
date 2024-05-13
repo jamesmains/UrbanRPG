@@ -17,15 +17,11 @@ public class ActivityProgress : Window
     protected override void OnEnable()
     {
         base.OnEnable();
-        GameEvents.OnStartActivity += StartActivity;
-        GameEvents.OnPlayerMoved += CancelActivity;
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
-        GameEvents.OnStartActivity -= StartActivity;
-        GameEvents.OnPlayerMoved -= CancelActivity;
     }
 
     private void Update()
@@ -55,7 +51,7 @@ public class ActivityProgress : Window
     {
         if (IsActive == false) return;
         IsActive = false;
-        GameEvents.OnCancelActivity.Raise();
+        GameEvents.OnCancelActivity.Invoke();
         Hide();
     }
 
@@ -63,7 +59,7 @@ public class ActivityProgress : Window
     {
         IsActive = false;
         ActivityCompleteAction?.Invoke();
-        GameEvents.OnEndActivity.Raise();
+        GameEvents.OnEndActivity.Invoke();
         Hide();
     }
 }

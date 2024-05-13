@@ -82,7 +82,7 @@ public class TimeManager : MonoBehaviour
         if (TimeRemainingInDay <= 0)
         {
             TimeRemainingInDay = 1440;
-            GameEvents.OnNewDay.Raise();
+            GameEvents.OnNewDay.Invoke();
         }
         
         TimeOfDay = TimeOfDay % 1440;

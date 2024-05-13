@@ -24,12 +24,12 @@ public class CustoAnimator : MonoBehaviour
     {
         ChangeDirection(new Vector2(0,-1),0);
         UpdateActor(actor);
-        GameEvents.OnUpdateOutfit += UpdateActor;
+        GameEvents.OnUpdateOutfit.AddListener(UpdateActor);
     }
 
     private void OnDisable()
     {
-        GameEvents.OnUpdateOutfit -= UpdateActor;
+        GameEvents.OnUpdateOutfit.AddListener(UpdateActor);
     }
 
     [Button]

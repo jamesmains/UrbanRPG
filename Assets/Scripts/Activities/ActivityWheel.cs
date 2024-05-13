@@ -34,10 +34,6 @@ public class ActivityWheel : Window
     protected override void OnEnable()
     {
         base.OnEnable();
-        GameEvents.OnOpenActivityWheel += SetCurrentActivity;
-        GameEvents.OnCloseActivityWheel += Hide;
-        GameEvents.OnInteractButtonDown += InvokeSelectedActivityAction;
-        GameEvents.OnMouseScroll += CheckScrollInput;
 
         for (int i = 0; i < 20; i++)
         {
@@ -50,10 +46,6 @@ public class ActivityWheel : Window
     protected override void OnDisable()
     {
         base.OnDisable();
-        GameEvents.OnOpenActivityWheel -= SetCurrentActivity;
-        GameEvents.OnCloseActivityWheel -= Hide;
-        GameEvents.OnInteractButtonDown -= InvokeSelectedActivityAction;
-        GameEvents.OnMouseScroll -= CheckScrollInput;
     }
     
     private void SetCurrentActivity(ActivityTrigger incomingActivityTrigger)
@@ -109,7 +101,7 @@ public class ActivityWheel : Window
         var s = WheelActions[offsetIndex].WheelActionDisplay.activityAction.signature.ActivityIcon;
         if(t == 0)
             a.Invoke();
-        else GameEvents.OnStartActivity.Raise(t,a,s);
+        else GameEvents.OnStartActivity.Invoke(t,a,s);
     }
 
     private void Update()

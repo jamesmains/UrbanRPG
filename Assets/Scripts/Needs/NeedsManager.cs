@@ -18,7 +18,7 @@ public class NeedsManager : MonoBehaviour
         if (passedOut || !canPassOut) return;
         print("Passed out");
         passedOut = true;
-        GameEvents.OnSendGenericMessage.Raise("You passed out...");
+        GameEvents.OnSendGenericMessage.Invoke("You passed out...");
         Global.PlayerLock++;
         foreach (var need in playerNeeds)
         {
@@ -30,8 +30,8 @@ public class NeedsManager : MonoBehaviour
     
     void DelayPassout()
     {
-        GameEvents.OnLoadNextScene.Raise(hospitalScene);
-        GameEvents.OnPassout.Raise();
+        GameEvents.OnLoadNextScene.Invoke(hospitalScene);
+        GameEvents.OnPassout.Invoke();
         passedOut = false;
     }
     
@@ -47,7 +47,7 @@ public class NeedsManager : MonoBehaviour
                 if (e.targetNeed.Value <= e.targetAmount && e.canTrigger)
                 {
                     e.canTrigger = false;
-                    GameEvents.OnNeedDecayTrigger.Raise(e.outSprite);
+                    GameEvents.OnNeedDecayTrigger.Invoke(e.outSprite);
                 }
                 else if (e.targetNeed.Value > e.targetAmount)
                 {

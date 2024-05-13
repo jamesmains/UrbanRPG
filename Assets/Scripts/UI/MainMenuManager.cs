@@ -72,7 +72,7 @@ public class MainMenuManager : MonoBehaviour
             {
                 if (ValidateInput(inputField))
                 {
-                    GameEvents.OnCreateMessageBox.Raise(CityNameMessageBox);
+                    GameEvents.OnCreateMessageBox.Invoke(CityNameMessageBox);
                 }
             }
 
@@ -106,7 +106,7 @@ public class MainMenuManager : MonoBehaviour
 
             void ExitButton()
             {
-                GameEvents.OnCreateMessageBox.Raise(CityNameMessageBox);
+                GameEvents.OnCreateMessageBox.Invoke(CityNameMessageBox);
             }
 
             MessageBox.NewLine();
@@ -114,14 +114,14 @@ public class MainMenuManager : MonoBehaviour
             MessageBox.AddButton("Back", ExitButton);
         }
         
-        GameEvents.OnCreateMessageBox.Raise(CityNameMessageBox);
+        GameEvents.OnCreateMessageBox.Invoke(CityNameMessageBox);
     }
 
     private void LoadGame(string saveName)
     {
         playerSaveSlot.saveSlot = saveName;
         playerSaveSlot.LoadData();
-        GameEvents.OnLoadNextScene.Raise(playerSaveSlot.NextSceneTransition);
+        GameEvents.OnLoadNextScene.Invoke(playerSaveSlot.NextSceneTransition);
     }
 
     private void ExitGame(bool save = false)

@@ -19,14 +19,12 @@ public class QuestsWindow : Window
     protected override void OnEnable()
     {
         base.OnEnable();
-        GameEvents.OnUpdateQuests += UpdateQuests;
         PopulateQuests();
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
-        GameEvents.OnUpdateQuests -= UpdateQuests;
     }
 
     public override void Show()

@@ -18,16 +18,10 @@ namespace ParentHouse.UI
 
         private void OnEnable()
         {
-            GameEvents.OnPrimaryMouseButtonDown += TryClick;
-            GameEvents.OnItemMove += DragItem;
-            GameEvents.OnItemRelease += ReleaseItem;
         }
 
         private void OnDisable()
         {
-            GameEvents.OnPrimaryMouseButtonDown -= TryClick;
-            GameEvents.OnItemMove -= DragItem;
-            GameEvents.OnItemRelease -= ReleaseItem;
         }
 
         private void Awake()

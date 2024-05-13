@@ -14,14 +14,10 @@ public class BannerDisplayPopup : MonoBehaviour
     
     private void OnEnable()
     {
-        GameEvents.OnSendReputationChangeMessage += QueueReputationChangeMessage;
-        GameEvents.OnSendGenericMessage += QueueGenericMessage;
     }
 
     private void OnDisable()
     {
-        GameEvents.OnSendReputationChangeMessage -= QueueReputationChangeMessage;
-        GameEvents.OnSendGenericMessage -= QueueGenericMessage;
     }
 
     private void Update()

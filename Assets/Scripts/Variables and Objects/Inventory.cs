@@ -29,7 +29,7 @@ using UnityEngine;
             TryAddItem(incomingItem, 1); 
            
             if(CanCreateImageStringMessages)
-                GameEvents.OnCreateImageStringMessage.Raise(incomingItem.Sprite,"+1");
+                GameEvents.OnCreateImageStringMessage.Invoke(incomingItem.Sprite,"+1");
         }
 
         public int TryAddItem(Item incomingItem, int value = 1)
@@ -104,7 +104,7 @@ using UnityEngine;
             TryRemoveItem(incomingItem, 1);
             
             if(CanCreateImageStringMessages)
-                GameEvents.OnCreateImageStringMessage.Raise(incomingItem.Sprite,"-1");
+                GameEvents.OnCreateImageStringMessage.Invoke(incomingItem.Sprite,"-1");
         }
         
         public int TryRemoveItem(Item incomingItem, int value = 1)
@@ -144,7 +144,7 @@ using UnityEngine;
         public int TryUseItem(Item neededItem, int amount = 1)
         {
             if(CanCreateImageStringMessages)
-                GameEvents.OnCreateImageStringMessage.Raise(neededItem.Sprite,$"-{amount}");
+                GameEvents.OnCreateImageStringMessage.Invoke(neededItem.Sprite,$"-{amount}");
             for (int i = 0; i < InventoryItems.Length; i++)
             {
                 if (neededItem != InventoryItems[i].Item) continue;
@@ -223,7 +223,7 @@ using UnityEngine;
         private void SaveInventory()
         {
             VerifyInventory();
-            GameEvents.OnMoveOrAddItem.Raise();
+            GameEvents.OnMoveOrAddItem.Invoke();
             // SaveLoad.SaveInventory(new InventorySaveData(this));
         }
 

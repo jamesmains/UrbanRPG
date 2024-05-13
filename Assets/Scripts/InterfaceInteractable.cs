@@ -12,12 +12,10 @@ public class InterfaceInteractable : MonoBehaviour, IPointerEnterHandler, IPoint
 
     private void OnEnable()
     {
-        GameEvents.OnPrimaryMouseButtonDown += Interact;
     }
 
     private void OnDisable()
     {
-        GameEvents.OnPrimaryMouseButtonDown -= Interact;
     }
 
     private void Interact()

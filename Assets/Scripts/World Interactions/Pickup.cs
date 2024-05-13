@@ -60,7 +60,7 @@ public class Pickup : MonoBehaviour
     {
         yield return new WaitForSeconds(despawnTimer);
         lostInventory.TryAddItem(item, amount);
-        GameEvents.OnDespawnItem.Raise();
+        GameEvents.OnDespawnItem.Invoke();
         Destroy(this.gameObject);
     }
 
@@ -73,8 +73,8 @@ public class Pickup : MonoBehaviour
             if (displayAmount != amount)
             {
                 item.OnPickupItem.Invoke();
-                GameEvents.OnPickupItem.Raise();
-                GameEvents.OnCreateImageStringMessage.Raise(item.Sprite,$"+{displayAmount}");
+                GameEvents.OnPickupItem.Invoke();
+                GameEvents.OnCreateImageStringMessage.Invoke(item.Sprite,$"+{displayAmount}");
             }
             if(amount <= 0)
                 Destroy(this.gameObject); 
@@ -92,17 +92,14 @@ public class Pickup : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        GameEvents.OnMouseEnter.Raise();
         itemNameVariable.Value = item.Name;
     }
 
     private void OnMouseExit()
     {
-        GameEvents.OnMouseExit.Raise();
     }
 
     private void OnDisable()
     {
-        GameEvents.OnMouseExit.Raise();
     }
 }

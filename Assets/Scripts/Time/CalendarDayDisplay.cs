@@ -29,12 +29,10 @@ public class CalendarDayDisplay : MonoBehaviour,IPointerEnterHandler,IPointerExi
 
     private void OnEnable()
     {
-        GameEvents.OnPrimaryMouseButtonUp += Interact;
     }
 
     private void OnDisable()
     {
-        GameEvents.OnPrimaryMouseButtonUp -= Interact;
     }
     
     public void Setup(bool currentDayHighlight, int day, bool hasEvents, Window parent)

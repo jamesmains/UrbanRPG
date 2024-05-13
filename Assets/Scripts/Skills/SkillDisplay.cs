@@ -14,14 +14,10 @@ public class SkillDisplay : FoldoutDisplay
 
     private void OnEnable()
     {
-        GameEvents.OnGainExperience += UpdateDisplay;
-        GameEvents.OnLevelUp += UpdateDisplay;
     }
 
     private void OnDisable()
     {
-        GameEvents.OnGainExperience -= UpdateDisplay;
-        GameEvents.OnLevelUp -= UpdateDisplay;
     }
     
     public void Setup(Skill skill)

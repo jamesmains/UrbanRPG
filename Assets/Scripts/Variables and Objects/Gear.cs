@@ -52,7 +52,7 @@ public class RideEffect : GearEffect
     
     public override void OnEquip()
     {
-        GameEvents.OnChangeRide.Raise();
+        GameEvents.OnChangeRide.Invoke();
     }
 
     public override float GetEffectValue()

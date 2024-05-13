@@ -16,14 +16,12 @@ public class SkillsWindow : Window
     protected override void OnEnable()
     {
         base.OnEnable();
-        GameEvents.OnLevelUp += UpdateDisplays;
         PopulateSkills();
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
-        GameEvents.OnLevelUp -= UpdateDisplays;
     }
 
     public override void Show()

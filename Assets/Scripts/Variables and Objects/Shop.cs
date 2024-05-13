@@ -16,7 +16,7 @@ public class Shop : SerializedScriptableObject
 
     public void OpenShop()
     {
-        GameEvents.OnOpenShop.Raise(this);
+        GameEvents.OnOpenShop.Invoke(this);
     }
 
     public void RestockShop()

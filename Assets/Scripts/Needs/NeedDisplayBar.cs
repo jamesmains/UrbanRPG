@@ -26,11 +26,11 @@ public class NeedDisplayBar : DisplayBar, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        GameEvents.OnShowTooltip.Raise($"{targetNeed.Name}\n{targetNeed.Description}");
+        GameEvents.OnShowTooltip.Invoke($"{targetNeed.Name}\n{targetNeed.Description}");
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        GameEvents.OnHideTooltip.Raise();
+        GameEvents.OnHideTooltip.Invoke();
     }
 }

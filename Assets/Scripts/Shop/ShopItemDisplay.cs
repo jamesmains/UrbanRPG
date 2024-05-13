@@ -61,7 +61,7 @@ public class ShopItemDisplay : MonoBehaviour
             inCartAmount = lastValidInCartAmount;
         }
 
-        GameEvents.OnCartQuantityChange.Raise();
+        GameEvents.OnCartQuantityChange.Invoke();
         
         inCartAmount = inCartAmount <= 0 ? 0 : inCartAmount > itemQuantity ? itemQuantity : inCartAmount;
         lastValidInCartAmount = inCartAmount;

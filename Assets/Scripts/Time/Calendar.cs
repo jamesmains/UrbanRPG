@@ -23,13 +23,13 @@ public class Calendar : Window
     protected override void OnEnable()
     {
         base.OnEnable();
-        GameEvents.OnNewDay += UpdateCalendar;
+        GameEvents.OnNewDay.AddListener(UpdateCalendar);
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
-        GameEvents.OnNewDay -= UpdateCalendar;
+        GameEvents.OnNewDay.AddListener(UpdateCalendar);
     }
 
     public override void Show()

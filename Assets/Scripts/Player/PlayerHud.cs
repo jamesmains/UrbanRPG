@@ -9,20 +9,16 @@ public class PlayerHud : Window
     protected override void OnEnable()
     {
         base.OnEnable();
-        GameEvents.ShowPlayerHud += Show;
-        GameEvents.HidePlayerHud += Hide;
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
-        GameEvents.ShowPlayerHud -= Show;
-        GameEvents.HidePlayerHud -= Hide;
     }
 
     private void Start()
     {
-        GameEvents.ShowPlayerHud.Raise();
+        GameEvents.ShowPlayerHud.Invoke();
     }
 
     public override void Show()

@@ -17,12 +17,10 @@ public class InteractionTrigger : MonoBehaviour
 
     private void OnEnable()
     {
-        GameEvents.OnInteractButtonDown += Trigger;
     }
 
     private void OnDisable()
     {
-        GameEvents.OnInteractButtonDown -= Trigger;
     }
 
     private void Trigger()

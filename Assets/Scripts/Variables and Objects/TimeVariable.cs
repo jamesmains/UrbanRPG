@@ -31,7 +31,7 @@ public class TimeVariable : ScriptableObject
             Value = 0;
             ChainVariable.ApplyChange(1);
         }
-        GameEvents.OnChangeTime.Raise();
+        GameEvents.OnChangeTime.Invoke();
     }
 
     [Button]
@@ -43,6 +43,6 @@ public class TimeVariable : ScriptableObject
             Value = 0;
             ChainVariable.ApplyChange(1);
         }
-        GameEvents.OnChangeTime.Raise();
+        GameEvents.OnChangeTime.Invoke();
     }
 }

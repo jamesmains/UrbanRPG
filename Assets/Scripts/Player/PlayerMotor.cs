@@ -32,42 +32,12 @@ public class PlayerMotor : MonoBehaviour
 
     private void OnEnable()
     {
-        GameEvents.OnMoveLeftButtonHeld += delegate { movingLeft = true; };
-        GameEvents.OnMoveLeftButtonReleased += delegate { movingLeft = false; };
-        
-        GameEvents.OnMoveRightButtonHeld += delegate { movingRight = true; };
-        GameEvents.OnMoveRightButtonReleased += delegate { movingRight = false; };
-        
-        GameEvents.OnMoveUpButtonHeld += delegate { movingUp = true; };
-        GameEvents.OnMoveUpButtonReleased += delegate { movingUp = false; };
-        
-        GameEvents.OnMoveDownButtonHeld += delegate { movingDown = true; };
-        GameEvents.OnMoveDownButtonReleased += delegate { movingDown = false; };
-        
-        GameEvents.OnRideButtonDown += ToggleRide;
-        GameEvents.OnMoveOrAddItem += UpdateMoveSpeed;
-        GameEvents.OnChangeRide += DismountRide;
         
         UpdateMoveSpeed();
     }
 
     private void OnDisable()
     {
-        GameEvents.OnMoveLeftButtonHeld -= delegate { movingLeft = true; };
-        GameEvents.OnMoveLeftButtonReleased -= delegate { movingLeft = false; };
-        
-        GameEvents.OnMoveRightButtonHeld -= delegate { movingRight = true; };
-        GameEvents.OnMoveRightButtonReleased -= delegate { movingRight = false; };
-        
-        GameEvents.OnMoveUpButtonHeld -= delegate { movingUp = true; };
-        GameEvents.OnMoveUpButtonReleased -= delegate { movingUp = false; };
-        
-        GameEvents.OnMoveDownButtonHeld -= delegate { movingDown = true; };
-        GameEvents.OnMoveDownButtonReleased -= delegate { movingDown = false; };
-        
-        GameEvents.OnRideButtonDown -= ToggleRide;
-        GameEvents.OnMoveOrAddItem -= UpdateMoveSpeed;
-        GameEvents.OnChangeRide -= DismountRide;
         
         playerSaveSlot.SaveData();
     }
@@ -85,7 +55,7 @@ public class PlayerMotor : MonoBehaviour
     private void MountRide()
     {
         isRiding = RideGearInventory.InventoryItems[0].Item != null;
-        GameEvents.OnPlayerMoved.Raise();
+        GameEvents.OnPlayerMoved.Invoke();
         UpdateMoveSpeed();
     }
 
@@ -93,7 +63,6 @@ public class PlayerMotor : MonoBehaviour
     private void DismountRide()
     {
         isRiding = false;
-        GameEvents.OnPlayerMoved.Raise();
         UpdateMoveSpeed();
     }
     
@@ -149,7 +118,6 @@ public class PlayerMotor : MonoBehaviour
         int action = isMoving ? 1 : 0;
         if (isRunning) action = 2;
         if (isRiding) action = 0;
-        if(isMoving) GameEvents.OnPlayerMoved.Raise();
         animator.ChangeDirection(new Vector2((int)inputX,(int)inputY),action);
         Vector3 moveForce = new Vector3(inputX,0, inputY).normalized;
         rb.AddForce(moveForce * moveSpeed.Value);

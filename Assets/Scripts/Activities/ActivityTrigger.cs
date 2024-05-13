@@ -30,52 +30,11 @@ public class ActivityTrigger : SerializedMonoBehaviour
 
     private void OnEnable()
     {
-        GameEvents.OnStartActivity += delegate
-        {
-            ActivityLock = true;
-            isActive = false;
-            GameEvents.OnCloseActivityWheel.Raise();
-        };
-        GameEvents.OnCancelActivity += delegate
-        {
-            isActive = false;
-            ActivityLock = false;
-        };
-        GameEvents.OnEndActivity += delegate
-        {
-            isActive = false;
-            ActivityLock = false;
-        };
-
-        GameEvents.OnCloseActivityWheel += delegate
-        {
-            isActive = false;
-        };
     }
 
     private void OnDisable()
     {
-        GameEvents.OnCloseActivityWheel.Raise();
-        
-        GameEvents.OnStartActivity -= delegate
-        {
-            ActivityLock = true;
-            isActive = false;
-            GameEvents.OnCloseActivityWheel.Raise();
-        };
-        GameEvents.OnCancelActivity -= delegate
-        {
-            ActivityLock = false;
-        };
-        GameEvents.OnEndActivity -= delegate
-        {
-            ActivityLock = false;
-        };
-        
-        GameEvents.OnCloseActivityWheel -= delegate
-        {
-            isActive = false;
-        };
+        GameEvents.OnCloseActivityWheel.Invoke();
 
         isActive = false;
     }
@@ -85,7 +44,7 @@ public class ActivityTrigger : SerializedMonoBehaviour
         if (isActive || ActivityLock || Global.PlayerLock > 0) return;
         if (other.CompareTag("Player"))
         {
-            GameEvents.OnOpenActivityWheel.Raise(this);
+            GameEvents.OnOpenActivityWheel.Invoke(this);
             isActive = true;
         }
     }
@@ -94,7 +53,7 @@ public class ActivityTrigger : SerializedMonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameEvents.OnCloseActivityWheel.Raise();
+            GameEvents.OnCloseActivityWheel.Invoke();
             isActive = false;
         }
     }

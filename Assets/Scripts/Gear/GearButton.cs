@@ -39,7 +39,7 @@ public class GearButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         if (option != null)
         {
             option.gear = Gear;
-            GameEvents.OnUpdateOutfit.Raise(Actor);
+            GameEvents.OnUpdateOutfit.Invoke(Actor);
             ReplaceHighlight();
         }
         
@@ -79,7 +79,7 @@ public class GearButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
         if (Gear != null)
         {
-            GameEvents.OnShowTooltip.Raise(Gear.Name);
+            GameEvents.OnShowTooltip.Invoke(Gear.Name);
         }
     }
 
@@ -90,7 +90,7 @@ public class GearButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             hoveredGearButton.ToggleHoveredHighlight(false);
             hoveredGearButton = null;   
         }
-        GameEvents.OnMouseExitInventorySlot.Raise();
-        GameEvents.OnHideTooltip.Raise();
+        GameEvents.OnMouseExitInventorySlot.Invoke();
+        GameEvents.OnHideTooltip.Invoke();
     }
 }

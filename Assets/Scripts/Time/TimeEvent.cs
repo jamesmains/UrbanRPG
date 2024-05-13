@@ -14,11 +14,11 @@ public class TimeEvent : SerializedMonoBehaviour
     {
         foreach (var effect in Effects)
         {
-            GameEvents.OnNewDay += effect.Init;
+            GameEvents.OnNewDay.AddListener(effect.Init);
         }
         foreach (var effect in Effects)
         {
-            GameEvents.OnChangeTime += effect.Tick;
+            GameEvents.OnChangeTime.AddListener(effect.Tick);
         }
     }
 
@@ -34,11 +34,11 @@ public class TimeEvent : SerializedMonoBehaviour
     {
         foreach (var effect in Effects)
         {
-            GameEvents.OnNewDay -= effect.Init;
+            GameEvents.OnNewDay.AddListener(effect.Init);
         }
         foreach (var effect in Effects)
         {
-            GameEvents.OnChangeTime -= effect.Tick;
+            GameEvents.OnChangeTime.AddListener(effect.Tick);
         }
     }
 }

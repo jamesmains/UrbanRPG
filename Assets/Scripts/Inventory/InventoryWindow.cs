@@ -26,15 +26,15 @@ public class InventoryWindow : Window,IPointerEnterHandler,IPointerExitHandler,I
     {
         base.OnEnable();
         PopulateDisplay();
-        GameEvents.OnPickupItem += UpdateInventoryDisplay;
-        GameEvents.OnMoveOrAddItem += UpdateInventoryDisplay;
+        GameEvents.OnPickupItem.AddListener(UpdateInventoryDisplay);
+        GameEvents.OnMoveOrAddItem.AddListener(UpdateInventoryDisplay);
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
-        GameEvents.OnPickupItem -= UpdateInventoryDisplay;
-        GameEvents.OnMoveOrAddItem -= UpdateInventoryDisplay;
+        GameEvents.OnPickupItem.RemoveListener(UpdateInventoryDisplay);
+        GameEvents.OnMoveOrAddItem.RemoveListener(UpdateInventoryDisplay);
     }
 
     public override void Show()

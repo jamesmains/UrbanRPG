@@ -25,15 +25,11 @@ public class ShopDisplay : Window
             shopItemDisplays[i].inCartAmount = 0;
             shopItemDisplays[i].gameObject.SetActive(false);
         }
-        GameEvents.OnOpenShop += OpenShop;
-        GameEvents.OnCartQuantityChange += UpdateCartCost;
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
-        GameEvents.OnOpenShop -= OpenShop;
-        GameEvents.OnCartQuantityChange -= UpdateCartCost;
     }
     
     public void OpenShop(Shop incomingShop)
@@ -84,7 +80,7 @@ public class ShopDisplay : Window
     public void ProcessCheckout()
     {
         playerWalletVariable -= cartCostVariable;
-        GameEvents.OnUpdateMoneyDisplay.Raise();
+        GameEvents.OnUpdateMoneyDisplay.Invoke();
         foreach (var shopItemDisplay in shopItemDisplays)
         {
             if (shopItemDisplay.inCartAmount == 0) continue;
@@ -95,11 +91,11 @@ public class ShopDisplay : Window
             shopItemDisplay.inCartAmount = 0;
             if (r > 0)
             {
-                GameEvents.OnSendGenericMessage.Raise("Pockets are full!");
+                GameEvents.OnSendGenericMessage.Invoke("Pockets are full!");
             }
             shopItemDisplay.AdjustCartAmount(0);
         }
-        GameEvents.OnUpdateInventory.Raise();
+        GameEvents.OnUpdateInventory.Invoke();
     }
 
     public void CloseShop()
@@ -112,6 +108,6 @@ public class ShopDisplay : Window
         Global.PlayerLock--;
         //WindowUtility.OnCloseWindow.Raise("Pockets"); // Todo - Fix with new menu system calls
         Hide();
-        GameEvents.ShowPlayerHud.Raise();
+        GameEvents.ShowPlayerHud.Invoke();
     }
 }

@@ -24,7 +24,7 @@ public class Dialogue : SerializedScriptableObject
     public void StartDialogue()
     {
         OnStartDialogue.Invoke();
-        GameEvents.StartDialogueEvent.Raise(this);
+        GameEvents.StartDialogueEvent.Invoke(this);
     }
 
     public void EndDialogue()

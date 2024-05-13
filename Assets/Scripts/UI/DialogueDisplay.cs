@@ -27,37 +27,13 @@ public class DialogueDisplay : Window
     protected override void OnEnable()
     {
         base.OnEnable();
-        GameEvents.StartDialogueEvent += StartDialogue;
-        GameEvents.OnInteractButtonDown += delegate
-        {
-            switch (isActive)
-            {
-                case true when !atEndOfDialogueSegment:
-                    SkipToEndOfSegement();
-                    break;
-                case true when atEndOfDialogueSegment:
-                    SetupNextDialogueSegment();
-                    break;
-            }
-        };
+        GameEvents.StartDialogueEvent.AddListener(StartDialogue);
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
-        GameEvents.StartDialogueEvent -= StartDialogue;
-        GameEvents.OnInteractButtonDown -= delegate
-        {
-            switch (isActive)
-            {
-                case true when !atEndOfDialogueSegment:
-                    SkipToEndOfSegement();
-                    break;
-                case true when atEndOfDialogueSegment:
-                    SetupNextDialogueSegment();
-                    break;
-            }
-        };
+        GameEvents.StartDialogueEvent.RemoveListener(StartDialogue);
     }
 
     public override void Show()
@@ -183,8 +159,8 @@ public class DialogueDisplay : Window
         StopAllCoroutines();
         Hide();
         Global.PlayerLock--;
-        GameEvents.OnEndActivity.Raise();
-        GameEvents.ShowPlayerHud.Raise();
+        GameEvents.OnEndActivity.Invoke();
+        GameEvents.ShowPlayerHud.Invoke();
         currentDialogue.EndDialogue();
     }
 }
