@@ -4,57 +4,35 @@ using System.IO;
 using UnityEngine;
 
 /// <summary>
-/// Handles persistence of FCP colors across scenes or gaming sessions
+///     Handles persistence of FCP colors across scenes or gaming sessions
 /// </summary>
 [RequireComponent(typeof(FlexibleColorPicker))]
 public class FCP_Persistence : MonoBehaviour {
-
-    public string saveName = GenerateID();
-    public SaveStrategy saveStrategy;
-
     public enum SaveStrategy {
         SessionOnly, //Do not permanently save, but only for scene loading and some special cases
         File, //save data to a single textfile in persistent data
-        PlayerPrefs, //save html strings to individual playerpref slots
+        PlayerPrefs //save html strings to individual playerpref slots
     }
-
-    private FlexibleColorPicker fcp;
 
     private static Dictionary<string, Color> savedColors;
     private static string saveFilePath;
     private static bool saveFileLoaded;
     private static bool saveFileOutdated;
 
+    public string saveName = GenerateID();
+    public SaveStrategy saveStrategy;
+
+    private FlexibleColorPicker fcp;
+
     private void Awake() {
         fcp = GetComponent<FlexibleColorPicker>();
         InitStatic();
     }
 
-    private void InitStatic() {
-        if(saveFilePath == null)
-            saveFilePath = Path.Combine(Application.persistentDataPath, "FCP_SavedColors.txt");
-
-        if(savedColors == null)
-            savedColors = new Dictionary<string, Color>(); 
-
-        if(!saveFileLoaded & saveStrategy == SaveStrategy.File) {
-            LoadDataFile();
-            saveFileLoaded = true;
-        }
-    }
-
-    private void OnDestroy() {
-        if(saveFileOutdated & saveStrategy == SaveStrategy.File) {
-            SaveDataFile();
-            saveFileOutdated = false;
-        }
-
-    }
-
     private void OnEnable() {
-        if(savedColors == null)
+        if (savedColors == null)
             InitStatic();
-        if(LoadColor(out Color c))
+        if (LoadColor(out var c))
             fcp.color = c;
     }
 
@@ -62,41 +40,57 @@ public class FCP_Persistence : MonoBehaviour {
         SaveColor(fcp.color);
     }
 
+    private void OnDestroy() {
+        if (saveFileOutdated & (saveStrategy == SaveStrategy.File)) {
+            SaveDataFile();
+            saveFileOutdated = false;
+        }
+    }
+
+    private void InitStatic() {
+        if (saveFilePath == null)
+            saveFilePath = Path.Combine(Application.persistentDataPath, "FCP_SavedColors.txt");
+
+        if (savedColors == null)
+            savedColors = new Dictionary<string, Color>();
+
+        if (!saveFileLoaded & (saveStrategy == SaveStrategy.File)) {
+            LoadDataFile();
+            saveFileLoaded = true;
+        }
+    }
+
     private void LoadDataFile() {
-        string[] data = File.ReadAllLines(saveFilePath);
+        var data = File.ReadAllLines(saveFilePath);
         Color c;
-        foreach(string d in data) {
-            int split = d.LastIndexOf('#');
-            if(split >= 0)
-            { 
-                if(ColorUtility.TryParseHtmlString(d.Substring(split, d.Length - split), out c))
+        foreach (var d in data) {
+            var split = d.LastIndexOf('#');
+            if (split >= 0)
+                if (ColorUtility.TryParseHtmlString(d.Substring(split, d.Length - split), out c))
                     savedColors.Add(d.Substring(0, split), c);
-            }
         }
     }
 
     private void SaveDataFile() {
-        string[] data = new string[savedColors.Count];
-        int i = 0;
-        foreach(KeyValuePair<string, Color> pair in savedColors)
+        var data = new string[savedColors.Count];
+        var i = 0;
+        foreach (var pair in savedColors)
             data[i++] = pair.Key + "#" + ColorUtility.ToHtmlStringRGBA(pair.Value);
 
         File.WriteAllText(saveFilePath, string.Join("\r\n", data));
     }
 
     public void SaveColor(Color c) {
-        if(saveStrategy == SaveStrategy.PlayerPrefs) {
-            string pref = "FCP_sc_" + saveName;
+        if (saveStrategy == SaveStrategy.PlayerPrefs) {
+            var pref = "FCP_sc_" + saveName;
             PlayerPrefs.SetString(pref, '#' + ColorUtility.ToHtmlStringRGBA(c));
         }
         else {
-            if(savedColors.ContainsKey(saveName))
-            {
+            if (savedColors.ContainsKey(saveName)) {
                 saveFileOutdated |= savedColors[saveName] != c;
                 savedColors[saveName] = c;
             }
-            else
-            {
+            else {
                 savedColors.Add(saveName, c);
                 saveFileOutdated = true;
             }
@@ -106,19 +100,20 @@ public class FCP_Persistence : MonoBehaviour {
     public bool LoadColor(out Color c) {
         c = Color.black;
 
-        if(saveStrategy == SaveStrategy.PlayerPrefs) {
-            string pref = "FCP_sc_" + saveName;
-            if(!PlayerPrefs.HasKey(pref))
+        if (saveStrategy == SaveStrategy.PlayerPrefs) {
+            var pref = "FCP_sc_" + saveName;
+            if (!PlayerPrefs.HasKey(pref))
                 return false;
-            if(!ColorUtility.TryParseHtmlString(PlayerPrefs.GetString(pref), out c))
+            if (!ColorUtility.TryParseHtmlString(PlayerPrefs.GetString(pref), out c))
                 return false;
         }
         else {
-            if(savedColors.ContainsKey(saveName))
+            if (savedColors.ContainsKey(saveName))
                 c = savedColors[saveName];
             else
                 return false;
         }
+
         return true;
     }
 
