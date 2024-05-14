@@ -51,14 +51,14 @@ namespace ParentHouse {
             for (var i = 0; i < GearOptionCollections.Count; i++) {
                 var t = GearOptionCollections[i];
                 var category = Instantiate(categoryButton, categoryContainer).GetComponent<GearCategory>();
-                var foldout = Instantiate(gearFoldout, foldoutContainer).GetComponent<GearFoldout>();
-
-                var categoryWindow = foldout.gameObject.GetComponent<WindowPanel>();
-                categoryWindows.Add(categoryWindow);
-
-                currentFoldoutContainer = foldout.GetContainer();
-
-                foldout.ChangeHeader(t.header);
+                // var foldout = Instantiate(gearFoldout, foldoutContainer).GetComponent<GearFoldout>();
+                //
+                // var categoryWindow = foldout.gameObject.GetComponent<WindowPanel>();
+                // categoryWindows.Add(categoryWindow);
+                //
+                // currentFoldoutContainer = foldout.GetContainer();
+                //
+                // foldout.ChangeHeader(t.header);
 
                 if (categoryNameDisplay != null) {
                     var effects = category.GetComponentInChildren<MouseInteractionEffects>();
@@ -71,8 +71,8 @@ namespace ParentHouse {
                         window.gameObject.SetActive(false);
                     }
 
-                    categoryWindow.gameObject.SetActive(true);
-                    categoryWindow.Show();
+                    // categoryWindow.gameObject.SetActive(true);
+                    // categoryWindow.Show();
                 });
                 category.Setup(onClickCategory, t.icon);
 

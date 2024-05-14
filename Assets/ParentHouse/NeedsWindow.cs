@@ -22,10 +22,7 @@ namespace ParentHouse {
         public void SpawnListObject(GameObject obj, Need need) {
             var newDisplayObject = new NeedDisplayObject();
             newDisplayObject.obj = obj;
-            newDisplayObject.bar = obj.GetComponent<NeedDisplayBar>();
-            newDisplayObject.bar.targetNeed = need;
             newDisplayObject.need = need;
-            newDisplayObject.bar.Setup();
             displayObjects.Add(newDisplayObject);
         }
 
@@ -52,7 +49,6 @@ namespace ParentHouse {
 
     [Serializable]
     public class NeedDisplayObject {
-        public NeedDisplayBar bar;
         public Need need;
         public GameObject obj;
     }

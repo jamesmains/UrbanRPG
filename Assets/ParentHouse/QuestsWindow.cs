@@ -14,9 +14,6 @@ namespace ParentHouse {
         [FoldoutGroup("Display")] [SerializeField]
         private RectTransform questDisplayContainer;
 
-        [FoldoutGroup("Display")] [SerializeField]
-        private List<QuestDisplay> questDisplays;
-
         public List<Quest> quests = new();
 
         public override void Show() {
@@ -26,19 +23,19 @@ namespace ParentHouse {
 
         public override void Hide() {
             base.Hide();
-            foreach (var questDisplay in questDisplays) questDisplay.CloseFoldout();
+            //foreach (var questDisplay in questDisplays) questDisplay.CloseFoldout();
         }
 
         private void PopulateQuests() {
             foreach (var quest in quests) {
-                var QuestDisplay = Instantiate(questDisplayObject, questDisplayContainer).GetComponent<QuestDisplay>();
-                QuestDisplay.Setup(quest);
-                questDisplays.Add(QuestDisplay);
+                //var QuestDisplay = Instantiate(questDisplayObject, questDisplayContainer).GetComponent<QuestDisplay>();
+                //QuestDisplay.Setup(quest);
+                //questDisplays.Add(QuestDisplay);
             }
         }
 
         private void UpdateQuests() {
-            foreach (var questDisplay in questDisplays) questDisplay.UpdateDisplay();
+            //foreach (var questDisplay in questDisplays) questDisplay.UpdateDisplay();
         }
 
         public bool HasDreamQuest() // We don't want the player to be able to get multiple dream quests atm

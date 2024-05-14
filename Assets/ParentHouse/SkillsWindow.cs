@@ -9,7 +9,6 @@ namespace ParentHouse {
         [SerializeField] private RectTransform skillsDisplayContainer;
         [SerializeField] private GameObject skillsDisplayListPrefab;
         [SerializeField] private List<Skill> skills = new();
-        public List<SkillDisplay> skillDisplays = new();
 
 
         public override void Show() {
@@ -19,23 +18,23 @@ namespace ParentHouse {
 
         public override void Hide() {
             base.Hide();
-            foreach (var skillDisplay in skillDisplays) skillDisplay.CloseFoldout();
+            //foreach (var skillDisplay in skillDisplays) skillDisplay.CloseFoldout();
         }
 
         private void PopulateSkills() {
             foreach (var skill in skills) {
-                var SkillDisplay = Instantiate(skillsDisplayListPrefab, skillsDisplayContainer)
-                    .GetComponent<SkillDisplay>();
-                SkillDisplay.Setup(skill);
-                skillDisplays.Add(SkillDisplay);
+                // var SkillDisplay = Instantiate(skillsDisplayListPrefab, skillsDisplayContainer)
+                //     .GetComponent<SkillDisplay>();
+                // SkillDisplay.Setup(skill);
+                // skillDisplays.Add(SkillDisplay);
             }
         }
 
         private void UpdateDisplays() {
-            foreach (var sklillDisplay in skillDisplays) {
-                sklillDisplay.gameObject.SetActive(sklillDisplay.heldSkill.Level != 0);
-                sklillDisplay.UpdateDisplay();
-            }
+            // foreach (var sklillDisplay in skillDisplays) {
+            //     sklillDisplay.gameObject.SetActive(sklillDisplay.heldSkill.Level != 0);
+            //     sklillDisplay.UpdateDisplay();
+            // }
         }
 
 

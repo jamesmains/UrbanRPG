@@ -5,30 +5,39 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace ParentHouse.UI {
+    /// <summary>
+    /// Handles creating a single message box that can be interacted by the player to perform actions.
+    /// Currently cannot scale beyond a single box.
+    /// </summary>
     public class MessageBox : MonoBehaviour {
-        public static MessageBox Instance;
-        [SerializeField] private Transform window;
-        [SerializeField] private GameObject clickProtection;
+        private static MessageBox Instance;
 
-        [SerializeField] [FoldoutGroup("Objects")]
-        private GameObject newLineObject;
+        [SerializeField] [FoldoutGroup("Dependencies")]
+        private Transform MessageBoxTransform;
 
-        [SerializeField] [FoldoutGroup("Objects")]
-        private GameObject textObject;
+        [SerializeField] [FoldoutGroup("Dependencies")]
+        private GameObject ClickProtection;
 
-        [SerializeField] [FoldoutGroup("Objects")]
-        private GameObject inputFieldObject;
+        [SerializeField] [FoldoutGroup("Dependencies/Prefabs")]
+        private GameObject NewLineObject;
 
-        [SerializeField] [FoldoutGroup("Objects")]
-        private GameObject buttonObject;
+        [SerializeField] [FoldoutGroup("Dependencies/Prefabs")]
+        private GameObject TextObject;
 
-        [SerializeField] [FoldoutGroup("Objects")]
-        private GameObject horizontalFiller;
+        [SerializeField] [FoldoutGroup("Dependencies/Prefabs")]
+        private GameObject InputFieldObject;
 
-        [SerializeField] [FoldoutGroup("Objects")]
-        private GameObject verticalFiller;
+        [SerializeField] [FoldoutGroup("Dependencies/Prefabs")]
+        private GameObject ButtonObject;
 
-        private Transform currentLine;
+        [SerializeField] [FoldoutGroup("Dependencies/Prefabs")]
+        private GameObject HorizontalFiller;
+
+        [SerializeField] [FoldoutGroup("Dependencies/Prefabs")]
+        private GameObject VerticalFiller;
+
+        [SerializeField] [FoldoutGroup("Status")]
+        private Transform CurrentLine;
 
         private void Awake() {
             Instance = this;
@@ -36,11 +45,11 @@ namespace ParentHouse.UI {
         }
 
         public static void SetWindowScaleFactor(float scaleFactor = 1) {
-            Instance.window.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
+            Instance.MessageBoxTransform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
         }
 
         public static void AddText(string newText, float fontSize = 36) {
-            var obj = Instantiate(Instance.textObject, Instance.currentLine);
+            var obj = Instantiate(Instance.TextObject, Instance.CurrentLine);
             var textDisplay = obj.GetComponentInChildren<TextMeshProUGUI>();
             textDisplay.text = newText;
             textDisplay.fontSize = fontSize;
@@ -48,7 +57,7 @@ namespace ParentHouse.UI {
 
         public static TMP_InputField AddInputField(string placeholderText, float displayLength = 250f,
             UnityAction onSubmit = null, UnityAction onTextChanged = null) {
-            var obj = Instantiate(Instance.inputFieldObject, Instance.currentLine);
+            var obj = Instantiate(Instance.InputFieldObject, Instance.CurrentLine);
             var inputField = obj.GetComponentInChildren<TMP_InputField>();
             inputField.GetComponent<RectTransform>().sizeDelta = new Vector2(displayLength, 52f);
             inputField.placeholder.GetComponent<TextMeshProUGUI>().text = placeholderText;
@@ -57,33 +66,33 @@ namespace ParentHouse.UI {
         }
 
         public static void AddButton(string buttonText, UnityAction onClick = null) {
-            var obj = Instantiate(Instance.buttonObject, Instance.currentLine);
+            var obj = Instantiate(Instance.ButtonObject, Instance.CurrentLine);
             obj.GetComponentInChildren<Button>().onClick.AddListener(onClick);
             obj.GetComponentInChildren<TextMeshProUGUI>().text = buttonText;
         }
 
         public static void HorizontalSpace(float space) {
-            Instantiate(Instance.horizontalFiller, Instance.currentLine).transform.GetChild(0)
+            Instantiate(Instance.HorizontalFiller, Instance.CurrentLine).transform.GetChild(0)
                 .GetComponent<RectTransform>().sizeDelta = new Vector2(space, 0);
         }
 
         public static void VerticalSpace(float space) {
-            Instantiate(Instance.verticalFiller, Instance.window).GetComponent<RectTransform>().sizeDelta =
+            Instantiate(Instance.VerticalFiller, Instance.MessageBoxTransform).GetComponent<RectTransform>().sizeDelta =
                 new Vector2(0, space);
             NewLine();
         }
 
         public static void NewLine() {
-            Instance.currentLine = Instantiate(Instance.newLineObject, Instance.window).transform;
+            Instance.CurrentLine = Instantiate(Instance.NewLineObject, Instance.MessageBoxTransform).transform;
         }
 
         public static void Clear() {
-            var oldItems = Instance.window.GetComponentsInChildren<Transform>();
+            var oldItems = Instance.MessageBoxTransform.GetComponentsInChildren<Transform>();
             foreach (var item in oldItems)
-                if (item != Instance.window)
+                if (item != Instance.MessageBoxTransform)
                     Destroy(item.gameObject);
-            Instance.window.gameObject.SetActive(false);
-            Instance.clickProtection.SetActive(false);
+            Instance.MessageBoxTransform.gameObject.SetActive(false);
+            Instance.ClickProtection.SetActive(false);
         }
 
         // Accessed Directly
@@ -93,11 +102,11 @@ namespace ParentHouse.UI {
 
         // Accessed Via Unity Action Event Listener
         public void Setup(UnityAction actions) {
-            currentLine = null;
-            if (window.childCount > 0)
+            CurrentLine = null;
+            if (MessageBoxTransform.childCount > 0)
                 Clear();
-            window.gameObject.SetActive(true);
-            Instance.clickProtection.SetActive(true);
+            MessageBoxTransform.gameObject.SetActive(true);
+            Instance.ClickProtection.SetActive(true);
             SetWindowScaleFactor();
             actions.Invoke();
             VerticalSpace(32);

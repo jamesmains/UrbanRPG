@@ -4,6 +4,10 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace ParentHouse.UI {
+    /// <summary>
+    /// Handles generic menu display.
+    /// It also handles the static calls for hiding or showing window panels.
+    /// </summary>
     public class WindowPanel : MonoBehaviour {
         private static readonly List<WindowPanel> AllWindows = new();
         [FoldoutGroup("Settings")] public WindowSignature Signature;
