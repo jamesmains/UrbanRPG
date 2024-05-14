@@ -4,56 +4,46 @@ using UnityEngine;
 using UnityEngine.Events;
 
 namespace ParentHouse {
-    public class ConditionalCheck : SerializedMonoBehaviour
-    {
+    public class ConditionalCheck : SerializedMonoBehaviour {
         [SerializeField] private bool continousCheck;
         [SerializeField] private float tickRate;
-        private float timer;
-        [FoldoutGroup("Events")][SerializeField] private UnityEvent onMeetsRequirements;
-        [FoldoutGroup("Events")][SerializeField] private UnityEvent onFailsRequirements;
-        public List<Condition> Conditions = new();
-        private bool cachedState;
 
-        private void Awake()
-        {
+        [FoldoutGroup("Events")] [SerializeField]
+        private UnityEvent onMeetsRequirements;
+
+        [FoldoutGroup("Events")] [SerializeField]
+        private UnityEvent onFailsRequirements;
+
+        private bool cachedState;
+        public List<Condition> Conditions = new();
+        private float timer;
+
+        private void Awake() {
             CheckStatus(true);
         }
 
-        private void Update()
-        {
+        private void Update() {
             if (!continousCheck) return;
-            if (timer <= 0)
-            {
+            if (timer <= 0) {
                 CheckStatus();
                 timer = tickRate;
             }
-            else
-            {
-                timer -= UnityEngine.Time.deltaTime;
+            else {
+                timer -= Time.deltaTime;
             }
         }
 
-        public void CheckStatus(bool resetCache = false)
-        {
-            bool canDo = IsConditionMet();
-            if (resetCache)
-            {
-                cachedState = !canDo;
-            }
+        public void CheckStatus(bool resetCache = false) {
+            var canDo = IsConditionMet();
+            if (resetCache) cachedState = !canDo;
 
-            if (canDo && (!cachedState))
-            {
-                onMeetsRequirements.Invoke();    
-            }
-            else if(!canDo && (cachedState))
-            {
-                onFailsRequirements.Invoke();
-            }
+            if (canDo && !cachedState)
+                onMeetsRequirements.Invoke();
+            else if (!canDo && cachedState) onFailsRequirements.Invoke();
             cachedState = canDo;
         }
-    
-        private bool IsConditionMet()
-        {
+
+        private bool IsConditionMet() {
             return Conditions.TrueForAll(c => c.IsConditionMet());
         }
     }

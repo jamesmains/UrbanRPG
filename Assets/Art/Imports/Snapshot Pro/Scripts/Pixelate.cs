@@ -1,23 +1,20 @@
-﻿namespace SnapshotShaders.BuiltIn
-{
-    using System;
-    using UnityEngine;
-    using UnityEngine.Rendering.PostProcessing;
+﻿using System;
+using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
+namespace SnapshotShaders.BuiltIn {
     [Serializable]
     [PostProcess(typeof(PixelateRenderer), PostProcessEvent.AfterStack, "Snapshot Pro/Pixelate")]
-    public class Pixelate : PostProcessEffectSettings
-    {
-        [Range(1, 128), Tooltip("Size of each new 'pixel' in the image.")]
-        public IntParameter pixelSize = new IntParameter { value = 4 };
+    public class Pixelate : PostProcessEffectSettings {
+        [Range(1, 128)] [Tooltip("Size of each new 'pixel' in the image.")]
+        public IntParameter pixelSize = new() {value = 4};
     }
 
-    public sealed class PixelateRenderer : PostProcessEffectRenderer<Pixelate>
-    {
-        public override void Render(PostProcessRenderContext context)
-        {
+    public sealed class PixelateRenderer : PostProcessEffectRenderer<Pixelate> {
+        public override void Render(PostProcessRenderContext context) {
             var sheet = context.propertySheets.Get(Shader.Find("Hidden/SnapshotPro/Base"));
-            var tmp = RenderTexture.GetTemporary(Screen.width / settings.pixelSize, Screen.height / settings.pixelSize, 0);
+            var tmp = RenderTexture.GetTemporary(Screen.width / settings.pixelSize, Screen.height / settings.pixelSize,
+                0);
             tmp.filterMode = FilterMode.Point;
 
             context.command.BlitFullscreenTriangle(context.source, tmp, sheet, 0);

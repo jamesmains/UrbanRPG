@@ -1,24 +1,20 @@
-﻿namespace SnapshotShaders.BuiltIn
-{
-    using System;
-    using UnityEngine;
-    using UnityEngine.Rendering.PostProcessing;
+﻿using System;
+using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
+namespace SnapshotShaders.BuiltIn {
     [Serializable]
     [PostProcess(typeof(LightStreaksRenderer), PostProcessEvent.AfterStack, "Snapshot Pro/LightStreaks")]
-    public class LightStreaks : PostProcessEffectSettings
-    {
-        [Range(3, 500), Tooltip("LightStreaks Strength")]
-        public IntParameter strength = new IntParameter { value = 250 };
+    public class LightStreaks : PostProcessEffectSettings {
+        [Range(3, 500)] [Tooltip("LightStreaks Strength")]
+        public IntParameter strength = new() {value = 250};
 
-        [Range(0.0f, 25.0f), Tooltip("Luminance Threshold - pixels above this luminance will glow.")]
-        public FloatParameter luminanceThreshold = new FloatParameter { value = 20.0f };
+        [Range(0.0f, 25.0f)] [Tooltip("Luminance Threshold - pixels above this luminance will glow.")]
+        public FloatParameter luminanceThreshold = new() {value = 20.0f};
     }
 
-    public sealed class LightStreaksRenderer : PostProcessEffectRenderer<LightStreaks>
-    {
-        public override void Render(PostProcessRenderContext context)
-        {
+    public sealed class LightStreaksRenderer : PostProcessEffectRenderer<LightStreaks> {
+        public override void Render(PostProcessRenderContext context) {
             var sheet = context.propertySheets.Get(Shader.Find("Hidden/SnapshotPro/LightStreaks"));
             sheet.properties.SetInt("_KernelSize", settings.strength);
             sheet.properties.SetFloat("_Spread", settings.strength / 7.5f);

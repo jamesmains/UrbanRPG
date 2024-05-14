@@ -3,16 +3,14 @@ using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace ParentHouse.Utils {
-    public enum ActivityType
-    {
+    public enum ActivityType {
         UNDEFINED,
         Inspect,
         Consume,
-        Interact,
+        Interact
     }
 
-    public enum ItemType
-    {
+    public enum ItemType {
         Junk,
         Item,
         Tool,
@@ -20,14 +18,12 @@ namespace ParentHouse.Utils {
         Ride
     }
 
-    public enum EffectType
-    {
+    public enum EffectType {
         Buff,
         Debuff
     }
 
-    public enum GearType
-    {
+    public enum GearType {
         Body,
         Shoes,
         Pants,
@@ -36,34 +32,30 @@ namespace ParentHouse.Utils {
         Shirt,
         Hair,
         Accessory,
-    
+
         Ride
     }
 
-    public enum Direction
-    {
+    public enum Direction {
         NORTH,
         EAST,
-        SOUTH,
+        SOUTH
     }
 
-    public enum QuestState
-    {
+    public enum QuestState {
         NotStarted,
         Started,
         Completed,
         ReadyToComplete
     }
 
-    public enum QuestType
-    {
+    public enum QuestType {
         Standard,
         Dream,
         Repeatable
     }
 
-    public enum Month
-    {
+    public enum Month {
         Jan = 0,
         Feb,
         Mar,
@@ -78,8 +70,7 @@ namespace ParentHouse.Utils {
         Dec
     }
 
-    public enum Day
-    {
+    public enum Day {
         Saturday = 0,
         Sunday = 1,
         Monday,
@@ -89,42 +80,43 @@ namespace ParentHouse.Utils {
         Friday
     }
 
-    public enum InteractionType
-    {
+    public enum InteractionType {
         OnEnter,
         OnStay,
         OnExit
     }
 
-    public enum InputType
-    {
+    public enum InputType {
         Keyboard,
         Gamepad,
         MouseWheel
     }
 
-    public enum InputActionName
-    {
-        MoveLeft, MoveRight, MoveUp, MoveDown, Interact, ToggleRide, Scroll, PrimaryMouseButton, AlternateMouseButton
+    public enum InputActionName {
+        MoveLeft,
+        MoveRight,
+        MoveUp,
+        MoveDown,
+        Interact,
+        ToggleRide,
+        Scroll,
+        PrimaryMouseButton,
+        AlternateMouseButton
     }
 
 // yoinked from https://stackoverflow.com/questions/20156/is-there-an-easy-way-to-create-ordinals-in-c
-    public static class UtilFunctions
-    {
-        public static string AddOrdinal(int num)
-        {
-            if( num <= 0 ) return num.ToString();
+    public static class UtilFunctions {
+        public static string AddOrdinal(int num) {
+            if (num <= 0) return num.ToString();
 
-            switch(num % 100)
-            {
+            switch (num % 100) {
                 case 11:
                 case 12:
                 case 13:
                     return num + "th";
             }
-    
-            switch(num % 10)
-            {
+
+            switch (num % 10) {
                 case 1:
                     return num + "st";
                 case 2:
@@ -137,44 +129,26 @@ namespace ParentHouse.Utils {
         }
     }
 
-    public static class ExtensionMethods
-    {
-        public static void SetChildrenActiveState(this Transform t, bool state)
-        {
-            foreach (Transform child in t)
-            {
-                child.gameObject.SetActive(state);
-            }
-        }
-    
-        public static void DestroyChildren(this Transform t)
-        {
-            foreach (Transform child in t)
-            {
-                GameObject.Destroy(child.gameObject);
-            }
+    public static class ExtensionMethods {
+        public static void SetChildrenActiveState(this Transform t, bool state) {
+            foreach (Transform child in t) child.gameObject.SetActive(state);
         }
 
-        public static void DestroyChildrenInEditor(this Transform t)
-        {
-            while (t.childCount > 0)
-            {
-                Object.DestroyImmediate(t.GetChild(t.childCount-1).gameObject);
-            }
+        public static void DestroyChildren(this Transform t) {
+            foreach (Transform child in t) Object.Destroy(child.gameObject);
         }
-    
-        public static void DestroyChildren(this Transform t, List<GameObject> list)
-        {
-            foreach (Transform child in t)
-            {
-                GameObject.Destroy(child.gameObject);
-            }
+
+        public static void DestroyChildrenInEditor(this Transform t) {
+            while (t.childCount > 0) Object.DestroyImmediate(t.GetChild(t.childCount - 1).gameObject);
+        }
+
+        public static void DestroyChildren(this Transform t, List<GameObject> list) {
+            foreach (Transform child in t) Object.Destroy(child.gameObject);
             list.Clear();
         }
     }
 
-    public static class Global
-    {
+    public static class Global {
         public static bool IsMouseOverUI;
         public static int PlayerLock;
     }

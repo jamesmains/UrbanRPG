@@ -3,49 +3,48 @@
 // Copyright (c) Sirenix ApS. All rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
-#if UNITY_EDITOR
-namespace Sirenix.OdinInspector.Internal
-{
-    using Sirenix.OdinInspector.Editor;
-    using Sirenix.Utilities;
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Linq;
-    using UnityEditor;
-    using UnityEngine;
 
-    public static class OdinUpgrader
-    {
-        private static int counter = 0;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using Sirenix.OdinInspector.Editor;
+using Sirenix.Utilities;
+using UnityEditor;
+using UnityEditor.Callbacks;
+using UnityEngine;
+
+#if UNITY_EDITOR
+namespace Sirenix.OdinInspector.Internal {
+    public static class OdinUpgrader {
         private const int NUM_OF_FRAMES_WITHOUT_RECOMPILE = 10;
+        private static int counter;
         private static bool DEBUG = false;
-        private static int numberOfTimesCalled = 0;
+        private static int numberOfTimesCalled;
 
         [InitializeOnLoadMethod]
-        [UnityEditor.Callbacks.DidReloadScripts]
-        private static void Update()
-        {
-            bool dontDoItYouAreTooYoung =
-                AssemblyUtilities.GetTypeByCachedFullName("Sirenix.Internal.UnitTests.Core.Editor.UnitTestEditorUtility") != null ||
+        [DidReloadScripts]
+        private static void Update() {
+            var dontDoItYouAreTooYoung =
+                AssemblyUtilities.GetTypeByCachedFullName(
+                    "Sirenix.Internal.UnitTests.Core.Editor.UnitTestEditorUtility") != null ||
                 EditorPrefs.HasKey("PREVENT_SIRENIX_FILE_GENERATION");
 
             // Since SirenixPathLookupScriptableObject is not in a persistent assembly, we'll need to fix its script reference guid.
-            if (dontDoItYouAreTooYoung)
-            {
+            if (dontDoItYouAreTooYoung) {
                 if (DEBUG) Debug.Log(new DirectoryInfo(SirenixAssetPaths.SirenixAssembliesPath).FullName);
                 if (DEBUG) Debug.Log("Didn't do it.");
                 return;
             }
 
-            if (!File.Exists(SirenixAssetPaths.SirenixPluginPath + "Odin Inspector/OdinUpgrader.cs"))
-            {
-                if (DEBUG) Debug.Log("The updater doesn't exist, which means the OdinUpgrader was probably just executed and deleted itself, but the program is still in memory.");
+            if (!File.Exists(SirenixAssetPaths.SirenixPluginPath + "Odin Inspector/OdinUpgrader.cs")) {
+                if (DEBUG)
+                    Debug.Log(
+                        "The updater doesn't exist, which means the OdinUpgrader was probably just executed and deleted itself, but the program is still in memory.");
                 return;
             }
 
-            if (numberOfTimesCalled <= 2)
-            {
+            if (numberOfTimesCalled <= 2) {
                 // EditorApplication.isCompiling gives an error in 2017 that can't be silenced if called from InitializeOnLoadMethod or DidReloadScripts.
                 // We'll just wait a few frames and then call it.
                 UnityEditorEventUtility.DelayAction(Update, true);
@@ -53,24 +52,19 @@ namespace Sirenix.OdinInspector.Internal
                 return;
             }
 
-            if (counter == NUM_OF_FRAMES_WITHOUT_RECOMPILE)
-            {
+            if (counter == NUM_OF_FRAMES_WITHOUT_RECOMPILE) {
                 if (DEBUG) Debug.Log("Upgrading");
                 Upgrade();
             }
-            else
-            {
-                bool isCompiling = true;
+            else {
+                var isCompiling = true;
 
-                try
-                {
+                try {
                     isCompiling = EditorApplication.isCompiling;
                 }
-                catch
-                {
+                catch {
                 }
-                finally
-                {
+                finally {
                     counter = isCompiling ? 0 : counter + 1;
                 }
 
@@ -79,25 +73,22 @@ namespace Sirenix.OdinInspector.Internal
             }
         }
 
-        private static void Upgrade()
-        {
+        private static void Upgrade() {
             var directoriesToDelete = new List<string>();
             var filesToDelete = new List<string>();
 
             // Delete old mdb files - pdb files now work fine.
             if (Directory.Exists(SirenixAssetPaths.SirenixAssembliesPath))
-            {
-                filesToDelete.AddRange(new DirectoryInfo(SirenixAssetPaths.SirenixAssembliesPath).GetFiles("*.mdb", SearchOption.AllDirectories).Select(x => x.FullName));
-            }
+                filesToDelete.AddRange(new DirectoryInfo(SirenixAssetPaths.SirenixAssembliesPath)
+                    .GetFiles("*.mdb", SearchOption.AllDirectories).Select(x => x.FullName));
 
             // We no longer have Sirenix specific assets (Icon data are now embedded in the code)
             directoriesToDelete.Add(SirenixAssetPaths.SirenixAssetsPath);
 
             // Demo packages are located directly in the demo folder -> All directories are old unpacked demos that needs to be deleted.
             if (Directory.Exists(SirenixAssetPaths.SirenixPluginPath + "Demos"))
-            {
-                directoriesToDelete.AddRange(new DirectoryInfo(SirenixAssetPaths.SirenixPluginPath + "Demos").GetDirectories().Select(x => x.FullName));
-            }
+                directoriesToDelete.AddRange(new DirectoryInfo(SirenixAssetPaths.SirenixPluginPath + "Demos")
+                    .GetDirectories().Select(x => x.FullName));
 
             // Delete the upgrader itself (this script).
             filesToDelete.Add(SirenixAssetPaths.SirenixPluginPath + "Odin Inspector/Scripts/Editor/OdinUpgrader.cs");
@@ -110,7 +101,8 @@ namespace Sirenix.OdinInspector.Internal
             filesToDelete.Add(SirenixAssetPaths.SirenixPluginPath + "Odin Inspector/Assets/Sample Projects.asset");
 
             // Delete the old wizard.
-            filesToDelete.Add(SirenixAssetPaths.SirenixPluginPath + "Odin Inspector/Scripts/Editor/OdinGettingStartedWizard.cs");
+            filesToDelete.Add(SirenixAssetPaths.SirenixPluginPath +
+                              "Odin Inspector/Scripts/Editor/OdinGettingStartedWizard.cs");
 
             // Odin Attributes Overview is renamed to Attributes Overview.
             filesToDelete.Add(SirenixAssetPaths.SirenixPluginPath + "Demos/Odin Attributes Overview.unitypackage");
@@ -122,18 +114,14 @@ namespace Sirenix.OdinInspector.Internal
             directoriesToDelete.Add(SirenixAssetPaths.SirenixPluginPath + "Odin Inspector/Scripts");
 
             AssetDatabase.StartAssetEditing();
-            try
-            {
+            try {
                 DeleteDirsAndFiles(directoriesToDelete, filesToDelete);
 
                 // Re-enabled editor only mode.
                 if (EditorOnlyModeConfig.Instance.IsEditorOnlyModeEnabled())
-                {
-                    EditorOnlyModeConfig.Instance.EnableEditorOnlyMode(force: true);
-                }
+                    EditorOnlyModeConfig.Instance.EnableEditorOnlyMode(true);
             }
-            finally
-            {
+            finally {
                 // Open Getting Started window after recompilation:
                 EditorPrefs.SetBool("ODIN_INSPECTOR_SHOW_GETTING_STARTED", true);
 
@@ -143,24 +131,24 @@ namespace Sirenix.OdinInspector.Internal
             }
         }
 
-        private static void DeleteDirsAndFiles(List<string> directoriesToDelete, List<string> filesToDelete)
-        {
-            foreach (var dir in directoriesToDelete.Select(x => x.Replace('\\', '/')))
-            {
+        private static void DeleteDirsAndFiles(List<string> directoriesToDelete, List<string> filesToDelete) {
+            foreach (var dir in directoriesToDelete.Select(x => x.Replace('\\', '/'))) {
                 var mdb = dir + ".mdb";
                 var dirExist = Directory.Exists(dir);
                 var mdbExist = File.Exists(mdb);
 
-                if (DEBUG) Debug.Log("Dir exist: " + (dirExist ? 1 : 0) + " Mdb exist: " + (mdbExist ? 1 : 0) + " Path: " + dir);
+                if (DEBUG)
+                    Debug.Log(
+                        "Dir exist: " + (dirExist ? 1 : 0) + " Mdb exist: " + (mdbExist ? 1 : 0) + " Path: " + dir);
 
-                if (dirExist)
-                {
+                if (dirExist) {
                     var paths = Directory.GetFiles(dir, "*", SearchOption.AllDirectories);
-                    for (int i = 0; i < paths.Length; i++)
-                    {
+                    for (var i = 0; i < paths.Length; i++) {
                         var p = paths[i].Replace('\\', '/');
                         DeleteFile(p);
-                    };
+                    }
+
+                    ;
 
                     DeleteDirectory(dir);
                 }
@@ -169,75 +157,58 @@ namespace Sirenix.OdinInspector.Internal
             }
 
             // Delete all files.
-            foreach (var file in filesToDelete.Select(x => x.Replace('\\', '/')))
-            {
+            foreach (var file in filesToDelete.Select(x => x.Replace('\\', '/'))) {
                 var mdb = file + ".mdb";
-                bool existFile = File.Exists(file);
-                bool existMdb = File.Exists(mdb);
+                var existFile = File.Exists(file);
+                var existMdb = File.Exists(mdb);
 
-                if (DEBUG) Debug.Log("File exist: " + (existFile ? 1 : 0) + " Mdb exist: " + (existMdb ? 1 : 0) + " Path: " + file);
+                if (DEBUG)
+                    Debug.Log("File exist: " + (existFile ? 1 : 0) + " Mdb exist: " + (existMdb ? 1 : 0) + " Path: " +
+                              file);
                 DeleteFile(file);
                 DeleteFile(mdb);
             }
         }
 
-        private static void DeleteFile(string file)
-        {
+        private static void DeleteFile(string file) {
             if (File.Exists(file))
-            {
-                try
-                {
+                try {
                     File.Delete(file);
                 }
-                catch (Exception ex)
-                {
+                catch (Exception ex) {
                     Debug.LogException(ex);
                 }
-            }
 
             var metaFile = file + ".meta";
             if (File.Exists(metaFile))
-            {
-                try
-                {
+                try {
                     File.Delete(metaFile);
                 }
-                catch (Exception ex)
-                {
+                catch (Exception ex) {
                     Debug.LogException(ex);
                 }
-            }
         }
 
-        private static void DeleteDirectory(string dir)
-        {
+        private static void DeleteDirectory(string dir) {
             if (Directory.Exists(dir))
-            {
-                try
-                {
+                try {
                     Directory.Delete(dir, true);
 
                     if (Directory.Exists(dir))
                         Directory.Delete(dir);
                 }
-                catch (Exception ex)
-                {
+                catch (Exception ex) {
                     Debug.LogException(ex);
                 }
-            }
 
             var metaFile = dir + ".meta";
             if (File.Exists(metaFile))
-            {
-                try
-                {
+                try {
                     File.Delete(metaFile);
                 }
-                catch (Exception ex)
-                {
+                catch (Exception ex) {
                     Debug.LogException(ex);
                 }
-            }
         }
     }
 }

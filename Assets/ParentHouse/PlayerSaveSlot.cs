@@ -4,8 +4,7 @@ using UnityEngine;
 
 namespace ParentHouse {
     [CreateAssetMenu(fileName = "Player Data Variable", menuName = "Variables/Player Data Variable")]
-    public class PlayerSaveSlot : Actor
-    {
+    public class PlayerSaveSlot : Actor {
         public string saveSlot;
         public string cityName;
         public SceneTransition NewSaveFileSpawnLocation;
@@ -13,22 +12,19 @@ namespace ParentHouse {
         public Vector2 PlayerPositionVariable;
         public int PlayerMoneyVariable;
         public bool Loaded;
-    
-        private void OnEnable()
-        {
+
+        private void OnEnable() {
             Loaded = false;
         }
 
-        public void LoadData(string slotName)
-        {
+        public void LoadData(string slotName) {
             saveSlot = slotName;
             LoadData();
         }
 
         // Need to restructure using Json
         // Vectors just work!
-        public void LoadData()
-        {
+        public void LoadData() {
             // NextSceneTransition = ScriptableObject.CreateInstance<SceneTransition>();
             // PlayerSaveData saveData = SaveLoad.LoadPlayerData();
             // if (saveData == null)
@@ -48,9 +44,9 @@ namespace ParentHouse {
             // PlayerMoneyVariable = saveData.SavedMoney;
             // Loaded = true;
         }
-    
-        [Button] public void SaveData()
-        {
+
+        [Button]
+        public void SaveData() {
             // SaveLoad.SavePlayerData(new PlayerSaveData(
             //     SceneManager.GetActiveScene().name,
             //     actorName,
@@ -61,18 +57,16 @@ namespace ParentHouse {
     }
 
     [Serializable]
-    public class PlayerSaveData
-    {
-        public String SavedScene;
-        public String SavedCharacterName;
-        public String SavedCityName;
+    public class PlayerSaveData {
+        public string SavedScene;
+        public string SavedCharacterName;
+        public string SavedCityName;
         public float SavedSpawnLocationX;
         public float SavedSpawnLocationY;
         public float SavedSpawnLocationZ;
         public int SavedMoney;
 
-        public PlayerSaveData(string sceneName, string characterName, string cityName, Vector3 location, int money)
-        {
+        public PlayerSaveData(string sceneName, string characterName, string cityName, Vector3 location, int money) {
             SavedScene = sceneName;
             SavedCharacterName = characterName;
             SavedCityName = cityName;

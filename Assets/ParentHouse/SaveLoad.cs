@@ -4,22 +4,22 @@ using UnityEngine;
 
 namespace ParentHouse {
     public static class SaveLoad {
+        public static string DebugSaveDataFilePath() {
+            return $"{Application.persistentDataPath}/Test.json";
+        }
 
-        public static string DebugSaveDataFilePath() => $"{Application.persistentDataPath}/Test.json";
-    
         public static void SaveToJson<T>(T data, string filePath) {
-            string json = JsonConvert.SerializeObject(data);
+            var json = JsonConvert.SerializeObject(data);
             File.WriteAllText(filePath, json);
         }
 
         public static T LoadFromJson<T>(string filePath) {
-            string json = File.ReadAllText(filePath);
+            var json = File.ReadAllText(filePath);
             return JsonConvert.DeserializeObject<T>(json);
         }
     }
 
     public abstract class SaveData {
-    
     }
 
     public class TestData : SaveData {

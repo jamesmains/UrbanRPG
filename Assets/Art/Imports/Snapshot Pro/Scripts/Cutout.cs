@@ -1,37 +1,33 @@
-﻿namespace SnapshotShaders.BuiltIn
-{
-    using System;
-    using UnityEngine;
-    using UnityEngine.Rendering.PostProcessing;
+﻿using System;
+using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
+namespace SnapshotShaders.BuiltIn {
     [Serializable]
     [PostProcess(typeof(CutoutRenderer), PostProcessEvent.AfterStack, "Snapshot Pro/Cutout")]
-    public sealed class Cutout : PostProcessEffectSettings
-    {
+    public sealed class Cutout : PostProcessEffectSettings {
         [Tooltip("The texture to use for the cutout.")]
-        public TextureParameter cutoutTexture = new TextureParameter();
+        public TextureParameter cutoutTexture = new();
 
         [Tooltip("The colour of the area outside the cutout.")]
-        public ColorParameter borderColor = new ColorParameter { value = Color.white };
+        public ColorParameter borderColor = new() {value = Color.white};
 
         [Tooltip("Should the cutout texture stretch to fit the screen's aspect ratio?")]
-        public BoolParameter stretch = new BoolParameter { value = false };
+        public BoolParameter stretch = new() {value = false};
 
-        [Range(0.01f, 10.0f), Tooltip("How zoomed-in the texture is. 1 = unzoomed.")]
-        public FloatParameter zoom = new FloatParameter { value = 1.0f };
+        [Range(0.01f, 10.0f)] [Tooltip("How zoomed-in the texture is. 1 = unzoomed.")]
+        public FloatParameter zoom = new() {value = 1.0f};
 
         [Tooltip("How offset the texture is from the centre of the screen (in UV space).")]
-        public Vector2Parameter offset = new Vector2Parameter { value = new Vector2() };
+        public Vector2Parameter offset = new() {value = new Vector2()};
 
-        [Range(0.0f, 360.0f), Tooltip("How much the texture is rotated (anticlockwise, in degrees).")]
-        public FloatParameter rotation = new FloatParameter { value = 0.0f };
+        [Range(0.0f, 360.0f)] [Tooltip("How much the texture is rotated (anticlockwise, in degrees).")]
+        public FloatParameter rotation = new() {value = 0.0f};
     }
 
-    public sealed class CutoutRenderer : PostProcessEffectRenderer<Cutout>
-    {
-        public override void Render(PostProcessRenderContext context)
-        {
-            Matrix4x4 rotationMatrix = Matrix4x4.identity;
+    public sealed class CutoutRenderer : PostProcessEffectRenderer<Cutout> {
+        public override void Render(PostProcessRenderContext context) {
+            var rotationMatrix = Matrix4x4.identity;
             rotationMatrix[0, 0] = rotationMatrix[1, 1] = Mathf.Cos(settings.rotation * Mathf.Deg2Rad);
             rotationMatrix[0, 1] = Mathf.Sin(settings.rotation * Mathf.Deg2Rad);
             rotationMatrix[1, 0] = -rotationMatrix[0, 1];

@@ -1,24 +1,20 @@
-﻿namespace SnapshotShaders.BuiltIn
-{
-    using System;
-    using UnityEngine;
-    using UnityEngine.Rendering.PostProcessing;
+﻿using System;
+using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
+namespace SnapshotShaders.BuiltIn {
     [Serializable]
     [PostProcess(typeof(RadialBlurRenderer), PostProcessEvent.AfterStack, "Snapshot Pro/RadialBlur")]
-    public class RadialBlur : PostProcessEffectSettings
-    {
-        [Range(3, 50), Tooltip("Blur Strength")]
-        public IntParameter strength = new IntParameter { value = 5 };
+    public class RadialBlur : PostProcessEffectSettings {
+        [Range(3, 50)] [Tooltip("Blur Strength")]
+        public IntParameter strength = new() {value = 5};
 
-        [Range(0.0f, 1.0f), Tooltip("Proportion of the screen which is unblurred.")]
-        public FloatParameter focalSize = new FloatParameter { value = 0.25f };
+        [Range(0.0f, 1.0f)] [Tooltip("Proportion of the screen which is unblurred.")]
+        public FloatParameter focalSize = new() {value = 0.25f};
     }
 
-    public sealed class RadialBlurRenderer : PostProcessEffectRenderer<RadialBlur>
-    {
-        public override void Render(PostProcessRenderContext context)
-        {
+    public sealed class RadialBlurRenderer : PostProcessEffectRenderer<RadialBlur> {
+        public override void Render(PostProcessRenderContext context) {
             var sheet = context.propertySheets.Get(Shader.Find("Hidden/SnapshotPro/RadialBlur"));
             sheet.properties.SetInt("_KernelSize", settings.strength);
             sheet.properties.SetFloat("_Spread", settings.strength / 7.5f);

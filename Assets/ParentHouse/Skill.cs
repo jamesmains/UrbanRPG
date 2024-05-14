@@ -4,33 +4,33 @@ using UnityEngine;
 
 namespace ParentHouse {
     [CreateAssetMenu(fileName = "Skill", menuName = "Signatures/Skill")]
-    public class Skill : ScriptableObject
-    {
-        [FoldoutGroup("Details")]public string Name;
-        [FoldoutGroup("Details")]public string Description;
-        [FoldoutGroup("Details"),PreviewField]public Sprite Icon;
-        [FoldoutGroup("Data")]public int Level;
-        [FoldoutGroup("Data")]public int ExpRequiredForLevelUp;
-        [FoldoutGroup("Data")]public int CurrentExp;
+    public class Skill : ScriptableObject {
+        [FoldoutGroup("Details")] public string Name;
+        [FoldoutGroup("Details")] public string Description;
 
-        public void AddExperience(int incomingExperience)
-        {
+        [FoldoutGroup("Details")] [PreviewField]
+        public Sprite Icon;
+
+        [FoldoutGroup("Data")] public int Level;
+        [FoldoutGroup("Data")] public int ExpRequiredForLevelUp;
+        [FoldoutGroup("Data")] public int CurrentExp;
+
+        public void AddExperience(int incomingExperience) {
             if (Level >= 99) return;
-            int remainingExp = incomingExperience - ExpRequiredForLevelUp;
+            var remainingExp = incomingExperience - ExpRequiredForLevelUp;
             CurrentExp += incomingExperience;
-        
-            if(CurrentExp >= ExpRequiredForLevelUp)
+
+            if (CurrentExp >= ExpRequiredForLevelUp)
                 LevelUp();
-        
-            if(remainingExp > 0)
+
+            if (remainingExp > 0)
                 AddExperience(remainingExp);
-        
+
             GameEvents.OnGainExperience.Invoke();
-            GameEvents.OnCreateSpriteStringPopup.Invoke(Icon,$"+{incomingExperience}");
+            GameEvents.OnCreateSpriteStringPopup.Invoke(Icon, $"+{incomingExperience}");
         }
 
-        private void LevelUp()
-        {
+        private void LevelUp() {
             ExpRequiredForLevelUp += 100;
             CurrentExp = 0;
             Level++;
@@ -39,8 +39,7 @@ namespace ParentHouse {
         }
 
         [Button]
-        private void ResetSkill()
-        {
+        private void ResetSkill() {
             ExpRequiredForLevelUp = 100;
             CurrentExp = 0;
             Level = 0;

@@ -5,23 +5,21 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace ParentHouse {
-    public class SkillDisplay : FoldoutDisplay
-    {
+    public class SkillDisplay : FoldoutDisplay {
         [SerializeField] private TextMeshProUGUI nameText;
         [SerializeField] private TextMeshProUGUI skillDescriptionText;
         [SerializeField] private Image skillIcon;
-        [SerializeField, FoldoutGroup("Debug"), ReadOnly] public Skill heldSkill;
 
-        private void OnEnable()
-        {
+        [SerializeField] [FoldoutGroup("Debug")] [ReadOnly]
+        public Skill heldSkill;
+
+        private void OnEnable() {
         }
 
-        private void OnDisable()
-        {
+        private void OnDisable() {
         }
-    
-        public void Setup(Skill skill)
-        {
+
+        public void Setup(Skill skill) {
             heldSkill = skill;
             nameText.text = heldSkill.Name;
             skillIcon.sprite = heldSkill.Icon;
@@ -29,20 +27,19 @@ namespace ParentHouse {
             UpdateDisplay();
         }
 
-        public void UpdateDisplay()
-        {
-            if(isOpen)
-                skillDescriptionText.text = $"Level {heldSkill.Level} | {heldSkill.CurrentExp}/{heldSkill.ExpRequiredForLevelUp}\n{heldSkill.Description}";
+        public void UpdateDisplay() {
+            if (isOpen)
+                skillDescriptionText.text =
+                    $"Level {heldSkill.Level} | {heldSkill.CurrentExp}/{heldSkill.ExpRequiredForLevelUp}\n{heldSkill.Description}";
         }
-    
-        public override void OpenFoldout()
-        {
-            skillDescriptionText.text = $"Level {heldSkill.Level} | {heldSkill.CurrentExp}/{heldSkill.ExpRequiredForLevelUp}\n{heldSkill.Description}";
+
+        public override void OpenFoldout() {
+            skillDescriptionText.text =
+                $"Level {heldSkill.Level} | {heldSkill.CurrentExp}/{heldSkill.ExpRequiredForLevelUp}\n{heldSkill.Description}";
             base.OpenFoldout();
         }
 
-        public override void CloseFoldout()
-        {
+        public override void CloseFoldout() {
             skillDescriptionText.text = "";
             base.CloseFoldout();
         }

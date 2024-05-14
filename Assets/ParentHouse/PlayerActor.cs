@@ -4,34 +4,31 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace ParentHouse {
-    public class PlayerActor : MonoBehaviour
-    {
+    public class PlayerActor : MonoBehaviour {
         [SerializeField] private ItemLookupTable ItemLookupTable;
         [SerializeField] private Actor playerActor;
         [SerializeField] private CustoAnimator Animator;
         [SerializeField] private List<GearOption> defaultOutfit = new();
-        [SerializeField] private Color defaultHairColor = new();
+        [SerializeField] private Color defaultHairColor;
 
-        private void OnEnable()
-        {
+        private void OnEnable() {
             LoadOutfit();
         }
 
-        private void OnDisable()
-        {
+        private void OnDisable() {
             SaveOutfit();
         }
 
-        [FoldoutGroup("Saving and Loading")][Button]
-        public void SaveOutfit()
-        {
+        [FoldoutGroup("Saving and Loading")]
+        [Button]
+        public void SaveOutfit() {
             print(playerActor.hairColor);
             // SaveLoad.SavePlayerOutfit(new PlayerOutfitSaveData(playerActor.EquippedGear.ToArray(),playerActor.hairColor));
         }
 
-        [FoldoutGroup("Saving and Loading")][Button]
-        public void LoadOutfit()
-        {
+        [FoldoutGroup("Saving and Loading")]
+        [Button]
+        public void LoadOutfit() {
             // playerActor.EquippedGear.Clear();
             // PlayerOutfitSaveData loadedData = SaveLoad.LoadPlayerOutfit();
             //
@@ -70,23 +67,20 @@ namespace ParentHouse {
     }
 
     [Serializable]
-    public class PlayerOutfitSaveData
-    {   
+    public class PlayerOutfitSaveData {
         public string[] GearSaveDataItems;
         public int[] GearTypeSaveDataItems;
         public string HairColorHexCode;
-        
-        public PlayerOutfitSaveData(GearOption[] outfit, Color c)
-        {
+
+        public PlayerOutfitSaveData(GearOption[] outfit, Color c) {
             GearSaveDataItems = new string[outfit.Length];
             GearTypeSaveDataItems = new int[outfit.Length];
             HairColorHexCode = $"#{ColorUtility.ToHtmlStringRGB(c)}";
-        
-            for (int i = 0; i < outfit.Length; i++)
-            {
-                if(outfit[i].gear != null)
+
+            for (var i = 0; i < outfit.Length; i++) {
+                if (outfit[i].gear != null)
                     GearSaveDataItems[i] = outfit[i].gear.Name;
-                GearTypeSaveDataItems[i] = (int)outfit[i].type;
+                GearTypeSaveDataItems[i] = (int) outfit[i].type;
             }
         }
     }

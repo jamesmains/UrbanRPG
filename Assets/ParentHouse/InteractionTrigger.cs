@@ -5,56 +5,40 @@ using UnityEngine.Events;
 
 // Presume target is always going to be player since this relies on keyboard or gamepad input
 namespace ParentHouse {
-    public class InteractionTrigger : MonoBehaviour
-    {
+    public class InteractionTrigger : MonoBehaviour {
+        public static InteractionTrigger targetTrigger; // try to prevent multiple interactions at once
         [SerializeField] private bool requireKeyPress;
         [SerializeField] private InteractionType interactionType;
-        [FoldoutGroup("Data")]public bool readyToInteract;
+        [FoldoutGroup("Data")] public bool readyToInteract;
         [SerializeField] private UnityEvent onInteract;
 
-        public static InteractionTrigger targetTrigger; // try to prevent multiple interactions at once
-
-        private void OnEnable()
-        {
+        private void OnEnable() {
         }
 
-        private void OnDisable()
-        {
+        private void OnDisable() {
         }
 
-        private void Trigger()
-        {
-            if (targetTrigger != this && Global.PlayerLock > 0) return;
-            onInteract.Invoke();
+        private void OnTriggerEnter(Collider other) {
+            if (other.CompareTag("Player") && interactionType == InteractionType.OnEnter && !requireKeyPress) Trigger();
         }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.CompareTag("Player") && interactionType == InteractionType.OnEnter && !requireKeyPress)
-            {
-                Trigger();
+        private void OnTriggerExit(Collider other) {
+            if (other.CompareTag("Player") && readyToInteract) {
+                readyToInteract = false;
+                if (targetTrigger == this) targetTrigger = null;
             }
         }
 
-        private void OnTriggerStay(Collider other)
-        {
-            if (other.CompareTag("Player") && !readyToInteract)
-            {
+        private void OnTriggerStay(Collider other) {
+            if (other.CompareTag("Player") && !readyToInteract) {
                 readyToInteract = true;
                 targetTrigger = this;
             }
         }
 
-        private void OnTriggerExit(Collider other)
-        {
-            if (other.CompareTag("Player") && readyToInteract)
-            {
-                readyToInteract = false;
-                if (targetTrigger == this)
-                {
-                    targetTrigger = null;
-                }
-            }
+        private void Trigger() {
+            if (targetTrigger != this && Global.PlayerLock > 0) return;
+            onInteract.Invoke();
         }
     }
 }

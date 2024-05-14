@@ -5,8 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace ParentHouse {
-    public class ActivityProgress : WindowPanel
-    {
+    public class ActivityProgress : WindowPanel {
         [SerializeField] private Image ActivityIcon;
         [SerializeField] private Image FillWheel;
         [SerializeField] private bool IsActive;
@@ -14,20 +13,18 @@ namespace ParentHouse {
         [SerializeField] private float Timer;
         [SerializeField] private UnityEvent ActivityCompleteAction = new();
 
-        private void Update()
-        {
+        private void Update() {
             if (!IsActive) return;
-            if (Timer < TotalTime)
-            {
-                Timer += UnityEngine.Time.deltaTime * TimeManager.TimeMultiplier;
+            if (Timer < TotalTime) {
+                Timer += Time.deltaTime * TimeManager.TimeMultiplier;
                 FillWheel.fillAmount = Timer / TotalTime;
             }
-            if(Timer >= TotalTime)
+
+            if (Timer >= TotalTime)
                 FinishActivity();
         }
 
-        public void StartActivity(float t, UnityEvent e, Sprite s)
-        {
+        public void StartActivity(float t, UnityEvent e, Sprite s) {
             ActivityTrigger.ActivityLock = true;
             IsActive = true;
             Timer = 0;
@@ -37,16 +34,14 @@ namespace ParentHouse {
             Show();
         }
 
-        public void CancelActivity()
-        {
+        public void CancelActivity() {
             if (IsActive == false) return;
             IsActive = false;
             GameEvents.OnCancelActivity.Invoke();
             Hide();
         }
 
-        public void FinishActivity()
-        {
+        public void FinishActivity() {
             IsActive = false;
             ActivityCompleteAction?.Invoke();
             GameEvents.OnEndActivity.Invoke();

@@ -26,19 +26,19 @@ namespace ParentHouse.UI {
         [FoldoutGroup("Display")] [SerializeField]
         private AudioSource talkSfxSource;
 
-        [SerializeField, FoldoutGroup("Debug"), ReadOnly]
+        [SerializeField] [FoldoutGroup("Debug")] [ReadOnly]
         private Dialogue currentDialogue;
 
-        [SerializeField, FoldoutGroup("Debug"), ReadOnly]
+        [SerializeField] [FoldoutGroup("Debug")] [ReadOnly]
         private int dialogueSegmentIndex;
 
-        [SerializeField, FoldoutGroup("Debug"), ReadOnly]
+        [SerializeField] [FoldoutGroup("Debug")] [ReadOnly]
         private string currentDialogueSegmentText;
 
-        [SerializeField, FoldoutGroup("Debug"), ReadOnly]
+        [SerializeField] [FoldoutGroup("Debug")] [ReadOnly]
         private bool atEndOfDialogueSegment;
 
-        [SerializeField, FoldoutGroup("Debug"), ReadOnly]
+        [SerializeField] [FoldoutGroup("Debug")] [ReadOnly]
         private bool skipButtonProtection;
 
         private DialogueSegment currentSegment;
@@ -71,16 +71,12 @@ namespace ParentHouse.UI {
             dialogueSegmentIndex++;
             if (dialogueSegmentIndex >= currentDialogue.DialogueSegments.Count) {
                 EndDialogue();
-                if (currentSegment.IsConditionMet()) {
-                    currentSegment?.OnFinishSegment?.Invoke();
-                }
+                if (currentSegment.IsConditionMet()) currentSegment?.OnFinishSegment?.Invoke();
             }
             else {
-                if (dialogueSegmentIndex < currentDialogue.DialogueSegments.Count) {
-                    if (currentSegment.IsConditionMet()) {
+                if (dialogueSegmentIndex < currentDialogue.DialogueSegments.Count)
+                    if (currentSegment.IsConditionMet())
                         currentSegment?.OnFinishSegment?.Invoke();
-                    }
-                }
 
                 NextDialogueSegment();
             }
@@ -99,15 +95,17 @@ namespace ParentHouse.UI {
                     StartCoroutine(ProcessText());
                 }
             }
-            else SetupNextDialogueSegment();
+            else {
+                SetupNextDialogueSegment();
+            }
         }
 
-        IEnumerator ProcessText() {
-            int charIndex = 0;
+        private IEnumerator ProcessText() {
+            var charIndex = 0;
 
             currentSegment?.OnStartSegment?.Invoke();
             if (currentSegment != null) {
-                bool hasActor = currentSegment.actor != null;
+                var hasActor = currentSegment.actor != null;
                 actorNameText.transform.parent.gameObject.SetActive(hasActor);
                 actorDisplayImage.enabled = hasActor;
                 if (hasActor) {
@@ -116,13 +114,15 @@ namespace ParentHouse.UI {
                     actorDisplayImage.sprite = actor.actionIcon;
                     talkSfxSource.clip = actor.talkSfx;
                 }
-                else talkSfxSource.clip = null;
+                else {
+                    talkSfxSource.clip = null;
+                }
 
                 displayText.text = "";
                 currentDialogueSegmentText = currentSegment.speech;
             }
 
-            int t = 0;
+            var t = 0;
             while (charIndex < currentDialogueSegmentText.Length) {
                 displayText.text += currentDialogueSegmentText[charIndex];
                 if (talkSfxSource.clip != null && t == 0) {

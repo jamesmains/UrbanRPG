@@ -2,37 +2,33 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace ParentHouse {
-    public class SceneTransitionManager : MonoBehaviour
-    {
+    public class SceneTransitionManager : MonoBehaviour {
         [SerializeField] private PlayerSaveSlot saveSlot;
         [SerializeField] private bool debugRunOnStart = true;
         [SerializeField] private Animator animator;
 
-        private void OnEnable()
-        {
-        }
-
-        private void OnDisable()
-        {
-        }
-
-        private void Start()
-        {
+        private void Start() {
             if (saveSlot == null) return;
-            if (!saveSlot.Loaded && debugRunOnStart) // NOTE this should be for debugging only. It should be true before hitting this in build.
+            if (!saveSlot.Loaded &&
+                debugRunOnStart) // NOTE this should be for debugging only. It should be true before hitting this in build.
             {
                 saveSlot.LoadData();
-                if (saveSlot.NextSceneTransition == null)
-                {
+                if (saveSlot.NextSceneTransition == null) {
                     saveSlot.Loaded = true;
                     return;
                 }
+
                 BeginLoadingNextScene(saveSlot.NextSceneTransition);
             }
         }
 
-        private void BeginLoadingNextScene(SceneTransition targetScene)
-        {
+        private void OnEnable() {
+        }
+
+        private void OnDisable() {
+        }
+
+        private void BeginLoadingNextScene(SceneTransition targetScene) {
             saveSlot.NextSceneTransition = targetScene;
             animator.SetTrigger("FadeOut");
         }

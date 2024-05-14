@@ -3,38 +3,31 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 namespace ParentHouse {
-    public class InterfaceInteractable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
-    {
+    public class InterfaceInteractable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
+        IPointerClickHandler {
         public bool canInteractWith;
         public UnityEvent onInteract;
 
-        private void OnEnable()
-        {
+        private void OnEnable() {
         }
 
-        private void OnDisable()
-        {
+        private void OnDisable() {
         }
 
-        private void Interact()
-        {
-            if (!canInteractWith) return;
-            onInteract.Invoke();
+        public void OnPointerClick(PointerEventData eventData) {
         }
-    
-        public void OnPointerEnter(PointerEventData eventData)
-        {
+
+        public void OnPointerEnter(PointerEventData eventData) {
             canInteractWith = true;
         }
 
-        public void OnPointerExit(PointerEventData eventData)
-        {
+        public void OnPointerExit(PointerEventData eventData) {
             canInteractWith = false;
         }
 
-        public void OnPointerClick(PointerEventData eventData)
-        {
-        
+        private void Interact() {
+            if (!canInteractWith) return;
+            onInteract.Invoke();
         }
     }
 }

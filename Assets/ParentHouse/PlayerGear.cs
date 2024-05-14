@@ -1,7 +1,6 @@
 using UnityEngine;
 
 namespace ParentHouse {
-    public class PlayerGear : MonoBehaviour
-    {
+    public class PlayerGear : MonoBehaviour {
     }
 }

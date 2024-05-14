@@ -1,27 +1,23 @@
-﻿namespace SnapshotShaders.BuiltIn
-{
-    using System;
-    using UnityEngine;
-    using UnityEngine.Rendering.PostProcessing;
+﻿using System;
+using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
+namespace SnapshotShaders.BuiltIn {
     [Serializable]
     [PostProcess(typeof(VortexRenderer), PostProcessEvent.AfterStack, "Snapshot Pro/Vortex")]
-    public sealed class Vortex : PostProcessEffectSettings
-    {
+    public sealed class Vortex : PostProcessEffectSettings {
         [Tooltip("The vortex will swirl around this normalized position.")]
-        public Vector2Parameter center = new Vector2Parameter { value = new Vector2(0.5f, 0.5f) };
+        public Vector2Parameter center = new() {value = new Vector2(0.5f, 0.5f)};
 
-        [Range(0.0f, 100.0f), Tooltip("How strongly the effect will twirl pixels around the center.")]
-        public FloatParameter strength = new FloatParameter { value = 0.0f };
+        [Range(0.0f, 100.0f)] [Tooltip("How strongly the effect will twirl pixels around the center.")]
+        public FloatParameter strength = new() {value = 0.0f};
 
         [Tooltip("How far the image is offset before twirling.")]
-        public Vector2Parameter offset = new Vector2Parameter { value = Vector2.zero };
+        public Vector2Parameter offset = new() {value = Vector2.zero};
     }
 
-    public sealed class VortexRenderer : PostProcessEffectRenderer<Vortex>
-    {
-        public override void Render(PostProcessRenderContext context)
-        {
+    public sealed class VortexRenderer : PostProcessEffectRenderer<Vortex> {
+        public override void Render(PostProcessRenderContext context) {
             var sheet = context.propertySheets.Get(Shader.Find("Hidden/SnapshotPro/Vortex"));
 
             sheet.properties.SetVector("_Center", settings.center);

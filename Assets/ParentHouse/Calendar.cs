@@ -7,99 +7,98 @@ using UnityEditor;
 using UnityEngine;
 
 namespace ParentHouse {
-    public class Calendar : WindowPanel
-    {
-        [FoldoutGroup("Display")][SerializeField] private TextMeshProUGUI monthNameDisplay;
-        [FoldoutGroup("Display")][SerializeField] private Transform calendaryDisplayContainer;
-        [FoldoutGroup("Display")][SerializeField] private GameObject calendarDayDisplayObject;
-        [FoldoutGroup("Data")][SerializeField] private TimeVariable dayVariable;
-        [FoldoutGroup("Data")][SerializeField] private TimeVariable monthVariable;
-    
+    public class Calendar : WindowPanel {
+        [FoldoutGroup("Display")] [SerializeField]
+        private TextMeshProUGUI monthNameDisplay;
+
+        [FoldoutGroup("Display")] [SerializeField]
+        private Transform calendaryDisplayContainer;
+
+        [FoldoutGroup("Display")] [SerializeField]
+        private GameObject calendarDayDisplayObject;
+
+        [FoldoutGroup("Data")] [SerializeField]
+        private TimeVariable dayVariable;
+
+        [FoldoutGroup("Data")] [SerializeField]
+        private TimeVariable monthVariable;
+
         public TextMeshProUGUI calendarDayDetailsText;
         public List<CalendarSignature> calendarSignatures = new();
-    
+
         private readonly List<CalendarDayDisplay> calendarDaySlots = new();
 
-        protected void OnEnable()
-        {
+        private void Update() {
+            monthNameDisplay.text =
+                $"{((Month) monthVariable.Value).ToString()} the {UtilFunctions.AddOrdinal((int) (dayVariable.Value + 1))}";
+        }
+
+        protected void OnEnable() {
             GameEvents.OnNewDay.AddListener(UpdateCalendar);
         }
 
-        protected void OnDisable()
-        {
+        protected void OnDisable() {
             GameEvents.OnNewDay.AddListener(UpdateCalendar);
         }
 
-        public override void Show()
-        {
+        public override void Show() {
             base.Show();
             UpdateCalendar();
         }
-    
-        private void Update()
-        {
-            monthNameDisplay.text = $"{((Month) monthVariable.Value).ToString()} the {UtilFunctions.AddOrdinal((int)(dayVariable.Value+1))}";
-        }
 
-        public void UpdateCalendar()
-        {
-            for (int day = 0; day < 28; day++)
-            {
-                if (calendarDaySlots.Count - 1 < day || calendarDaySlots[day] == null)
-                {
-                    var obj = Instantiate(calendarDayDisplayObject, calendaryDisplayContainer).GetComponent<CalendarDayDisplay>();
+        public void UpdateCalendar() {
+            for (var day = 0; day < 28; day++) {
+                if (calendarDaySlots.Count - 1 < day || calendarDaySlots[day] == null) {
+                    var obj = Instantiate(calendarDayDisplayObject, calendaryDisplayContainer)
+                        .GetComponent<CalendarDayDisplay>();
                     calendarDaySlots.Add(obj);
                 }
-            
-                bool isHighlighted = day == (int) dayVariable.Value;
-                int signaturesPerDayCount = 0;
-                string detailString = "";
 
-                detailString += $"<b><u>{((Month) monthVariable.Value).ToString()} the {UtilFunctions.AddOrdinal((int)(day+1))}</b></u><br><br>";
-                foreach (CalendarSignature signature in calendarSignatures)
-                {
+                var isHighlighted = day == (int) dayVariable.Value;
+                var signaturesPerDayCount = 0;
+                var detailString = "";
+
+                detailString +=
+                    $"<b><u>{((Month) monthVariable.Value).ToString()} the {UtilFunctions.AddOrdinal(day + 1)}</b></u><br><br>";
+                foreach (var signature in calendarSignatures) {
                     if (signature.Active == false) continue;
-                    if (signature.IsConditionMet(day, -1))
-                    {
+                    if (signature.IsConditionMet(day, -1)) {
                         detailString += $"<b>{signature.DisplayName}</b>";
                         detailString += $"{signature.DisplayText}<br>";
                         signaturesPerDayCount++;
                     }
                 }
-            
+
                 var display = calendarDaySlots[day];
-            
+
                 calendarDayDetailsText.text = "";
-                display.Setup(isHighlighted,day,signaturesPerDayCount > 0,this);
-                display.AssignInteract(delegate
-                {
-                    calendarDayDetailsText.text = detailString; 
+                display.Setup(isHighlighted, day, signaturesPerDayCount > 0, this);
+                display.AssignInteract(delegate {
+                    calendarDayDetailsText.text = detailString;
                     display.ToggleTemporaryHighlight(true);
                 });
-                if (isHighlighted)
-                {
+                if (isHighlighted) {
                     display.ToggleTemporaryHighlight(true);
                     display.Interact();
                 }
             }
         }
-    
+
 #if UNITY_EDITOR
         [Button]
-        public void FindAssetsByType()
-        {
+        public void FindAssetsByType() {
             calendarSignatures.Clear();
             var assets = AssetDatabase.FindAssets("t:CalendarSignature");
-        
-            foreach (var t in assets)
-            {
-                string assetPath = AssetDatabase.GUIDToAssetPath( t );
-                var asset = AssetDatabase.LoadAssetAtPath<CalendarSignature>( assetPath );
+
+            foreach (var t in assets) {
+                var assetPath = AssetDatabase.GUIDToAssetPath(t);
+                var asset = AssetDatabase.LoadAssetAtPath<CalendarSignature>(assetPath);
                 calendarSignatures.Add(asset);
             }
-        }    [Button]
-        private void ClearDisplays()
-        {
+        }
+
+        [Button]
+        private void ClearDisplays() {
             calendaryDisplayContainer.DestroyChildrenInEditor();
             calendarDaySlots.Clear();
         }

@@ -4,36 +4,29 @@ using UnityEngine;
 
 namespace ParentHouse {
     [CreateAssetMenu(fileName = "Moddable Float", menuName = "Variables/Moddable Float")]
-    public class ModdableFloat: ScriptableObject
-    {
+    public class ModdableFloat : ScriptableObject {
         public float DefaultValue;
+        public List<float> ModValues = new();
         private float moddedValue;
-        public float Value
-        {
-            get
-            {
-                float v = moddedValue;
-                foreach (var modValue in ModValues)
-                {
-                    v += modValue;
-                }
+
+        public float Value {
+            get {
+                var v = moddedValue;
+                foreach (var modValue in ModValues) v += modValue;
 
                 return v;
             }
             private set => moddedValue = value;
         }
-        public List<float> ModValues = new();
 
-        private void OnEnable()
-        {
+        private void OnEnable() {
             // Load Move Speed
             moddedValue = DefaultValue;
         }
-    
+
 #if UNITY_EDITOR
         [Button]
-        private void UpdateValue()
-        {
+        private void UpdateValue() {
             moddedValue = DefaultValue;
         }
 #endif

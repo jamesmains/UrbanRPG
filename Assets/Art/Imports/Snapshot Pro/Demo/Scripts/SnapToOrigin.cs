@@ -1,28 +1,18 @@
-namespace SnapshotShaders.BuiltIn
-{
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEngine;
-    using UnityEngine.Rendering.PostProcessing;
+using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
-    public class SnapToOrigin : MonoBehaviour
-    {
-        [SerializeField]
-        private PostProcessVolume volume;
+namespace SnapshotShaders.BuiltIn {
+    public class SnapToOrigin : MonoBehaviour {
+        [SerializeField] private PostProcessVolume volume;
 
-        private WorldScan worldScanEffect = null;
+        private WorldScan worldScanEffect;
 
-        private void Start()
-        {
+        private void Start() {
             volume.profile.TryGetSettings(out worldScanEffect);
         }
 
-        private void Update()
-        {
-            if(worldScanEffect != null)
-            {
-                transform.position = worldScanEffect.scanOrigin;
-            }
+        private void Update() {
+            if (worldScanEffect != null) transform.position = worldScanEffect.scanOrigin;
         }
     }
 }

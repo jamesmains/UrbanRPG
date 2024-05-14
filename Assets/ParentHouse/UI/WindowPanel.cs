@@ -5,14 +5,13 @@ using UnityEngine;
 
 namespace ParentHouse.UI {
     public class WindowPanel : MonoBehaviour {
+        private static readonly List<WindowPanel> AllWindows = new();
         [FoldoutGroup("Settings")] public WindowSignature Signature;
 
         [FoldoutGroup("Dependencies")] [Required]
         public CanvasGroup CanvasGroup;
 
         [FoldoutGroup("Status")] public bool IsActive;
-
-        private static readonly List<WindowPanel> AllWindows = new();
 
         private void OnEnable() {
             Hide();
@@ -36,9 +35,8 @@ namespace ParentHouse.UI {
         }
 
         public void Toggle() {
-            if (IsActive) {
+            if (IsActive)
                 Hide();
-            }
             else Show();
         }
 

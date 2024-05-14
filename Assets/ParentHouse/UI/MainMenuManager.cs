@@ -7,59 +7,59 @@ using UnityEngine;
 using UnityEngine.Events;
 
 namespace ParentHouse.UI {
-    public class MainMenuManager : MonoBehaviour
-    {
-        [FoldoutGroup("Data")][SerializeField] private GameObject saveSlotListObject;
-        [FoldoutGroup("Data")][SerializeField] private GameObject emptySaveSlotListObject;
-        [FoldoutGroup("Data")][SerializeField] private Transform saveSlotListObjectContainer;
-        [FoldoutGroup("Data")][SerializeField] private PlayerSaveSlot playerSaveSlot;
-        [FoldoutGroup("Data")][SerializeField] private int totalSaveSlotCount;
-    
-        private void Awake()
-        {
+    public class MainMenuManager : MonoBehaviour {
+        [FoldoutGroup("Data")] [SerializeField]
+        private GameObject saveSlotListObject;
+
+        [FoldoutGroup("Data")] [SerializeField]
+        private GameObject emptySaveSlotListObject;
+
+        [FoldoutGroup("Data")] [SerializeField]
+        private Transform saveSlotListObjectContainer;
+
+        [FoldoutGroup("Data")] [SerializeField]
+        private PlayerSaveSlot playerSaveSlot;
+
+        [FoldoutGroup("Data")] [SerializeField]
+        private int totalSaveSlotCount;
+
+        private void Awake() {
             UpdateSaveSlotDisplay();
         }
 
-        private void UpdateSaveSlotDisplay()
-        {
-            int remainingSaveSlots = totalSaveSlotCount;
-            string saveDirectoryPath = $"{Application.persistentDataPath}/";
+        private void UpdateSaveSlotDisplay() {
+            var remainingSaveSlots = totalSaveSlotCount;
+            var saveDirectoryPath = $"{Application.persistentDataPath}/";
             var dirs = Directory.GetDirectories(saveDirectoryPath);
-            foreach (var dir in dirs)
-            {
-                string slotName = dir.Substring(dir.LastIndexOf('/')+1);
+            foreach (var dir in dirs) {
+                var slotName = dir.Substring(dir.LastIndexOf('/') + 1);
 
-                void Actions()
-                {
+                void Actions() {
                     LoadGame(slotName);
                 }
 
-                PlayerSaveSlot tempData = ScriptableObject.CreateInstance<PlayerSaveSlot>();
+                var tempData = ScriptableObject.CreateInstance<PlayerSaveSlot>();
                 tempData.LoadData(slotName);
                 Instantiate(saveSlotListObject, saveSlotListObjectContainer)
                     .GetComponent<SaveSlotDisplay>()
-                    .Setup(tempData.actorName,tempData.cityName,Actions);
+                    .Setup(tempData.actorName, tempData.cityName, Actions);
                 remainingSaveSlots--;
             }
 
-            for (int i = 0; i < remainingSaveSlots; i++)
-            {
+            for (var i = 0; i < remainingSaveSlots; i++) {
                 UnityAction actions = StartNewGame;
-                Instantiate(emptySaveSlotListObject,saveSlotListObjectContainer)
+                Instantiate(emptySaveSlotListObject, saveSlotListObjectContainer)
                     .GetComponent<SaveSlotDisplay>()
-                    .Setup(null,null,actions);
+                    .Setup(null, null, actions);
             }
         }
-    
-        private void StartNewGame()
-        {
-            bool ValidateInput(TMP_InputField input)
-            {
+
+        private void StartNewGame() {
+            bool ValidateInput(TMP_InputField input) {
                 return !string.IsNullOrEmpty(input.text);
             }
 
-            void CharacteNameMessageBox()
-            {
+            void CharacteNameMessageBox() {
                 MessageBox.SetWindowScaleFactor(2);
                 MessageBox.NewLine();
                 MessageBox.AddText("What is your name?");
@@ -67,16 +67,11 @@ namespace ParentHouse.UI {
                 MessageBox.NewLine();
                 var inputField = MessageBox.AddInputField("Enter name...", 400);
 
-                void ConfirmButton()
-                {
-                    if (ValidateInput(inputField))
-                    {
-                        GameEvents.OnCreateMessageBox.Invoke(CityNameMessageBox);
-                    }
+                void ConfirmButton() {
+                    if (ValidateInput(inputField)) GameEvents.OnCreateMessageBox.Invoke(CityNameMessageBox);
                 }
 
-                void ExitButton()
-                {
+                void ExitButton() {
                     MessageBox.Clear();
                 }
 
@@ -85,26 +80,20 @@ namespace ParentHouse.UI {
                 MessageBox.AddButton("Back", ExitButton);
             }
 
-            void CityNameMessageBox()
-            {
+            void CityNameMessageBox() {
                 MessageBox.SetWindowScaleFactor(2);
                 MessageBox.NewLine();
                 MessageBox.AddText("Name your city:");
                 MessageBox.VerticalSpace(16);
                 MessageBox.NewLine();
-            
+
                 var inputField = MessageBox.AddInputField("Enter name...", 400);
 
-                void ConfirmButton()
-                {
-                    if (ValidateInput(inputField))
-                    {
-                        MessageBox.Clear();
-                    }
+                void ConfirmButton() {
+                    if (ValidateInput(inputField)) MessageBox.Clear();
                 }
 
-                void ExitButton()
-                {
+                void ExitButton() {
                     GameEvents.OnCreateMessageBox.Invoke(CityNameMessageBox);
                 }
 
@@ -112,23 +101,18 @@ namespace ParentHouse.UI {
                 MessageBox.AddButton("Confirm", ConfirmButton);
                 MessageBox.AddButton("Back", ExitButton);
             }
-        
+
             GameEvents.OnCreateMessageBox.Invoke(CityNameMessageBox);
         }
 
-        private void LoadGame(string saveName)
-        {
+        private void LoadGame(string saveName) {
             playerSaveSlot.saveSlot = saveName;
             playerSaveSlot.LoadData();
             GameEvents.OnLoadNextScene.Invoke(playerSaveSlot.NextSceneTransition);
         }
 
-        private void ExitGame(bool save = false)
-        {
-            if (save)
-            {
-                playerSaveSlot.SaveData();
-            }
+        private void ExitGame(bool save = false) {
+            if (save) playerSaveSlot.SaveData();
 #if UNITY_EDITOR
             EditorApplication.isPlaying = false;
 #else

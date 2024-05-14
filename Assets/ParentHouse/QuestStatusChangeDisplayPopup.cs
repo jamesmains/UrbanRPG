@@ -1,8 +1,6 @@
 using UnityEngine;
 
 namespace ParentHouse {
-    public class QuestStatusChangeDisplayPopup : MonoBehaviour
-    {
-    
+    public class QuestStatusChangeDisplayPopup : MonoBehaviour {
     }
 }

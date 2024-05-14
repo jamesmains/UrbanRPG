@@ -3,11 +3,10 @@ using UnityEngine;
 
 namespace ParentHouse.Utils {
     [CreateAssetMenu(fileName = "PVGames Animation Sheet", menuName = "Unsorted/PVGames Animation Sheet", order = 1)]
-    public class AnimationSheet : ScriptableObject
-    {
+    public class AnimationSheet : ScriptableObject {
         [FoldoutGroup("Data")] public int startIndex;
         [FoldoutGroup("Data")] public int frameCount;
-     
+
 // #if UNITY_EDITOR
 //     [Button]
 //     public void SetID()

@@ -2,8 +2,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace ParentHouse {
-    public class NPC : MonoBehaviour
-    {
+    public class NPC : MonoBehaviour {
         [SerializeField] private Actor actor;
 
         public string TestValue;
@@ -14,7 +13,7 @@ namespace ParentHouse {
             var data = new TestData();
             data.TestString = TestValue;
             data.TestVector = TestVector;
-            SaveLoad.SaveToJson(data,SaveLoad.DebugSaveDataFilePath());
+            SaveLoad.SaveToJson(data, SaveLoad.DebugSaveDataFilePath());
         }
 
         [Button]

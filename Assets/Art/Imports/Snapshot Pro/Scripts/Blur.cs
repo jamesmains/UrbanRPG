@@ -1,21 +1,17 @@
-﻿namespace SnapshotShaders.BuiltIn
-{
-    using System;
-    using UnityEngine;
-    using UnityEngine.Rendering.PostProcessing;
+﻿using System;
+using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
+namespace SnapshotShaders.BuiltIn {
     [Serializable]
     [PostProcess(typeof(BlurRenderer), PostProcessEvent.AfterStack, "Snapshot Pro/Blur")]
-    public class Blur : PostProcessEffectSettings
-    {
-        [Range(3, 27), Tooltip("Blur Strength")]
-        public IntParameter strength = new IntParameter { value = 5 };
+    public class Blur : PostProcessEffectSettings {
+        [Range(3, 27)] [Tooltip("Blur Strength")]
+        public IntParameter strength = new() {value = 5};
     }
 
-    public sealed class BlurRenderer : PostProcessEffectRenderer<Blur>
-    {
-        public override void Render(PostProcessRenderContext context)
-        {
+    public sealed class BlurRenderer : PostProcessEffectRenderer<Blur> {
+        public override void Render(PostProcessRenderContext context) {
             var sheet = context.propertySheets.Get(Shader.Find("Hidden/SnapshotPro/Blur"));
             sheet.properties.SetInt("_KernelSize", settings.strength);
             sheet.properties.SetFloat("_Spread", settings.strength / 7.5f);

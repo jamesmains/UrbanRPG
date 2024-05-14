@@ -6,28 +6,25 @@ using UnityEngine;
 
 namespace ParentHouse {
     [CreateAssetMenu(fileName = "Gear Collection", menuName = "Collections/GearCollection")]
-    public class GearCollection : ScriptableObject
-    {
+    public class GearCollection : ScriptableObject {
         public string header;
         public Sprite icon;
         public GearType type;
-        public bool allowNull = false;
+        public bool allowNull;
         public List<Gear> gear = new();
-    
+
 #if UNITY_EDITOR
         [Button]
-        public void FindAssetsByType()
-        {
+        public void FindAssetsByType() {
             gear.Clear();
             var assets = AssetDatabase.FindAssets("t:Gear");
-            foreach (var t in assets)
-            {
-                string assetPath = AssetDatabase.GUIDToAssetPath( t );
-                var asset = AssetDatabase.LoadAssetAtPath<Gear>( assetPath );
-                if(asset.GearType == type)
+            foreach (var t in assets) {
+                var assetPath = AssetDatabase.GUIDToAssetPath(t);
+                var asset = AssetDatabase.LoadAssetAtPath<Gear>(assetPath);
+                if (asset.GearType == type)
                     gear.Add(asset);
             }
-        } 
+        }
 #endif
     }
 }
