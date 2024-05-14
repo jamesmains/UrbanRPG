@@ -7,26 +7,30 @@ using UnityEngine;
 
 namespace ParentHouse {
     [CreateAssetMenu(fileName = "Quest", menuName = "Signatures/Quest")]
-    public class Quest : Activity
-    {
-        [Title("Quest Settings")]
-        public string QuestName;
+    public class Quest : Activity {
+        [Title("Quest Settings")] public string QuestName;
+
         public QuestType QuestType;
         public QuestState CurrentState;
-        [TextArea] 
-        public string QuestCompleteText;
-        [Space(10),PropertyOrder(70)]
-        public List<QuestTaskData> Tasks = new();
-        [Space(10)]
-        public QuestTask CurrentStep;
+
+        [TextArea] public string QuestCompleteText;
+
+        [Space(10)] [PropertyOrder(70)] public List<QuestTaskData> Tasks = new();
+
+        [Space(10)] public QuestTask CurrentStep;
+
         public int TaskIndex;
         public bool AutoComplete;
-    
+
         private StringVariable saveSlot;
 
-        [Button, TabGroup("Functions","Progress Functions")]
-        public void StartQuest()
-        {
+        private void OnEnable() {
+            LoadQuest();
+        }
+
+        [Button]
+        [TabGroup("Functions", "Progress Functions")]
+        public void StartQuest() {
             if (CurrentState is QuestState.Started or QuestState.Completed) return;
             TaskIndex = -1;
             CurrentState = QuestState.Started;
@@ -36,68 +40,61 @@ namespace ParentHouse {
             GameEvents.OnSendGenericMessage.Invoke($"Started Quest: {QuestName}");
         }
 
-        public void TryCompleteTask(QuestTask incomingTask)
-        {
-            TryCompleteTask(incomingTask,1);
+        public void TryCompleteTask(QuestTask incomingTask) {
+            TryCompleteTask(incomingTask, 1);
         }
-    
-        public void TryCompleteTask(QuestTask incomingTask, int amount = 1)
-        {
+
+        public void TryCompleteTask(QuestTask incomingTask, int amount = 1) {
             if (CurrentState is not QuestState.Started or QuestState.ReadyToComplete) return;
-        
+
             var task = Tasks[TaskIndex];
 
             if (task.taskTask != incomingTask) return;
-            if (amount > (task.numberOfRequiredHits - task.hits)) amount = task.numberOfRequiredHits - task.hits;
-        
+            if (amount > task.numberOfRequiredHits - task.hits) amount = task.numberOfRequiredHits - task.hits;
+
             task.Hit(amount);
             Debug.Log(task.hits);
             GameEvents.OnMakeQuestProgress.Invoke(this);
             GameEvents.OnUpdateQuests.Invoke();
-        
+
             if (task.IsTaskComplete())
-            {
                 StartNextTask();
-            }
             else SaveQuest();
         }
 
-        [Button, TabGroup("Functions","Progress Functions")]
-        private void StartNextTask()
-        {
+        [Button]
+        [TabGroup("Functions", "Progress Functions")]
+        private void StartNextTask() {
             TaskIndex++;
-            if (TaskIndex >= Tasks.Count && AutoComplete)
-            {
+            if (TaskIndex >= Tasks.Count && AutoComplete) {
                 CompleteQuest();
                 return;
             }
-            else if(TaskIndex >= Tasks.Count) TaskIndex--;
-        
+
+            if (TaskIndex >= Tasks.Count) TaskIndex--;
+
             CurrentStep = Tasks[TaskIndex].taskTask;
             var lastQuestTask = Tasks.Last();
             if (CurrentStep == lastQuestTask.taskTask &&
-                lastQuestTask.hits == lastQuestTask.numberOfRequiredHits && !AutoComplete)
-            {
+                lastQuestTask.hits == lastQuestTask.numberOfRequiredHits && !AutoComplete) {
                 CurrentState = QuestState.ReadyToComplete;
                 GameEvents.OnReadyToComplete.Invoke(this);
                 GameEvents.OnUpdateQuests.Invoke();
             }
+
             SaveQuest();
         }
 
-        public QuestTaskData GetCurrentQuestTask()
-        {
+        public QuestTaskData GetCurrentQuestTask() {
             return TaskIndex >= Tasks.Count ? null : Tasks[TaskIndex];
         }
-    
-        [Button, TabGroup("Functions","Progress Functions")]
-        public void CompleteQuest()
-        {
+
+        [Button]
+        [TabGroup("Functions", "Progress Functions")]
+        public void CompleteQuest() {
             CurrentStep = null;
             if (QuestType == QuestType.Repeatable)
-            {
                 ResetQuest();
-            }
             else CurrentState = QuestState.Completed;
             GameEvents.OnCompleteQuest.Invoke(this);
             GameEvents.OnUpdateQuests.Invoke();
@@ -105,9 +102,9 @@ namespace ParentHouse {
             SaveQuest();
         }
 
-        [Button, TabGroup("Functions","Progress Functions")]
-        private void ResetQuest()
-        {
+        [Button]
+        [TabGroup("Functions", "Progress Functions")]
+        private void ResetQuest() {
             foreach (var task in Tasks)
                 task.hits = 0;
             TaskIndex = 0;
@@ -117,15 +114,15 @@ namespace ParentHouse {
             SaveQuest();
         }
 
-        [Button, TabGroup("Functions","Data Functions")]
-        private void SaveQuest()
-        {
+        [Button]
+        [TabGroup("Functions", "Data Functions")]
+        private void SaveQuest() {
             // SaveLoad.SaveQuest(new QuestSaveData(this));
         }
 
-        [Button, TabGroup("Functions","Data Functions")]
-        private void LoadQuest()
-        {
+        [Button]
+        [TabGroup("Functions", "Data Functions")]
+        private void LoadQuest() {
             // QuestSaveData loadedData = SaveLoad.LoadQuest(QuestName);
             // if (loadedData == null) return;
             //
@@ -140,42 +137,32 @@ namespace ParentHouse {
             // });
             // CurrentState = loadedData.SavedQuestState;
         }
-
-        private void OnEnable()
-        {
-            LoadQuest();
-        }
     }
 
     [Serializable]
-    public class QuestTaskData
-    {
+    public class QuestTaskData {
         public QuestTask taskTask;
-        [FoldoutGroup("Display"), TextArea]public string TaskDescription;
-        [FoldoutGroup("Data")]public int numberOfRequiredHits = 1;
-        [FoldoutGroup("Data")]public int hits;
+        [FoldoutGroup("Display")] [TextArea] public string TaskDescription;
+        [FoldoutGroup("Data")] public int numberOfRequiredHits = 1;
+        [FoldoutGroup("Data")] public int hits;
 
-        public void Hit(int amount = 1)
-        {
+        public void Hit(int amount = 1) {
             hits += amount;
         }
-    
-        public bool IsTaskComplete()
-        {
+
+        public bool IsTaskComplete() {
             return hits >= numberOfRequiredHits;
         }
     }
 
     [Serializable]
-    public class QuestSaveData
-    {
+    public class QuestSaveData {
         public string Name;
         public int SavedTaskIndex;
         public int[] SavedTaskHits;
         public QuestState SavedQuestState;
 
-        public QuestSaveData(Quest quest)
-        {
+        public QuestSaveData(Quest quest) {
             Name = quest.QuestName;
             SavedTaskIndex = quest.TaskIndex;
             SavedTaskHits = quest.Tasks.Select(o => o.hits).ToArray();
