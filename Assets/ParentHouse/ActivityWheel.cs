@@ -8,7 +8,7 @@ using UnityEngine.Events;
 namespace ParentHouse {
     public class ActivityWheel : WindowPanel {
         // Things we may want
-        // Get world space aprox to display wheel close to where activity is
+        // Get world space approx to display wheel close to where activity is
         public GameObject ActivityWheelObject;
         public Transform ActivityListContainer;
         public float Radius;
