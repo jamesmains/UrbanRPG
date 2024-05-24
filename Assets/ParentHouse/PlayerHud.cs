@@ -4,8 +4,8 @@ using ParentHouse.Utils;
 using UnityEngine;
 
 namespace ParentHouse {
-    public class PlayerHud : WindowPanel {
-        [SerializeField] private List<WindowPanel> HudWindows;
+    public class PlayerHud : WindowDisplay {
+        [SerializeField] private List<WindowDisplay> HudWindows;
 
         private void Start() {
             GameEvents.ShowPlayerHud.Invoke();

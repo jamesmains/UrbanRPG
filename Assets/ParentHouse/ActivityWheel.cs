@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 namespace ParentHouse {
-    public class ActivityWheel : WindowPanel {
+    public class ActivityWheel : WindowDisplay {
         // Things we may want
         // Get world space approx to display wheel close to where activity is
         public GameObject ActivityWheelObject;

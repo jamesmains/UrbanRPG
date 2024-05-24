@@ -8,9 +8,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace ParentHouse {
-    public class InventoryWindowPanel : WindowPanel, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler {
-        public static InventoryWindowPanel HighlightedInventoryWindowPanel;
-        public static readonly List<InventoryWindowPanel> OpenInventoryWindows = new();
+    public class InventoryWindowDisplay : WindowDisplay, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler {
+        public static InventoryWindowDisplay HighlightedInventoryWindowDisplay;
+        public static readonly List<InventoryWindowDisplay> OpenInventoryWindows = new();
         public Inventory Inventory;
         [SerializeField] private Transform InventoryContainer;
         [SerializeField] private GameObject InventorySlotPrefab;
@@ -37,13 +37,13 @@ namespace ParentHouse {
         private bool flaggedToUpdate;
 
         public void OnPointerEnter(PointerEventData eventData) {
-            if ((HighlightedInventoryWindowPanel is null || (HighlightedInventoryWindowPanel != this && !IsLocked)) &&
+            if ((HighlightedInventoryWindowDisplay is null || (HighlightedInventoryWindowDisplay != this && !IsLocked)) &&
                 !RemoveOnly)
-                HighlightedInventoryWindowPanel = this;
+                HighlightedInventoryWindowDisplay = this;
         }
 
         public void OnPointerExit(PointerEventData eventData) {
-            HighlightedInventoryWindowPanel = null;
+            HighlightedInventoryWindowDisplay = null;
         }
 
         public void OnPointerMove(PointerEventData eventData) {

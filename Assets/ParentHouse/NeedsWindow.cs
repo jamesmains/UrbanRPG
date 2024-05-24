@@ -7,7 +7,7 @@ using UnityEditor;
 using UnityEngine;
 
 namespace ParentHouse {
-    public class NeedsWindow : WindowPanel {
+    public class NeedsWindow : WindowDisplay {
         [SerializeField] private RectTransform needsDisplayContainer;
         [SerializeField] private GameObject needsDisplayListPrefab;
         [SerializeField] private List<Need> needs = new();

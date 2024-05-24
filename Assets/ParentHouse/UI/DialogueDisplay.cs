@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 namespace ParentHouse.UI {
-    public class DialogueDisplay : WindowPanel {
+    public class DialogueDisplay : WindowDisplay {
         [FoldoutGroup("Data")] [SerializeField]
         private float textSpeed;
 
