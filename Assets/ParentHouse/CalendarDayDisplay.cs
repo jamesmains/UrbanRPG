@@ -14,7 +14,7 @@ namespace ParentHouse {
         [SerializeField] private Color highlightColor;
         [SerializeField] private Color currentDayColor;
         [SerializeField] private Color normalColor;
-        [HideInInspector] public WindowPanel parentWindow;
+        [HideInInspector] public WindowDisplay parentWindow;
         private float clickdelay = 0.5f;
 
         private int clicked;
@@ -38,7 +38,7 @@ namespace ParentHouse {
             isMouseOver = false;
         }
 
-        public void Setup(bool currentDayHighlight, int day, bool hasEvents, WindowPanel parent) {
+        public void Setup(bool currentDayHighlight, int day, bool hasEvents, WindowDisplay parent) {
             isCurrentDay = currentDayHighlight;
             frameIcon.color = currentDayHighlight ? currentDayColor : normalColor;
             dayText.text = (day + 1).ToString();

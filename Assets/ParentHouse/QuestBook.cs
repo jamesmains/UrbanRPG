@@ -7,7 +7,7 @@ using UnityEditor;
 using UnityEngine;
 
 namespace ParentHouse {
-    public class QuestBook : WindowPanel {
+    public class QuestBook : WindowDisplay {
         [SerializeField] private GameObject questDisplayObject;
         [SerializeField] private RectTransform questDisplayObjectContainer;
         public List<Quest> questList = new();

@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 
 namespace ParentHouse {
-    public class ShopDisplay : WindowPanel {
+    public class ShopDisplay : WindowDisplay {
         [SerializeField] [FoldoutGroup("Display")]
         private GameObject shopItemDisplayObject;
 

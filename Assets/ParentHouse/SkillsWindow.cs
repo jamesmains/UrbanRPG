@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 
 namespace ParentHouse {
-    public class SkillsWindow : WindowPanel {
+    public class SkillsWindow : WindowDisplay {
         [SerializeField] private RectTransform skillsDisplayContainer;
         [SerializeField] private GameObject skillsDisplayListPrefab;
         [SerializeField] private List<Skill> skills = new();

@@ -9,7 +9,7 @@ namespace ParentHouse {
     /// Todo: This class is a bit of a mess and the entry point may need to be adjusted along with the fact it
     ///       derives from WindowPanel.
     /// </summary>
-    public class TooltipPanel : WindowPanel {
+    public class TooltipDisplay : WindowDisplay {
         [SerializeField] [FoldoutGroup("Dependencies")]
         private TextMeshProUGUI MessageText;
 

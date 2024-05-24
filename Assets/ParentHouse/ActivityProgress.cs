@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace ParentHouse {
-    public class ActivityProgress : WindowPanel {
+    public class ActivityProgress : WindowDisplay {
         [SerializeField] private Image ActivityIcon;
         [SerializeField] private Image FillWheel;
         [SerializeField] private bool IsActive;

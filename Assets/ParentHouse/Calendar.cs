@@ -7,7 +7,7 @@ using UnityEditor;
 using UnityEngine;
 
 namespace ParentHouse {
-    public class Calendar : WindowPanel {
+    public class Calendar : WindowDisplay {
         [FoldoutGroup("Display")] [SerializeField]
         private TextMeshProUGUI monthNameDisplay;
 

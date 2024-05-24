@@ -24,7 +24,7 @@ namespace ParentHouse {
         [field: SerializeField] private List<GearCollection> GearOptionCollections = new();
 
         // his prevents it from also setting the actor's hair color to the default
-        private readonly List<WindowPanel> categoryWindows = new();
+        private readonly List<WindowDisplay> categoryWindows = new();
 
         private bool hairColorBuffer = true; // The color picker sets the color to a default color on frame 1,
         private int[] indexes;
