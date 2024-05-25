@@ -2,7 +2,7 @@ using System.IO;
 using Newtonsoft.Json;
 using UnityEngine;
 
-namespace ParentHouse {
+namespace ParentHouse.Utils {
     public static class SaveLoad {
         public static string DebugSaveDataFilePath() {
             return $"{Application.persistentDataPath}/Test.json";
