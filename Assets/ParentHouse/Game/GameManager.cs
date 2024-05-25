@@ -1,54 +1,48 @@
-using UnityEngine;
+using ParentHouse.Utils;
 
-public static class GameManager {
-    public static GameState CurrentGameState;
+namespace ParentHouse.Game {
+    public static class GameManager {
+        public static GameState CurrentGameState;
 
-    public static void InitGame() {
-        CurrentGameState = new BaseUserInterfaceState();
-    }
-}
+        public static void InitGame() {
+            CurrentGameState = new BaseUserInterfaceState();
+        }
 
-
-public abstract class GameState {
-    public bool AllowTimeToProgress;
-    public bool AllowPlayerWorldInput;
-    public bool AllowPlayerUiInput;
-
-    public virtual void EnterGameState() {
+        public static void EnterState(GameState NewState) {
+            CurrentGameState = NewState;
+            CurrentGameState.EnterGameState();
+        }
     }
 
-    public virtual void ExitGameState() {
-    }
-}
+    /// <summary>
+    /// Game State classes
+    /// </summary>
+    public abstract class GameState {
+        public InputController Controller;
 
-public class BaseUserInterfaceState : GameState {
-    public override void EnterGameState() {
-        base.EnterGameState();
-        AllowTimeToProgress = true;
-        AllowPlayerWorldInput = false;
-        AllowPlayerUiInput = true;
-    }
-}
+        public virtual void EnterGameState() {
+            GameEvents.GameStateEntered.Invoke(this);
+        }
 
-public class BaseGameplayState : GameState {
-    public override void EnterGameState() {
-        base.EnterGameState();
-        AllowTimeToProgress = true;
-        AllowPlayerWorldInput = true;
-        AllowPlayerUiInput = true;
-    }
-}
-
-public class TransitionToGameplayState : GameState {
-    public override void EnterGameState() {
-        base.EnterGameState();
-        AllowTimeToProgress = false;
-        AllowPlayerWorldInput = false;
-        AllowPlayerUiInput = false;
+        public virtual void ExitGameState() {
+            GameEvents.GameStateExited.Invoke(this);
+        }
     }
 
-    public override void ExitGameState() {
-        base.ExitGameState();
-        GameManager.CurrentGameState = new BaseGameplayState();
+    public class BaseUserInterfaceState : GameState {
+    }
+
+    public class BaseGameplayState : GameState {
+        public override void EnterGameState() {
+            Controller = new PlayerInputController();
+            base.EnterGameState();
+        }
+    }
+
+    public class TransitionToGameplayState : GameState {
+        public override void ExitGameState() {
+            base.ExitGameState();
+            GameManager.CurrentGameState = new BaseGameplayState();
+        }
     }
 }
