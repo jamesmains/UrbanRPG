@@ -3,7 +3,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace ParentHouse {
-    public class PlayerMotor : MonoBehaviour {
+    public class PlayerMotorOLDOUTDATED : MonoBehaviour {
         public Inventory RideGearInventory;
         public GameObject RidingIndicator;
 

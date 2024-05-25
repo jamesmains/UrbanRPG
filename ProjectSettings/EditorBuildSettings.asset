@@ -17,4 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dressing Room.unity
     guid: eb11c8c5793494748aee35850df6e176
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: c8f3e34e56be65f4297a2698790a11a6, type: 3}
+  m_UseUCBPForAssetBundles: 0

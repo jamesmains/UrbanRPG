@@ -1,8 +1,13 @@
+using System;
+using ParentHouse.Game;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace ParentHouse.Utils {
     public class GameEvents : MonoBehaviour {
+        // Game State Events
+        public static UnityEvent<GameState> GameStateEntered = new();        
+        public static UnityEvent<GameState> GameStateExited = new();        
         // UI Events
         public static UnityEvent ShowPlayerHud = new();
         public static UnityEvent HidePlayerHud = new();
