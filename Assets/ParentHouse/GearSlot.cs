@@ -3,7 +3,6 @@ using System.Linq;
 using ParentHouse.Utils;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using Animation = ParentHouse.Utils.Animation;
 
 namespace ParentHouse {
     public class GearSlot : MonoBehaviour {
