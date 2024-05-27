@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags:
   - CameraBoundingBox
   layers:
@@ -42,30 +42,35 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Body
-    uniqueID: 3187714845
+  - name: Rear Hand
+    uniqueID: 3810486125
     locked: 0
-  - name: Shoes
-    uniqueID: 2471993463
-    locked: 0
-  - name: Pants
-    uniqueID: 1111681143
-    locked: 0
-  - name: Mouth
-    uniqueID: 476110007
-    locked: 0
-  - name: Eyes
-    uniqueID: 1620279119
-    locked: 0
-  - name: Shirt
-    uniqueID: 3293182897
-    locked: 0
-  - name: Hair
-    uniqueID: 1808486785
-    locked: 0
-  - name: Accessory
-    uniqueID: 2652536541
-    locked: 0
-  - name: Accessory 1
+  - name: Rear Foot
     uniqueID: 3796137983
     locked: 0
+  - name: Body
+    uniqueID: 1620279119
+    locked: 0
+  - name: Head
+    uniqueID: 513548813
+    locked: 0
+  - name: Eyes
+    uniqueID: 2471993463
+    locked: 0
+  - name: Hat
+    uniqueID: 3187714845
+    locked: 0
+  - name: Facial Hair
+    uniqueID: 476110007
+    locked: 0
+  - name: Nose
+    uniqueID: 1111681143
+    locked: 0
+  - name: Front Hand
+    uniqueID: 1808486785
+    locked: 0
+  - name: Front Foot
+    uniqueID: 2652536541
+    locked: 0
+  m_RenderingLayers:
+  - Default
