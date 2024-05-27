@@ -137,8 +137,8 @@ namespace ParentHouse {
             string overrideText = "") {
             if (inventoryItemData.Item is Gear item && inventoryItemData != storedItemData && origin.RestrictByItemType)
                 if (!HasAllowedItemType(origin, inventoryItemData.Item))
-                    foreach (var effect in item.GearEffects)
-                        effect.OnEquip();
+                    // foreach (var effect in item.GearEffects)
+                    //     effect.OnEquip();
 
             storedItemData = inventoryItemData;
             storedItemData.Index = index;

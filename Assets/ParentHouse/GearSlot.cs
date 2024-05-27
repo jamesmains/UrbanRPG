@@ -3,6 +3,7 @@ using System.Linq;
 using ParentHouse.Utils;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Animation = ParentHouse.Utils.Animation;
 
 namespace ParentHouse {
     public class GearSlot : MonoBehaviour {
@@ -24,9 +25,7 @@ namespace ParentHouse {
         private int frameCount;
 
         [FoldoutGroup("Data")] [SerializeField]
-        private AnimationSheet[] animationData;
-
-        public CustoAnimator parentAnimator;
+        private Animation[] animationData;
 
         private int currentAnimationIndex;
         private int currentDirection;
@@ -38,8 +37,8 @@ namespace ParentHouse {
 
         public void ChangeGear(Gear newGear) {
             gear = newGear;
-            LoadSpriteSheet(gear.spriteSheetId);
-            parentAnimator.SyncFrames();
+            //LoadSpriteSheet(gear.spriteSheetId);
+            //parentAnimator.SyncFrames();
         }
 
         public void Tick(int targetDirection, bool flip) {
@@ -70,8 +69,8 @@ namespace ParentHouse {
         public void LoadAnimation(int actionIndex) {
             if (actionIndex == -1) return;
             currentAnimationIndex = actionIndex;
-            startIndex = animationData[actionIndex].startIndex;
-            frameCount = animationData[actionIndex].frameCount;
+            //startIndex = animationData[actionIndex].startIndex;
+            //frameCount = animationData[actionIndex].frameCount;
             if (frameCount <= 0)
                 frameCount = 8;
         }
