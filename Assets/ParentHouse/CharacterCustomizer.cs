@@ -11,7 +11,6 @@ using UnityEngine.Events;
 namespace ParentHouse {
     public class CharacterCustomizer : MonoBehaviour {
         [SerializeField] private Actor currentActor;
-        [SerializeField] private CustoAnimator animator;
         [SerializeField] private TextMeshProUGUI categoryNameDisplay;
         [SerializeField] private FlexibleColorPicker hairColorPicker;
         [SerializeField] private Transform categoryContainer;
@@ -34,10 +33,10 @@ namespace ParentHouse {
         }
 
         private void Start() {
-            animator.actor = currentActor;
+            // animator.actor = currentActor;
             PopulateCategories();
-            animator.UpdateActor(currentActor);
-            hairColorPicker.SetColor(animator.actor.hairColor);
+            //animator.UpdateActor(currentActor);
+            // hairColorPicker.SetColor(animator.actor.hairColor);
         }
 
 #if UNITY_EDITOR
@@ -100,16 +99,16 @@ namespace ParentHouse {
             }
 
             currentActor.hairColor = incomingColor;
-            var hair = animator.gearSlots.FirstOrDefault(o => o.gearType == GearType.Hair);
-            if (hair != null) hair.gameObject.GetComponent<SpriteRenderer>().color = incomingColor;
+            // var hair = animator.gearSlots.FirstOrDefault(o => o.gearType == GearType.Hair);
+            // if (hair != null) hair.gameObject.GetComponent<SpriteRenderer>().color = incomingColor;
         }
 
         public void SetCharacterFacingDirection(Vector2 direction) {
-            animator.SetDirection(direction);
+            //animator.SetDirection(direction);
         }
 
         public void SetCharacterAnimation(int a) {
-            animator.SetAction(a);
+            // animator.SetAction(a);
         }
 
         [Button]

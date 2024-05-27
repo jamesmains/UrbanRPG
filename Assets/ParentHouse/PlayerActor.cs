@@ -7,7 +7,6 @@ namespace ParentHouse {
     public class PlayerActor : MonoBehaviour {
         [SerializeField] private ItemLookupTable ItemLookupTable;
         [SerializeField] private Actor playerActor;
-        [SerializeField] private CustoAnimator Animator;
         [SerializeField] private List<GearOption> defaultOutfit = new();
         [SerializeField] private Color defaultHairColor;
 

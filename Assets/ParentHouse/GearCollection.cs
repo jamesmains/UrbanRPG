@@ -12,19 +12,5 @@ namespace ParentHouse {
         public GearType type;
         public bool allowNull;
         public List<Gear> gear = new();
-
-#if UNITY_EDITOR
-        [Button]
-        public void FindAssetsByType() {
-            gear.Clear();
-            var assets = AssetDatabase.FindAssets("t:Gear");
-            foreach (var t in assets) {
-                var assetPath = AssetDatabase.GUIDToAssetPath(t);
-                var asset = AssetDatabase.LoadAssetAtPath<Gear>(assetPath);
-                if (asset.GearType == type)
-                    gear.Add(asset);
-            }
-        }
-#endif
     }
 }

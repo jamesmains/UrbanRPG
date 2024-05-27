@@ -11,9 +11,6 @@ namespace ParentHouse {
         private Rigidbody rb;
 
         [FoldoutGroup("Data")] [SerializeField]
-        private CustoAnimator animator;
-
-        [FoldoutGroup("Data")] [SerializeField]
         private Vector2 playerPositionVariable; // Todo - replace with static variable
 
         [FoldoutGroup("Data")] [SerializeField]
@@ -64,7 +61,7 @@ namespace ParentHouse {
             var action = isMoving ? 1 : 0;
             if (isRunning) action = 2;
             if (isRiding) action = 0;
-            animator.ChangeDirection(new Vector2((int) inputX, (int) inputY), action);
+            //animator.ChangeDirection(new Vector2((int) inputX, (int) inputY));
             var moveForce = new Vector3(inputX, 0, inputY).normalized;
             rb.AddForce(moveForce * moveSpeed.Value);
             playerPositionVariable = transform.position;
@@ -105,13 +102,13 @@ namespace ParentHouse {
 
             if (!isRiding) return;
 
-            foreach (var gear in RideGearInventory.InventoryItems) {
-                if (gear.Item is not Gear item) continue;
-                foreach (var effect in item.GearEffects) {
-                    if (effect is not RideEffect rideEffect) continue;
-                    moveSpeed.ModValues.Add(rideEffect.GetEffectValue());
-                }
-            }
+            // foreach (var gear in RideGearInventory.InventoryItems) {
+            //     if (gear.Item is not Gear item) continue;
+            //     foreach (var effect in item.GearEffects) {
+            //         if (effect is not RideEffect rideEffect) continue;
+            //         moveSpeed.ModValues.Add(rideEffect.GetEffectValue());
+            //     }
+            // }
         }
 
         public void MovePlayerTo(Transform newPosition) {
