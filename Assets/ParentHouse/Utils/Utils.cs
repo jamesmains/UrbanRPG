@@ -10,14 +10,6 @@ namespace ParentHouse.Utils {
         Interact
     }
 
-    public enum ItemType {
-        Junk,
-        Item,
-        Tool,
-        Quest,
-        Ride
-    }
-
     public enum EffectType {
         Buff,
         Debuff

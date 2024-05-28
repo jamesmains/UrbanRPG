@@ -4,30 +4,46 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace ParentHouse {
-    [CreateAssetMenu(fileName = "Inventory", menuName = "Items/Inventory")]
-    public class Inventory : ScriptableObject {
-        [field: SerializeField] public string Name { get; private set; }
-        [field: SerializeField] public int InventorySlotLimit = 32;
-        [field: SerializeField] public bool CanCreateImageStringMessages;
-        [field: SerializeField] public ItemLookupTable lookupTable;
-        [SerializeReference] public InventoryItemData[] InventoryItems;
-
-        private void OnEnable() {
-            //LoadInventory();
+    /// <summary>
+    /// Inventories are generated on owners and should use some unique file path to save and load from them.
+    /// </summary>
+    public class Inventory {
+        
+        public Inventory(int inventorySize) {
+            InventorySlotLimit = inventorySize;
+            LoadInventory();
         }
 
-        // This function is used but only from unityevents in the inspector
-        public void
-            TryAddItem(Item incomingItem) // Need this signature to call it from UnityEvent so ignore the warning on the other function
-        {
-            TryAddItem(incomingItem, 1);
+        private int InventorySlotLimit = 32;
 
-            if (CanCreateImageStringMessages)
-                GameEvents.OnCreateImageStringMessage.Invoke(incomingItem.Sprite, "+1");
+        private InventoryItemData[] InventoryItems;
+
+        #region Inventory Interaction
+
+        public InventoryItemData GetItemDataAt(int index) {
+            return InventoryItems[index];
         }
 
-        public int TryAddItem(Item incomingItem, int value = 1) {
-            var remaining = value;
+        public bool HasItem(Item itemQuery, int quantity = 1) {
+            var availableQuantity = 0;
+            for (var i = 0; i < InventoryItems.Length; i++) {
+                if (itemQuery != InventoryItems[i].Item) continue;
+                availableQuantity += InventoryItems[i].Quantity;
+            }
+
+            return availableQuantity >= quantity;
+        }
+
+        public int HasItemAt(Item itemQuery) {
+            var foundItemIndex = -1;
+            for (var i = 0; i < InventoryItems.Length; i++)
+                if (InventoryItems[i].Item == itemQuery)
+                    foundItemIndex = i;
+            return foundItemIndex;
+        }
+
+        public int AddItem(Item incomingItem, int quantity = 1) {
+            var remaining = quantity;
 
             foreach (var existingItemData in InventoryItems) {
                 if (remaining <= 0) break;
@@ -59,16 +75,8 @@ namespace ParentHouse {
             return remaining;
         }
 
-        public void TrySwapItem(int i1, int i2, Inventory otherInventory) {
-            var itemData1 = InventoryItems[i1];
-            var itemData2 = otherInventory.InventoryItems[i2];
-            InventoryItems[i1] = itemData2;
-            otherInventory.InventoryItems[i2] = itemData1;
-            SaveInventory();
-        }
-
-        public int TryAddItemAt(int targetIndex, int value = 1, Item incomingItem = null) {
-            var remaining = value;
+        public int AddItemAt(int targetIndex, int quantity = 1, Item incomingItem = null) {
+            var remaining = quantity;
             if (remaining == 0) return 0;
 
             if (InventoryItems[targetIndex].Item == null && incomingItem != null) {
@@ -87,20 +95,13 @@ namespace ParentHouse {
             return remaining;
         }
 
-        public void TryRemoveItem(Item incomingItem) {
-            TryRemoveItem(incomingItem, 1);
+        public int RemoveItem(Item incomingItem, int quantity = 1) {
+            var remaining = quantity;
 
-            if (CanCreateImageStringMessages)
-                GameEvents.OnCreateImageStringMessage.Invoke(incomingItem.Sprite, "-1");
-        }
-
-        public int TryRemoveItem(Item incomingItem, int value = 1) {
-            var remaining = value;
-
-            foreach (var existingItemData in InventoryItems) {
+            for (var i = 0; i < InventoryItems.Length; i++) {
+                var existingItemData = InventoryItems[i];
                 if (remaining <= 0) break;
-                if (incomingItem != existingItemData.Item ||
-                    existingItemData.Item == null) continue;
+                if (incomingItem != existingItemData.Item) continue;
 
                 if (existingItemData.Quantity <= 0) continue;
 
@@ -115,74 +116,41 @@ namespace ParentHouse {
             return remaining;
         }
 
-        public void TryRemoveItemAt(int ItemIndex, int amount = 1) {
-            InventoryItems[ItemIndex].Quantity -= amount;
-            if (InventoryItems[ItemIndex].Quantity <= 0) {
-                InventoryItems[ItemIndex].Item = null;
-                InventoryItems[ItemIndex].Quantity = 0;
+        public void RemoveItemAt(int itemIndex, int quantity = 1) {
+            InventoryItems[itemIndex].Quantity -= quantity;
+            if (InventoryItems[itemIndex].Quantity <= 0) {
+                InventoryItems[itemIndex].Item = null;
+                InventoryItems[itemIndex].Quantity = 0;
             }
 
             SaveInventory();
         }
 
-        public int TryUseItem(Item neededItem, int amount = 1) {
-            if (CanCreateImageStringMessages)
-                GameEvents.OnCreateImageStringMessage.Invoke(neededItem.Sprite, $"-{amount}");
-            for (var i = 0; i < InventoryItems.Length; i++) {
-                if (neededItem != InventoryItems[i].Item) continue;
-                if (amount > InventoryItems[i].Quantity) {
-                    var used = InventoryItems[i].Quantity;
-                    InventoryItems[i].Quantity = 0;
-                    amount -= used;
-                }
-                else {
-                    InventoryItems[i].Quantity -= amount;
-                    amount = 0;
-                }
-
-                if (InventoryItems[i].Quantity <= 0)
-                    InventoryItems[i].Item = null;
-                if (amount == 0) break;
-            }
-
+        public void SwapItemToOtherInventory(int item1, int item2, Inventory otherInventory) {
+            var itemData1 = InventoryItems[item1];
+            var itemData2 = otherInventory.InventoryItems[item2];
+            InventoryItems[item1] = itemData2;
+            otherInventory.InventoryItems[item2] = itemData1;
             SaveInventory();
-            return amount;
         }
 
-        public bool HasItem(Item itemQuery, int quantity = 1) {
-            var availableQuantity = 0;
-            for (var i = 0; i < InventoryItems.Length; i++) {
-                if (itemQuery != InventoryItems[i].Item) continue;
-                availableQuantity += InventoryItems[i].Quantity;
-            }
-
-            return availableQuantity >= quantity;
-        }
-
-        public int HasItemAt(Item itemQuery) {
-            var v = -1;
-            for (var i = 0; i < InventoryItems.Length; i++)
-                if (InventoryItems[i].Item == itemQuery)
-                    v = i;
-            return v;
-        }
-
-        [Button]
         public void SortIventoryByEmptySlots() {
             for (var i = 0; i < InventorySlotLimit; i++) {
                 var targetItem = InventoryItems[i].Item;
                 if (targetItem == null) continue;
                 for (var j = 0; j < InventorySlotLimit; j++) {
                     if (InventoryItems[j].Item != null) continue;
-                    TrySwapItem(i, j, this);
+                    SwapItemToOtherInventory(i, j, this);
                 }
             }
 
             SaveInventory();
         }
 
-        [FoldoutGroup("Saving and Loading")]
-        [Button]
+        #endregion
+
+        #region Inventory Integrity
+
         private void VerifyInventory() {
             foreach (var t in InventoryItems) {
                 if (t.Quantity > 0) continue;
@@ -191,16 +159,12 @@ namespace ParentHouse {
             }
         }
 
-        [FoldoutGroup("Saving and Loading")]
-        [Button]
         private void SaveInventory() {
             VerifyInventory();
             GameEvents.OnMoveOrAddItem.Invoke();
             // SaveLoad.SaveInventory(new InventorySaveData(this));
         }
 
-        [FoldoutGroup("Saving and Loading")]
-        [Button]
         private void LoadInventory() {
             // InventoryItems = new InventoryItemData[InventorySlotLimit];
             // InventorySaveData saveData = SaveLoad.LoadInventory(Name);
@@ -224,32 +188,31 @@ namespace ParentHouse {
             // VerifyInventory();
         }
 
-        [FoldoutGroup("Saving and Loading")]
-        [Button]
         private void ClearInventory() {
             InventoryItems = new InventoryItemData[InventorySlotLimit];
             for (var i = 0; i < InventoryItems.Length; i++) InventoryItems[i] = new InventoryItemData(null, 0, i);
         }
+
+        #endregion
     }
 
     [Serializable]
     public class InventoryItemData {
         public Item Item;
         public int Quantity;
-        [HideInInspector] public int Index;
+        public int Index;
+
         public InventoryItemData(Item item, int quantity, int index) {
             Item = item;
             Quantity = quantity;
             Index = index;
         }
-#if UNITY_EDITOR
-        [Button]
+
         public void ClearItemData() {
             Item = null;
             Quantity = 0;
             Index = -1;
         }
-#endif
     }
 
     [Serializable]
@@ -257,23 +220,20 @@ namespace ParentHouse {
         [SerializeReference] public string[] InventorySaveDataItems;
         [SerializeReference] public int[] InventorySaveDataQuantities;
 
-        public InventorySaveData(Inventory inventory) {
-            Name = inventory.Name;
-            var arrayLength = inventory.InventorySlotLimit;
-            InventorySaveDataItems = new string[arrayLength];
-            InventorySaveDataQuantities = new int[arrayLength];
-            for (var i = 0; i < arrayLength; i++) {
-                if (inventory.InventoryItems[i].Item == null) {
+        public InventorySaveData(Inventory inventory, int length) {
+            InventorySaveDataItems = new string[length];
+            InventorySaveDataQuantities = new int[length];
+
+            for (var i = 0; i < length; i++) {
+                if (inventory.GetItemDataAt(i).Item == null) {
                     InventorySaveDataItems[i] = string.Empty;
                     InventorySaveDataQuantities[i] = 0;
                     continue;
                 }
 
-                InventorySaveDataItems[i] = inventory.InventoryItems[i].Item.Name;
-                InventorySaveDataQuantities[i] = inventory.InventoryItems[i].Quantity;
+                InventorySaveDataItems[i] = inventory.GetItemDataAt(i).Item.ItemName;
+                InventorySaveDataQuantities[i] = inventory.GetItemDataAt(i).Quantity;
             }
         }
-
-        public string Name { get; private set; }
     }
 }

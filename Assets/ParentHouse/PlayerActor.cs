@@ -5,7 +5,6 @@ using UnityEngine;
 
 namespace ParentHouse {
     public class PlayerActor : MonoBehaviour {
-        [SerializeField] private ItemLookupTable ItemLookupTable;
         [SerializeField] private Actor playerActor;
         [SerializeField] private List<GearOption> defaultOutfit = new();
         [SerializeField] private Color defaultHairColor;
@@ -78,7 +77,7 @@ namespace ParentHouse {
 
             for (var i = 0; i < outfit.Length; i++) {
                 if (outfit[i].gear != null)
-                    GearSaveDataItems[i] = outfit[i].gear.Name;
+                    GearSaveDataItems[i] = outfit[i].gear.ItemName;
                 GearTypeSaveDataItems[i] = (int) outfit[i].type;
             }
         }

@@ -72,11 +72,11 @@ namespace ParentHouse {
             GameEvents.OnUpdateMoneyDisplay.Invoke();
             foreach (var shopItemDisplay in shopItemDisplays) {
                 if (shopItemDisplay.inCartAmount == 0) continue;
-                var r = currentShop.targetInventory.TryAddItem(shopItemDisplay.shopItem.item,
+                var r = currentShop.targetInventory.AddItem(shopItemDisplay.shopItem.item,
                     shopItemDisplay.inCartAmount);
                 shopItemDisplay.itemQuantity -= shopItemDisplay.inCartAmount - r;
                 shopItemDisplay.shopItem.currentQuantity -= shopItemDisplay.inCartAmount - r;
-                playerWalletVariable += (int) shopItemDisplay.shopItem.item.Value.x * r;
+                //playerWalletVariable += (int) shopItemDisplay.shopItem.item.Value.x * r;
                 shopItemDisplay.inCartAmount = 0;
                 if (r > 0) GameEvents.OnSendGenericMessage.Invoke("Pockets are full!");
                 shopItemDisplay.AdjustCartAmount(0);

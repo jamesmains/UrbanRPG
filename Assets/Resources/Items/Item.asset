@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54c4ce2b6c07e534f841dbb71bf61d4c, type: 3}
-  m_Name: Cherry Cherry Cola
+  m_Name: Item
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,9 +21,10 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: <ItemEffects>k__BackingField
+    - Name: ItemBehaviors
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[ItemEffect, Assembly-CSharp]], mscorlib
+      Data: 0|System.Collections.Generic.List`1[[ParentHouse.Behavior, Assembly-CSharp]],
+        mscorlib
     - Name: 
       Entry: 12
       Data: 0
@@ -33,14 +34,16 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  <Sprite>k__BackingField: {fileID: 597278268, guid: 85a163205c7fbe84bba9882d79159d12, type: 3}
-  <Name>k__BackingField: Cherry Cherry Cola
-  <Description>k__BackingField: Now with double the cherry!
-  <ItemType>k__BackingField: 3
-  <Value>k__BackingField: {x: 0, y: 0}
-  <IsConsumable>k__BackingField: 0
-  <IsIdentified>k__BackingField: 0
+  ItemIcon: {fileID: 0}
+  ItemName: 
+  ItemDescription: 
+  ItemType: 0
+  BuyValue: 0
+  SellValue: 0
+  IsConsumable: 0
+  StackLimit: 999
+  ItemId: beccd8d1-8b93-4f2d-b681-71d05a623f70
+  IsIdentified: 0
   OnPickupItem:
     m_PersistentCalls:
       m_Calls: []
-  <StackLimit>k__BackingField: 999

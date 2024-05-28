@@ -166,11 +166,12 @@ namespace ParentHouse {
         [field: SerializeField] public Inventory Inventory { get; }
 
         public override bool IsConditionMet() {
-            return Inventory.HasItem(Item, RequiredAmount) || (IsGift && Inventory.InventoryItems[0].Item != null);
+            return false;
+            // return Inventory.HasItem(Item, RequiredAmount) || (IsGift && Inventory.InventoryItems[0].Item != null);
         }
 
         public override void Use() {
-            if (ConsumeOnUse) Inventory.TryUseItem(Item, RequiredAmount);
+            if (ConsumeOnUse) Inventory.RemoveItem(Item, RequiredAmount);
         }
     }
 
@@ -181,12 +182,12 @@ namespace ParentHouse {
 
         public override bool IsConditionMet() {
             return Inventory.HasItem(Item, RequiredAmount) ||
-                   (IsGift && Inventory.HasItemAt(Item) != -1 && Quest.CurrentStep == Step);
+                   (IsGift && Inventory.HasItem(Item) && Quest.CurrentStep == Step);
         }
 
         public override void Use() {
             if (ConsumeOnUse) {
-                var leftover = Inventory.TryUseItem(Item, RequiredAmount);
+                var leftover = Inventory.RemoveItem(Item, RequiredAmount);
                 Quest.TryCompleteTask(Step, RequiredAmount - leftover);
             }
         }
@@ -209,16 +210,17 @@ namespace ParentHouse {
         [field: SerializeField] public Actor TargetActor { get; }
 
         public override bool IsConditionMet() {
-            Debug.Log("Checking");
-            return IsGift && Inventory.InventoryItems[0].Item != null &&
-                   TargetActor.faction.acceptedGifts.Any(i => i.giftItem == Inventory.InventoryItems[0].Item);
+            return false;
+            // Debug.Log("Checking");
+            // return IsGift && Inventory.InventoryItems[0].Item != null &&
+            //        TargetActor.faction.acceptedGifts.Any(i => i.giftItem == Inventory.InventoryItems[0].Item);
         }
 
         public override void Use() {
-            var i = TargetActor.faction.acceptedGifts.FindIndex(i => i.giftItem == Inventory.InventoryItems[0].Item);
-            TargetActor.AdjustReputation(TargetActor.faction.acceptedGifts[i].reputationChange);
-            if (ConsumeOnUse) Inventory.TryUseItem(Inventory.InventoryItems[0].Item);
-            GameEvents.OnEndActivity.Invoke();
+            // var i = TargetActor.faction.acceptedGifts.FindIndex(i => i.giftItem == Inventory.InventoryItems[0].Item);
+            // TargetActor.AdjustReputation(TargetActor.faction.acceptedGifts[i].reputationChange);
+            // if (ConsumeOnUse) Inventory.RemoveItem(Inventory.InventoryItems[0].Item);
+            // GameEvents.OnEndActivity.Invoke();
         }
     }
 }
