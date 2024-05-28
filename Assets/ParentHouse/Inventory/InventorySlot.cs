@@ -14,11 +14,12 @@ namespace ParentHouse {
         private static InventorySlot movingItem;
         private static InventorySlot highlightedInventorySlot;
 
-        [SerializeField] [FoldoutGroup("Settings")]
-        private Color NormalColor;
-
-        [SerializeField] [FoldoutGroup("Settings")]
-        private Color HighlightedColor;
+        // Todo - replace with color scheme colors
+        // [SerializeField] [FoldoutGroup("Settings")]
+        // private Color NormalColor;
+        //
+        // [SerializeField] [FoldoutGroup("Settings")]
+        // private Color HighlightedColor;
 
         [SerializeField] [FoldoutGroup("Dependencies")]
         private Image SlotFrame;
@@ -32,19 +33,19 @@ namespace ParentHouse {
         [SerializeField] [FoldoutGroup("Status")]
         private InventoryWindowDisplay ParentWindow; // Todo - reassess the use of this
 
-        [SerializeField] [FoldoutGroup("Status")]
+        [SerializeField] [FoldoutGroup("Status")] [ReadOnly]
         private bool MouseDown;
 
-        [SerializeField] [FoldoutGroup("Status")]
+        [SerializeField] [FoldoutGroup("Status")] [ReadOnly]
         private bool WaitingForDrag;
 
-        [SerializeField] [FoldoutGroup("Status")]
+        [SerializeField] [FoldoutGroup("Status")] [ReadOnly]
         private bool Splitting;
 
-        [SerializeField] [FoldoutGroup("Status")]
+        [SerializeField] [FoldoutGroup("Status")] [ReadOnly]
         private bool TryingToSplit;
 
-        [SerializeField] [FoldoutGroup("Status")]
+        [SerializeField] [FoldoutGroup("Status")] [ReadOnly]
         private bool TryingToConsume;
 
         private void Update() {
@@ -56,7 +57,7 @@ namespace ParentHouse {
         }
 
         private void ToggleHighlight(bool state) {
-            SlotFrame.color = state ? HighlightedColor : NormalColor;
+            //SlotFrame.color = state ? HighlightedColor : NormalColor;
         }
     }
 }
