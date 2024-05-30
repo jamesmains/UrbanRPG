@@ -11,6 +11,7 @@ namespace ParentHouse.Game {
         private InputController Input;
 
         private void OnEnable() {
+            ItemLookupTable.GetItem("beccd8d1-8b93-4f2d-b681-71d05a623f70");
             GameEvents.GameStateEntered.AddListener(OnEnterNewGameState);
             // Debug
             GameManager.EnterState(new BaseGameplayState());

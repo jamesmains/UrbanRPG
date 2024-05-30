@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/City_Med_Market_1.unity
     guid: fcfb3ef1dd5c9fa4da2c81684c6fbb30
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Dressing Room.unity
     guid: eb11c8c5793494748aee35850df6e176
   m_configObjects:

@@ -50,10 +50,10 @@ namespace ParentHouse {
         public void Setup(ShopItem incomingItem) {
             shopItem = incomingItem;
             quantityText.text = shopItem.currentQuantity.ToString();
-            nameText.text = shopItem.item.Name;
-            descriptionText.text = shopItem.item.Description;
-            iconDisplay.sprite = shopItem.item.Sprite;
-            costText.text = shopItem.item.Value.x.ToString();
+            nameText.text = shopItem.item.ItemName;
+            descriptionText.text = shopItem.item.ItemDescription;
+            iconDisplay.sprite = shopItem.item.ItemIcon;
+            //costText.text = shopItem.item.Value.x.ToString();
             itemQuantity = incomingItem.currentQuantity;
             outOfStockIndicator.SetActive(itemQuantity <= 0);
             AdjustCartAmount(0);
@@ -68,7 +68,7 @@ namespace ParentHouse {
             inCartAmount += changeValue;
 
 
-            if (inCartAmount * shopItem.item.Value.x > playerWalletVariable) inCartAmount = lastValidInCartAmount;
+            //if (inCartAmount * shopItem.item.Value.x > playerWalletVariable) inCartAmount = lastValidInCartAmount;
 
             GameEvents.OnCartQuantityChange.Invoke();
 
@@ -76,25 +76,25 @@ namespace ParentHouse {
             lastValidInCartAmount = inCartAmount;
             UpdateItemButtons();
 
-            if (inCartAmount == 0)
-                cartCalculationText.text = "None in cart";
-            else
-                cartCalculationText.text =
-                    $"{inCartAmount}\nx{shopItem.item.Value.x.ToString("n0").TrimStart('0')} =\n{inCartAmount * shopItem.item.Value.x:0,000}";
+            // if (inCartAmount == 0)
+            //     cartCalculationText.text = "None in cart";
+            // else
+            //     cartCalculationText.text =
+            //         $"{inCartAmount}\nx{shopItem.item.Value.x.ToString("n0").TrimStart('0')} =\n{inCartAmount * shopItem.item.Value.x:0,000}";
 
             quantityText.text = shopItem.currentQuantity.ToString();
             outOfStockIndicator.SetActive(itemQuantity <= 0);
         }
 
         public int GetCartCost() {
-            return inCartAmount * (int) shopItem.item.Value.x;
+            return inCartAmount; //* (int) shopItem.item.Value.x;
         }
 
         public void UpdateItemButtons() {
             var availableFunds = playerWalletVariable - cartCostVariable;
             decreaseCartAmountButton.interactable = inCartAmount > 0;
-            increaseCartAmountButton.interactable =
-                inCartAmount < itemQuantity && shopItem.item.Value.x < availableFunds;
+            // increaseCartAmountButton.interactable =
+            //     inCartAmount < itemQuantity && shopItem.item.Value.x < availableFunds;
         }
     }
 }

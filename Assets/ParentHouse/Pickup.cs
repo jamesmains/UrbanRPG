@@ -50,7 +50,7 @@ namespace ParentHouse {
         }
 
         private void OnMouseEnter() {
-            itemNameVariable.Value = item.Name;
+            itemNameVariable.Value = item.ItemName;
         }
 
         private void OnMouseExit() {
@@ -63,11 +63,11 @@ namespace ParentHouse {
         private void OnTriggerStay(Collider other) {
             if (other.CompareTag("Player") && canPickup) {
                 var displayAmount = amount;
-                amount = pockets.TryAddItem(item, amount);
+                amount = pockets.AddItem(item, amount);
                 if (displayAmount != amount) {
                     item.OnPickupItem.Invoke();
                     GameEvents.OnPickupItem.Invoke();
-                    GameEvents.OnCreateImageStringMessage.Invoke(item.Sprite, $"+{displayAmount}");
+                    GameEvents.OnCreateImageStringMessage.Invoke(item.ItemIcon, $"+{displayAmount}");
                 }
 
                 if (amount <= 0)
@@ -78,7 +78,7 @@ namespace ParentHouse {
         public void Setup(Item incomingItem, int quantity) {
             item = incomingItem;
             amount = quantity;
-            shadowRenderer.sprite = litRenderer.sprite = item.Sprite;
+            shadowRenderer.sprite = litRenderer.sprite = item.ItemIcon;
             ExpulsePickup();
             StartCoroutine(DelayActivate());
             StartCoroutine(Despawn());
@@ -99,7 +99,7 @@ namespace ParentHouse {
 
         private IEnumerator Despawn() {
             yield return new WaitForSeconds(despawnTimer);
-            lostInventory.TryAddItem(item, amount);
+            lostInventory.AddItem(item, amount);
             GameEvents.OnDespawnItem.Invoke();
             Destroy(gameObject);
         }

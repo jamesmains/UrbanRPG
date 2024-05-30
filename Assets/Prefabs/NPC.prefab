@@ -85,7 +85,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
 --- !u!114 &2414114238337326480
@@ -111,7 +111,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fe0d68fadeb610143a07c7de8b8ead29, type: 2}
   - {fileID: 11400000, guid: 8d5ccba79e9f92742a6f45bbb7022e97, type: 2}
   - {fileID: 11400000, guid: 77cf64513cbfde84b8c36f6cad0f502a, type: 2}
-  parentAnimator: {fileID: 8589114413306869113}
 --- !u!1 &751324410805711143
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,7 +196,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
 --- !u!114 &3661611359415489536
@@ -223,7 +222,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fe0d68fadeb610143a07c7de8b8ead29, type: 2}
   - {fileID: 11400000, guid: 8d5ccba79e9f92742a6f45bbb7022e97, type: 2}
   - {fileID: 11400000, guid: 8d5ccba79e9f92742a6f45bbb7022e97, type: 2}
-  parentAnimator: {fileID: 8589114413306869113}
 --- !u!1 &1659486155371236658
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +307,7 @@ SpriteRenderer:
   m_Size: {x: 0.59375, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
 --- !u!114 &771586107649048655
@@ -335,7 +333,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fe0d68fadeb610143a07c7de8b8ead29, type: 2}
   - {fileID: 11400000, guid: 8d5ccba79e9f92742a6f45bbb7022e97, type: 2}
   - {fileID: 11400000, guid: 77cf64513cbfde84b8c36f6cad0f502a, type: 2}
-  parentAnimator: {fileID: 8589114413306869113}
 --- !u!1 &3467255707498776568
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,7 +418,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
 --- !u!114 &349601475661351895
@@ -447,7 +444,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fe0d68fadeb610143a07c7de8b8ead29, type: 2}
   - {fileID: 11400000, guid: 8d5ccba79e9f92742a6f45bbb7022e97, type: 2}
   - {fileID: 11400000, guid: 77cf64513cbfde84b8c36f6cad0f502a, type: 2}
-  parentAnimator: {fileID: 8589114413306869113}
 --- !u!1 &4499626500979090376
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,7 +453,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6707381458548015504}
-  - component: {fileID: 8589114413306869113}
   m_Layer: 9
   m_Name: GFX
   m_TagString: Untagged
@@ -488,82 +483,6 @@ Transform:
   - {fileID: 1041799826502318302}
   m_Father: {fileID: 5181685414700534079}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8589114413306869113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4499626500979090376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bdb3ea9084c8184c9717c381f39315c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actor: {fileID: 11400000, guid: f1585af4d791fe3459a489935b6f1ce4, type: 2}
-  currentDirection: 0
-  RawDirection: 0
-  frameRate: 0.15
-  gearOptions: []
-  gearSlots:
-  - {fileID: 2627362156988411923}
-  - {fileID: 4109754250779733702}
-  - {fileID: 2414114238337326480}
-  - {fileID: 1377542115522052510}
-  - {fileID: 695944749984120571}
-  - {fileID: 349601475661351895}
-  - {fileID: 771586107649048655}
-  - {fileID: 3661611359415489536}
-  inputAdjustments:
-  - xRequirement: -1
-    yRequirement: 0
-    result: 0
-  - xRequirement: -1
-    yRequirement: -1
-    result: 1
-  - xRequirement: 0
-    yRequirement: -1
-    result: 2
-  - xRequirement: 1
-    yRequirement: -1
-    result: 3
-  - xRequirement: 1
-    yRequirement: 0
-    result: 4
-  - xRequirement: 1
-    yRequirement: 1
-    result: 5
-  - xRequirement: 0
-    yRequirement: 1
-    result: 6
-  - xRequirement: -1
-    yRequirement: 1
-    result: 7
-  sheetOffsetAdjustments:
-  - rawDirection: 0
-    mirrorTo: 2
-    flipRenderer: 0
-  - rawDirection: 1
-    mirrorTo: 1
-    flipRenderer: 0
-  - rawDirection: 2
-    mirrorTo: 0
-    flipRenderer: 0
-  - rawDirection: 3
-    mirrorTo: 1
-    flipRenderer: 1
-  - rawDirection: 4
-    mirrorTo: 2
-    flipRenderer: 1
-  - rawDirection: 5
-    mirrorTo: 3
-    flipRenderer: 1
-  - rawDirection: 6
-    mirrorTo: 4
-    flipRenderer: 0
-  - rawDirection: 7
-    mirrorTo: 3
-    flipRenderer: 0
 --- !u!1 &4503236355856605103
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,7 +568,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
 --- !u!114 &1377542115522052510
@@ -675,7 +594,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fe0d68fadeb610143a07c7de8b8ead29, type: 2}
   - {fileID: 11400000, guid: 8d5ccba79e9f92742a6f45bbb7022e97, type: 2}
   - {fileID: 11400000, guid: 8d5ccba79e9f92742a6f45bbb7022e97, type: 2}
-  parentAnimator: {fileID: 8589114413306869113}
 --- !u!1 &5122098599344409825
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,7 +679,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
 --- !u!114 &4109754250779733702
@@ -787,7 +705,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fe0d68fadeb610143a07c7de8b8ead29, type: 2}
   - {fileID: 11400000, guid: 8d5ccba79e9f92742a6f45bbb7022e97, type: 2}
   - {fileID: 11400000, guid: 77cf64513cbfde84b8c36f6cad0f502a, type: 2}
-  parentAnimator: {fileID: 8589114413306869113}
 --- !u!1 &6208239651785109878
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,7 +790,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
 --- !u!114 &2627362156988411923
@@ -899,7 +816,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fe0d68fadeb610143a07c7de8b8ead29, type: 2}
   - {fileID: 11400000, guid: 8d5ccba79e9f92742a6f45bbb7022e97, type: 2}
   - {fileID: 11400000, guid: 77cf64513cbfde84b8c36f6cad0f502a, type: 2}
-  parentAnimator: {fileID: 8589114413306869113}
 --- !u!1 &7231664614827355355
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,17 +1001,18 @@ MonoBehaviour:
     SerializationNodes:
     - Name: Activities
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[ActivityAction, Assembly-CSharp]],
+      Data: 0|System.Collections.Generic.List`1[[ParentHouse.ActivityAction, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 1|ActivityAction, Assembly-CSharp
+      Data: 1|ParentHouse.ActivityAction, Assembly-CSharp
     - Name: specialConditions
       Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
+      Data: 2|System.Collections.Generic.List`1[[ParentHouse.Condition, Assembly-CSharp]],
+        mscorlib
     - Name: 
       Entry: 12
       Data: 0
@@ -1212,7 +1129,8 @@ MonoBehaviour:
     SerializationNodes:
     - Name: Conditions
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[Condition, Assembly-CSharp]], mscorlib
+      Data: 0|System.Collections.Generic.List`1[[ParentHouse.Condition, Assembly-CSharp]],
+        mscorlib
     - Name: 
       Entry: 12
       Data: 0
@@ -1339,7 +1257,7 @@ SpriteRenderer:
   m_Size: {x: 0.59375, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
 --- !u!114 &695944749984120571
@@ -1365,4 +1283,3 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fe0d68fadeb610143a07c7de8b8ead29, type: 2}
   - {fileID: 11400000, guid: 8d5ccba79e9f92742a6f45bbb7022e97, type: 2}
   - {fileID: 11400000, guid: 77cf64513cbfde84b8c36f6cad0f502a, type: 2}
-  parentAnimator: {fileID: 8589114413306869113}

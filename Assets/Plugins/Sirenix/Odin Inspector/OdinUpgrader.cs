@@ -3,7 +3,7 @@
 // Copyright (c) Sirenix ApS. All rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
-
+#if UNITY_EDITOR
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,7 +14,7 @@ using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEngine;
 
-#if UNITY_EDITOR
+
 namespace Sirenix.OdinInspector.Internal {
     public static class OdinUpgrader {
         private const int NUM_OF_FRAMES_WITHOUT_RECOMPILE = 10;
@@ -47,7 +47,9 @@ namespace Sirenix.OdinInspector.Internal {
             if (numberOfTimesCalled <= 2) {
                 // EditorApplication.isCompiling gives an error in 2017 that can't be silenced if called from InitializeOnLoadMethod or DidReloadScripts.
                 // We'll just wait a few frames and then call it.
+#if UNITY_EDITOR
                 UnityEditorEventUtility.DelayAction(Update, true);
+#endif
                 numberOfTimesCalled++;
                 return;
             }
@@ -69,7 +71,9 @@ namespace Sirenix.OdinInspector.Internal {
                 }
 
                 if (DEBUG) Debug.Log("Counting " + counter);
+#if UNITY_EDITOR
                 UnityEditorEventUtility.DelayAction(Update);
+#endif
             }
         }
 
@@ -118,8 +122,10 @@ namespace Sirenix.OdinInspector.Internal {
                 DeleteDirsAndFiles(directoriesToDelete, filesToDelete);
 
                 // Re-enabled editor only mode.
+#if UNITY_EDITOR
                 if (EditorOnlyModeConfig.Instance.IsEditorOnlyModeEnabled())
                     EditorOnlyModeConfig.Instance.EnableEditorOnlyMode(true);
+#endif
             }
             finally {
                 // Open Getting Started window after recompilation:

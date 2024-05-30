@@ -83,7 +83,7 @@ namespace ParentHouse {
 
         [Button]
         private void MountRide() {
-            isRiding = RideGearInventory.InventoryItems[0].Item != null;
+            //isRiding = RideGearInventory.InventoryItems[0].Item != null;
             GameEvents.OnPlayerMoved.Invoke();
             UpdateMoveSpeed();
         }
@@ -98,7 +98,7 @@ namespace ParentHouse {
         private void UpdateMoveSpeed() {
             moveSpeed.ModValues.Clear();
             RidingIndicator.gameObject.SetActive(isRiding);
-            isRiding = RideGearInventory.InventoryItems[0].Item != null && isRiding;
+            //isRiding = RideGearInventory.InventoryItems[0].Item != null && isRiding;
 
             if (!isRiding) return;
 

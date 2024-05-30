@@ -31,7 +31,7 @@ namespace ParentHouse {
                 ToggleHoveredHighlight(true);
             }
 
-            if (Gear != null) GameEvents.OnShowTooltip.Invoke(Gear.Name);
+            if (Gear != null) GameEvents.OnShowTooltip.Invoke(Gear.ItemName);
         }
 
         public void OnPointerExit(PointerEventData eventData) {
@@ -54,7 +54,7 @@ namespace ParentHouse {
                 ReplaceHighlight();
             else ToggleEquipHighlight(false);
 
-            gearIcon.sprite = Gear != null ? gear.Sprite : emptyGearIcon;
+            gearIcon.sprite = Gear != null ? gear.ItemIcon : emptyGearIcon;
         }
 
         public void Equip() {

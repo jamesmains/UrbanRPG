@@ -27,7 +27,7 @@ namespace ParentHouse {
 
         public void DragItem(Item incomingItem) {
             heldItemImage.gameObject.SetActive(true);
-            heldItemImage.sprite = incomingItem.Sprite;
+            heldItemImage.sprite = incomingItem.ItemIcon;
             animator.SetBool("IsHolding", true);
             animator.SetTrigger("OnHold");
         }
