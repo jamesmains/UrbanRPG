@@ -1,12 +1,12 @@
 using System;
 using ParentHouse.Utils;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace ParentHouse {
     /// <summary>
     /// Inventories are generated on owners and should use some unique file path to save and load from them.
     /// </summary>
+    [Serializable]
     public class Inventory {
         
         public Inventory(int inventorySize) {
@@ -14,7 +14,7 @@ namespace ParentHouse {
             LoadInventory();
         }
 
-        private int InventorySlotLimit = 32;
+        private readonly int InventorySlotLimit;
 
         private InventoryItemData[] InventoryItems;
 
@@ -134,7 +134,7 @@ namespace ParentHouse {
             SaveInventory();
         }
 
-        public void SortIventoryByEmptySlots() {
+        public void SortInventoryByEmptySlots() {
             for (var i = 0; i < InventorySlotLimit; i++) {
                 var targetItem = InventoryItems[i].Item;
                 if (targetItem == null) continue;
