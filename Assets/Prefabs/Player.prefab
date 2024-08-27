@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 3648425020086727555}
   - component: {fileID: 8546539469681435861}
   - component: {fileID: 3748999533007903521}
+  - component: {fileID: 3704640712519637315}
+  - component: {fileID: 8167711590878827714}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -190,8 +192,14 @@ MonoBehaviour:
   _componentIndexCache: 255
   _addedNetworkObject: {fileID: 4602417735940074835}
   _networkObjectCache: {fileID: 0}
+  PlayerAnimator: {fileID: 3704640712519637315}
   MoveSpeed: 5
+  LeanDuration: 0.25
+  LeanType: 0
+  FacingDirection: 0
+  CharacterSkin: 0
   CurrentMovementInput: {x: 0, y: 0}
+  MovementState: 0
 --- !u!212 &3648425020086727555
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -236,12 +244,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2550598526935146386, guid: 82b4c9069bcdbe3489499b9db3c370d8, type: 3}
+  m_Sprite: {fileID: 5489493441232662182, guid: 9510a1a09267f3044a657140c062f4d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.6666667, y: 1}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -312,11 +320,55 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.6666667, y: 1}
-    newSize: {x: 0.6666667, y: 1}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Size: {x: 0.67, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &3704640712519637315
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7738926615612029123}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 363a3fc9e3dc46644afaaf3319d891af, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8167711590878827714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7738926615612029123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8cac635f24954048aad3a6ff9110beb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 4602417735940074835}
+  _networkObjectCache: {fileID: 0}
+  IgnoredParameters: []
+  _animator: {fileID: 3704640712519637315}
+  _synchronizeWhenDisabled: 0
+  _smoothFloats: 1
+  _interpolation: 2
+  _clientAuthoritative: 1
+  _sendToOwner: 0

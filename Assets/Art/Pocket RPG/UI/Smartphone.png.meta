@@ -1,0 +1,584 @@
+fileFormatVersion: 2
+guid: 8bf9c2d7252c44747a9cd7de6fe507cd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6278474548628967053
+    second: Smartphone_0
+  - first:
+      213: 1287003105972107641
+    second: Smartphone_1
+  - first:
+      213: -9135693300961900939
+    second: Smartphone_2
+  - first:
+      213: 3765714869177407674
+    second: Smartphone_3
+  - first:
+      213: 4621639472763115230
+    second: Smartphone_4
+  - first:
+      213: 2411944437537712519
+    second: Smartphone_5
+  - first:
+      213: -4117687044610377784
+    second: Smartphone_6
+  - first:
+      213: -6156657771584419979
+    second: Smartphone_7
+  - first:
+      213: -1668962236501261857
+    second: Smartphone_8
+  - first:
+      213: -1211532999331767601
+    second: Smartphone_9
+  - first:
+      213: -5989456976693232122
+    second: Smartphone_10
+  - first:
+      213: -699781488708217095
+    second: Smartphone_11
+  - first:
+      213: -3748521335266813963
+    second: Smartphone_12
+  - first:
+      213: -1523747638493380180
+    second: Smartphone_13
+  - first:
+      213: -7681092283012576298
+    second: Smartphone_14
+  - first:
+      213: -5595348859623363968
+    second: Smartphone_15
+  - first:
+      213: -2967181268198000150
+    second: Smartphone_16
+  - first:
+      213: -2207517355551496556
+    second: Smartphone_17
+  - first:
+      213: 8778905148485770760
+    second: Smartphone_18
+  - first:
+      213: -5966730979891987032
+    second: Smartphone_19
+  - first:
+      213: 411149662804551909
+    second: Smartphone_20
+  - first:
+      213: -7110176670190478929
+    second: Smartphone_21
+  - first:
+      213: -8897667604819332301
+    second: Smartphone_22
+  - first:
+      213: -6534055081419804474
+    second: Smartphone_23
+  - first:
+      213: 3925871817978581987
+    second: Smartphone_24
+  - first:
+      213: 8969771365637851739
+    second: Smartphone_25
+  - first:
+      213: 6116358444709123514
+    second: Smartphone_26
+  - first:
+      213: -4186045166271625387
+    second: Smartphone_27
+  - first:
+      213: 4880541989885782271
+    second: Smartphone_28
+  - first:
+      213: -1839845444322966861
+    second: Smartphone_29
+  - first:
+      213: -212742412198427854
+    second: Smartphone_30
+  - first:
+      213: -1715232636877877832
+    second: Smartphone_31
+  - first:
+      213: -2955217085987523565
+    second: Smartphone_32
+  - first:
+      213: -5851308225425224673
+    second: Smartphone_33
+  - first:
+      213: 5781051319428730991
+    second: Smartphone_34
+  - first:
+      213: 798888992969107891
+    second: Smartphone_35
+  - first:
+      213: -8146435380399145105
+    second: Smartphone_36
+  - first:
+      213: 6921126962241928210
+    second: Smartphone_37
+  - first:
+      213: 6423275434721098471
+    second: Smartphone_38
+  - first:
+      213: -4667304935506162733
+    second: Smartphone_39
+  - first:
+      213: -7243733603376972577
+    second: Smartphone_40
+  - first:
+      213: -7621356281901225452
+    second: Smartphone_41
+  - first:
+      213: -3385175278361256223
+    second: Smartphone_42
+  - first:
+      213: 3489515775274178332
+    second: Smartphone_43
+  - first:
+      213: 4571476822240716236
+    second: Smartphone_44
+  - first:
+      213: 5964138178364104353
+    second: Smartphone_45
+  - first:
+      213: -6316962605102650509
+    second: Smartphone_46
+  - first:
+      213: -315505706007313888
+    second: Smartphone_47
+  - first:
+      213: 9079213157436403131
+    second: Smartphone_48
+  - first:
+      213: 629964392510760812
+    second: Smartphone_49
+  - first:
+      213: -3045574393287654039
+    second: Smartphone_50
+  - first:
+      213: -4018883858148757973
+    second: Smartphone_51
+  - first:
+      213: 6749992419648577346
+    second: Smartphone_52
+  - first:
+      213: 5788423327196940048
+    second: Smartphone_53
+  - first:
+      213: -2850959251956144405
+    second: Smartphone_54
+  - first:
+      213: 9156674219972905717
+    second: Smartphone_55
+  - first:
+      213: 5566051735093552368
+    second: Smartphone_56
+  - first:
+      213: -6233546884759184732
+    second: Smartphone_57
+  - first:
+      213: 137027497946890162
+    second: Smartphone_58
+  - first:
+      213: -8678881618557244183
+    second: Smartphone_59
+  - first:
+      213: -4557137020274987753
+    second: Smartphone_60
+  - first:
+      213: -2154997549765893059
+    second: Smartphone_61
+  - first:
+      213: -7292510872228023140
+    second: Smartphone_62
+  - first:
+      213: 3586092811697428620
+    second: Smartphone_63
+  - first:
+      213: 5591088842751500975
+    second: Smartphone_64
+  - first:
+      213: -5573934647100289193
+    second: Smartphone_65
+  - first:
+      213: 6524016673228174646
+    second: Smartphone_66
+  - first:
+      213: -1858076399380082236
+    second: Smartphone_67
+  - first:
+      213: -5775926374416954092
+    second: Smartphone_68
+  - first:
+      213: 5369721609370608503
+    second: Smartphone_69
+  - first:
+      213: 8509880976380379401
+    second: Smartphone_70
+  - first:
+      213: 5632985623316161414
+    second: Smartphone_71
+  - first:
+      213: -5108381724429811800
+    second: Smartphone_72
+  - first:
+      213: 2434961624096446844
+    second: Smartphone_73
+  - first:
+      213: 4296895178877727024
+    second: Smartphone_74
+  - first:
+      213: -4482367680855066945
+    second: Smartphone_75
+  - first:
+      213: 7728706738219606140
+    second: Smartphone_76
+  - first:
+      213: -7760331312955139868
+    second: Smartphone_77
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Win64
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Smartphone_0
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 448
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8e4c52565f912750800000000000000
+      internalID: 6278474548628967053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Smartphone_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 448
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14710b81c03cec74292e9a7a518a87ed
+      internalID: 1287003105972107641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Smartphone_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 368
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35907a5fb07bd3047a01d4045b7f2046
+      internalID: -9135693300961900939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Smartphone_3
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 368
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dc877f4d93042f42a4d27ec1798fb48
+      internalID: 3765714869177407674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Smartphone_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 384
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a43abd141539bd84b925016c1e04b1c5
+      internalID: 4621639472763115230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Smartphone_5
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 384
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e97d91a60367d04a9964148b913fa79
+      internalID: 2411944437537712519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Smartphone_6
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 320
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aae8ab88e16a984c83377794700bf1b
+      internalID: -4117687044610377784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Smartphone_7
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 321
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40922edb6a3055b4aba936d845b6ab46
+      internalID: -6156657771584419979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Smartphone_8
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 80
+        width: 47
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 8, y: 13, z: 8, w: 16}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50348346d6d13994b9632ad586195535
+      internalID: 422393363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 4bd7e569b068ddc45979771115424856
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Smartphone_0: 6278474548628967053
+      Smartphone_1: 1287003105972107641
+      Smartphone_2: -9135693300961900939
+      Smartphone_3: 3765714869177407674
+      Smartphone_4: 4621639472763115230
+      Smartphone_5: 2411944437537712519
+      Smartphone_6: -4117687044610377784
+      Smartphone_7: -6156657771584419979
+      Smartphone_8: 422393363
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

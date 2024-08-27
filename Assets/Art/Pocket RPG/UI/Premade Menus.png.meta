@@ -1,0 +1,430 @@
+fileFormatVersion: 2
+guid: 50d875e136fbcdd4a85d724a0052ee9a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2344441523484314674
+    second: Premade Menus_0
+  - first:
+      213: 5765745806987443548
+    second: Premade Menus_1
+  - first:
+      213: -9030514154079491236
+    second: Premade Menus_2
+  - first:
+      213: -417249955215120449
+    second: Premade Menus_3
+  - first:
+      213: 7204070891448436753
+    second: Premade Menus_4
+  - first:
+      213: -1061687649680057437
+    second: Premade Menus_5
+  - first:
+      213: -5797618748441517247
+    second: Premade Menus_6
+  - first:
+      213: -2210943011483115604
+    second: Premade Menus_7
+  - first:
+      213: -3336357627867420068
+    second: Premade Menus_8
+  - first:
+      213: -1353994916403770416
+    second: Premade Menus_9
+  - first:
+      213: 8359093659931578087
+    second: Premade Menus_10
+  - first:
+      213: -6994772930347586005
+    second: Premade Menus_11
+  - first:
+      213: -940568649908320066
+    second: Premade Menus_12
+  - first:
+      213: 3746151929619990050
+    second: Premade Menus_13
+  - first:
+      213: 7645965004996304041
+    second: Premade Menus_14
+  - first:
+      213: -5749081500915635222
+    second: Premade Menus_15
+  - first:
+      213: -1720263503533023109
+    second: Premade Menus_16
+  - first:
+      213: 9046930370197605918
+    second: Premade Menus_17
+  - first:
+      213: 8920408377220701664
+    second: Premade Menus_18
+  - first:
+      213: -2242583500842788525
+    second: Premade Menus_19
+  - first:
+      213: 752452770592251012
+    second: Premade Menus_20
+  - first:
+      213: -8892008983939377251
+    second: Premade Menus_21
+  - first:
+      213: 6102262793707134342
+    second: Premade Menus_22
+  - first:
+      213: -7211127798751533481
+    second: Premade Menus_23
+  - first:
+      213: -4801841959664527010
+    second: Premade Menus_24
+  - first:
+      213: -7590011409369115706
+    second: Premade Menus_25
+  - first:
+      213: 3416007146719606670
+    second: Premade Menus_26
+  - first:
+      213: -8264320830723789591
+    second: Premade Menus_27
+  - first:
+      213: -3165072022826666956
+    second: Premade Menus_28
+  - first:
+      213: 7435135690511168647
+    second: Premade Menus_29
+  - first:
+      213: -6835179900724107072
+    second: Premade Menus_30
+  - first:
+      213: 5787015524496359396
+    second: Premade Menus_31
+  - first:
+      213: 2161370158167668091
+    second: Premade Menus_32
+  - first:
+      213: 4595536661444463785
+    second: Premade Menus_33
+  - first:
+      213: 7599384065251265364
+    second: Premade Menus_34
+  - first:
+      213: 7361771713750984069
+    second: Premade Menus_35
+  - first:
+      213: -1671497581460368749
+    second: Premade Menus_36
+  - first:
+      213: -5317437923993901806
+    second: Premade Menus_37
+  - first:
+      213: 7122882138872022784
+    second: Premade Menus_38
+  - first:
+      213: 5867731835387421293
+    second: Premade Menus_39
+  - first:
+      213: -1816654363926071384
+    second: Premade Menus_40
+  - first:
+      213: -3893178263353039575
+    second: Premade Menus_41
+  - first:
+      213: -5636442256221320658
+    second: Premade Menus_42
+  - first:
+      213: 6433882412192442723
+    second: Premade Menus_43
+  - first:
+      213: 4381301884031754832
+    second: Premade Menus_44
+  - first:
+      213: 2673088413890205905
+    second: Premade Menus_45
+  - first:
+      213: 3240440114758473624
+    second: Premade Menus_46
+  - first:
+      213: 1698010314927966052
+    second: Premade Menus_47
+  - first:
+      213: -1476485376144916844
+    second: Premade Menus_48
+  - first:
+      213: -2834756332985066421
+    second: Premade Menus_49
+  - first:
+      213: -8269802075627297094
+    second: Premade Menus_50
+  - first:
+      213: 3013856707575282839
+    second: Premade Menus_51
+  - first:
+      213: -4727349997706556269
+    second: Premade Menus_52
+  - first:
+      213: 8613311094186667771
+    second: Premade Menus_53
+  - first:
+      213: 8234411010703278705
+    second: Premade Menus_54
+  - first:
+      213: 5870291528260864741
+    second: Premade Menus_55
+  - first:
+      213: -6392846534793814155
+    second: Premade Menus_56
+  - first:
+      213: 5256718820312011733
+    second: Premade Menus_57
+  - first:
+      213: 8715954645629364561
+    second: Premade Menus_58
+  - first:
+      213: 2198987270247668755
+    second: Premade Menus_59
+  - first:
+      213: 5759522717250054474
+    second: Premade Menus_60
+  - first:
+      213: 571858591474123434
+    second: Premade Menus_61
+  - first:
+      213: 6955213500993991209
+    second: Premade Menus_62
+  - first:
+      213: -7628637891586880033
+    second: Premade Menus_63
+  - first:
+      213: 7634204842245384042
+    second: Premade Menus_64
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Win64
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Premade Menus_0
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 141
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 1, y: 14, z: 14, w: 1}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c215135ecec56dc47908a012358d6705
+      internalID: -2344441523484314674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Premade Menus_1
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 720
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 3, y: 8, z: 3, w: 3}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 416f850b4c402264f83d58bca60f060a
+      internalID: 5765745806987443548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Premade Menus_2
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 721
+        width: 22
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faeb6b67a8e701a47b38dec18d9191a8
+      internalID: -9030514154079491236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Premade Menus_3
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 720
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 599c2c5b196380e40980f3e57ec2bb9a
+      internalID: -417249955215120449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d0cb97014bf65084bb0d1e2e0ba469d2
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Premade Menus_0: -2344441523484314674
+      Premade Menus_1: 5765745806987443548
+      Premade Menus_2: -9030514154079491236
+      Premade Menus_3: -417249955215120449
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
