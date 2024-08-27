@@ -7,7 +7,12 @@ using UnityEngine;
 
 [RequireComponent(typeof(CanvasGroup))]
 public class Menu : MonoBehaviour {
+    [SerializeField] [FoldoutGroup("Settings")]
+    private Vector2 OpenPosition;
 
+    [SerializeField] [FoldoutGroup("Settings")]
+    private Vector2 ClosePosition;
+    
     [SerializeField] [FoldoutGroup("Settings")]
     private Ease EaseType = Ease.OutQuint;
 
@@ -29,8 +34,7 @@ public class Menu : MonoBehaviour {
     }
 
     public void Open() {
-        
-        TargetPosition = Vector2.zero;
+        TargetPosition = OpenPosition;
         StartCoroutine(DoOpen());
         IEnumerator DoOpen() {
             Tween menuTween = Rect.DOAnchorPos(TargetPosition, Speed)
@@ -40,19 +44,8 @@ public class Menu : MonoBehaviour {
         }
     }
 
-    public void CloseHorizontal(int direction) {
-        float destination = Screen.width * (direction > 0 ? 1 : -1);
-        print(
-            $"All Size Information: Menu Rect: {Rect.sizeDelta}, Screen Width: {Screen.width}, Direction: {direction}, Total:{destination}");
-        TargetPosition = new Vector2(destination,0);
-        Deactivate();
-    }
-    
-    public void CloseVertical(int direction) {
-        float destination = Screen.height * (direction > 0 ? 1 : -1);
-        print(
-            $"All Size Information: Menu Rect: {Rect.sizeDelta}, Screen Height: {Screen.height}, Direction: {direction}, Total:{destination}");
-        TargetPosition = new Vector2(0,destination);
+    public void Close() {
+        TargetPosition = ClosePosition;
         Deactivate();
     }
 

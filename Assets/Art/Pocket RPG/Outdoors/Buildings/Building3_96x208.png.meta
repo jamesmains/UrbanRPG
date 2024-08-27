@@ -335,7 +335,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Building3_96x208_0: 8587789405299286097
+      Building3_96x208_1: -5509062221162467576
+      Building3_96x208_2: 369435695916918040
+      Building3_96x208_3: 4107278557411147640
+      Building3_96x208_4: -55794417983776861
+      Building3_96x208_5: -5406163650730158013
+      Building3_96x208_6: 3131823283601450171
+      Building3_96x208_7: -11470907320295054
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
