@@ -14,9 +14,6 @@ public enum PlayerMovementState{
 }
 
 public class Player : NetworkBehaviour {
-
-    [SerializeField] [FoldoutGroup("Dependencies")]
-    private Animator PlayerAnimator;
     
     [SerializeField] [FoldoutGroup("Settings")]
     private float MoveSpeed;
@@ -29,9 +26,12 @@ public class Player : NetworkBehaviour {
     
     [SerializeField] [FoldoutGroup("Status")] [ReadOnly]
     private Vector2 CurrentMovementInput;
-    
+
     [SerializeField] [FoldoutGroup("Status")] [ReadOnly]
-    private PlayerMovementState MovementState;
+    private PlayerAnimations PlayerAnimations;
+
+    [SerializeField] [FoldoutGroup("Status")] [ReadOnly]
+    private int Locks;
     
     [SerializeField] [FoldoutGroup("Status")] [ReadOnly]
     private InputSystem_Actions Input;
@@ -42,18 +42,25 @@ public class Player : NetworkBehaviour {
             Input = new InputSystem_Actions();
             Input.Enable();
         }
+        // Chatbox.Singleton.OnSendMessage.Invoke($"{LocalConnection.ClientId} Has Entered the City!");
+        PlayerAnimations = GetComponent<PlayerAnimations>();
+        // Input.UI.Submit.performed += delegate { Chatbox.Singleton.TryFocusInputField(); };
     }
 
     public override void OnStopClient() {
         base.OnStopClient();
         if (Input != null)
             Input.Disable();
+        // Input.UI.Submit.performed -= delegate { Chatbox.Singleton.TryFocusInputField(); };
     }
 
+    
+    
     private void Update() {
         if (!IsOwner) return;
+        // if (Chatbox.Singleton.IsFocussedOnText()) return;
         CurrentMovementInput = Input.Player.Move.ReadValue<Vector2>();
-        SetMovementState();
+        PlayerAnimations.SetMovementState(CharacterSkin,CurrentMovementInput);
         MovementLean();
         transform.position += (Vector3)CurrentMovementInput.normalized * (MoveSpeed * Time.deltaTime);
     }
@@ -63,26 +70,5 @@ public class Player : NetworkBehaviour {
         transform.DORotate(new Vector3(0, 0, zRot), 0, RotateMode.Fast);
     }
 
-    public string GetDirectionName(int rawDirection) => rawDirection switch {
-        0 => "South",
-        1 => "East",
-        2 => "North",
-        3 => "West"
-    };
-
-    private void SetMovementState() {
-        string animationLayer = $"Player_Character_{CharacterSkin}";
-        string animationState = "";
-        if (CurrentMovementInput == Vector2.zero) {
-            MovementState = PlayerMovementState.Idle;
-            animationState = $"Player_Character_{CharacterSkin}_Idle_{GetDirectionName(FacingDirection)}";
-        }
-        else if (CurrentMovementInput != Vector2.zero) {
-            MovementState = PlayerMovementState.Walking;
-            animationState = $"Player_Character_{CharacterSkin}_Walk_{GetDirectionName(FacingDirection)}";
-        }
-
-        print(animationState);
-        PlayerAnimator.Play($"{animationLayer}.{animationState}");
-    }
+    
 }
