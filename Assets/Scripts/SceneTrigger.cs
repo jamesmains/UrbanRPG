@@ -40,15 +40,13 @@ public class SceneTrigger : MonoBehaviour {
 
         SceneLoadData sld = new SceneLoadData(TargetSceneName);
         sld.MovedNetworkObjects = new NetworkObject[] {nob};
-        sld.ReplaceScenes = ReplaceOption.All;
+        sld.ReplaceScenes = ReplaceOption.OnlineOnly;
         InstanceFinder.SceneManager.LoadConnectionScenes(nob.Owner, sld);
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        print("Hit other");
         if (!IsActive) return;
         if (other.TryGetComponent(out NetworkObject nob)) {
-            print("Hit nob!");
             LoadScene(nob);
         }
     }

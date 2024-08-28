@@ -171,6 +171,7 @@ MonoBehaviour:
   CurrentMovementInput: {x: 0, y: 0}
   PlayerAnimations: {fileID: 0}
   Locks: 0
+  PlayerChatbox: {fileID: 0}
 --- !u!212 &3648425020086727555
 SpriteRenderer:
   m_ObjectHideFlags: 0

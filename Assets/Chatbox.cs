@@ -29,16 +29,13 @@ public class Chatbox : MonoBehaviour {
     [SerializeField] [FoldoutGroup("Status")] [ReadOnly]
     public bool IsFocussedOnText ()=> ChatInputField.isFocused;
 
-    public static Chatbox Singleton;
-
 
     private void OnEnable() {
         InstanceFinder.ClientManager.RegisterBroadcast<Message>(OnMessageRecieved);
         InstanceFinder.ServerManager.RegisterBroadcast<Message>(OnClientMessageRecieved);
-        Singleton = this;
     }
 
-    private void OnDisable() {
+    public void Disable() {
         InstanceFinder.ClientManager.UnregisterBroadcast<Message>(OnMessageRecieved);
         InstanceFinder.ServerManager.UnregisterBroadcast<Message>(OnClientMessageRecieved);
         // ChatInputField.onEndEdit.RemoveListener(delegate { SendMessage(); });
@@ -68,8 +65,17 @@ public class Chatbox : MonoBehaviour {
         }
     }
 
+    public void SendMessage(Message msg) {
+        if (InstanceFinder.IsServerStarted) {
+            InstanceFinder.ServerManager.Broadcast(msg);
+        }
+        else if (InstanceFinder.IsClientStarted) {
+            InstanceFinder.ClientManager.Broadcast(msg);
+        }
+    }
+
     private void OnMessageRecieved(Message message, Channel channel = Channel.Reliable) {
-        var obj = Pooler.SpawnObject(ChatTextObject, Vector3.zero);
+        var obj = Instantiate(ChatTextObject);
         var rect = obj.transform.GetComponent<RectTransform>();
         rect.SetParent(Content, false);
         rect.SetSiblingIndex(0);

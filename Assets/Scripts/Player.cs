@@ -1,6 +1,8 @@
 using System;
 using DG.Tweening;
+using FishNet;
 using FishNet.Component.Animating;
+using FishNet.Managing.Scened;
 using FishNet.Object;
 using UnityEngine;
 using Sirenix.OdinInspector;
@@ -34,31 +36,50 @@ public class Player : NetworkBehaviour {
     private int Locks;
     
     [SerializeField] [FoldoutGroup("Status")] [ReadOnly]
+    private Chatbox PlayerChatbox;
+    
+    [SerializeField] [FoldoutGroup("Status")] [ReadOnly]
     private InputSystem_Actions Input;
 
     public override void OnStartClient() {
         base.OnStartClient();
+        if (!IsOwner) return;
         if (Input == null) {
             Input = new InputSystem_Actions();
             Input.Enable();
         }
-        // Chatbox.Singleton.OnSendMessage.Invoke($"{LocalConnection.ClientId} Has Entered the City!");
         PlayerAnimations = GetComponent<PlayerAnimations>();
-        // Input.UI.Submit.performed += delegate { Chatbox.Singleton.TryFocusInputField(); };
+        PlayerChatbox = FindAnyObjectByType<Chatbox>();
+        Input.UI.Submit.performed += delegate { PlayerChatbox.TryFocusInputField(); };
+
+        PlayerChatbox.SendMessage(new Message() {
+            username = LocalConnection.ClientId.ToString(),
+            message = "Has Entered the City!"
+        });
     }
 
     public override void OnStopClient() {
         base.OnStopClient();
-        if (Input != null)
+        if (!IsOwner) return;
+        PlayerChatbox.Disable();
+        if (Input != null) {
             Input.Disable();
-        // Input.UI.Submit.performed -= delegate { Chatbox.Singleton.TryFocusInputField(); };
+            Input.UI.Submit.performed -= delegate { PlayerChatbox.TryFocusInputField(); };
+        }
+    }
+    
+    private void OnEnable() {
+        if (!IsOwner) return;
     }
 
-    
-    
+    private void OnDisable() {
+        if (!IsOwner) return;
+    }
+
+
     private void Update() {
         if (!IsOwner) return;
-        // if (Chatbox.Singleton.IsFocussedOnText()) return;
+        if (PlayerChatbox.IsFocussedOnText()) return;
         CurrentMovementInput = Input.Player.Move.ReadValue<Vector2>();
         PlayerAnimations.SetMovementState(CharacterSkin,CurrentMovementInput);
         MovementLean();
