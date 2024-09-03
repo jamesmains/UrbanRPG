@@ -10,6 +10,23 @@ using UnityEngine.UI;
 
 public class JuicyButton : SerializedMonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IPointerUpHandler,
     IPointerExitHandler {
+    
+    #if UNITY_EDITOR
+    
+    [SerializeField] [FoldoutGroup("Settings")]
+    private bool UseLabelToRenameObject;
+    
+    [SerializeField] [FoldoutGroup("Settings")] [ShowIf("UseLabelToRenameObject")]
+    private string Label;
+
+    private void OnValidate() {
+        if (UseLabelToRenameObject && gameObject.name != $"Btn_{Label}") {
+            gameObject.name = $"Btn_{Label}";
+        }
+    }
+
+#endif
+    
     [SerializeField] [FoldoutGroup("Settings")]
     private bool AllowReleaseEventsOnClick;
 
@@ -19,35 +36,35 @@ public class JuicyButton : SerializedMonoBehaviour, IPointerEnterHandler, IPoint
     [SerializeField] [FoldoutGroup("Settings")]
     private bool RequireHoldTime;
 
-    [SerializeField] [FoldoutGroup("Settings")]
+    [SerializeField] [FoldoutGroup("Settings")] [ShowIf("RequireHoldTime")]
     private float HoldTime;
 
     [SerializeField] [FoldoutGroup("Settings")]
     private bool ForceReleaseWhenHeldTimeIsMet;
 
     [SerializeField] [FoldoutGroup("Settings")]
-    private List<JuicyButtonEffect> PointerUpEffects;
+    private List<JuicyButtonEffect> PointerUpEffects = new();
 
     [SerializeField] [FoldoutGroup("Settings")]
-    private List<JuicyButtonEffect> PointerDownEffects;
+    private List<JuicyButtonEffect> PointerDownEffects = new();
 
     [SerializeField] [FoldoutGroup("Settings")]
-    private List<JuicyButtonEffect> PointerClickEffects;
+    private List<JuicyButtonEffect> PointerClickEffects = new();
 
     [SerializeField] [FoldoutGroup("Settings")]
-    private List<JuicyButtonEffect> PointerExitEffects;
+    private List<JuicyButtonEffect> PointerExitEffects = new();
 
     [SerializeField] [FoldoutGroup("Events")]
-    private UnityEvent OnButtonUp;
+    public UnityEvent OnButtonUp;
 
     [SerializeField] [FoldoutGroup("Events")]
-    private UnityEvent OnButtonDown;
+    public UnityEvent OnButtonDown;
 
     [SerializeField] [FoldoutGroup("Events")]
-    private UnityEvent OnButtonClick;
+    public UnityEvent OnButtonClick;
 
     [SerializeField] [FoldoutGroup("Events")]
-    private UnityEvent OnButtonExit;
+    public UnityEvent OnButtonExit;
 
     [SerializeField] [FoldoutGroup("Status")] [ReadOnly]
     private bool IsMouseOver;

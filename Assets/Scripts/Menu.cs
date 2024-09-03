@@ -5,6 +5,11 @@ using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
+public enum MenuState {
+    Closed,
+    Open
+}
+
 [RequireComponent(typeof(CanvasGroup))]
 public class Menu : MonoBehaviour {
     [SerializeField] [FoldoutGroup("Settings")]
@@ -25,6 +30,9 @@ public class Menu : MonoBehaviour {
     [SerializeField] [FoldoutGroup("Dependencies")] [ReadOnly]
     private RectTransform Rect;
 
+    [SerializeField] [FoldoutGroup("Status")] [ReadOnly]
+    public MenuState State;
+    
     [SerializeField] [FoldoutGroup("Status")] [ReadOnly]
     private Vector2 TargetPosition;
 
@@ -51,10 +59,12 @@ public class Menu : MonoBehaviour {
 
     private void Activate() {
         CanvasGroup.blocksRaycasts = true;
+        State = MenuState.Open;
     }
 
     private void Deactivate() {
         CanvasGroup.blocksRaycasts = false;
+        State = MenuState.Closed;
         StartCoroutine(DoClose());
         IEnumerator DoClose() {
             Tween menuTween = Rect.DOAnchorPos(TargetPosition, Speed)
