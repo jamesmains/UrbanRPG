@@ -1,8 +1,10 @@
-﻿using FishNet.Managing;
+﻿using System.Collections;
+using FishNet.Managing;
 using FishNet.Object;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace FishNet.Component.Observing
 {
@@ -111,6 +113,8 @@ namespace FishNet.Component.Observing
         /// </summary>
         private NetworkManager _networkManager;
 
+        public UnityEvent DebugStartServer;
+        
         private void Awake()
         {
             _networkManager = GetComponentInParent<NetworkManager>();
@@ -130,6 +134,12 @@ namespace FishNet.Component.Observing
             else
             {
                 Destroy(this);
+            }
+
+            StartCoroutine(DelayStartServer());
+            IEnumerator DelayStartServer() {
+                yield return new WaitForSeconds(10);
+                DebugStartServer.Invoke();
             }
         }
 

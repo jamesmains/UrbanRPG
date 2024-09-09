@@ -13,6 +13,9 @@ public enum MenuState {
 [RequireComponent(typeof(CanvasGroup))]
 public class Menu : MonoBehaviour {
     [SerializeField] [FoldoutGroup("Settings")]
+    private MenuState InitialState = MenuState.Open;
+    
+    [SerializeField] [FoldoutGroup("Settings")]
     private Vector2 OpenPosition;
 
     [SerializeField] [FoldoutGroup("Settings")]
@@ -39,6 +42,9 @@ public class Menu : MonoBehaviour {
     private void Awake() {
         CanvasGroup = GetComponent<CanvasGroup>();
         Rect = GetComponent<RectTransform>();
+        if(InitialState == MenuState.Closed)
+            Close();
+        else Open();
     }
 
     public void Open() {

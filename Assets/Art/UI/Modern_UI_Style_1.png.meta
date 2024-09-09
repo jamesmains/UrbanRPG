@@ -2561,7 +2561,7 @@ TextureImporter:
         width: 16
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2583,7 +2583,7 @@ TextureImporter:
         width: 15
         height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2605,7 +2605,7 @@ TextureImporter:
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2614,6 +2614,50 @@ TextureImporter:
       bones: []
       spriteID: 940d032605562b54ab6908fde63563b4
       internalID: -151698255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_27
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 677
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78185e9a71e15534e9e2006a16903bc4
+      internalID: -1747235781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modern_UI_Style_1_28
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 676
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8958988b5ac6ddc44930da057d7a56e0
+      internalID: -2079822882
       vertices: []
       indices: 
       edges: []
@@ -2652,6 +2696,8 @@ TextureImporter:
       Modern_UI_Style_1_24: 226243479
       Modern_UI_Style_1_25: 643411278
       Modern_UI_Style_1_26: -151698255
+      Modern_UI_Style_1_27: -1747235781
+      Modern_UI_Style_1_28: -2079822882
       Modern_UI_Style_1_3: -1109536272
       Modern_UI_Style_1_4: 205883927
       Modern_UI_Style_1_5: 1794541489

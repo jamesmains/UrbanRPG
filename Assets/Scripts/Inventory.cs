@@ -8,6 +8,7 @@ using I302.Manu;
 using Sirenix.OdinInspector;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Inventory : MonoBehaviour {
     public ItemLookupTable lookupTable;
@@ -15,8 +16,9 @@ public class Inventory : MonoBehaviour {
 
     public static Inventory Singleton;
 
+    public static UnityEvent OnInventoryChange = new();
+
     private void OnEnable() {
-        // InstanceFinder.ClientManager.On += LoadInventory;
         if (Singleton == null) {
             Singleton = this;
             DontDestroyOnLoad(this.gameObject);
@@ -28,7 +30,6 @@ public class Inventory : MonoBehaviour {
     }
 
     private void OnDestroy() {
-        // InstanceFinder.ClientManager.OnAuthenticated -= LoadInventory;
     }
 
     public void SetInventory(InventoryMessage incomingData, string playerId) {
@@ -39,6 +40,7 @@ public class Inventory : MonoBehaviour {
             var item = lookupTable.GetItem(incomingData.itemNameData[i]);
             InventoryItems.Add(new InventoryItemData(item, incomingData.itemQuantityData[i]));
         }
+        OnInventoryChange.Invoke();
     }
 
     public void LoadInventory() {
@@ -52,11 +54,15 @@ public class Inventory : MonoBehaviour {
         var playerId = CurrentPlayerInfo.Data.UniqueId;
         var saveData = new InventorySaveData(InventoryItems);
         ServerDataManager.Singleton.TrySavePlayerInventory(saveData.InventorySaveDataItems,saveData.InventorySaveDataQuantities,playerId);
+        OnInventoryChange.Invoke();
     }
 
     public static void AddItem(Item item, int amount = 1) {
-        var existingStack = Singleton.InventoryItems.FirstOrDefault(o => o.Item = item);
+        print(Singleton== null);
+        var existingStack = Singleton.InventoryItems.FirstOrDefault(o => o.Item.Name == item.Name);
         if (existingStack != null) {
+
+            print($"Incoming Item: {item}, Existing Stack Item: {existingStack.Item.Name}");
             existingStack.Quantity += amount;
         }
         else Singleton.InventoryItems.Add(new InventoryItemData(item, amount));
@@ -90,15 +96,6 @@ public class
 public class InventorySaveData : SaveData {
     public string[] InventorySaveDataItems;
     public int[] InventorySaveDataQuantities;
-
-    // public InventorySaveData(string[] inventorySaveDataItems, int[] inventorySaveDataQuantities) {
-    //     InventorySaveDataItems = new string[inventorySaveDataItems.Length];
-    //     InventorySaveDataQuantities = new int[inventorySaveDataQuantities.Length];
-    //     for (var i = 0; i < inventoryItems.Count; i++) {
-    //         InventorySaveDataItems[i] = inventoryItems[i].Item.Name;
-    //         InventorySaveDataQuantities[i] = inventoryItems[i].Quantity;
-    //     }
-    // }
 
     public InventorySaveData() {
         

@@ -17,7 +17,8 @@ public static class CurrentPlayerInfo {
 [Serializable]
 public class PlayerData : SaveData {
     public int SlotId;
-    public int SkinId = 0;
+    public string Room = "Room 0";
+    public Vector2 Position;
     public string UniqueId;
     public string PlayerName;
 }

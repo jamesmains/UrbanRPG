@@ -26,13 +26,13 @@ public class CharacterSelect : MonoBehaviour {
     [SerializeField] [FoldoutGroup("Status")] [ReadOnly]
     private int CurrentTargetSlot;
 
-    private void Awake() {
+    private void Start() {
         LoadButtons();
     }
 
     private void LoadButtons() {
         foreach (Transform child in Content) {
-            Destroy(child.gameObject);
+            child.gameObject.SetActive(false);
         }
         for (int i = 0; i < CharacterSlots; i++) {
             var path = SaveLoad.PlayerSavePath(i);
@@ -46,16 +46,18 @@ public class CharacterSelect : MonoBehaviour {
     }
 
     private void AddSelectCharacterButton(PlayerData associatedData) {
-        var obj = Instantiate(SelectCharacterButtonObject, Content, false);
+        var obj = Pooler.Spawn(SelectCharacterButtonObject, Content, false);
         var btn = obj.GetComponent<JuicyButton>();
+        btn.OnButtonClick.RemoveAllListeners();
         btn.OnButtonClick.AddListener(delegate { CurrentPlayerInfo.LoadPlayer(associatedData.SlotId); });
         btn.OnButtonClick.AddListener(StartWithSelectedCharacter);
         obj.GetComponentInChildren<TextMeshProUGUI>().text = $"{associatedData.PlayerName}";
     }
 
     private void AddCreateCharacterButton(int index) {
-        var obj = Instantiate(NewCharacterButtonObject, Content, false);
+        var obj = Pooler.Spawn(NewCharacterButtonObject, Content, false);
         var btn = obj.GetComponent<JuicyButton>();
+        btn.OnButtonClick.RemoveAllListeners();
         btn.OnButtonClick.AddListener(CharacterCreateMenu.Open);
         btn.OnButtonClick.AddListener(delegate { CurrentTargetSlot = index; });
         btn.OnButtonClick.AddListener(ThisMenu.Close);
@@ -63,9 +65,7 @@ public class CharacterSelect : MonoBehaviour {
 
     // This should be moved outside of UI Control
     public void StartWithSelectedCharacter() {
-        if (CurrentPlayerInfo.Data != null) {
-            SceneManager.LoadScene(1);
-        }
+        FindAnyObjectByType<ClientLoginHandler>().EnterWorld();
     }
 
     public void CreateCharacter(TMP_InputField input) {

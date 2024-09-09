@@ -150,6 +150,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character Select Btn Lg Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 2547638652854953855, guid: 33b0ec42abae43f47b1333e8ee6f71c6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5884663237386646667, guid: 33b0ec42abae43f47b1333e8ee6f71c6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -236,7 +240,7 @@ PrefabInstance:
       objectReference: {fileID: 6024650122523207326, guid: 33b0ec42abae43f47b1333e8ee6f71c6, type: 3}
     - target: {fileID: 6024650122523207326, guid: 33b0ec42abae43f47b1333e8ee6f71c6, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6024650122523207326, guid: 33b0ec42abae43f47b1333e8ee6f71c6, type: 3}
       propertyPath: 'serializationData.PrefabModifications.Array.data[0]'
@@ -248,7 +252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6024650122523207326, guid: 33b0ec42abae43f47b1333e8ee6f71c6, type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6024650122523207326, guid: 33b0ec42abae43f47b1333e8ee6f71c6, type: 3}
       propertyPath: 'serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]'

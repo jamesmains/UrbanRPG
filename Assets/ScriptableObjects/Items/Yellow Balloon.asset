@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8099c4eed8764004697cd10c0be4e293, type: 3}
+  m_Name: Yellow Balloon
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 4401254998027870170, guid: 1440b173750a2e1428209ac78a503372, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Sprite
+      Entry: 10
+      Data: 0
+    - Name: Name
+      Entry: 1
+      Data: Yellow Balloon
+    - Name: Description
+      Entry: 6
+      Data: 
+    - Name: ItemType
+      Entry: 3
+      Data: 0
+    - Name: Value
+      Entry: 4
+      Data: 0
+    - Name: IsConsumable
+      Entry: 5
+      Data: false
+    - Name: Price
+      Entry: 4
+      Data: 0
+    - Name: ItemEffects
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[ItemEffect, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  OnAddItem:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRemoveItem:
+    m_PersistentCalls:
+      m_Calls: []

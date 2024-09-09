@@ -3,97 +3,155 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class Pooler : MonoBehaviour {
-    public static Pooler Instance;
-    
-    [ListDrawerSettings(ShowIndexLabels = true, ListElementLabelName = "pooledObject")] [SerializeField] [ReadOnly]
-    private List<PooledObject> pooledObjects;
+public struct PoolSpawnOptions
+{
+    public GameObject Obj;
+    public bool SetPosition;
+    public Vector3 Position;
+    public bool UseWorldSpace;
+    public Transform Parent;
+}
 
-    private void Awake() {
-        if (Instance == null) {
-            Instance = this;
+public class Pooler : MonoBehaviour
+{
+    public static Pooler Singleton;
+
+    [SerializeField]
+    [BoxGroup("Debug")]
+    private bool PrintDebugLogs;
+
+    [ListDrawerSettings(ShowIndexLabels = true, ListElementLabelName = "pooledObject")]
+    [SerializeField]
+    [ReadOnly]
+    private List<Pool> ActivePools;
+
+    private void Awake()
+    {
+        if (Singleton == null)
+        {
+            Singleton = this;
             DontDestroyOnLoad(this.gameObject);
         }
-        else {
-            Debug.LogError("Found duplicate Pooler");
+        else
+        {
+#if UNITY_EDITOR
+            if (PrintDebugLogs)
+                Debug.LogError("Pooler: Found duplicate pooler!");
+#endif
             Destroy(this.gameObject);
         }
-        
-        foreach (var pObj in pooledObjects)
-            StartCoroutine(SpawnObjects(pObj, true));
     }
 
-    public static GameObject SpawnObject(GameObject targetObject, Vector3 spawnLocation) {
-        return Instance.DoSpawnObject(targetObject, spawnLocation);
+    public static GameObject Spawn(GameObject prefab, Transform parent = null, bool useWorldSpace = false)
+    {
+        PoolSpawnOptions options = new()
+        {
+            Obj = prefab,
+            SetPosition = false,
+            UseWorldSpace = useWorldSpace,
+            Parent = parent
+        };
+        return Singleton.GetPooledObject(options);
     }
-    
-    private GameObject DoSpawnObject(GameObject targetObject, Vector3 spawnLocation) {
-        
-        if (targetObject == null) {
-            print($"NOTE: Tried to spawn a non-existent object! Oops!");
+    public static GameObject SpawnAt(GameObject prefab, Vector3 spawnLocation, Transform parent = null, bool useWorldSpace = false)
+    {
+        PoolSpawnOptions options = new()
+        {
+            Obj = prefab,
+            SetPosition = true,
+            Position = spawnLocation,
+            UseWorldSpace = useWorldSpace,
+            Parent = parent
+        };
+        return Singleton.GetPooledObject(options);
+    }
+
+    private GameObject GetPooledObject(PoolSpawnOptions options)
+    {
+        if (options.Obj == null)
+        {
+#if UNITY_EDITOR
+            if (PrintDebugLogs)
+                Debug.Log($"Pooler Log: Attempted to spawn with null targetObject.");
+#endif
             return null;
         }
         
-        var pool = pooledObjects.FirstOrDefault(o => o.pooledObject.name == targetObject.name);
+        var pool = ActivePools.FirstOrDefault(o => o.pooledObject.name == options.Obj.name);
+        pool ??= CreateNewPool(options);
+        if (options.Parent == null)
+            options.Parent = pool.poolContent;
+
         var obj = pool?.spawnedObjects.FirstOrDefault(o => o.activeSelf == false);
-        
-        if (pool == null) {
-            
-            var newPool = new PooledObject {
-                poolContent = Instantiate(new GameObject(), this.transform).transform,
-                pooledObject = targetObject,
-                initialAmount = 3,
-                increaseBoundsAmount = 3
-            };
-            newPool.poolContent.name = targetObject.name;
-            print($"NOTE: Had to create a new pool for {targetObject.name}");
-            pooledObjects.Add(newPool);
-            StartCoroutine(SpawnObjects(newPool));
-            return SpawnObject(targetObject, spawnLocation);
+
+        if (obj == null)
+        {
+            StartCoroutine(IncreasePoolVolume());
+            IEnumerator IncreasePoolVolume()
+            {
+                var amountToSpawn = pool.increaseBoundsAmount;
+                while (amountToSpawn > 0)
+                {
+                    var obj = Instantiate(pool.GetPooledObject(), options.Parent, options.UseWorldSpace);
+                    obj.name = pool.GetPooledObject().name;
+                    pool.spawnedObjects.Add(obj);
+                    obj.SetActive(false);
+                    amountToSpawn--;
+                }
+                obj = pool.spawnedObjects.FirstOrDefault(o => o.activeSelf == false);
+                yield return new WaitForEndOfFrame();
+
+            }
+
         }
 
-        if (obj == null) {
-            if (pool.increaseBoundsAmount <= 0) return null;
-            StartCoroutine(SpawnObjects(pool));
-            return SpawnObject(targetObject, spawnLocation);
-        }
-        
-        obj.transform.position = spawnLocation;
+        if (options.SetPosition)
+            obj.transform.position = options.Position;
         obj.SetActive(true);
         return obj;
     }
 
-    private IEnumerator SpawnObjects(PooledObject poolObj, bool init = false) {
-        var amountToSpawn = init ? poolObj.initialAmount : poolObj.increaseBoundsAmount;
-        while (amountToSpawn > 0) {
-            var obj = Instantiate(poolObj.GetPooledObject(), poolObj.poolContent);
-            obj.name = poolObj.GetPooledObject().name;
-            poolObj.spawnedObjects.Add(obj);
-            obj.SetActive(false);
-            amountToSpawn--;
-        }
-
-        yield return new WaitForEndOfFrame();
+    private Pool CreateNewPool(PoolSpawnOptions Options)
+    {
+        var newPool = new Pool
+        {
+            poolContent = Instantiate(new GameObject(), this.transform).transform,
+            pooledObject = Options.Obj,
+            initialAmount = 3,
+            increaseBoundsAmount = 3
+        };
+        newPool.poolContent.name = Options.Obj.name;
+#if UNITY_EDITOR
+        if (PrintDebugLogs)
+            Debug.Log($"Pooler Log: Created new pool for {Options.Obj}.");
+#endif
+        ActivePools.Add(newPool);
+        return newPool;
     }
+
 #if UNITY_EDITOR
     [Button]
-    private void SortPooledObjects() {
-        pooledObjects = pooledObjects.OrderBy(o => o.pooledObject.name).ToList();
+    private void SortPooledObjects()
+    {
+        ActivePools = ActivePools.OrderBy(o => o.pooledObject.name).ToList();
     }
 #endif
 }
 
 [Serializable]
-public class PooledObject {
+public class Pool
+{
     public Transform poolContent;
     public GameObject pooledObject;
     public int initialAmount;
     public int increaseBoundsAmount;
     public List<GameObject> spawnedObjects = new();
 
-    public GameObject GetPooledObject() {
+    public GameObject GetPooledObject()
+    {
         pooledObject.SetActive(false);
         return pooledObject;
     }

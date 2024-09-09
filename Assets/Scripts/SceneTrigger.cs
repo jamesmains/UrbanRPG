@@ -6,6 +6,7 @@ using FishNet.Object;
 using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneTrigger : MonoBehaviour {
 #if UNITY_EDITOR
@@ -40,7 +41,7 @@ public class SceneTrigger : MonoBehaviour {
 
         SceneLoadData sld = new SceneLoadData(TargetSceneName);
         sld.MovedNetworkObjects = new NetworkObject[] {nob};
-        sld.ReplaceScenes = ReplaceOption.OnlineOnly;
+        sld.ReplaceScenes = ReplaceOption.All;
         InstanceFinder.SceneManager.LoadConnectionScenes(nob.Owner, sld);
     }
 

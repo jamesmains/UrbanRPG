@@ -16,7 +16,14 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
+    - {fileID: 11400000, guid: bc526893304e72343be2182a40f1176c, type: 2}
+    - {fileID: 11400000, guid: 1dcf63db701fdc24188b61c269b8a762, type: 2}
+    - {fileID: 11400000, guid: 65e6233a53b75b244985e6e3e5883276, type: 2}
+    - {fileID: 11400000, guid: b8a786f056a518648aba36824ba50305, type: 2}
+    - {fileID: 11400000, guid: 8dec43cea29da164eac0e7a67570c473, type: 2}
     - {fileID: 11400000, guid: c8e9a557213b6a84a95bf6c58f3d5167, type: 2}
+    - {fileID: 11400000, guid: 95fca1327ed1e2447b92b00f9231bfd0, type: 2}
+    - {fileID: 11400000, guid: a1bc95f6357ae274aa66b64e62f80d63, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -35,7 +42,67 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
+      Data: 8
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Barrel
+    - Name: $v
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Baseball
+    - Name: $v
+      Entry: 10
       Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Golden Ticket
+    - Name: $v
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Green Balloon
+    - Name: $v
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Red Balloon
+    - Name: $v
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 7
       Data: 
@@ -44,7 +111,31 @@ MonoBehaviour:
       Data: Shovel
     - Name: $v
       Entry: 10
-      Data: 0
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Ticket
+    - Name: $v
+      Entry: 10
+      Data: 6
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Yellow Balloon
+    - Name: $v
+      Entry: 10
+      Data: 7
     - Name: 
       Entry: 8
       Data: 

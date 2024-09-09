@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using NUnit.Framework;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
@@ -10,13 +11,12 @@ using UnityEngine.UI;
 
 public class JuicyButton : SerializedMonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IPointerUpHandler,
     IPointerExitHandler {
-    
-    #if UNITY_EDITOR
-    
+#if UNITY_EDITOR
+
     [SerializeField] [FoldoutGroup("Settings")]
     private bool UseLabelToRenameObject;
-    
-    [SerializeField] [FoldoutGroup("Settings")] [ShowIf("UseLabelToRenameObject")]
+
+    [SerializeField] [FoldoutGroup("Settings")]
     private string Label;
 
     private void OnValidate() {
@@ -26,7 +26,16 @@ public class JuicyButton : SerializedMonoBehaviour, IPointerEnterHandler, IPoint
     }
 
 #endif
-    
+
+    [SerializeField] [FoldoutGroup("Settings")]
+    private bool CanToggle;
+
+    [SerializeField] [FoldoutGroup("Settings")]
+    private bool StartOn;
+
+    [SerializeField] [FoldoutGroup("Settings")]
+    private bool LockIfOn;
+
     [SerializeField] [FoldoutGroup("Settings")]
     private bool AllowReleaseEventsOnClick;
 
@@ -36,7 +45,7 @@ public class JuicyButton : SerializedMonoBehaviour, IPointerEnterHandler, IPoint
     [SerializeField] [FoldoutGroup("Settings")]
     private bool RequireHoldTime;
 
-    [SerializeField] [FoldoutGroup("Settings")] [ShowIf("RequireHoldTime")]
+    [SerializeField] [FoldoutGroup("Settings")]
     private float HoldTime;
 
     [SerializeField] [FoldoutGroup("Settings")]
@@ -54,6 +63,12 @@ public class JuicyButton : SerializedMonoBehaviour, IPointerEnterHandler, IPoint
     [SerializeField] [FoldoutGroup("Settings")]
     private List<JuicyButtonEffect> PointerExitEffects = new();
 
+    [SerializeField] [FoldoutGroup("Settings")]
+    private List<JuicyButtonEffect> ToggleOnEffects = new();
+
+    [SerializeField] [FoldoutGroup("Settings")]
+    private List<JuicyButtonEffect> ToggleOffEffects = new();
+
     [SerializeField] [FoldoutGroup("Events")]
     public UnityEvent OnButtonUp;
 
@@ -66,18 +81,31 @@ public class JuicyButton : SerializedMonoBehaviour, IPointerEnterHandler, IPoint
     [SerializeField] [FoldoutGroup("Events")]
     public UnityEvent OnButtonExit;
 
+    [SerializeField] [FoldoutGroup("Events")]
+    private UnityEvent OnToggleOn = new();
+
+    [SerializeField] [FoldoutGroup("Events")]
+    private UnityEvent OnToggleOff = new();
+
+    [SerializeField] [FoldoutGroup("Status")] [ReadOnly]
+    private bool IsOn;
+
     [SerializeField] [FoldoutGroup("Status")] [ReadOnly]
     private bool IsMouseOver;
 
-    [SerializeField] [FoldoutGroup("Settings")] [ReadOnly]
+    [SerializeField] [FoldoutGroup("Status")] [ReadOnly]
     private float StartHoldTime;
 
-    [SerializeField] [FoldoutGroup("Settings")] [ReadOnly]
+    [SerializeField] [FoldoutGroup("Status")] [ReadOnly]
     private bool IsHolding;
 
     private void OnEnable() {
         if (!RequireHoldTime) {
             ForceReleaseWhenHeldTimeIsMet = false;
+        }
+
+        if (StartOn) {
+            ForceToggleState(true);
         }
     }
 
@@ -133,10 +161,34 @@ public class JuicyButton : SerializedMonoBehaviour, IPointerEnterHandler, IPoint
         if (!IsMouseOver) return;
         if (RequireHoldTime && Time.time < StartHoldTime + HoldTime) return;
 
-        print("Click!");
+        Click();
+    }
+
+    private void Click() {
+        if (LockIfOn && IsOn) return;
+        if (CanToggle) {
+            ForceToggleState(!IsOn);
+        }
+
         OnButtonClick.Invoke();
         foreach (var clickEffect in PointerClickEffects) {
             clickEffect.Play();
+        }
+    }
+
+    public void ForceToggleState(bool state) {
+        IsOn = state;
+        if (IsOn) {
+            OnToggleOn.Invoke();
+            foreach (var onEffect in ToggleOnEffects) {
+                onEffect.Play();
+            }
+        }
+        else {
+            OnToggleOff.Invoke();
+            foreach (var onEffect in ToggleOffEffects) {
+                onEffect.Play();
+            }
         }
     }
 
