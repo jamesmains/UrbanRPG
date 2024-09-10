@@ -10,19 +10,17 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 public class ClientLoginHandler : MonoBehaviour {
-    [SerializeField] [BoxGroup("Dependencies")]
-    private NetworkObject PlayerPrefab;
 
     private NetworkManager _networkManager;
 
 
     private void Start() {
         InitializeOnce();
-        // SpawnThis();
     }
 
     private void Update() {
-        print(InstanceFinder.NetworkManager.ClientManager.Connection);
+        print(_networkManager.ServerManager.Started);
+        print(_networkManager.ServerManager.Clients.Count);
     }
 
     private void InitializeOnce() {
@@ -35,33 +33,19 @@ public class ClientLoginHandler : MonoBehaviour {
         _networkManager.ClientManager.StartConnection();
     }
 
+    // [ServerRpc(RequireOwnership = false)]
     public void EnterWorld() {
-        SpawnPlayer(InstanceFinder.NetworkManager.ClientManager.Connection);
         print($"Try enter world. Server: {InstanceFinder.ServerManager.AnyServerStarted()}");
         if (CurrentPlayerInfo.Data == null) {
             Debug.LogError("Client Handler: Player Data is null");
             return;
         }
         
-        var targetScene = CurrentPlayerInfo.Data.Room;
-        SceneLoadData sld = new SceneLoadData(targetScene);
-        // sld.MovedNetworkObjects = new NetworkObject[] {nob};
-        sld.ReplaceScenes = ReplaceOption.All;
-        var conn = InstanceFinder.ClientManager.Connection;
-        InstanceFinder.SceneManager.LoadConnectionScenes(sld);
-    }
-    private void SpawnPlayer(NetworkConnection conn) {
-        if (PlayerPrefab == null)
-        {
-            NetworkManagerExtensions.LogWarning($"Player prefab is empty and cannot be spawned for connection {conn.ClientId}.");
-            return;
-        }
-
-        Vector3 position = CurrentPlayerInfo.Data.Position;
-
-        NetworkObject nob = _networkManager.GetPooledInstantiated(PlayerPrefab, position, Quaternion.identity, true);
-        _networkManager.ServerManager.Spawn(nob, conn);
-        _networkManager.SceneManager.AddOwnerToDefaultScene(nob);
-            
+        // var targetScene = CurrentPlayerInfo.Data.Room;
+        // SceneLoadData sld = new SceneLoadData("Room 0");
+        // sld.ReplaceScenes = ReplaceOption.All;
+        // var conn = InstanceFinder.ClientManager.Connection;
+        // InstanceFinder.SceneManager.LoadConnectionScenes(conn,sld);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using FishNet;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -28,6 +29,10 @@ public class CharacterSelect : MonoBehaviour {
 
     private void Start() {
         LoadButtons();
+    }
+    private void Update() {
+        print(InstanceFinder.NetworkManager.ServerManager.AnyServerStarted());
+        print(InstanceFinder.NetworkManager.ClientManager.Connection);
     }
 
     private void LoadButtons() {

@@ -888,7 +888,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53aaf3959756a954bbbc2a94cb3d2213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerPrefab: {fileID: 4602417735940074835, guid: 6156cc7b81025ea498686023b0e3e56d, type: 3}
 --- !u!4 &291433745
 Transform:
   m_ObjectHideFlags: 0
@@ -1095,6 +1094,10 @@ PrefabInstance:
       value: 7770
       objectReference: {fileID: 0}
     - target: {fileID: 3754236149606677747, guid: c88d744c7dd871d468332203ae1e9de6, type: 3}
+      propertyPath: _dontRoute
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3754236149606677747, guid: c88d744c7dd871d468332203ae1e9de6, type: 3}
       propertyPath: _clientAddress
       value: localhost
       objectReference: {fileID: 0}
@@ -1142,9 +1145,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5031809620918109584, guid: c88d744c7dd871d468332203ae1e9de6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7462234322588988880, guid: c88d744c7dd871d468332203ae1e9de6, type: 3}
       propertyPath: m_Name
       value: NetworkManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7462234322588988880, guid: c88d744c7dd871d468332203ae1e9de6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8260451305940433232, guid: c88d744c7dd871d468332203ae1e9de6, type: 3}
       propertyPath: m_IsActive
@@ -2898,10 +2909,10 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1153671762}
-  - {fileID: 1918289165}
   - {fileID: 757598653}
   - {fileID: 1106818311}
-  - {fileID: 711663295}
-  - {fileID: 291433745}
   - {fileID: 161610097}
   - {fileID: 1495820504}
+  - {fileID: 1918289165}
+  - {fileID: 711663295}
+  - {fileID: 291433745}

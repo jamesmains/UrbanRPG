@@ -1,4 +1,5 @@
 using System;
+using FishNet;
 using FishNet.Connection;
 using FishNet.Managing;
 using FishNet.Object;
@@ -10,10 +11,19 @@ public class ClientPlayerInitializer : MonoBehaviour {
     private NetworkObject PlayerPrefab;
     private NetworkManager _networkManager;
     public static bool PlayerExists;
-    private void Awake() {
-        if(PlayerExists) return;
-        _networkManager = FindAnyObjectByType<NetworkManager>();
-        if (_networkManager == null) return;
+    
+    private void Start() {
+        InitializeOnce();
+    }
+
+    private void InitializeOnce() {
+        _networkManager = InstanceFinder.NetworkManager;
+        if (_networkManager == null) {
+            NetworkManagerExtensions.LogWarning(
+                $"PlayerSpawner on {gameObject.name} cannot work as NetworkManager wasn't found on this object or within parent objects.");
+            return;
+        }
+        _networkManager.ClientManager.StartConnection();
         SpawnPlayer(_networkManager.ClientManager.Connection);
     }
 
