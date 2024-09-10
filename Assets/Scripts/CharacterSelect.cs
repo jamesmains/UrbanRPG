@@ -1,5 +1,8 @@
 using System;
+using System.Linq;
 using FishNet;
+using FishNet.Managing.Scened;
+using FishNet.Object;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -70,7 +73,7 @@ public class CharacterSelect : MonoBehaviour {
 
     // This should be moved outside of UI Control
     public void StartWithSelectedCharacter() {
-        FindAnyObjectByType<ClientLoginHandler>().EnterWorld();
+        DummyPlayer.Singleton.SendToScene();
     }
 
     public void CreateCharacter(TMP_InputField input) {

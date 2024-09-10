@@ -35,6 +35,7 @@ public class SceneTrigger : MonoBehaviour {
         }
     }
 
+    [Button]
     private void LoadScene(NetworkObject nob) {
         if (!nob.Owner.IsActive)
             return;

@@ -49,7 +49,6 @@ public class Player : NetworkBehaviour {
     public override void OnStartClient() {
         
         if (!IsOwner) return;
-        ClientPlayerInitializer.PlayerExists = true;
         base.OnStartClient();
         if (Input == null) {
             Input = new InputSystem_Actions();
@@ -84,7 +83,6 @@ public class Player : NetworkBehaviour {
     public override void OnStopClient() {
         base.OnStopClient();
         if (!IsOwner) return;
-        ClientPlayerInitializer.PlayerExists = false;
         PlayerChatbox.Disable();
         if (Input != null) {
             Input.Disable();
