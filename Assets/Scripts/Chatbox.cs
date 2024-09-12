@@ -54,6 +54,9 @@ public class Chatbox : MonoBehaviour {
 
     [SerializeField] [FoldoutGroup("Debug")]
     private TextMeshProUGUI DebugCurrentRoom;
+    
+    [SerializeField] [FoldoutGroup("Debug")]
+    private TextMeshProUGUI DebugChatQueueLength;
 
 
     [SerializeField] [FoldoutGroup("Status")] [ReadOnly]
@@ -77,14 +80,14 @@ public class Chatbox : MonoBehaviour {
 
     private void OnEnable() {
         InstanceFinder.ClientManager.RegisterBroadcast<Message>(OnMessageReceived);
-        InstanceFinder.ServerManager.RegisterBroadcast<Message>(OnClientMessageRecieved);
+        InstanceFinder.ServerManager.RegisterBroadcast<Message>(OnClientMessageReceived);
         InstanceFinder.SceneManager.OnLoadEnd += ChangeCurrentRoomNameCache;
     }
 
     public void Disable() {
         InstanceFinder.SceneManager.OnLoadEnd -= ChangeCurrentRoomNameCache;
         InstanceFinder.ClientManager.UnregisterBroadcast<Message>(OnMessageReceived);
-        InstanceFinder.ServerManager.UnregisterBroadcast<Message>(OnClientMessageRecieved);
+        InstanceFinder.ServerManager.UnregisterBroadcast<Message>(OnClientMessageReceived);
     }
 
     private void ChangeCurrentRoomNameCache(SceneLoadEndEventArgs sceneLoadEndEventArgs) {
@@ -134,6 +137,7 @@ public class Chatbox : MonoBehaviour {
 
     public void SetChatHistory(ChatHistory chatHistory, string playerId) {
         if (CurrentPlayerInfo.Data.UniqueId != playerId) return;
+        DebugChatQueueLength.text = chatHistory.messages.Count.ToString();
         foreach (var message in chatHistory.messages) {
             DisplayMessage(message);
         }
@@ -193,7 +197,7 @@ public class Chatbox : MonoBehaviour {
         DisplayMessage(message);
     }
 
-    private void OnClientMessageRecieved(NetworkConnection networkConnection, Message msg,
+    private void OnClientMessageReceived(NetworkConnection networkConnection, Message msg,
         Channel channel = Channel.Reliable) {
         InstanceFinder.ServerManager.Broadcast(msg);
     }

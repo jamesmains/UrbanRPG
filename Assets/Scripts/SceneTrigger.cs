@@ -35,7 +35,7 @@ public class SceneTrigger : MonoBehaviour {
         }
     }
 
-    [Button]
+    [Button] // Needs to be a ServerRpc
     private void LoadScene(NetworkObject nob) {
         if (!nob.Owner.IsActive)
             return;

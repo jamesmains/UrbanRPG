@@ -32,7 +32,7 @@ public class ServerDataManager : NetworkBehaviour {
     private const int MAX_CHAT_LOG = 5;
     public static ServerDataManager Singleton;
 
-    private void Awake() {
+    public void Start() {
         if (Singleton == null) {
             Singleton = this;
         }
@@ -61,7 +61,7 @@ public class ServerDataManager : NetworkBehaviour {
         InstanceFinder.ServerManager.UnregisterBroadcast<ChatHistory>(OnServerChatHistoryMessageReceived);
     }
 
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     public void TryLoadPlayerInventory(NetworkConnection connection, string playerId) {
         if (!SaveLoad.HasPath(SaveLoad.PlayerInventoryPath(playerId))) return;
         var itemData = (InventorySaveData)SaveLoad.Load(SaveLoad.PlayerInventoryPath(playerId));
@@ -73,7 +73,7 @@ public class ServerDataManager : NetworkBehaviour {
         InstanceFinder.ServerManager.Broadcast(connection, inventoryMessage, true);
     }
 
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     public void TrySavePlayerInventory(string[] InventorySaveDataItems,int[] InventorySaveDataQuantities, string playerId) {
         print("Trying to save player inventory");
         InventorySaveData data = new InventorySaveData();
@@ -91,15 +91,16 @@ public class ServerDataManager : NetworkBehaviour {
         InstanceFinder.ServerManager.Broadcast(msg);
     }
 
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     public void TryLogMessage(Message msg) {
+        print(msg.message);
         ServerLoggedMessages.Enqueue(msg);
         if (ServerLoggedMessages.Count > MAX_CHAT_LOG) {
             ServerLoggedMessages.Dequeue();
         }
     }
     
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     public void TryRequestChatHistory(NetworkConnection connection, string playerId, string roomChannel) {
         var chatHistory = new ChatHistory() {
             username = playerId,

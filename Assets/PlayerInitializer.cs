@@ -2,6 +2,7 @@ using System;
 using FishNet;
 using FishNet.Connection;
 using FishNet.Managing;
+using FishNet.Managing.Scened;
 using FishNet.Object;
 using UnityEngine;
 
@@ -16,8 +17,7 @@ public class PlayerInitializer : NetworkBehaviour {
     private void Start() {
         if(InstanceFinder.ClientManager.Connection.IsLocalClient) {
             var conn = InstanceFinder.ClientManager.Connection;
-            print(PlayerPrefab == null);
-            SpawnPlayer(conn);
+            // SpawnPlayer(conn);
             IsLocalPlayerSpawned = true;
         }
     }
@@ -32,8 +32,9 @@ public class PlayerInitializer : NetworkBehaviour {
         }
     }
 
-    [ServerRpc(RequireOwnership = false)]
-    private void SpawnPlayer(NetworkConnection conn) {
+    [ServerRpc]
+    public void SpawnPlayer(NetworkConnection conn) {
+        if (!IsOwner) return;
         NetworkObject nob = _networkManager.GetPooledInstantiated(PlayerPrefab, Vector3.zero, Quaternion.identity, true);
         InstanceFinder.NetworkManager.ServerManager.Spawn(nob, conn);
     }
