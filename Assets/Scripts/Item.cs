@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "Item", menuName = "Items/Item")]
-public class Item : SerializedScriptableObject {
+public class Item : ScriptableObject {
     [SerializeField, PreviewField]
     [FoldoutGroup("Settings")]
     public Sprite Sprite { get; private set; }
@@ -17,10 +17,6 @@ public class Item : SerializedScriptableObject {
     [SerializeField, TextArea]
     [FoldoutGroup("Settings")]
     public string Description { get; private set; }
-
-    [SerializeField]
-    [FoldoutGroup("Settings")]
-    public ItemType ItemType { get; protected set; }
 
     [SerializeField]
     [FoldoutGroup("Settings")]
@@ -69,7 +65,7 @@ public class AddItemEffect : ItemEffect {
     [SerializeField] private Item item;
 
     public override void OnConsume() {
-        Inventory.AddItem(item, amount);
+        //Inventory.AddItem(item, amount);
     }
 }
 
@@ -78,7 +74,7 @@ public class RemoveItemEffect : ItemEffect {
     [SerializeField] private Item item;
 
     public override void OnConsume() {
-        Inventory.RemoveItem(item, amount);
+        //Inventory.RemoveItem(item, amount);
     }
 }
 
