@@ -1,0 +1,125 @@
+using System.Collections.Generic;
+using Gnomes.Actor.Component;
+using Sirenix.OdinInspector;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+namespace Gnomes {
+    /// <summary>
+    /// Possible fix for Local Multiplayer device detection
+    /// Get device from InputSystem.onEvent -> Func(InputEventPtr, InputDevice) -> store inputDevice
+    /// Check device with SomeCompareFuncViaContext(InputAction.CallbackContext) -> callbackContext.control.device == storedDevice
+    ///
+    /// Todo: System scope issue:
+    /// * Input only considers the features currently implemented in a way that would requires changes
+    /// across multiple scripts
+    /// I.e. Aim Weapon only considers that the right input and mouse would be used for aiming, but what if it's based on movement?
+    ///
+    /// </summary>
+    public class Player : MonoBehaviour {
+        [SerializeField, FoldoutGroup("Debug")]
+        private float CameraMoveSpeed = 10f;
+    
+        [SerializeField, FoldoutGroup("Debug")]
+        private Actor.Actor DebugTargetActor;
+
+        [SerializeField, FoldoutGroup("Status"), ReadOnly]
+        private Actor.Actor CurrentActor;
+    
+        [SerializeField, FoldoutGroup("Status"), ReadOnly]
+        private Vector3 MoveInput;
+
+        [SerializeField, FoldoutGroup("Status"), ReadOnly]
+        private Vector3 LookInput;
+
+        private InputSystem_Actions Input;
+
+        private void OnEnable() {
+            if (Input == null) {
+                RegisterNewInputSystem();
+            }
+
+            Actor.Actor.OnPossessed += PossessActor;
+            Actor.Actor.OnReleasePossession += HandleReleasePossession;
+        }
+
+
+        private void OnDisable() {
+            if (Input != null) {
+                UnregisterInputSystem();
+            }
+
+            Actor.Actor.OnPossessed -= PossessActor;
+            Actor.Actor.OnReleasePossession -= HandleReleasePossession;
+        }
+
+        private void RegisterNewInputSystem() {
+            Input = new InputSystem_Actions();
+            Input.Enable();
+            Input.Player.Move.performed += Move;
+            Input.Player.Move.canceled += Move;
+            Input.Player.Look.performed += Aim;
+            Input.Player.Look.canceled += Aim;
+            Input.Player.Attack.performed += Attack;
+        }
+
+        private void UnregisterInputSystem() {
+            Input.Player.Move.performed -= Move;
+            Input.Player.Move.canceled -= Move;
+            Input.Player.Look.performed -= Aim;
+            Input.Player.Look.canceled -= Aim;
+            Input.Player.Attack.performed -= Attack;
+            Input.Disable();
+            Input = null;
+        }
+
+        private void Update() {
+            CurrentActor?.OnMoveActor?.Invoke(MoveInput,true);
+            CurrentActor?.OnAimWeapon?.Invoke(LookInput);
+            var targetPosition = CurrentActor ? CurrentActor.transform.position : transform.position;
+            transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * CameraMoveSpeed);
+        }
+
+        private void FixedUpdate() {
+            // Todo: replace with camera controller if needed
+        
+        }
+
+        [Button]
+        private void TryPossess() {
+            Actor.Actor.OnTryPossess.Invoke(DebugTargetActor);
+        }
+
+        [Button]
+        public void TryPossessTarget(Actor.Actor targetActor) {
+            DebugTargetActor = targetActor;
+            TryPossess();
+        }
+
+        private void PossessActor(Actor.Actor actor, List<ActorComponent> actorComponents) {
+            if (CurrentActor != null) Actor.Actor.OnReleasePossession.Invoke(CurrentActor);
+            CurrentActor = actor;
+        }
+
+        private void HandleReleasePossession(Actor.Actor releasedActor) {
+            if (CurrentActor == releasedActor) {
+                CurrentActor = null;
+            }
+        }
+
+        private void Move(InputAction.CallbackContext callbackContext) {
+            var moveDir = (Vector3)callbackContext.ReadValue<Vector2>();
+            moveDir.z = moveDir.y;
+            moveDir.y = 0;
+            MoveInput = moveDir;
+        }
+
+        private void Aim(InputAction.CallbackContext callbackContext) {
+            LookInput = callbackContext.ReadValue<Vector2>();
+        }
+
+        private void Attack(InputAction.CallbackContext callbackContext) {
+            CurrentActor?.OnUseWeapon?.Invoke();
+        }
+    }
+}

@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf95faaf3cdefe69cb2c3c5732feb380, type: 3}
+  m_Name: Rat King
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: BrainBehavior
+      Entry: 7
+      Data: 0|Gnomes.Actor.Behavior.MinionBrain, Assembly-CSharp
+    - Name: OwnerActor
+      Entry: 6
+      Data: 
+    - Name: LeashDistance
+      Entry: 4
+      Data: 5
+    - Name: StopDistance
+      Entry: 4
+      Data: 1.5
+    - Name: LeaderActor
+      Entry: 6
+      Data: 
+    - Name: LastTimeSignaled
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+  ActorName: 
+  DespawnEffect: {fileID: 0}
+  DespawnTimer: 0
