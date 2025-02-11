@@ -1,16 +1,10 @@
 using UnityEngine;
 
-public class AttributeStat : MonoBehaviour
+public class AttributeStat : Attribute
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
+    public AttributeStat(AttributeDetails details) : base(details) {
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
+    // Todo: rename this variable
+    public readonly ObservableValue<int> StatValue = new();
 }

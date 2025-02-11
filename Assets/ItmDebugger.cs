@@ -1,4 +1,3 @@
-using System;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -12,39 +11,41 @@ public class ItmDebugger : MonoBehaviour {
     private TextMeshProUGUI OutputText;
 
     [SerializeReference, BoxGroup("Status"), ReadOnly]
-    private AttributeNeed DebugAttribute;
+    private AttributeStat DebugAttribute;
 
 
     private void Awake() {
         OutputText = GetComponent<TextMeshProUGUI>();
         if (DebugAttributeDetails != null) {
-            DebugAttribute = new AttributeNeed(DebugAttributeDetails);
+            DebugAttribute = new AttributeStat(DebugAttributeDetails);
         }
     }
 
     private void OnEnable() {
-        DebugAttribute.NeedValue.OnValueChanged += SetText;
-        DebugAttribute.OnReachedFull += delegate{Debug.Log("FULL");};
-        DebugAttribute.OnReachedGood += delegate{Debug.Log("GOOD");};
-        DebugAttribute.OnReachedLow += delegate{Debug.Log("LOW");};
-        DebugAttribute.OnReachedCritical += delegate{Debug.Log("CRITICAL");};
+        DebugAttribute.StatValue.OnValueChanged += SetText;
     }
 
     private void OnDisable() {
-        DebugAttribute.NeedValue.OnValueChanged -= SetText;
-    }
-
-    private void Update() {
-        DebugAttribute.Decay();
+        DebugAttribute.StatValue.OnValueChanged -= SetText;
     }
 
     private void SetText<T>(T value) {
         OutputText.text =
-            $"Need Name: {DebugAttributeDetails.Name}, Value: {DebugAttribute.NeedValue.Value}, State: {DebugAttribute.CurrentState}";
+            $"Need Name: {DebugAttributeDetails.Name}, Value: {DebugAttribute.StatValue.Value}";
     }
 
     [Button]
-    private void SetNeedValueTo(float value) {
-        DebugAttribute.NeedValue.Value = value;
+    private void SetValueTo(int value) {
+        DebugAttribute.StatValue.Value = value;
+    }
+
+    [Button]
+    private void AddToValue() {
+        DebugAttribute.StatValue.Value++;
+    }
+
+    [Button]
+    private void RemoveFromValue() {
+        DebugAttribute.StatValue.Value--;
     }
 }

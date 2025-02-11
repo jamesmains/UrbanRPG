@@ -5,7 +5,6 @@ using UnityEngine;
 /// Ideally the value would be based on the game time so that the value
 /// isn't depleted while pause menus or cutscenes are playing
 /// </summary>
-
 public class AttributeNeed : Attribute {
     public AttributeNeed(AttributeDetails details) : base(details) {
         NeedValue.OnValueChanged += ChangeValue;
@@ -15,6 +14,7 @@ public class AttributeNeed : Attribute {
         NeedValue.OnValueChanged -= ChangeValue;
     }
 
+    // Todo: rename this variable
     public readonly ObservableValue<float> NeedValue = new();
 
     // To compare if value is going up or down
@@ -38,9 +38,9 @@ public class AttributeNeed : Attribute {
         Good,
         Full
     }
-    
+
     public NeedState CurrentState = NeedState.Good;
-    
+
     public void Reset() {
     }
 
@@ -67,10 +67,9 @@ public class AttributeNeed : Attribute {
             OnReachedCritical?.Invoke();
             CurrentState = NeedState.Critical;
         }
-        else if(CachedValue is >= 33 and < 100 && CurrentState != NeedState.Good) {
+        else if (CachedValue is >= 33 and < 100 && CurrentState != NeedState.Good) {
             OnReachedGood?.Invoke();
             CurrentState = NeedState.Good;
         }
-        
     }
 }

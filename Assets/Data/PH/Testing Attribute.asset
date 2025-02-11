@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb922660d84e698eaa224163b3e1870d, type: 3}
   m_Name: Testing Attribute
   m_EditorClassIdentifier: 
-  Name: Need to Debug
+  Name: Debug Stat
   Description: 
   Icon: {fileID: 0}
