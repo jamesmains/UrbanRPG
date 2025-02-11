@@ -1,3 +1,4 @@
+using System;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -11,39 +12,39 @@ public class ItmDebugger : MonoBehaviour {
     private TextMeshProUGUI OutputText;
 
     [SerializeReference, BoxGroup("Status"), ReadOnly]
-    private AttributeSkill DebugAttribute;
+    private AttributeNeed DebugAttribute;
 
 
     private void Awake() {
         OutputText = GetComponent<TextMeshProUGUI>();
         if (DebugAttributeDetails != null) {
-            DebugAttribute = new AttributeSkill(DebugAttributeDetails);
-            Debug.Log(DebugAttribute.Details == null);
+            DebugAttribute = new AttributeNeed(DebugAttributeDetails);
         }
     }
 
     private void OnEnable() {
-        DebugAttribute.Experience.OnValueChanged += SetText;
-        DebugAttribute.Level.OnValueChanged += SetText;
+        DebugAttribute.NeedValue.OnValueChanged += SetText;
+        DebugAttribute.OnReachedFull += delegate{Debug.Log("FULL");};
+        DebugAttribute.OnReachedGood += delegate{Debug.Log("GOOD");};
+        DebugAttribute.OnReachedLow += delegate{Debug.Log("LOW");};
+        DebugAttribute.OnReachedCritical += delegate{Debug.Log("CRITICAL");};
     }
 
     private void OnDisable() {
-        DebugAttribute.Experience.OnValueChanged -= SetText;
-        DebugAttribute.Level.OnValueChanged -= SetText;
+        DebugAttribute.NeedValue.OnValueChanged -= SetText;
     }
 
-    [Button]
-    public void AddExp(int amount) {
-        DebugAttribute.AddExperience(amount);
-    }
-
-    [Button]
-    public void AddLeve() {
-        DebugAttribute.AddLevel(1);
+    private void Update() {
+        DebugAttribute.Decay();
     }
 
     private void SetText<T>(T value) {
         OutputText.text =
-            $"Skill: {DebugAttribute.Details.Name}, Level: {DebugAttribute.Level.Value}, Experience: {DebugAttribute.Experience.Value}, Next Level: {DebugAttribute.ExperienceRequired}";
+            $"Need Name: {DebugAttributeDetails.Name}, Value: {DebugAttribute.NeedValue.Value}, State: {DebugAttribute.CurrentState}";
+    }
+
+    [Button]
+    private void SetNeedValueTo(float value) {
+        DebugAttribute.NeedValue.Value = value;
     }
 }

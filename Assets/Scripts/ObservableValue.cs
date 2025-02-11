@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 public class ObservableValue<T> {
     private T m_value;
@@ -6,6 +7,7 @@ public class ObservableValue<T> {
     public T Value {
         get => m_value;
         set {
+            if(m_value.Equals(value)) return;
             m_value = value;
             OnValueChanged?.Invoke(m_value);
         }
