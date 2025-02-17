@@ -34,6 +34,10 @@ public class ItmDebugger : MonoBehaviour {
             $"Need Name: {DebugAttributeDetails.Name}, Value: {DebugAttribute.StatValue.Value}";
     }
 
+    public void SetText(string newText) {
+        OutputText.text = newText;
+    }
+
     [Button]
     private void SetValueTo(int value) {
         DebugAttribute.StatValue.Value = value;

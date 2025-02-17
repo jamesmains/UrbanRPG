@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
 using Gnomes.Actor.Component;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 
 namespace Gnomes {
     /// <summary>
@@ -118,8 +120,11 @@ namespace Gnomes {
             LookInput = callbackContext.ReadValue<Vector2>();
         }
 
+        public static Action<InputAction> OnButtonPressed;
+
         private void Attack(InputAction.CallbackContext callbackContext) {
             CurrentActor?.OnUseWeapon?.Invoke();
+            OnButtonPressed?.Invoke(callbackContext.action);
         }
     }
 }

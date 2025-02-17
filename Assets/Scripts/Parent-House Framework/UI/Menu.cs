@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using ParentHouse.UI;
+using ParentHouse.Utils;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
@@ -11,6 +12,14 @@ namespace ParentHouse.UI {
         Open
     }
 
+    public class MenuStateCondition : Condition {
+        [SerializeField, BoxGroup("Dependencies")]
+        private Menu TargetMenu;
+        public override bool IsConditionMet() {
+            return TargetMenu.State == MenuState.Open;
+        }
+    }
+    
     [RequireComponent(typeof(CanvasGroup))]
     public class Menu : SerializedMonoBehaviour {
 

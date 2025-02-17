@@ -10,14 +10,9 @@ namespace ParentHouse.UI {
     /// Randomly a menu while set their initial state out of sync with the menu group.
     /// </summary>
     public class MenuGroup : MonoBehaviour {
-        [SerializeField] [BoxGroup("Settings")]
-        private string GroupName;
 
         [SerializeField] [BoxGroup("Settings")]
         private MenuState InitialState = MenuState.Closed;
-
-        [SerializeField] [BoxGroup("Settings")]
-        private bool AutoSetName = true;
 
         [SerializeField] [BoxGroup("Settings")]
         private float StateChangeDelay;
@@ -30,14 +25,6 @@ namespace ParentHouse.UI {
 
         [SerializeField] [FoldoutGroup("Status")] [ReadOnly]
         private List<Menu> CachedClosedMenus;
-
-        // Auto Set Hierarchy GameObject Name
-#if UNITY_EDITOR
-        private void OnValidate() {
-            if (!AutoSetName) return;
-            this.gameObject.name = $"{GroupName}_Menu Group";
-        }
-#endif
 
         private void Start() {
             if (InitialState == MenuState.Closed)
