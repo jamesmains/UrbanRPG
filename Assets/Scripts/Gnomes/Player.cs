@@ -16,6 +16,8 @@ namespace Gnomes {
     /// * Input only considers the features currently implemented in a way that would requires changes
     /// across multiple scripts
     /// I.e. Aim Weapon only considers that the right input and mouse would be used for aiming, but what if it's based on movement?
+    /// Updated note (02/23/25):
+    /// |-> Currently not finding much issue with this, just needs some minor tweaks in this class
     ///
     /// </summary>
     public class Player : MonoBehaviour {
@@ -63,6 +65,7 @@ namespace Gnomes {
             Input.Player.Look.performed += Aim;
             Input.Player.Look.canceled += Aim;
             Input.Player.Attack.performed += Attack;
+            Input.Player.Interact.performed += Interact;
         }
 
         private void UnregisterInputSystem() {
@@ -71,6 +74,7 @@ namespace Gnomes {
             Input.Player.Look.performed -= Aim;
             Input.Player.Look.canceled -= Aim;
             Input.Player.Attack.performed -= Attack;
+            Input.Player.Interact.performed -= Interact;
             Input.Disable();
             Input = null;
         }
@@ -98,7 +102,7 @@ namespace Gnomes {
             TryPossess();
         }
 
-        private void PossessActor(Actor.Actor actor, List<ActorComponent> actorComponents) {
+        private void PossessActor(Actor.Actor actor) {
             if (CurrentActor != null) Actor.Actor.OnReleasePossession.Invoke(CurrentActor);
             CurrentActor = actor;
         }
@@ -125,6 +129,10 @@ namespace Gnomes {
         private void Attack(InputAction.CallbackContext callbackContext) {
             CurrentActor?.OnUseWeapon?.Invoke();
             OnButtonPressed?.Invoke(callbackContext.action);
+        }
+
+        private void Interact(InputAction.CallbackContext callbackContext) {
+            CurrentActor?.OnInteract.Invoke();
         }
     }
 }

@@ -31,6 +31,9 @@ namespace Gnomes.Actor.Component {
         protected override void OnDisable() {
             base.OnDisable();
             Actor.OnMoveActor -= MoveAgent;
+            Actor.OnPossessed -= HandlePossession;
+            Actor.OnReleasePossession -= HandleReleasePossession;
+            Actor.OnActorSet -= HandleSwapActor;
         }
 
         private void MoveAgent(Vector3 moveTarget, bool asDirection) {
@@ -48,7 +51,7 @@ namespace Gnomes.Actor.Component {
             Agent.stopDistance = Actor.Possessed ? 0 : CachedStopDistance;
         }
 
-        private void HandlePossession(Actor actor, List<ActorComponent> actorComponents) {
+        private void HandlePossession(Actor actor) {
             if (actor != Actor) return;
             Agent.stopDistance = 0f;
         }

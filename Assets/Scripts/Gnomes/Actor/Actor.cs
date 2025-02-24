@@ -28,10 +28,6 @@ namespace Gnomes.Actor {
     
         [SerializeField, FoldoutGroup("Status"), ReadOnly]
         public bool Dead;
-    
-        // Todo: Try find use case for this, otherwise remove it
-        [SerializeField, FoldoutGroup("Status"), ReadOnly]
-        private List<ActorComponent> AttachedComponents;
 
         [SerializeField, FoldoutGroup("Status"), ReadOnly]
         private float TimeTillDespawn;
@@ -55,13 +51,15 @@ namespace Gnomes.Actor {
         public Action<ActorDetails> OnActorSet;
         // Possession
         public static Action<Actor> OnTryPossess;
-        public static Action<Actor, List<ActorComponent>> OnPossessed;
+        public static Action<Actor> OnPossessed;
         public static Action<Actor> OnReleasePossession;
         // Movement
         public Action<Vector3, bool> OnMoveActor;
         // Weapon
         public Action<Vector2> OnAimWeapon;
         public Action OnUseWeapon;
+        // Interactions
+        public Action OnInteract;
         // Vitals
         public Action OnRevive;
         public Action OnDeath;
@@ -70,7 +68,6 @@ namespace Gnomes.Actor {
         public Action<ISpawnable> OnDespawn { get; set; }
     
         private void Awake() {
-            AttachedComponents = GetComponents<ActorComponent>().ToList();
             BrainActive = true;
         }
 
@@ -126,7 +123,7 @@ namespace Gnomes.Actor {
             if (actor != this) return;
             BrainActive = false;
             Possessed = true;
-            OnPossessed.Invoke(this, AttachedComponents);
+            OnPossessed.Invoke(this);
         }
 
         [FoldoutGroup("Buttons"),Button]

@@ -65,7 +65,7 @@ public class TimeManager : MonoBehaviour {
         if (Time.time > TimeTillNextTick) {
             Minute.AddValue(1);
             TimeTillNextTick = Time.time + tickRate;
-            Debug.Log($"Minute: {Minute.Value}, Hour: {Hour.Value}, Day: {Day.Value}, Week: {Week.Value}, Month: {Month.Value}, Year: {Year.Value}");
+            // Debug.Log($"Minute: {Minute.Value}, Hour: {Hour.Value}, Day: {Day.Value}, Week: {Week.Value}, Month: {Month.Value}, Year: {Year.Value}");
         }
         // CurrentTime.Value.AddSeconds() += Time.deltaTime;
     }
