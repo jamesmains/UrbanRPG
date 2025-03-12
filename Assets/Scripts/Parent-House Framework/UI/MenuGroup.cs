@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace ParentHouse.UI {
+namespace Parent_House_Framework.UI {
     /// <summary>
     /// Bugs list:
     /// Randomly a menu while set their initial state out of sync with the menu group.

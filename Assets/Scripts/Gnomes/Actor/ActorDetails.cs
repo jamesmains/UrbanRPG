@@ -1,10 +1,9 @@
 using System;
-using System.Collections.Generic;
 using Gnomes.Actor.Behavior;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Gnomes {
+namespace Gnomes.Actor {
     [Flags]
     public enum ActorTeam {
         NoTeam = 0,

@@ -1,13 +1,9 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
-namespace ParentHouse.Utils {
+namespace Parent_House_Framework {
     public class ConditionalCheck : SerializedMonoBehaviour {
         [SerializeField] [BoxGroup("Settings")]
         private bool ContinuousCheck;

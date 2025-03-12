@@ -1,12 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
-using ParentHouse.UI;
-using ParentHouse.Utils;
+using Gnomes.Interactions;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace ParentHouse.UI {
+namespace Parent_House_Framework.UI {
     public enum MenuState {
         Closed,
         Open
@@ -101,7 +99,6 @@ namespace ParentHouse.UI {
             if (!Application.isPlaying)
                 return;
 #endif
-            Debug.Log("Opening menu:" + gameObject.name);
             MenuTrigger.SetState(true);
             Activate();
         }

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace ParentHouse.Utils {
+namespace Parent_House_Framework.UI {
     public class MouseOverUserInterfaceUtil : MonoBehaviour {
         public static bool IsMouseOverUI;
         [SerializeField] private LayerMask UILayer;

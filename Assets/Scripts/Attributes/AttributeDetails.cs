@@ -2,24 +2,26 @@ using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Attribute", menuName = "Attribute")]
-public class AttributeDetails : ScriptableObject {
-    [SerializeField,BoxGroup("Settings")]
-    public string Name;
-    [SerializeField,BoxGroup("Settings")]
-    public string Description;
-    [SerializeField,BoxGroup("Settings")]
-    public Sprite Icon;
+namespace Attributes {
+    [CreateAssetMenu(fileName = "New Attribute", menuName = "Attribute")]
+    public class AttributeDetails : ScriptableObject {
+        [SerializeField,BoxGroup("Settings")]
+        public string Name;
+        [SerializeField,BoxGroup("Settings")]
+        public string Description;
+        [SerializeField,BoxGroup("Settings")]
+        public Sprite Icon;
 
-    [SerializeField, BoxGroup("Status"), ReadOnly]
-    private Guid Id;
+        [SerializeField, BoxGroup("Status"), ReadOnly]
+        private Guid Id;
 
-    [Button]
-    private void CreateNewId() => Id = Guid.NewGuid();
+        [Button]
+        private void CreateNewId() => Id = Guid.NewGuid();
 
-    private void Awake() {
-        if(Id == Guid.Empty) {CreateNewId();}
+        private void Awake() {
+            if(Id == Guid.Empty) {CreateNewId();}
+        }
+
+        public bool HasSameId(Guid id) => Id == id;
     }
-
-    public bool HasSameId(Guid id) => Id == id;
 }

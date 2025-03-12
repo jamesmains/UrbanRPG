@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace ParentHouse.Audio {
+namespace Parent_House_Framework {
     /// <summary>
     /// Things to add:
     /// Track fading

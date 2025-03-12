@@ -1,11 +1,9 @@
-using UnityEngine.Events;
-
-public enum NotifyState {
-    Entry,
-    Exit
-}
-
 namespace Gnomes.Actor.Extension.Interactions {
+    public enum NotifyState {
+        Entry,
+        Exit
+    }
+
     public interface IInteractable {
         public void ChangeState();
         public void SetState(bool state);

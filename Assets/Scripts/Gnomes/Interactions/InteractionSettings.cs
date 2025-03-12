@@ -1,15 +1,15 @@
 using System;
-using UnityEngine;
 
+namespace Gnomes.Interactions {
+    [Serializable]
+    public class InteractionSettings
+    {
+        public InteractionSettings() {
+        }
 
-[Serializable]
-public class InteractionSettings
-{
-    public InteractionSettings() {
+        public bool RequireKeyToActivate;
+        public bool ShowInteractPrompt;
+        public bool ActiveOnEnable;
+        public bool Toggles;
     }
-
-    public bool RequireKeyToActivate;
-    public bool ShowInteractPrompt;
-    public bool ActiveOnEnable;
-    public bool Toggles;
 }

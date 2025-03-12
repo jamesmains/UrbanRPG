@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ParentHouse.Utils {
+namespace Parent_House_Framework {
     [Serializable]
 
     public abstract class Condition {

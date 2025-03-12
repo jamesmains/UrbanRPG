@@ -2,7 +2,7 @@ using System.Collections;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace ParentHouse.Utils {
+namespace Parent_House_Framework.Utils {
     public class SelfDestruct : MonoBehaviour {
         [SerializeField] [BoxGroup("Settings")]
         private float SelfDestructTime = 20f;

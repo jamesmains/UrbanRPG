@@ -7,58 +7,59 @@ using UnityEngine;
 // Todo: Need callback for when interaction is done to optionally reset Trigger
 // Todo: Need dynamic bools of some kind to serialize their state in between game sessions
 
-public class Trigger : MonoBehaviour, IInteractable {
-    [SerializeField, FoldoutGroup("Settings")]
-    private InteractionSettings Settings;
+namespace Gnomes.Interactions {
+    public class Trigger : MonoBehaviour, IInteractable {
+        [SerializeField, FoldoutGroup("Settings")]
+        private InteractionSettings Settings;
 
-    [SerializeField] [FoldoutGroup("Status"), ReadOnly]
-    private bool m_Activated;
+        [SerializeField] [FoldoutGroup("Status"), ReadOnly]
+        private bool m_Activated;
 
-    public bool Activated {
-        get => m_Activated;
-        private set {
-            m_Activated = value;
-            OnChangeState?.Invoke(m_Activated);
-            Debug.Log($"Activated: {m_Activated} on {gameObject.name}");
+        public bool Activated {
+            get => m_Activated;
+            private set {
+                m_Activated = value;
+                OnChangeState?.Invoke(m_Activated);
+            }
         }
-    }
 
-    [SerializeField] [FoldoutGroup("Events")]
-    public Action<bool> OnChangeState;
+        [SerializeField] [FoldoutGroup("Events")]
+        public Action<bool> OnChangeState;
 
-    private void OnEnable() {
-        StartCoroutine(Delay());
-        IEnumerator Delay() {
-            yield return new WaitForEndOfFrame();
-            Activated = Settings.ActiveOnEnable;
-        }
+        private void OnEnable() {
+            StartCoroutine(Delay());
+            IEnumerator Delay() {
+                yield return new WaitForEndOfFrame();
+                Activated = Settings.ActiveOnEnable;
+            }
         
-    }
+        }
 
     
 
-    public void Notify(NotifyState state) {
-        if (RequireButtonToChangeState()) return;
-        ChangeState();
-    }
-
-    public bool RequireButtonToChangeState() {
-        return Settings.RequireKeyToActivate;
-    }
-
-    public void ChangeState() {
-        if (Settings.Toggles) {
-            Activated = !Activated;
+        public void Notify(NotifyState state) {
+            if (RequireButtonToChangeState()) return;
+            ChangeState();
         }
-        else {
-            if (Activated)
-                return;
-            Activated = true;
+
+        public bool RequireButtonToChangeState() {
+            return Settings.RequireKeyToActivate;
         }
-    }
+
+        public void ChangeState() {
+            if (Settings.Toggles) {
+                Activated = !Activated;
+            }
+            else {
+                if (Activated)
+                    return;
+                Activated = true;
+            }
+        }
     
-    public void SetState(bool state) {
-        if(Activated != state)
-            Activated = state;
+        public void SetState(bool state) {
+            if(Activated != state)
+                Activated = state;
+        }
     }
 }

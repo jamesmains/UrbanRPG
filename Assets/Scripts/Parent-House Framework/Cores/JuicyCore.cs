@@ -6,7 +6,10 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace ParentHouse.UI {
+// Todo: Make more readable -- pretty hard to sort through
+// |-> Either individual files or group by category
+
+namespace Parent_House_Framework.Cores {
     public class JuicyCore : MonoBehaviour {
     }
 
