@@ -31,6 +31,8 @@ public class TimeManager : MonoBehaviour {
 
     private float TimeTillNextTick;
 
+    public static Action<bool> OnToggleTimeFlow; // true -> play, false -> freeze
+    public static bool TimeIsRunning;
     public static Action<int,int,int,int,int,int> OnTimeChanged;
 
     private void Awake() {
@@ -50,6 +52,8 @@ public class TimeManager : MonoBehaviour {
         Week.ObservedValue.OnValueChanged += delegate { HandleTimeChanged(); };
         Month.ObservedValue.OnValueChanged += delegate { HandleTimeChanged(); };
         Year.ObservedValue.OnValueChanged += delegate { HandleTimeChanged(); };
+        OnToggleTimeFlow += HandleTimeFlowChange;
+        OnToggleTimeFlow?.Invoke(true);
     }
 
     private void OnDisable() {
@@ -59,15 +63,15 @@ public class TimeManager : MonoBehaviour {
         Week.ObservedValue.OnValueChanged -= delegate { HandleTimeChanged(); };
         Month.ObservedValue.OnValueChanged -= delegate { HandleTimeChanged(); };
         Year.ObservedValue.OnValueChanged -= delegate { HandleTimeChanged(); };
+        OnToggleTimeFlow += HandleTimeFlowChange;
     }
 
     private void Update() {
+        if (!TimeIsRunning) return;
         if (Time.time > TimeTillNextTick) {
             Minute.AddValue(1);
             TimeTillNextTick = Time.time + tickRate;
-            // Debug.Log($"Minute: {Minute.Value}, Hour: {Hour.Value}, Day: {Day.Value}, Week: {Week.Value}, Month: {Month.Value}, Year: {Year.Value}");
         }
-        // CurrentTime.Value.AddSeconds() += Time.deltaTime;
     }
 
     [Button]
@@ -85,6 +89,11 @@ public class TimeManager : MonoBehaviour {
         Day.AddValue(value);
     }
 
+    private void HandleTimeFlowChange(bool state) {
+        // Debug.Log($"Changing time flow: {(state == true ? "TIME ACTIVE" : "TIME INACTIVE")}");
+        TimeManager.TimeIsRunning = state;
+    }
+    
     private void HandleTimeChanged() {
         OnTimeChanged?.Invoke(
             Minute.Value,

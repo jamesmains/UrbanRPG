@@ -90,6 +90,8 @@ namespace Gnomes.Actor {
         }
 
         private void Update() {
+            // Note: holds reference to TimeManager which is specific to URPG currently.
+            if (!TimeManager.TimeIsRunning) return;
             if (Dead) {
                 if (Time.time > TimeTillDespawn) {
                     if (Details?.DespawnEffect != null) {
@@ -106,7 +108,8 @@ namespace Gnomes.Actor {
         }
 
         private void FixedUpdate() {
-            if (Brain == null || !BrainActive) return; // Check if dead before updating brain?
+            // Note: holds reference to TimeManager which is specific to URPG currently.
+            if (Brain == null || !BrainActive || !TimeManager.TimeIsRunning) return; // Check if dead before updating brain?
             Brain.FixedUpdate();
         }
     

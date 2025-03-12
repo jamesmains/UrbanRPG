@@ -15,25 +15,19 @@ namespace ParentHouse.UI {
     public class MenuStateCondition : Condition {
         [SerializeField, BoxGroup("Dependencies")]
         private Menu TargetMenu;
+
         public override bool IsConditionMet() {
             return TargetMenu.State == MenuState.Open;
         }
     }
-    
+
     [RequireComponent(typeof(CanvasGroup))]
     public class Menu : SerializedMonoBehaviour {
-
         [SerializeField] [FoldoutGroup("Settings")]
         private MenuState InitialState = MenuState.Open;
 
         [SerializeField] [FoldoutGroup("Settings")]
         private bool InstantOnEnable = true;
-
-        [SerializeField] [FoldoutGroup("Settings")]
-        private List<Effect> OpenEffects = new();
-
-        [SerializeField] [FoldoutGroup("Settings")]
-        private List<Effect> CloseEffects = new();
 
         [SerializeField] [FoldoutGroup("Events")]
         private UnityEvent OnFinishOpen = new();
@@ -45,7 +39,7 @@ namespace ParentHouse.UI {
         private CanvasGroup CanvasGroup;
 
         [SerializeField] [FoldoutGroup("Dependencies")] [ReadOnly]
-        private RectTransform Rect;
+        private Trigger MenuTrigger;
 
         [SerializeField] [FoldoutGroup("Status")] [ReadOnly]
         public MenuState State;
@@ -65,17 +59,16 @@ namespace ParentHouse.UI {
                 CanvasGroup = cg;
             }
 
-            if (TryGetComponent(out RectTransform r)) {
-                Rect = r;
+            if (TryGetComponent(out Trigger trigger)) {
+                MenuTrigger = trigger;
             }
         }
 #endif
         private void OnEnable() {
             Initialized = false;
             if (CanvasGroup == null) CanvasGroup = GetComponent<CanvasGroup>();
-            if (Rect == null) Rect = GetComponent<RectTransform>();
+            if (MenuTrigger == null) MenuTrigger = GetComponent<Trigger>();
 
-            SetTimes();
             if (InitialState == MenuState.Closed) {
                 Open(true);
                 Initialized = true;
@@ -94,16 +87,6 @@ namespace ParentHouse.UI {
             }
         }
 
-        private void SetTimes() {
-            foreach (var e in OpenEffects) {
-                OpenTime = e.EffectTime > OpenTime ? e.EffectTime : OpenTime;
-            }
-
-            foreach (var e in CloseEffects) {
-                CloseTime = e.EffectTime > CloseTime ? e.EffectTime : CloseTime;
-            }
-        }
-
         [Button]
         public void Toggle() {
             if (State == MenuState.Open) {
@@ -115,39 +98,21 @@ namespace ParentHouse.UI {
         [Button]
         public void Open(bool instant = false) {
 #if UNITY_EDITOR
-            if (!Application.isPlaying) {
-                foreach (var e in OpenEffects) {
-                    e.PlayInstant();
-                }
+            if (!Application.isPlaying)
                 return;
-            }
 #endif
-            foreach (var e in OpenEffects) {
-                if (instant)
-                    e.PlayInstant();
-                else e.Play();
-            }
-
+            Debug.Log("Opening menu:" + gameObject.name);
+            MenuTrigger.SetState(true);
             Activate();
         }
 
         [Button]
         public void Close(bool instant = false) {
 #if UNITY_EDITOR
-            if (!Application.isPlaying) {
-                foreach (var e in CloseEffects) {
-                    e.PlayInstant();
-                }
-
+            if (!Application.isPlaying)
                 return;
-            }
 #endif
-            foreach (var e in CloseEffects) {
-                if (instant)
-                    e.PlayInstant();
-                else e.Play();
-            }
-
+            MenuTrigger.SetState(false);
             Deactivate();
         }
 

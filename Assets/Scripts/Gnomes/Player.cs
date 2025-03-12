@@ -37,6 +37,7 @@ namespace Gnomes {
         private Vector3 LookInput;
 
         private InputSystem_Actions Input;
+        private bool CanMove;
 
         private void OnEnable() {
             if (Input == null) {
@@ -46,8 +47,7 @@ namespace Gnomes {
             Actor.Actor.OnPossessed += PossessActor;
             Actor.Actor.OnReleasePossession += HandleReleasePossession;
         }
-
-
+        
         private void OnDisable() {
             if (Input != null) {
                 UnregisterInputSystem();
@@ -80,6 +80,7 @@ namespace Gnomes {
         }
 
         private void Update() {
+            if (!TimeManager.TimeIsRunning) return;
             CurrentActor?.OnMoveActor?.Invoke(MoveInput,true);
             CurrentActor?.OnAimWeapon?.Invoke(LookInput);
             var targetPosition = CurrentActor ? CurrentActor.transform.position : transform.position;
@@ -90,7 +91,7 @@ namespace Gnomes {
             // Todo: replace with camera controller if needed
         
         }
-
+        
         [Button]
         private void TryPossess() {
             Actor.Actor.OnTryPossess.Invoke(DebugTargetActor);
@@ -101,7 +102,7 @@ namespace Gnomes {
             DebugTargetActor = targetActor;
             TryPossess();
         }
-
+        
         private void PossessActor(Actor.Actor actor) {
             if (CurrentActor != null) Actor.Actor.OnReleasePossession.Invoke(CurrentActor);
             CurrentActor = actor;
