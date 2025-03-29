@@ -83,6 +83,8 @@ namespace Gnomes {
             if (!TimeManager.TimeIsRunning) return;
             CurrentActor?.OnMoveActor?.Invoke(MoveInput,true);
             CurrentActor?.OnAimWeapon?.Invoke(LookInput);
+            
+            // Todo -- Move this to camera
             var targetPosition = CurrentActor ? CurrentActor.transform.position : transform.position;
             transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * CameraMoveSpeed);
         }
