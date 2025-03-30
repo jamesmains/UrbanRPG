@@ -1,3 +1,6 @@
 [submodule "Assets/Scripts/Parent-House Framework"]
 	path = Assets/Scripts/Parent-House Framework
 	url = https://github.com/jamesmains/parent-house-framework
+[submodule "Assets/Scripts/Gnomes"]
+	path = Assets/Scripts/Gnomes
+	url = https://github.com/jamesmains/gnomes
