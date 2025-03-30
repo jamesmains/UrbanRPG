@@ -4,6 +4,13 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// Items Todo:
+/// 1.) Make more generic
+/// |-> a.) Move details about item to class designed to be customized based on project needs
+/// |-> b.) Move or remove Item Effects
+/// </summary>
+
 [CreateAssetMenu(fileName = "Item", menuName = "Items/Item")]
 public class Item : ScriptableObject {
     [SerializeField, PreviewField]

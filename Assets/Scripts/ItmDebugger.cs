@@ -1,7 +1,7 @@
-using Attributes;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using Urban.Attributes;
 
 // In the moment debugger
 public class ItmDebugger : MonoBehaviour {

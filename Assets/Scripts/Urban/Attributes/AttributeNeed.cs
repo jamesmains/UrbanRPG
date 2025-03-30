@@ -1,7 +1,8 @@
 using System;
+using Parent_House_Framework.Values;
 using UnityEngine;
 
-namespace Attributes {
+namespace Urban.Attributes {
     /// <summary>
     /// Ideally the value would be based on the game time so that the value
     /// isn't depleted while pause menus or cutscenes are playing

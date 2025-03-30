@@ -1,4 +1,4 @@
-namespace Attributes {
+namespace Urban.Attributes {
     public class Attribute
     {
         public AttributeDetails Details;

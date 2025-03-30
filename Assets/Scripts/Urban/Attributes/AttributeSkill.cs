@@ -1,4 +1,6 @@
-namespace Attributes {
+using Parent_House_Framework.Values;
+
+namespace Urban.Attributes {
     public class AttributeSkill : Attribute {
         public AttributeSkill(AttributeDetails details) : base(details) {
         }
