@@ -17430,17 +17430,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TestDialogues:
-  - OwnerActor: {fileID: 11400000, guid: 292731abccae9f174bf8c75c9f656c1e, type: 2}
-    SequenceContent: RAT KING SAYS THE FOLLOWING
-  - OwnerActor: {fileID: 11400000, guid: 292731abccae9f174bf8c75c9f656c1e, type: 2}
-    SequenceContent: Blarhbalahrbahrha
+  - {OwnerActor: {fileID: 11400000, guid: 292731abccae9f174bf8c75c9f656c1e, type: 2}, SequenceContent: RAT KING SAYS THE FOLLOWING}
+  - {OwnerActor: {fileID: 11400000, guid: 292731abccae9f174bf8c75c9f656c1e, type: 2}, SequenceContent: Blarhbalahrbahrha}
   DialogueMenu: {fileID: 1671232420}
   SequenceOwnerNameText: {fileID: 1733919172}
   SequenceContentText: {fileID: 1921839794}
   CurrentState: 0
-  CurrentSequence:
-    OwnerActor: {fileID: 0}
-    SequenceContent: 
+  CurrentSequence: {OwnerActor: {fileID: 0}, SequenceContent: }
 --- !u!1001 &1680689759
 PrefabInstance:
   m_ObjectHideFlags: 0
