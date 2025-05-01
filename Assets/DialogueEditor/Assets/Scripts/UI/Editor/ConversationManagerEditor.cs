@@ -3,7 +3,7 @@ using UnityEditor;
 
 namespace DialogueEditor
 {
-    [CustomEditor(typeof(ConversationManager))]
+    // [CustomEditor(typeof(ConversationManager))]
     public class ConversationManagerEditor : Editor
     {
         private const string PREVIEW_TEXT = "Placeholder text. This image acts as a preview of the in-game GUI.";

@@ -618,6 +618,11 @@ namespace DialogueEditor
                     string newname = GetValidParamName("New int");
                     CurrentAsset.ParameterList.Add(new EditableIntParameter(newname));
                 }
+                if (GUILayout.Button("Add chained int"))
+                {
+                    string newname = GetValidParamName("New chained int");
+                    CurrentAsset.ParameterList.Add(new EditableIntParameter(newname));
+                }
                 GUILayout.EndHorizontal();
 
                 for (int i = 0; i < CurrentAsset.ParameterList.Count; i++)

@@ -1,4 +1,6 @@
-﻿namespace DialogueEditor
+﻿using Parent_House_Framework.Values;
+
+namespace DialogueEditor
 {
     public abstract class Parameter
     {
@@ -22,11 +24,17 @@
 
     public class IntParameter : Parameter
     {
-        public IntParameter(string name, int defalutValue) : base(name)
+        public IntParameter(string name, int defaultValue) : base(name)
         {
-            IntValue = defalutValue;
+            IntValue = defaultValue;
         }
 
         public int IntValue;
+    }
+
+    public class ChainedIntParameter : Parameter {
+        public ChainedIntParameter(string name) : base(name) {
+        }
+        public ChainedInt ChainedIntValue;
     }
 }

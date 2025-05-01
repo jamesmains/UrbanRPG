@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -143,6 +144,7 @@ namespace DialogueEditor
         // Public functions
         //--------------------------------------
 
+        
         public void StartConversation(NPCConversation conversation)
         {
             m_conversation = conversation.Deserialize();

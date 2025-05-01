@@ -1,5 +1,6 @@
 ﻿using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
+using Parent_House_Framework.Values;
 
 namespace DialogueEditor
 {
@@ -11,7 +12,8 @@ namespace DialogueEditor
         public enum eParamType
         {
             Bool,
-            Int
+            Int,
+            ChainedInt
         }
 
         public EditableParameter(string name)
@@ -42,5 +44,12 @@ namespace DialogueEditor
         public override eParamType ParameterType { get { return eParamType.Int; } }
 
         [DataMember] public int IntValue;
+    }
+
+    [DataContract]
+    public class EditableChainedIntParameter : EditableParameter {
+        public EditableChainedIntParameter(string name) : base(name) { }
+        public override eParamType ParameterType { get { return eParamType.ChainedInt; } }
+        [DataMember] public ChainedInt ChainedIntValue;
     }
 }
