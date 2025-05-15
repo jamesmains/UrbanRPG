@@ -1,0 +1,134 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feb8a86eeaac4e548b67731f53962f75, type: 3}
+  m_Name: New Quest
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Id
+      Entry: 2
+      Data: 0967dc80c4b34b4bbd5aadb916258ac7
+    - Name: Stages
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[urban.Quest.QuestStage, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 1|urban.Quest.QuestStage, Assembly-CSharp
+    - Name: Name
+      Entry: 1
+      Data: Take Some Steps
+    - Name: ParentQuestId
+      Entry: 2
+      Data: 00000000000000000000000000000000
+    - Name: StageId
+      Entry: 2
+      Data: 252f337250f6402596f5badd6739ec9c
+    - Name: Steps
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[urban.Quest.QuestStep, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 3|urban.Quest.DebugQuestStep, Assembly-CSharp
+    - Name: Name
+      Entry: 6
+      Data: 
+    - Name: StepInstructions
+      Entry: 6
+      Data: 
+    - Name: StepId
+      Entry: 2
+      Data: f36a4191dc4743d7b10b4776db890b16
+    - Name: StepsRequired
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 4|urban.Quest.QuestStage, Assembly-CSharp
+    - Name: Name
+      Entry: 1
+      Data: Take MORE Steps
+    - Name: ParentQuestId
+      Entry: 2
+      Data: 00000000000000000000000000000000
+    - Name: StageId
+      Entry: 2
+      Data: 45cd2c31e7b1413c8fb102783d975cbb
+    - Name: Steps
+      Entry: 7
+      Data: 5|System.Collections.Generic.List`1[[urban.Quest.QuestStep, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 6|urban.Quest.DebugQuestStep, Assembly-CSharp
+    - Name: Name
+      Entry: 6
+      Data: 
+    - Name: StepInstructions
+      Entry: 6
+      Data: 
+    - Name: StepId
+      Entry: 2
+      Data: 403fc61cde964f7896a1b5488f1420d5
+    - Name: StepsRequired
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  Name: Learn to Walk
+  Description: 
+  QuestType: 0

@@ -10,6 +10,7 @@ using UnityEngine.InputSystem;
 public class ActionReferenceButton : SerializedMonoBehaviour {
     [SerializeField, FoldoutGroup("Settings")]
     private Condition ActionCondition;
+
     [SerializeField, FoldoutGroup("Settings")]
     public InputActionReference TargetActionReference;
 
@@ -24,12 +25,11 @@ public class ActionReferenceButton : SerializedMonoBehaviour {
         Player.OnButtonPressed -= TryInvokeButton;
     }
 
-    private void TryInvokeButton(InputAction inputAction) {
-        if (inputAction.name != TargetActionReference.action.name || (ActionCondition != null && !ActionCondition.IsConditionMet())) {
-            Debug.Log($"Action {inputAction.name} does not equal {TargetActionReference.action.name}");
+    private void TryInvokeButton(InputAction.CallbackContext callbackContext, InputAction inputAction) {
+        if (inputAction.name != TargetActionReference.action.name ||
+            (ActionCondition != null && !ActionCondition.IsConditionMet())) {
             return;
         }
-        Debug.Log($"DoThing for {TargetActionReference.name}");
         OnInvokeAction?.Invoke();
     }
 }

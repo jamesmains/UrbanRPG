@@ -1,3 +1,9 @@
 [submodule "Assets/Scripts/urban"]
 	path = Assets/Scripts/urban
 	url = https://github.com/jamesmains/urban.git
+[submodule "Assets/Scripts/gnomes"]
+	path = Assets/Scripts/gnomes
+	url = https://github.com/jamesmains/gnomes.git
+[submodule "Assets/Scripts/parent-house-framework"]
+	path = Assets/Scripts/parent-house-framework
+	url = https://github.com/jamesmains/parent-house-framework.git
