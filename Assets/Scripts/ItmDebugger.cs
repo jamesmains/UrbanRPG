@@ -1,56 +1,35 @@
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
-using Urban.Attributes;
+using urban.Job;
 
 // In the moment debugger
 public class ItmDebugger : MonoBehaviour {
-    [SerializeReference, BoxGroup("Settings")]
-    private AttributeDetails DebugAttributeDetails;
+    [SerializeField, BoxGroup("Settings")]
+    private JobDetails DebugJobOneDetails;
+    
+    [SerializeField, BoxGroup("Settings")]
+    private TextMeshProUGUI JobTitleOneText;
+    
+    [SerializeField, BoxGroup("Settings")]
+    private TextMeshProUGUI DaysWorkedOneText;
 
-    [SerializeReference, BoxGroup("Dependencies"), ReadOnly]
+    [SerializeField, BoxGroup("Dependencies"), ReadOnly]
     private TextMeshProUGUI OutputText;
-
-    [SerializeReference, BoxGroup("Status"), ReadOnly]
-    private AttributeStat DebugAttribute;
-
-
+    
     private void Awake() {
         OutputText = GetComponent<TextMeshProUGUI>();
-        if (DebugAttributeDetails != null) {
-            DebugAttribute = new AttributeStat(DebugAttributeDetails);
-        }
     }
 
     private void OnEnable() {
-        DebugAttribute.StatValue.OnValueChanged += SetText;
+        // TimeManager.OnHourChanged += SetText;
+        JobTitleOneText.text = DebugJobOneDetails.Title;
+        DaysWorkedOneText.text = $"{DebugJobOneDetails.GetDaysWorkedString()}\n{DebugJobOneDetails.GetHolidaysString()}";
     }
 
     private void OnDisable() {
-        DebugAttribute.StatValue.OnValueChanged -= SetText;
     }
 
-    private void SetText<T>(T value) {
-        OutputText.text =
-            $"Need Name: {DebugAttributeDetails.Name}, Value: {DebugAttribute.StatValue.Value}";
-    }
-
-    public void SetText(string newText) {
-        OutputText.text = newText;
-    }
-
-    [Button]
-    private void SetValueTo(int value) {
-        DebugAttribute.StatValue.Value = value;
-    }
-
-    [Button]
-    private void AddToValue() {
-        DebugAttribute.StatValue.Value++;
-    }
-
-    [Button]
-    private void RemoveFromValue() {
-        DebugAttribute.StatValue.Value--;
+    private void SetText() {
     }
 }

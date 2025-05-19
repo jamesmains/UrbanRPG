@@ -1,0 +1,755 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2cf9526a73a4526b2fb9a142f1bb720, type: 3}
+  m_Name: Debug_RatTalkAboutJob
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 292731abccae9f174bf8c75c9f656c1e, type: 2}
+    - {fileID: 11400000}
+    - {fileID: 11400000, guid: 045d056d1b57f384f90a620e5504f936, type: 2}
+    - {fileID: 0}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Id
+      Entry: 2
+      Data: 9417bb521195438885dbedae6feb4f35
+    - Name: Segments
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[urban.Dialogue.DialogueSegment,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 8
+    - Name: 
+      Entry: 7
+      Data: 1|urban.Dialogue.DialogueSegment, Assembly-CSharp
+    - Name: Name
+      Entry: 1
+      Data: Debug Intro
+    - Name: NextSegment
+      Entry: 2
+      Data: 00000000000000000000000000000000
+    - Name: FallbackSegment
+      Entry: 2
+      Data: 00000000000000000000000000000000
+    - Name: Content
+      Entry: 6
+      Data: 
+    - Name: Speaker
+      Entry: 10
+      Data: 0
+    - Name: Conditions
+      Entry: 6
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 0
+    - Name: DialogueBoxSettings
+      Entry: 6
+      Data: 
+    - Name: Options
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[urban.Dialogue.DialogueOption, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: OnSegmentStart
+      Entry: 6
+      Data: 
+    - Name: OnSegmentEnd
+      Entry: 6
+      Data: 
+    - Name: Id
+      Entry: 2
+      Data: 298fd53472454bbea40ecb399a932cca
+    - Name: Owner
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 3|urban.Dialogue.DialogueSegment, Assembly-CSharp
+    - Name: Name
+      Entry: 1
+      Data: Choice Selected
+    - Name: NextSegment
+      Entry: 2
+      Data: 31646ea0f79e4a6baa25ad085b42a8de
+    - Name: FallbackSegment
+      Entry: 2
+      Data: 3a6ac3d43caf445b8b716653d156c434
+    - Name: Content
+      Entry: 1
+      Data: 
+    - Name: Speaker
+      Entry: 10
+      Data: 0
+    - Name: Conditions
+      Entry: 6
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 1
+    - Name: DialogueBoxSettings
+      Entry: 6
+      Data: 
+    - Name: Options
+      Entry: 7
+      Data: 4|System.Collections.Generic.List`1[[urban.Dialogue.DialogueOption, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: OnSegmentStart
+      Entry: 6
+      Data: 
+    - Name: OnSegmentEnd
+      Entry: 6
+      Data: 
+    - Name: Id
+      Entry: 2
+      Data: 1d722518110b40ff8747779e04c581ab
+    - Name: Owner
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 5|urban.Dialogue.DialogueSegment, Assembly-CSharp
+    - Name: Name
+      Entry: 1
+      Data: Has Job Want to Start?
+    - Name: NextSegment
+      Entry: 2
+      Data: 31646ea0f79e4a6baa25ad085b42a8de
+    - Name: FallbackSegment
+      Entry: 2
+      Data: 3a6ac3d43caf445b8b716653d156c434
+    - Name: Content
+      Entry: 1
+      Data: Ready to work?
+    - Name: Speaker
+      Entry: 10
+      Data: 0
+    - Name: Conditions
+      Entry: 7
+      Data: 6|urban.Job.HasSpecificJobCondition, Assembly-CSharp
+    - Name: TargetJob
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 2
+    - Name: DialogueBoxSettings
+      Entry: 6
+      Data: 
+    - Name: Options
+      Entry: 7
+      Data: 7|System.Collections.Generic.List`1[[urban.Dialogue.DialogueOption, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 8|urban.Dialogue.DialogueOption, Assembly-CSharp
+    - Name: OptionName
+      Entry: 1
+      Data: Work!
+    - Name: TargetDialogue
+      Entry: 10
+      Data: 1
+    - Name: TargetSegmentGuid
+      Entry: 2
+      Data: 77462d76f9f04e76b18d10778556be2c
+    - Name: FallbackDialogue
+      Entry: 6
+      Data: 
+    - Name: FallbackSegmentGuid
+      Entry: 2
+      Data: 00000000000000000000000000000000
+    - Name: Conditions
+      Entry: 6
+      Data: 
+    - Name: OnOptionSelected
+      Entry: 7
+      Data: 9|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 10|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 11|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 12|urban.Dialogue.DialogueOption, Assembly-CSharp
+    - Name: OptionName
+      Entry: 1
+      Data: No thanks!
+    - Name: TargetDialogue
+      Entry: 10
+      Data: 1
+    - Name: TargetSegmentGuid
+      Entry: 2
+      Data: 76148b5830ff4d93ac3543e4e5b72de8
+    - Name: FallbackDialogue
+      Entry: 6
+      Data: 
+    - Name: FallbackSegmentGuid
+      Entry: 2
+      Data: 76148b5830ff4d93ac3543e4e5b72de8
+    - Name: Conditions
+      Entry: 6
+      Data: 
+    - Name: OnOptionSelected
+      Entry: 7
+      Data: 13|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 14|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 15|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: OnSegmentStart
+      Entry: 6
+      Data: 
+    - Name: OnSegmentEnd
+      Entry: 6
+      Data: 
+    - Name: Id
+      Entry: 2
+      Data: 31646ea0f79e4a6baa25ad085b42a8de
+    - Name: Owner
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 16|urban.Dialogue.DialogueSegment, Assembly-CSharp
+    - Name: Name
+      Entry: 1
+      Data: Don't Have Job
+    - Name: NextSegment
+      Entry: 2
+      Data: 00000000000000000000000000000000
+    - Name: FallbackSegment
+      Entry: 2
+      Data: 00000000000000000000000000000000
+    - Name: Content
+      Entry: 1
+      Data: You aren't employed. Would you like a job?
+    - Name: Speaker
+      Entry: 10
+      Data: 0
+    - Name: Conditions
+      Entry: 6
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 2
+    - Name: DialogueBoxSettings
+      Entry: 6
+      Data: 
+    - Name: Options
+      Entry: 7
+      Data: 17|System.Collections.Generic.List`1[[urban.Dialogue.DialogueOption,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 18|urban.Dialogue.DialogueOption, Assembly-CSharp
+    - Name: OptionName
+      Entry: 1
+      Data: Yes
+    - Name: TargetDialogue
+      Entry: 10
+      Data: 1
+    - Name: TargetSegmentGuid
+      Entry: 2
+      Data: 0a5c9ef9c64d4b52a7159394bcd90479
+    - Name: FallbackDialogue
+      Entry: 6
+      Data: 
+    - Name: FallbackSegmentGuid
+      Entry: 2
+      Data: 00000000000000000000000000000000
+    - Name: Conditions
+      Entry: 6
+      Data: 
+    - Name: OnOptionSelected
+      Entry: 7
+      Data: 19|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 20|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 21|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 22|urban.Dialogue.DialogueOption, Assembly-CSharp
+    - Name: OptionName
+      Entry: 1
+      Data: No
+    - Name: TargetDialogue
+      Entry: 10
+      Data: 1
+    - Name: TargetSegmentGuid
+      Entry: 2
+      Data: a1efbde0b6194764870c02857e56718a
+    - Name: FallbackDialogue
+      Entry: 6
+      Data: 
+    - Name: FallbackSegmentGuid
+      Entry: 2
+      Data: 00000000000000000000000000000000
+    - Name: Conditions
+      Entry: 6
+      Data: 
+    - Name: OnOptionSelected
+      Entry: 7
+      Data: 23|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 24|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 25|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: OnSegmentStart
+      Entry: 6
+      Data: 
+    - Name: OnSegmentEnd
+      Entry: 6
+      Data: 
+    - Name: Id
+      Entry: 2
+      Data: 3a6ac3d43caf445b8b716653d156c434
+    - Name: Owner
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 26|urban.Dialogue.DialogueSegment, Assembly-CSharp
+    - Name: Name
+      Entry: 1
+      Data: Has Job Get to Work!
+    - Name: NextSegment
+      Entry: 2
+      Data: 00000000000000000000000000000000
+    - Name: FallbackSegment
+      Entry: 2
+      Data: 00000000000000000000000000000000
+    - Name: Content
+      Entry: 1
+      Data: '''Aight, get to work!'
+    - Name: Speaker
+      Entry: 10
+      Data: 0
+    - Name: Conditions
+      Entry: 6
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 3
+    - Name: DialogueBoxSettings
+      Entry: 6
+      Data: 
+    - Name: Options
+      Entry: 7
+      Data: 27|System.Collections.Generic.List`1[[urban.Dialogue.DialogueOption,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: OnSegmentStart
+      Entry: 6
+      Data: 
+    - Name: OnSegmentEnd
+      Entry: 6
+      Data: 
+    - Name: Id
+      Entry: 2
+      Data: 77462d76f9f04e76b18d10778556be2c
+    - Name: Owner
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 28|urban.Dialogue.DialogueSegment, Assembly-CSharp
+    - Name: Name
+      Entry: 1
+      Data: Leave | Exit
+    - Name: NextSegment
+      Entry: 2
+      Data: 00000000000000000000000000000000
+    - Name: FallbackSegment
+      Entry: 2
+      Data: 00000000000000000000000000000000
+    - Name: Content
+      Entry: 1
+      Data: Get outta here!
+    - Name: Speaker
+      Entry: 10
+      Data: 0
+    - Name: Conditions
+      Entry: 6
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 3
+    - Name: DialogueBoxSettings
+      Entry: 6
+      Data: 
+    - Name: Options
+      Entry: 7
+      Data: 29|System.Collections.Generic.List`1[[urban.Dialogue.DialogueOption,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: OnSegmentStart
+      Entry: 6
+      Data: 
+    - Name: OnSegmentEnd
+      Entry: 6
+      Data: 
+    - Name: Id
+      Entry: 2
+      Data: 76148b5830ff4d93ac3543e4e5b72de8
+    - Name: Owner
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 30|urban.Dialogue.DialogueSegment, Assembly-CSharp
+    - Name: Name
+      Entry: 1
+      Data: Accept Job
+    - Name: NextSegment
+      Entry: 2
+      Data: 00000000000000000000000000000000
+    - Name: FallbackSegment
+      Entry: 2
+      Data: 00000000000000000000000000000000
+    - Name: Content
+      Entry: 1
+      Data: Good! Get to work!
+    - Name: Speaker
+      Entry: 10
+      Data: 0
+    - Name: Conditions
+      Entry: 6
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 3
+    - Name: DialogueBoxSettings
+      Entry: 6
+      Data: 
+    - Name: Options
+      Entry: 7
+      Data: 31|System.Collections.Generic.List`1[[urban.Dialogue.DialogueOption,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: OnSegmentStart
+      Entry: 7
+      Data: 32|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 33|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 34|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 35|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 2
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: urban.Job.JobDetails, Assembly-CSharp
+    - Name: m_MethodName
+      Entry: 1
+      Data: TryGetThisJob
+    - Name: m_Mode
+      Entry: 3
+      Data: 1
+    - Name: m_Arguments
+      Entry: 7
+      Data: 36|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 3
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: 
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: OnSegmentEnd
+      Entry: 6
+      Data: 
+    - Name: Id
+      Entry: 2
+      Data: 0a5c9ef9c64d4b52a7159394bcd90479
+    - Name: Owner
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 37|urban.Dialogue.DialogueSegment, Assembly-CSharp
+    - Name: Name
+      Entry: 1
+      Data: Decline Job
+    - Name: NextSegment
+      Entry: 2
+      Data: 00000000000000000000000000000000
+    - Name: FallbackSegment
+      Entry: 2
+      Data: 00000000000000000000000000000000
+    - Name: Content
+      Entry: 1
+      Data: No? Well then get outta here!
+    - Name: Speaker
+      Entry: 10
+      Data: 0
+    - Name: Conditions
+      Entry: 6
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 3
+    - Name: DialogueBoxSettings
+      Entry: 6
+      Data: 
+    - Name: Options
+      Entry: 7
+      Data: 38|System.Collections.Generic.List`1[[urban.Dialogue.DialogueOption,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: OnSegmentStart
+      Entry: 6
+      Data: 
+    - Name: OnSegmentEnd
+      Entry: 6
+      Data: 
+    - Name: Id
+      Entry: 2
+      Data: a1efbde0b6194764870c02857e56718a
+    - Name: Owner
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: CurrentSegment
+      Entry: 9
+      Data: 28

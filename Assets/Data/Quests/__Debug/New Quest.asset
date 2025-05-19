@@ -45,14 +45,14 @@ MonoBehaviour:
       Data: 252f337250f6402596f5badd6739ec9c
     - Name: Steps
       Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[urban.Quest.QuestStep, Assembly-CSharp]],
-        mscorlib
+      Data: 2|System.Collections.Generic.List`1[[urban.Quest.Quest_Steps.QuestStep,
+        Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 3|urban.Quest.DebugQuestStep, Assembly-CSharp
+      Data: 3|urban.Quest.Quest_Steps.DebugQuestStep, Assembly-CSharp
     - Name: Name
       Entry: 6
       Data: 
@@ -61,7 +61,7 @@ MonoBehaviour:
       Data: 
     - Name: StepId
       Entry: 2
-      Data: f36a4191dc4743d7b10b4776db890b16
+      Data: 3ecb84ffbd9346fcaf645c3f576f86c1
     - Name: StepsRequired
       Entry: 3
       Data: 5
@@ -91,23 +91,23 @@ MonoBehaviour:
       Data: 45cd2c31e7b1413c8fb102783d975cbb
     - Name: Steps
       Entry: 7
-      Data: 5|System.Collections.Generic.List`1[[urban.Quest.QuestStep, Assembly-CSharp]],
-        mscorlib
+      Data: 5|System.Collections.Generic.List`1[[urban.Quest.Quest_Steps.QuestStep,
+        Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 6|urban.Quest.DebugQuestStep, Assembly-CSharp
+      Data: 6|urban.Quest.Quest_Steps.DebugQuestStep, Assembly-CSharp
     - Name: Name
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: Take even MORE steps
     - Name: StepInstructions
       Entry: 6
       Data: 
     - Name: StepId
       Entry: 2
-      Data: 403fc61cde964f7896a1b5488f1420d5
+      Data: 4f064db24b5f4f068210567e20b27a69
     - Name: StepsRequired
       Entry: 3
       Data: 10

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using Gnomes;
-using Parent_House_Framework;
+using gnomes;
+using parent_house_framework.Conditions;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;

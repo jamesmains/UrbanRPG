@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2cf9526a73a4526b2fb9a142f1bb720, type: 3}
-  m_Name: New Dialogue
+  m_Name: Debug_TalkToRat
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -26,6 +26,9 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
+    - Name: Id
+      Entry: 2
+      Data: 7a3c536a12ef4460b8a18956ca7a83b9
     - Name: Segments
       Entry: 7
       Data: 0|System.Collections.Generic.List`1[[Urban.Dialogue.DialogueSegment,
@@ -96,7 +99,7 @@ MonoBehaviour:
       Data: 00000000000000000000000000000000
     - Name: Content
       Entry: 1
-      Data: Stay here or go to different dialogue?
+      Data: Want to talk about work?
     - Name: Speaker
       Entry: 10
       Data: 0
@@ -105,7 +108,7 @@ MonoBehaviour:
       Data: 
     - Name: Type
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: DialogueBoxSettings
       Entry: 6
       Data: 
@@ -121,7 +124,7 @@ MonoBehaviour:
       Data: 5|Urban.Dialogue.DialogueOption, Assembly-CSharp
     - Name: OptionName
       Entry: 1
-      Data: Go
+      Data: Talk about work
     - Name: TargetDialogue
       Entry: 10
       Data: 2
@@ -215,7 +218,7 @@ MonoBehaviour:
       Data: 11|Urban.Dialogue.DialogueOption, Assembly-CSharp
     - Name: OptionName
       Entry: 1
-      Data: Stay
+      Data: Talk about something else
     - Name: TargetDialogue
       Entry: 10
       Data: 1
@@ -266,7 +269,7 @@ MonoBehaviour:
       Data: 00000000000000000000000000000000
     - Name: Content
       Entry: 1
-      Data: You chose to stay!
+      Data: Well sorry, I don't have anything else to talk about...
     - Name: Speaker
       Entry: 10
       Data: 0
@@ -275,7 +278,7 @@ MonoBehaviour:
       Data: 
     - Name: Type
       Entry: 3
-      Data: 2
+      Data: 3
     - Name: DialogueBoxSettings
       Entry: 6
       Data: 
