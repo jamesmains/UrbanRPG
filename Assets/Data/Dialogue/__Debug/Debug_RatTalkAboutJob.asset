@@ -20,6 +20,8 @@ MonoBehaviour:
     - {fileID: 11400000}
     - {fileID: 11400000, guid: 045d056d1b57f384f90a620e5504f936, type: 2}
     - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -165,10 +167,29 @@ MonoBehaviour:
       Data: 0
     - Name: Conditions
       Entry: 7
-      Data: 6|urban.Job.HasSpecificJobCondition, Assembly-CSharp
+      Data: 6|parent_house_framework.Conditions.AndCondition, Assembly-CSharp
+    - Name: <Conditions>k__BackingField
+      Entry: 7
+      Data: 7|System.Collections.Generic.List`1[[parent_house_framework.Conditions.Condition,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 8|urban.Job.Conditions.HasSpecificJobCondition, Assembly-CSharp
     - Name: TargetJob
       Entry: 10
       Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -180,14 +201,14 @@ MonoBehaviour:
       Data: 
     - Name: Options
       Entry: 7
-      Data: 7|System.Collections.Generic.List`1[[urban.Dialogue.DialogueOption, Assembly-CSharp]],
+      Data: 9|System.Collections.Generic.List`1[[urban.Dialogue.DialogueOption, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
       Data: 2
     - Name: 
       Entry: 7
-      Data: 8|urban.Dialogue.DialogueOption, Assembly-CSharp
+      Data: 10|urban.Dialogue.DialogueOption, Assembly-CSharp
     - Name: OptionName
       Entry: 1
       Data: Work!
@@ -208,13 +229,13 @@ MonoBehaviour:
       Data: 
     - Name: OnOptionSelected
       Entry: 7
-      Data: 9|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 11|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 10|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 12|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 11|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 13|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
@@ -236,7 +257,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 12|urban.Dialogue.DialogueOption, Assembly-CSharp
+      Data: 14|urban.Dialogue.DialogueOption, Assembly-CSharp
     - Name: OptionName
       Entry: 1
       Data: No thanks!
@@ -257,13 +278,13 @@ MonoBehaviour:
       Data: 
     - Name: OnOptionSelected
       Entry: 7
-      Data: 13|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 15|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 14|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 16|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 15|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 17|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
@@ -306,7 +327,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 16|urban.Dialogue.DialogueSegment, Assembly-CSharp
+      Data: 18|urban.Dialogue.DialogueSegment, Assembly-CSharp
     - Name: Name
       Entry: 1
       Data: Don't Have Job
@@ -333,14 +354,14 @@ MonoBehaviour:
       Data: 
     - Name: Options
       Entry: 7
-      Data: 17|System.Collections.Generic.List`1[[urban.Dialogue.DialogueOption,
+      Data: 19|System.Collections.Generic.List`1[[urban.Dialogue.DialogueOption,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
     - Name: 
       Entry: 7
-      Data: 18|urban.Dialogue.DialogueOption, Assembly-CSharp
+      Data: 20|urban.Dialogue.DialogueOption, Assembly-CSharp
     - Name: OptionName
       Entry: 1
       Data: Yes
@@ -361,13 +382,13 @@ MonoBehaviour:
       Data: 
     - Name: OnOptionSelected
       Entry: 7
-      Data: 19|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 21|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 20|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 22|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 21|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 23|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
@@ -389,7 +410,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 22|urban.Dialogue.DialogueOption, Assembly-CSharp
+      Data: 24|urban.Dialogue.DialogueOption, Assembly-CSharp
     - Name: OptionName
       Entry: 1
       Data: No
@@ -410,13 +431,13 @@ MonoBehaviour:
       Data: 
     - Name: OnOptionSelected
       Entry: 7
-      Data: 23|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 25|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 24|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 26|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 25|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 27|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
@@ -459,7 +480,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 26|urban.Dialogue.DialogueSegment, Assembly-CSharp
+      Data: 28|urban.Dialogue.DialogueSegment, Assembly-CSharp
     - Name: Name
       Entry: 1
       Data: Has Job Get to Work!
@@ -486,7 +507,7 @@ MonoBehaviour:
       Data: 
     - Name: Options
       Entry: 7
-      Data: 27|System.Collections.Generic.List`1[[urban.Dialogue.DialogueOption,
+      Data: 29|System.Collections.Generic.List`1[[urban.Dialogue.DialogueOption,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -498,7 +519,74 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: OnSegmentStart
-      Entry: 6
+      Entry: 7
+      Data: 30|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 31|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 32|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 33|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 2
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: urban.Job.JobDetails, Assembly-CSharp
+    - Name: m_MethodName
+      Entry: 1
+      Data: StartJob
+    - Name: m_Mode
+      Entry: 3
+      Data: 1
+    - Name: m_Arguments
+      Entry: 7
+      Data: 34|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 3
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: 
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: OnSegmentEnd
       Entry: 6
@@ -514,7 +602,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 28|urban.Dialogue.DialogueSegment, Assembly-CSharp
+      Data: 35|urban.Dialogue.DialogueSegment, Assembly-CSharp
     - Name: Name
       Entry: 1
       Data: Leave | Exit
@@ -541,7 +629,7 @@ MonoBehaviour:
       Data: 
     - Name: Options
       Entry: 7
-      Data: 29|System.Collections.Generic.List`1[[urban.Dialogue.DialogueOption,
+      Data: 36|System.Collections.Generic.List`1[[urban.Dialogue.DialogueOption,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -569,7 +657,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 30|urban.Dialogue.DialogueSegment, Assembly-CSharp
+      Data: 37|urban.Dialogue.DialogueSegment, Assembly-CSharp
     - Name: Name
       Entry: 1
       Data: Accept Job
@@ -596,7 +684,7 @@ MonoBehaviour:
       Data: 
     - Name: Options
       Entry: 7
-      Data: 31|System.Collections.Generic.List`1[[urban.Dialogue.DialogueOption,
+      Data: 38|System.Collections.Generic.List`1[[urban.Dialogue.DialogueOption,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -609,20 +697,20 @@ MonoBehaviour:
       Data: 
     - Name: OnSegmentStart
       Entry: 7
-      Data: 32|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 39|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 33|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 40|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 34|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 41|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 7
-      Data: 35|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 42|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
       Data: 2
@@ -631,16 +719,61 @@ MonoBehaviour:
       Data: urban.Job.JobDetails, Assembly-CSharp
     - Name: m_MethodName
       Entry: 1
-      Data: TryGetThisJob
+      Data: GetJob
     - Name: m_Mode
       Entry: 3
       Data: 1
     - Name: m_Arguments
       Entry: 7
-      Data: 36|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 43|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 3
+      Data: 4
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: 
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 44|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 2
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: urban.Job.JobDetails, Assembly-CSharp
+    - Name: m_MethodName
+      Entry: 1
+      Data: StartJob
+    - Name: m_Mode
+      Entry: 3
+      Data: 1
+    - Name: m_Arguments
+      Entry: 7
+      Data: 45|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 5
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -691,7 +824,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 37|urban.Dialogue.DialogueSegment, Assembly-CSharp
+      Data: 46|urban.Dialogue.DialogueSegment, Assembly-CSharp
     - Name: Name
       Entry: 1
       Data: Decline Job
@@ -718,7 +851,7 @@ MonoBehaviour:
       Data: 
     - Name: Options
       Entry: 7
-      Data: 38|System.Collections.Generic.List`1[[urban.Dialogue.DialogueOption,
+      Data: 47|System.Collections.Generic.List`1[[urban.Dialogue.DialogueOption,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
