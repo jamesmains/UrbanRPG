@@ -46,7 +46,7 @@ public class ReputationTier {
 public class ReputationManager : SerializedMonoBehaviour {
     [SerializeField, FoldoutGroup("Dependencies")]
     private RectTransform ReputationDisplayContainer;
-    
+
     [SerializeField, FoldoutGroup("Dependencies")]
     private GameObject ReputationDisplayPrefab;
 
@@ -54,7 +54,7 @@ public class ReputationManager : SerializedMonoBehaviour {
     private List<Reputation> Reputations = new();
 
     public static Action<ActorDetails, int> OnModifyReputation;
-    
+
     // Currently this only is called when the tier is changed
     public static Action<ActorDetails, int> OnReputationChanged;
 
@@ -90,7 +90,7 @@ public class ReputationManager : SerializedMonoBehaviour {
 [Serializable]
 public class Reputation {
     public Reputation(ActorDetails details, int initialValue) {
-        m_currentReputation = new ChainedInt(100,0,false);
+        m_currentReputation = new ChainedInt(100, 0, false);
         m_currentReputation.ObservedValue.OnValueChanged += CheckReputationChange;
         m_actorDetails = details;
         Modify(initialValue);
@@ -120,22 +120,25 @@ public class Reputation {
         string sign = gainedReputation ? "+" : "-";
         string notificationString = $"{sign} {difference} cred with {m_actorDetails.ActorName}";
 
+        var reputationChangeNotification = new Notification(notificationString, NotificationTypes.Toaster);
+        reputationChangeNotification.Send();
+        
         string newTier = ReputationTiers.GetTierName(newValue);
 
         if (newTier != m_currentTier) {
+            string newTierString = "";
             m_currentTier = newTier;
-            notificationString += $", now {m_currentTier}";
+            newTierString += $"Now {m_currentTier} with {m_actorDetails.ActorName}";
+            newTierString += gainedReputation ? "!" : "...";
+            
+            var newTierNotification = new Notification(newTierString, NotificationTypes.Toaster);
+            newTierNotification.Send();
             
             // Currently this only pings when the tier is changed
             ReputationManager.OnReputationChanged?.Invoke(m_actorDetails, m_currentReputation.Value);
         }
-
-        notificationString += gainedReputation ? "!" : "...";
-
-        var reputationChangeNotification = new Notification(notificationString, NotificationTypes.Toaster);
-        reputationChangeNotification.Send();
     }
-    
+
     public Guid GetId() {
         return m_actorDetails.Id;
     }

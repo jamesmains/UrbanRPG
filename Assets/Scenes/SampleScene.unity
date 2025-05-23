@@ -1574,6 +1574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d92e9e6ce57253f24a193745ee68900d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Use24HourClock: 0
   tickRate: 0.1
 --- !u!4 &159377476
 Transform:
@@ -15284,7 +15285,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e9e544bbb96cf8843a5426d8cc6ab6fe, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: e9e544bbb96cf8843a5426d8cc6ab6fe, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -25903,7 +25904,7 @@ Transform:
   m_GameObject: {fileID: 1935195577}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.079748355, z: -0, w: 0.996815}
-  m_LocalPosition: {x: -8.15, y: 0.99, z: -0.76}
+  m_LocalPosition: {x: -2.52, y: 0.99, z: 1.8}
   m_LocalScale: {x: 0.4769896, y: 0.59920305, z: 0.59920305}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27394,7 +27395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
